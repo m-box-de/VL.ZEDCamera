@@ -1,0 +1,1077 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" LanguageVersion="2019.1.0-0344-gd5eabf23a7" Version="0.128">
+  <NugetDependency Id="RKFCmk1Lg5EP3I4IQegLTw" Location="VL.CoreLib" Version="0.35.21" />
+  <NugetDependency Id="U2JwHqMJLyGLDs97lM6eZ6" Location="VL.CoreLib.VVVV" Version="0.35.21" />
+  <Patch Id="Th8hpfHvBF4Lk6VOwDCc9D">
+    <Canvas Id="NtZT52Xp5qNOXK0fF2H7kv" DefaultCategory="VVVV.openCV" CanvasType="FullCategory">
+      <Canvas Id="Fq4CHsFT2WfPXpAZ4kiD2T" Name="Category" Position="319,296" DefaultCategory="OpenCV.ZED" CanvasType="FullCategory">
+        <!--
+
+    ************************ ZEDCam ************************
+
+-->
+        <Node Name="ZEDCam" Bounds="277,243" Id="HAyv3D9oa3YPcPsMkTCAK1">
+          <p:NodeReference>
+            <Choice Kind="ClassDefinition" Name="Class" />
+            <FullNameCategoryReference ID="Primitive" />
+          </p:NodeReference>
+          <p:Interfaces>
+            <TypeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+              <Choice Kind="MutableInterfaceType" Name="IDisposable" />
+            </TypeReference>
+          </p:Interfaces>
+          <Patch Id="VQ0n1v1cNXwP5Qt8DugZ94">
+            <Canvas Id="UbZIsarRmPpLb6f7wkV73N" CanvasType="Group">
+              <Pad Id="E8UGD2g6C1zLWUvDv02Gmu" SlotId="RoUQXBk7a1FQSoUNqqhwNm" Bounds="354,519">
+                <p:ValueBoxSettings />
+              </Pad>
+              <Node Bounds="351,444,64,26" Id="UUlsETioTznNlQAaRR4yzj">
+                <p:NodeReference LastCategoryFullName="sl.ZEDCam" LastSymbolSource="VL.ZEDCam.dll">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <CategoryReference Kind="AssemblyCategory" Name="sl" />
+                  <CategoryReference Kind="AssemblyCategory" Name="ZEDCam" />
+                  <Choice Kind="OperationCallFlag" Name="Create" />
+                  <PinReference Kind="InputPin" Name="Resolution" />
+                </p:NodeReference>
+                <Pin Id="CRmPzaUSNirMlobhb23PGa" Name="Resolution" Kind="InputPin" />
+                <Pin Id="HlTb61SBJ8cOSrHVxsSmOA" Name="Depth Mode" Kind="InputPin" />
+                <Pin Id="Q9EHJZ57LkENF9rmQB8rkL" Name="Stabilisation" Kind="InputPin" />
+                <Pin Id="GUW09OrDySFPCddrMSenlt" Name="Output" Kind="StateOutputPin" />
+              </Node>
+              <Overlay Id="KnhShIUCwAXPfJJi9qi99E" Name="Create" Bounds="286,296,282,250">
+                <p:ColorIndex p:Type="Int32">0</p:ColorIndex>
+              </Overlay>
+              <Pad Id="LfFjWV8Oi2BN8yQyt7QwVo" SlotId="RoUQXBk7a1FQSoUNqqhwNm" Bounds="379,846">
+                <p:ValueBoxSettings />
+              </Pad>
+              <Node Bounds="365,682,134,116" Id="TGg4tWZ7bbhMg4RrFPWIZV">
+                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                  <Choice Kind="ApplicationStatefulRegion" Name="If" />
+                  <FullNameCategoryReference ID="Primitive" />
+                </p:NodeReference>
+                <Pin Id="E72LDjtAet8Mjdnafu5rLI" Name="Condition" Kind="InputPin" />
+                <Patch Id="C6ruNLqQs4BOKKZrpnVWXs" ManuallySortedPins="true">
+                  <Node Bounds="441,746,46,26" Id="FIUTcnbK1rLQaOXCzez3sB">
+                    <p:NodeReference LastCategoryFullName="sl.ZEDCam" LastSymbolSource="VL.ZEDCam.dll">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <CategoryReference Kind="AssemblyCategory" Name="ZEDCam" />
+                      <Choice Kind="OperationCallFlag" Name="Close" />
+                    </p:NodeReference>
+                    <Pin Id="Tmapm5GFJATOAQ0SeO298g" Name="Input" Kind="StateInputPin" />
+                    <Pin Id="GQ5Vb5qac1WOzmm58I6Rmj" Name="Output" Kind="StateOutputPin" />
+                  </Node>
+                  <Patch Id="NyjWivlkyfpNocbw7dF7SB" Name="Create" ManuallySortedPins="true" />
+                  <Patch Id="OAq4rdlrte3O5KSGi6ocuC" Name="Then" ManuallySortedPins="true" />
+                  <Node Bounds="441,706,46,26" Id="RXJdIhMW0xoOMqcOCgpDrZ">
+                    <p:NodeReference LastCategoryFullName="sl.ZEDCam" LastSymbolSource="VL.ZEDCam.dll">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationCallFlag" Name="Stop" />
+                    </p:NodeReference>
+                    <Pin Id="BwlRA087xCaNmA9z0u0y5r" Name="Input" Kind="StateInputPin" />
+                    <Pin Id="UwTa3LAwVx5QRS0kDNgxDo" Name="Output" Kind="StateOutputPin" />
+                  </Node>
+                </Patch>
+                <ControlPoint Id="O1rWwDx90PRPdOlZgvacfN" Bounds="443,688" Alignment="Top" />
+                <ControlPoint Id="S5hjixZoyaIORWPRokufjD" Bounds="379,792" Alignment="Bottom" />
+              </Node>
+              <Overlay Id="EJRY0brfG5EMLOkFzr1uO0" Name="Dispose" Bounds="297,569,282,250">
+                <p:ColorIndex p:Type="Int32">0</p:ColorIndex>
+              </Overlay>
+              <Node Bounds="633,385,161,222" Id="TQdIgjLMEeDMpCz8BUyMFB">
+                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                  <Choice Kind="ApplicationStatefulRegion" Name="If" />
+                  <CategoryReference Kind="Category" Name="Primitive" />
+                </p:NodeReference>
+                <Pin Id="EVBxnEqGA6PQECwft6quKM" Name="Condition" Kind="InputPin" />
+                <Patch Id="VpKeqqhYVvJLHTGcyx2h9R" ManuallySortedPins="true">
+                  <Patch Id="FU5RjnFamLjMljjD2XnxCn" Name="Create" ManuallySortedPins="true" />
+                  <Patch Id="Hd45xoVG63zPN4IS0uhWk2" Name="Then" ManuallySortedPins="true" />
+                  <Node Bounds="663,424,65,19" Id="SNskow6teCWPFqauzBHYa1">
+                    <p:NodeReference LastCategoryFullName="Primitive.Object" LastSymbolSource="CoreLibBasics.vl">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationCallFlag" Name="IsAssigned" />
+                    </p:NodeReference>
+                    <Pin Id="NAgp9ao64qFMT3BynAc3NU" Name="X" Kind="InputPin" />
+                    <Pin Id="RNfjZt49zHSPiNoBMvwwun" Name="Result" Kind="OutputPin" />
+                    <Pin Id="Vwsrh6iKTn7Ml7N0w52TcS" Name="Not Assigned" Kind="OutputPin" />
+                  </Node>
+                  <Node Bounds="663,490,113,96" Id="Ts9aPXT21x2QPFSKpVsC7N">
+                    <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                      <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                      <Choice Kind="ApplicationStatefulRegion" Name="If" />
+                      <CategoryReference Kind="Category" Name="Primitive" />
+                    </p:NodeReference>
+                    <Pin Id="D5vbwSLsJ4LPVmuvCtvK4K" Name="Condition" Kind="InputPin" />
+                    <Patch Id="S6R0TSU4qjfOmSPVlg38M9" ManuallySortedPins="true">
+                      <Patch Id="UVC7xZEnACdQEPUGz2EeXB" Name="Create" ManuallySortedPins="true" />
+                      <Patch Id="GzJjp91KMQTOsy3m7mHdOT" Name="Then" ManuallySortedPins="true" />
+                      <Node Bounds="675,536,89,26" Id="HAjE3Nme9XsPkgSvT3Bkxu">
+                        <p:NodeReference LastCategoryFullName="sl.ZEDCam" LastSymbolSource="VL.ZEDCam.dll">
+                          <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                          <CategoryReference Kind="AssemblyCategory" Name="ZEDCam" />
+                          <Choice Kind="OperationCallFlag" Name="Start_Sequential" />
+                        </p:NodeReference>
+                        <Pin Id="AGwMSAcQjlAPVPBgYv0J7I" Name="Input" Kind="StateInputPin" />
+                        <Pin Id="OAss7akj09HNf1iIl4HK79" Name="Output" Kind="StateOutputPin" />
+                      </Node>
+                    </Patch>
+                    <ControlPoint Id="FTn0ncbgSZGMh34tysLztt" Bounds="677,497" Alignment="Top" />
+                    <ControlPoint Id="NGL1HsTYB19QDEXQdAEYFU" Bounds="677,581" Alignment="Bottom" />
+                  </Node>
+                </Patch>
+                <ControlPoint Id="QjlahBaapLPMaWgXPtcuxr" Bounds="772,391" Alignment="Top" />
+                <ControlPoint Id="SXi3OmLHHrJLCE9DknJHw4" Bounds="647,601" Alignment="Bottom" />
+              </Node>
+              <Pad Id="NyByx9rQuoLLAnIe0slquW" Comment="Start" Bounds="633,170,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="TypeFlag" Name="Boolean" />
+                </p:TypeAnnotation>
+                <p:ValueBoxSettings>
+                  <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
+                  <p:showvalue p:Type="Boolean">false</p:showvalue>
+                </p:ValueBoxSettings>
+              </Pad>
+              <Node Bounds="633,350,56,19" Id="MtrCsfQ12EGO9q8ExBiamF">
+                <p:NodeReference LastCategoryFullName="Control" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="ProcessAppFlag" Name="TogEdge" />
+                </p:NodeReference>
+                <Pin Id="J3upqjK4uMuLPwqOQmxYcs" Name="Value" Kind="InputPin" />
+                <Pin Id="MTbsBE9T7zONaxhu314dqK" Name="Up Edge" Kind="OutputPin" />
+                <Pin Id="JhYbIAebBwVM40PZSYPGKN" Name="Down Edge" Kind="OutputPin" />
+              </Node>
+              <Node Bounds="1177,365,486,384" Id="Offe0bggMShPD0eAWOTudm">
+                <p:NodeReference LastCategoryFullName="Reactive" LastSymbolSource="VL.Reactive.vl">
+                  <Choice Kind="ProcessAppFlag" Name="AsyncLoop" />
+                  <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                </p:NodeReference>
+                <Pin Id="LplGJcFf4FSPbjJg8TOy8x" Name="Restart" Kind="InputPin" />
+                <Pin Id="JxxW9EZnQ1bLDM49sCd2dp" Name="Abort" Kind="InputPin" />
+                <Pin Id="Bl1mwmPxjZEMElH5hUJJpC" Name="Result" Kind="OutputPin" />
+                <Pin Id="O8i7PX5brjLLeRpDaMbbcA" Name="In Progress" Kind="OutputPin" />
+                <Patch Id="AjyMV62IhfoNsvHvZhdeeL" ManuallySortedPins="true">
+                  <Patch Id="ICLeOCbPTSkM8LY05vjroC" Name="Create" ManuallySortedPins="true" />
+                  <Patch Id="PfRHcVzE4OUP70vKsrCNeC" Name="Update" ManuallySortedPins="true">
+                    <Pin Id="HAE9dhpRgltOradrjBeVRc" Name="Input 1" Kind="InputPin" />
+                    <Pin Id="PfJ4Su7NWMFQDiYhCmzLka" Name="Output 1" Kind="OutputPin" />
+                    <Pin Id="NJdGFSEulkoMx2Fnp4CCpb" Name="Output 2" Kind="OutputPin" />
+                  </Patch>
+                  <ControlPoint Id="VMY4fsGmvt7NPtCAOkTbPp" Bounds="1181,375" />
+                  <ControlPoint Id="SCa1qD1p98rOehmEVwQ8ja" Bounds="1347,742" />
+                  <ControlPoint Id="Lwi5xMogpowOxYgnp7YoyB" Bounds="1599,738" />
+                  <Node Bounds="1235,388,65,19" Id="Ua7siPuZ7K5L9lO2FJgh2L">
+                    <p:NodeReference LastCategoryFullName="Primitive.Object" LastSymbolSource="CoreLibBasics.vl">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationCallFlag" Name="IsAssigned" />
+                    </p:NodeReference>
+                    <Pin Id="VngDL3M6ZbIP3ea61cjeBW" Name="X" Kind="InputPin" />
+                    <Pin Id="CUpVCCFJms8N3as4BtgkNn" Name="Result" Kind="OutputPin" />
+                    <Pin Id="GAVRXaIC29yL75ouAWvQW2" Name="Not Assigned" Kind="OutputPin" />
+                  </Node>
+                  <Node Bounds="1235,470,248,246" Id="VqZwbCgLb0VLJyfQI8uZLU">
+                    <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                      <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                      <Choice Kind="ApplicationStatefulRegion" Name="If" />
+                      <FullNameCategoryReference ID="Primitive" />
+                    </p:NodeReference>
+                    <Pin Id="MJJyNuAp6ZWPoUk8IRFsgw" Name="Condition" Kind="InputPin" />
+                    <Patch Id="ULysxmYkdtRQSWJDe3rgir" ManuallySortedPins="true">
+                      <Patch Id="TXc7aReokdvMdm5eC9r7IQ" Name="Create" ManuallySortedPins="true" />
+                      <Patch Id="RodgSOIvJiiQKOQsky2qHb" Name="Then" ManuallySortedPins="true" />
+                      <Node Bounds="1260,510,61,26" Id="DhZ9EPDmy9ULWeIMm1jjMW">
+                        <p:NodeReference LastCategoryFullName="sl.ZEDCam" LastSymbolSource="VL.ZEDCam.dll">
+                          <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                          <Choice Kind="OperationCallFlag" Name="GrabOnce" />
+                        </p:NodeReference>
+                        <Pin Id="QFwRTuegqVkNUXvnyhGlwo" Name="Input" Kind="StateInputPin" />
+                        <Pin Id="PHBvlG67zsOPczK2yTQ2rJ" Name="Output" Kind="StateOutputPin" />
+                      </Node>
+                      <Node Bounds="1261,561,90,26" Id="TXDYMkdaLXIMU9gcLSy6ov">
+                        <p:NodeReference LastCategoryFullName="sl.ZEDCam" LastSymbolSource="VL.ZEDCam.dll">
+                          <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                          <Choice Kind="OperationCallFlag" Name="FetchPointCloud" />
+                        </p:NodeReference>
+                        <Pin Id="TAEBewXEpaKLDIJuMoB5Oa" Name="Input" Kind="StateInputPin" />
+                        <Pin Id="NJ4Fwgloj6nPJbCuwGPpn3" Name="Measure" Kind="InputPin" />
+                        <Pin Id="OxPmCzuUhN6Oe7aIgJoakD" Name="Output" Kind="StateOutputPin" />
+                        <Pin Id="VmpDTWSP1eDLu8wCejrqpC" Name="Result" Kind="OutputPin" />
+                      </Node>
+                      <Node Bounds="1346,610,47,26" Id="FNMgEmkEX35NY3LrqHfpnm">
+                        <p:NodeReference LastCategoryFullName="VL.OpenCV.CvImage" LastSymbolSource="VL.OpenCV.dll">
+                          <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                          <CategoryReference Kind="AssemblyCategory" Name="CvImage" />
+                          <Choice Kind="OperationCallFlag" Name="Create" />
+                        </p:NodeReference>
+                        <Pin Id="BAs04RRykqtNGwdYUIgp1t" Name="Mat" Kind="InputPin" />
+                        <Pin Id="Abo40wJo8UwMVTobhh06gS" Name="Output" Kind="StateOutputPin" />
+                      </Node>
+                      <Node Bounds="1346,654,83,26" Id="FFASMLMShcnPkEEqboMTnn">
+                        <p:NodeReference LastCategoryFullName="Primitive.Tuple (2 Items)" LastSymbolSource="CoreLibBasics.vl">
+                          <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                          <CategoryReference Kind="RecordType" Name="Tuple (2 Items)" />
+                          <Choice Kind="OperationCallFlag" Name="Join" />
+                        </p:NodeReference>
+                        <Pin Id="J8AU3ukwEKQQOwDpBjwhQX" Name="Item 1" Kind="InputPin" />
+                        <Pin Id="FWQ57370JkAMUqRgvbPDAs" Name="Item 2" Kind="InputPin" />
+                        <Pin Id="FNqsH4Ec1usO1LLeG1Qy65" Name="Output" Kind="StateOutputPin" />
+                      </Node>
+                      <Node Bounds="1361,561,68,26" Id="SCgpvqchOFeP5gKVq4O7lR">
+                        <p:NodeReference LastCategoryFullName="sl.ZEDCam" LastSymbolSource="VL.ZEDCam.dll">
+                          <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                          <Choice Kind="OperationCallFlag" Name="FetchImage" />
+                        </p:NodeReference>
+                        <Pin Id="VA3fImujnM7Osd7erStgWK" Name="Input" Kind="StateInputPin" />
+                        <Pin Id="IRgXFQiXX0kL5WryUhl3vD" Name="View" Kind="InputPin" DefaultValue="RIGHT_GREY">
+                          <p:TypeAnnotation LastCategoryFullName="sl" LastSymbolSource="VL.ZEDCam.dll">
+                            <Choice Kind="TypeFlag" Name="VIEW" />
+                          </p:TypeAnnotation>
+                        </Pin>
+                        <Pin Id="F73VQtsO1FUOd1HryfuAWb" Name="Output" Kind="StateOutputPin" />
+                        <Pin Id="BjMM6b6ttZoLEpRjDHO93n" Name="Result" Kind="OutputPin" />
+                      </Node>
+                      <Node Bounds="1424,610,47,26" Id="LXCjJKR7q1PMS5uZ2tDlAx">
+                        <p:NodeReference LastCategoryFullName="VL.OpenCV.CvImage" LastSymbolSource="VL.OpenCV.dll">
+                          <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                          <CategoryReference Kind="AssemblyCategory" Name="CvImage" />
+                          <Choice Kind="OperationCallFlag" Name="Create" />
+                        </p:NodeReference>
+                        <Pin Id="GH9nsqALPhpO1TgZ1m1vur" Name="Mat" Kind="InputPin" />
+                        <Pin Id="M68x58NhmXXP5hEUZ5lvWc" Name="Output" Kind="StateOutputPin" />
+                      </Node>
+                    </Patch>
+                    <ControlPoint Id="VxhPmkx60C5Mu3zYaUVUs6" Bounds="1349,477" Alignment="Top" />
+                    <ControlPoint Id="HOAF8KPlq4NN4MPPVmV6xC" Bounds="1284,711" Alignment="Bottom" />
+                    <ControlPoint Id="DVddmksDPkrNv3vpIaZuGy" Bounds="1262,477" Alignment="Top" />
+                    <ControlPoint Id="CvProh200N1PRLKV8fgRSs" Bounds="1249,711" Alignment="Bottom" />
+                    <ControlPoint Id="OWpwn0XkCTWQIKE5ogE1a8" Bounds="1348,711" Alignment="Bottom" />
+                    <ControlPoint Id="F4TtPG2HUaIQP5L1q6bLiW" Bounds="1380,477" Alignment="Top" />
+                  </Node>
+                  <Node Bounds="1339,388,54,26" Id="PNyk5kWGEJbLIles7KAtRT">
+                    <p:NodeReference LastCategoryFullName="sl.ZEDCam" LastSymbolSource="VL.ZEDCam.dll">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationCallFlag" Name="Running" />
+                    </p:NodeReference>
+                    <Pin Id="BTiPBNb5XLyPTxhqqEHoJO" Name="Input" Kind="StateInputPin" />
+                    <Pin Id="Hyidk4ulqrAM4umuDSS69m" Name="Output" Kind="StateOutputPin" />
+                    <Pin Id="HkfiYGa73N2ODXKLZh2uuT" Name="Running" Kind="OutputPin" />
+                  </Node>
+                  <Node Bounds="1235,429,158,19" Id="P55WoHj5UOSO6BYb24imtj">
+                    <p:NodeReference LastCategoryFullName="Primitive.Boolean" LastSymbolSource="CoreLibBasics.vl">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationCallFlag" Name="AND" />
+                      <CategoryReference Kind="BooleanType" Name="Boolean" NeedsToBeDirectParent="true" />
+                    </p:NodeReference>
+                    <Pin Id="MVBzVNG6Km2NmoXrfkZR3s" Name="Input" Kind="StateInputPin" />
+                    <Pin Id="PfxBCkiI5QoPkuCM4sta4e" Name="Input 2" Kind="InputPin" />
+                    <Pin Id="Q05KsyDOTazLeFiL2O6sW4" Name="Output" Kind="StateOutputPin" />
+                  </Node>
+                </Patch>
+              </Node>
+              <Pad Id="FU8wpNSj15FPgTRgvdt0Xo" Comment="Abort" Bounds="1659,182,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="TypeFlag" Name="Boolean" />
+                </p:TypeAnnotation>
+                <p:ValueBoxSettings>
+                  <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
+                </p:ValueBoxSettings>
+              </Pad>
+              <Pad Id="Vy14Y2f2wIQORav1GzF5oz" Comment="Restart" Bounds="1180,170,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="TypeFlag" Name="Boolean" />
+                </p:TypeAnnotation>
+                <p:ValueBoxSettings>
+                  <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
+                </p:ValueBoxSettings>
+              </Pad>
+              <Node Bounds="883,367,160,227" Id="MZP3aNVC2X3QazqXq7Ih6g">
+                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                  <Choice Kind="ApplicationStatefulRegion" Name="If" />
+                  <CategoryReference Kind="Category" Name="Primitive" />
+                </p:NodeReference>
+                <Pin Id="KFfUSBeZrRJMnjM5d193FR" Name="Condition" Kind="InputPin" />
+                <Patch Id="UUhDUgDGVWkOCwRt5bJyoN" ManuallySortedPins="true">
+                  <Node Bounds="905,431,65,19" Id="BkBKIPElm7uMhixdhHTwX0">
+                    <p:NodeReference LastCategoryFullName="Primitive.Object" LastSymbolSource="CoreLibBasics.vl">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationCallFlag" Name="IsAssigned" />
+                    </p:NodeReference>
+                    <Pin Id="Rn6HWBbo9pQM6oxvjPQDAw" Name="X" Kind="InputPin" />
+                    <Pin Id="QLDW2NmfZjaNNGILMuP4TN" Name="Result" Kind="OutputPin" />
+                    <Pin Id="HUxByX6JzMfNPq85Ynr9q8" Name="Not Assigned" Kind="OutputPin" />
+                  </Node>
+                  <Node Bounds="905,472,109,103" Id="HSWHwXtFevnMhz81Cy2JE5">
+                    <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                      <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                      <Choice Kind="ApplicationStatefulRegion" Name="If" />
+                      <FullNameCategoryReference ID="Primitive" />
+                    </p:NodeReference>
+                    <Pin Id="Gkj9Yz71dGyQBMJCLD1bLm" Name="Condition" Kind="InputPin" />
+                    <Patch Id="CaSRTUYCdCoM5cHImXZvCU" ManuallySortedPins="true">
+                      <Patch Id="A8RSatBiQ2NODkmf8DVpVN" Name="Create" ManuallySortedPins="true" />
+                      <Patch Id="GJUGjv3bLfiPgxMd8V7gMM" Name="Then" ManuallySortedPins="true" />
+                      <Node Bounds="917,527,46,26" Id="JVUnL4TSahDMQCSpIlHuIr">
+                        <p:NodeReference LastCategoryFullName="sl.ZEDCam" LastSymbolSource="VL.ZEDCam.dll">
+                          <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                          <Choice Kind="OperationCallFlag" Name="Stop" />
+                        </p:NodeReference>
+                        <Pin Id="QTlNIRwls3RNaRMc5Qpkw2" Name="Input" Kind="StateInputPin" />
+                        <Pin Id="Ckf6mn5BIlOM4GSBgKWXty" Name="Output" Kind="StateOutputPin" />
+                      </Node>
+                    </Patch>
+                    <ControlPoint Id="VISs4TzYzzYNt26uuMrvdx" Bounds="919,478" Alignment="Top" />
+                    <ControlPoint Id="HZt6O0D4Fb8LwH9N4tcmhL" Bounds="992,569" Alignment="Bottom" />
+                  </Node>
+                  <Patch Id="GLJuekNXrGKN18bf3WqdP4" Name="Create" ManuallySortedPins="true" />
+                  <Patch Id="Ns0JajSC1whLq9I3t7fUtx" Name="Then" ManuallySortedPins="true" />
+                </Patch>
+                <ControlPoint Id="E5ydVEAC8EyOT2yKwBoomJ" Bounds="1021,374" Alignment="Top" />
+                <ControlPoint Id="LkSyGxhWZlmL1Ce2NVQWIk" Bounds="1014,589" Alignment="Bottom" />
+              </Node>
+              <Pad Id="CX0fp2EVL8DOWCoP4AlkmY" Comment="Stop" Bounds="885,170,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="TypeFlag" Name="Boolean" />
+                </p:TypeAnnotation>
+                <p:ValueBoxSettings>
+                  <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
+                  <p:showvalue p:Type="Boolean">false</p:showvalue>
+                </p:ValueBoxSettings>
+              </Pad>
+              <Node Bounds="883,336,56,19" Id="UsIBhdWe0o5L3QdLXUhksG">
+                <p:NodeReference LastCategoryFullName="Control" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="ProcessAppFlag" Name="TogEdge" />
+                </p:NodeReference>
+                <Pin Id="Nkg5SykyQ8OO0PZ7GGyiPh" Name="Value" Kind="InputPin" />
+                <Pin Id="RbgMXUGZGSAOKRCms9NBgM" Name="Up Edge" Kind="OutputPin" />
+                <Pin Id="LTAdVGNZY9UOg8FNFMWGwI" Name="Down Edge" Kind="OutputPin" />
+              </Node>
+              <Overlay Id="IPaNxSqPGjMPrOVFXVOJZa" Name="Start" Bounds="603,286,211,341">
+                <p:ColorIndex p:Type="Int32">0</p:ColorIndex>
+              </Overlay>
+              <Overlay Id="RCpGpCwh8R9MFlubvrKFaQ" Name="Stop" Bounds="853,299,210,317">
+                <p:ColorIndex p:Type="Int32">0</p:ColorIndex>
+              </Overlay>
+              <Overlay Id="GrmUJUoUSJtLF6LFct12ry" Name="GrabImage" Bounds="1100,277,628,529">
+                <p:ColorIndex p:Type="Int32">0</p:ColorIndex>
+              </Overlay>
+              <Pad Id="OIAbD2WsSrZO8O2X5b0Qgw" Comment="" Bounds="1346,234,108,15" ShowValueBox="true" isIOBox="true" Value="XYZRGBA">
+                <p:TypeAnnotation LastCategoryFullName="sl" LastSymbolSource="VL.ZEDCam.dll">
+                  <Choice Kind="TypeFlag" Name="MEASURE" />
+                </p:TypeAnnotation>
+              </Pad>
+              <Node Bounds="1148,853,311,26" Id="RrdtWiqhqJaMBE5NRU0PJ3">
+                <p:NodeReference LastCategoryFullName="Primitive.Tuple (2 Items)" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <CategoryReference Kind="RecordType" Name="Tuple (2 Items)" />
+                  <Choice Kind="OperationCallFlag" Name="Split" />
+                </p:NodeReference>
+                <Pin Id="Tcehollm9qrNt6DUxH3Rxr" Name="Input" Kind="StateInputPin" />
+                <Pin Id="Lbj2U6xKF0VPmnxvaOw8Sc" Name="Item 1" Kind="OutputPin" />
+                <Pin Id="RGCmk7SkYBJNmVrUlNVfHL" Name="Item 2" Kind="OutputPin" />
+              </Node>
+              <Node Bounds="1147,774,65,19" Id="V01sNrxpK3pP3X0mMy58qQ">
+                <p:NodeReference LastCategoryFullName="Reactive" LastSymbolSource="VL.Reactive.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="ProcessAppFlag" Name="HoldLatest" />
+                </p:NodeReference>
+                <Pin Id="CtZ5QEIFUfWP5Zm6Z36KUR" Name="Initial Result" Kind="InputPin" />
+                <Pin Id="L90M76Ekt1dL5czwwysNwb" Name="Async Notifications" Kind="InputPin" />
+                <Pin Id="TwC3Dn4WE1tLL0flxKjtzk" Name="Reset" Kind="InputPin" />
+                <Pin Id="R9osXm2lzugN6VDw4add0e" Name="Value" Kind="OutputPin" />
+                <Pin Id="PtRIPrdKrf7P3FnSAvMpwp" Name="On Data" Kind="OutputPin" />
+              </Node>
+              <Pad Id="KTi7Qfnc86aPs7TGUEZ1Ox" Comment="ZEDCam" Bounds="379,875,280,646" ShowValueBox="true" isIOBox="true" />
+              <Node Bounds="-348,232,54,26" Id="VEjlEpL7O1CORUESuhwEiL">
+                <p:NodeReference LastCategoryFullName="sl.ZEDCam" LastSymbolSource="VL.ZEDCam.dll">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <CategoryReference Kind="AssemblyCategory" Name="ZEDCam" />
+                  <Choice Kind="OperationCallFlag" Name="Running" />
+                </p:NodeReference>
+                <Pin Id="GEIxWcVB20OOPIhGZj3bFS" Name="Input" Kind="StateInputPin" />
+                <Pin Id="IhN6IkdIurXLBfCp6bUlaW" Name="Output" Kind="StateOutputPin" />
+                <Pin Id="HkHiKqMXEo9MWyNQuLWu5e" Name="Running" Kind="OutputPin" />
+              </Node>
+              <Pad Id="CQJObwmpLeFMgdur5nevhO" Comment="Running" Bounds="-297,276,35,35" ShowValueBox="true" isIOBox="true" />
+              <Node Bounds="-360,336,392,306" Id="JcuQJormVZsNVARAg0O3x8">
+                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                  <Choice Kind="ApplicationStatefulRegion" Name="If" />
+                  <FullNameCategoryReference ID="Primitive" />
+                </p:NodeReference>
+                <Pin Id="CH6wKAyXMVZNulnsiHXb1H" Name="Condition" Kind="InputPin" />
+                <Patch Id="DkSJm2BxAjGMPSAqbztc9Y" ManuallySortedPins="true">
+                  <Patch Id="ECVVQEQIlECMGnQSCXn5Qg" Name="Create" ManuallySortedPins="true" />
+                  <Patch Id="MFPpLtiIS78Nps8rgo8oJ8" Name="Then" ManuallySortedPins="true" />
+                  <Node Bounds="-348,575,118,26" Id="ScOLxSGgLJPOSAdnrH5pkt">
+                    <p:NodeReference LastCategoryFullName="sl.ZEDCam" LastSymbolSource="VL.ZEDCam.dll">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <CategoryReference Kind="AssemblyCategory" Name="ZEDCam" />
+                      <Choice Kind="OperationCallFlag" Name="SetRuntimeParameters" />
+                    </p:NodeReference>
+                    <Pin Id="AK6VTx7BpDdM2RjM3k50A2" Name="Input" Kind="StateInputPin" />
+                    <Pin Id="AZw2Gv4dSHdLgiFn9hRznB" Name="Value" Kind="InputPin" />
+                    <Pin Id="OMDPUsupfNMOzSTbTpm5Zq" Name="Output" Kind="StateOutputPin" />
+                  </Node>
+                  <Node Bounds="-235,378,87,26" Id="EGB3CZ3l0y1Nxfgj5q50Or">
+                    <p:NodeReference LastCategoryFullName="sl.RuntimeParameters" LastSymbolSource="VL.ZEDCam.dll">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <Choice Kind="OperationCallFlag" Name="SetenableDepth" />
+                    </p:NodeReference>
+                    <Pin Id="SLog5qD0zchLqCDAHQdgNZ" Name="Input" Kind="StateInputPin" />
+                    <Pin Id="Qu2vETVKY0yLbHeODL59M1" Name="Value" Kind="InputPin" />
+                    <Pin Id="VyMrRfYlfCSNFZ4BJIja1V" Name="Output" Kind="StateOutputPin" />
+                  </Node>
+                  <Pad Id="OvJBpsB5SjCQMga07YDW22" Comment="" Bounds="-128,364,35,35" ShowValueBox="true" isIOBox="true" Value="True">
+                    <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                      <Choice Kind="TypeFlag" Name="Boolean" />
+                    </p:TypeAnnotation>
+                  </Pad>
+                  <Node Bounds="-235,433,110,26" Id="JaN0IAljZfvLJF6vfO2GFv">
+                    <p:NodeReference LastCategoryFullName="sl.RuntimeParameters" LastSymbolSource="VL.ZEDCam.dll">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <CategoryReference Kind="AssemblyCategory" Name="RuntimeParameters" />
+                      <Choice Kind="OperationCallFlag" Name="SetenablePointCloud" />
+                    </p:NodeReference>
+                    <Pin Id="FUw7ggJoWAiLlLKru9GCKv" Name="Input" Kind="StateInputPin" />
+                    <Pin Id="CjYdOkUPb8QMPrjypVkCaX" Name="Value" Kind="InputPin" />
+                    <Pin Id="HRbHGXKToe5MWiAW3OLXZ4" Name="Output" Kind="StateOutputPin" />
+                  </Node>
+                  <Node Bounds="-235,476,154,26" Id="IjT73Cs95vmNAok7ql7bWE">
+                    <p:NodeReference LastCategoryFullName="sl.RuntimeParameters" LastSymbolSource="VL.ZEDCam.dll">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <CategoryReference Kind="AssemblyCategory" Name="RuntimeParameters" />
+                      <Choice Kind="OperationCallFlag" Name="Setmeasure3DReferenceFrame" />
+                    </p:NodeReference>
+                    <Pin Id="Sg36KWpcUCMP2WFfUO0YAs" Name="Input" Kind="StateInputPin" />
+                    <Pin Id="ApsdzlNfpZZP6I5oUz6pR1" Name="Value" Kind="InputPin" />
+                    <Pin Id="OKTB31LX2gbLKmCYMmFOLb" Name="Output" Kind="StateOutputPin" />
+                  </Node>
+                  <Node Bounds="-235,526,90,26" Id="RzHY0sTJUKcM4gQYmpaPFp">
+                    <p:NodeReference LastCategoryFullName="sl.RuntimeParameters" LastSymbolSource="VL.ZEDCam.dll">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <CategoryReference Kind="AssemblyCategory" Name="RuntimeParameters" />
+                      <Choice Kind="OperationCallFlag" Name="SetsensingMode" />
+                    </p:NodeReference>
+                    <Pin Id="Smj8LD0f7wQMrfD8PWpmKY" Name="Input" Kind="StateInputPin" />
+                    <Pin Id="KItrIoUeUpyPJneLkhKE6D" Name="Value" Kind="InputPin" />
+                    <Pin Id="PVfXpDdsHzFNgDtb45bXlE" Name="Output" Kind="StateOutputPin" />
+                  </Node>
+                  <Pad Id="UthP68zkdFQPJO82Tzc2aM" Comment="" Bounds="-132,536,79,15" ShowValueBox="true" isIOBox="true" Value="STANDARD">
+                    <p:TypeAnnotation LastCategoryFullName="sl" LastSymbolSource="VL.ZEDCam.dll">
+                      <Choice Kind="TypeFlag" Name="SENSING_MODE" />
+                    </p:TypeAnnotation>
+                  </Pad>
+                  <Pad Id="VEz5DxhRDTBPDKex6MqMjr" Comment="" Bounds="-68,484,67,15" ShowValueBox="true" isIOBox="true" Value="CAMERA">
+                    <p:TypeAnnotation LastCategoryFullName="sl" LastSymbolSource="VL.ZEDCam.dll">
+                      <Choice Kind="TypeFlag" Name="REFERENCE_FRAME" />
+                    </p:TypeAnnotation>
+                  </Pad>
+                </Patch>
+                <ControlPoint Id="JxMCDcEZhdJQXEnETAZdGZ" Bounds="-346,342" Alignment="Top" />
+                <ControlPoint Id="SnOXjl3z6UPNenvshFmwFF" Bounds="-346,636" Alignment="Bottom" />
+              </Node>
+              <Node Bounds="-348,674,105,26" Id="MkwwfrxsQpKMeBX1iqyIRs">
+                <p:NodeReference LastCategoryFullName="sl.ZEDCam" LastSymbolSource="VL.ZEDCam.dll">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="OperationCallFlag" Name="RuntimeParameters" />
+                </p:NodeReference>
+                <Pin Id="LfwyTflABtpLstNivI1BWc" Name="Input" Kind="StateInputPin" />
+                <Pin Id="MgHjhjM5MoSN2WRrlB8Ein" Name="Output" Kind="StateOutputPin" />
+                <Pin Id="IHgjvHI3U5FLr3CQKRX2MD" Name="Runtime Parameters" Kind="OutputPin" />
+              </Node>
+              <Pad Id="UTD40FHvS4fQcLPJ3cA9NR" Comment="Runtime Parameters" Bounds="-246,735,187,72" ShowValueBox="true" isIOBox="true" />
+              <Node Bounds="364,637,65,19" Id="JA8jBIot3W5OqAevdEfaT4">
+                <p:NodeReference LastCategoryFullName="Primitive.Object" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="OperationCallFlag" Name="IsAssigned" />
+                </p:NodeReference>
+                <Pin Id="Tt7iCPP2IZ0OdKr5S9Pmjc" Name="X" Kind="InputPin" />
+                <Pin Id="HuLW1RQX7QXLNPzp3hwrfJ" Name="Result" Kind="OutputPin" />
+                <Pin Id="FL1AIpa0YUvOFUHsFgDDYM" Name="Not Assigned" Kind="OutputPin" />
+              </Node>
+              <ControlPoint Id="AQXjzyixQB4PsWHjoKugER" Bounds="1149,931" />
+              <ControlPoint Id="EcdT9ucjZuROoELKrUovqr" Bounds="1457,934" />
+              <ControlPoint Id="LN4vG2IYo8fMiisA0QrUcC" Bounds="883,61" />
+              <ControlPoint Id="UqH9ARKzEkVONygsKsQdoN" Bounds="638,57" />
+              <Pad Id="NoJW2oaTXSHO0zQUG22do2" SlotId="RoUQXBk7a1FQSoUNqqhwNm" Bounds="445,603">
+                <p:ValueBoxSettings />
+              </Pad>
+              <Pad Id="AH1yG7LbtvyN9DU1esIMOU" SlotId="RoUQXBk7a1FQSoUNqqhwNm" Bounds="772,352">
+                <p:ValueBoxSettings />
+              </Pad>
+              <Pad Id="GQXyX5p44tMQLZuKjeqdQw" SlotId="RoUQXBk7a1FQSoUNqqhwNm" Bounds="1021,327">
+                <p:ValueBoxSettings />
+              </Pad>
+              <Pad Id="QD3KMlvljGlM729rN6Fub4" SlotId="RoUQXBk7a1FQSoUNqqhwNm" Bounds="1262,322">
+                <p:ValueBoxSettings />
+              </Pad>
+              <ControlPoint Id="MXTiTlKQDQaLLVukvuuurX" Bounds="1345,146" />
+              <Pad Id="H6Bv41kVFXrLOPXgSzB3Id" SlotId="RoUQXBk7a1FQSoUNqqhwNm" Bounds="-347,203">
+                <p:ValueBoxSettings />
+              </Pad>
+              <ControlPoint Id="K6CDHBW89kAPQnFZy4mSBu" Bounds="1729,922" />
+              <Node Bounds="1509,-74,65,19" Id="I1DwdAIgFWcLN5Wh98eKFe">
+                <p:NodeReference LastCategoryFullName="Primitive.Object" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="OperationCallFlag" Name="IsAssigned" />
+                </p:NodeReference>
+                <Pin Id="CJepAspgZeXLAv7W4TaKOc" Name="X" Kind="InputPin" />
+                <Pin Id="QO7TXNIoahGM1wVfmLbjlm" Name="Result" Kind="OutputPin" />
+                <Pin Id="Lv8Y2mYSSJaQWBpAMoyLfD" Name="Not Assigned" Kind="OutputPin" />
+              </Node>
+              <Node Bounds="1613,-78,54,26" Id="IB6l9ILJe4WK9lVfXbOiXC">
+                <p:NodeReference LastCategoryFullName="sl.ZEDCam" LastSymbolSource="VL.ZEDCam.dll">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="OperationCallFlag" Name="Running" />
+                </p:NodeReference>
+                <Pin Id="SWiXlcp2kO3Ox9STQdkEli" Name="Input" Kind="StateInputPin" />
+                <Pin Id="KnIIaNU3ydOMMWvVAjrQET" Name="Output" Kind="StateOutputPin" />
+                <Pin Id="TSS97YYZoPVMEcaZEiKphp" Name="Running" Kind="OutputPin" />
+              </Node>
+              <Node Bounds="1509,-37,159,19" Id="DDceDEmbkH9LNeMv98EFEZ">
+                <p:NodeReference LastCategoryFullName="Primitive.Boolean" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="OperationCallFlag" Name="AND" />
+                  <CategoryReference Kind="BooleanType" Name="Boolean" NeedsToBeDirectParent="true" />
+                </p:NodeReference>
+                <Pin Id="DcdaShuMbpRMAReKnpIp88" Name="Input" Kind="StateInputPin" />
+                <Pin Id="QZbpTWVPOf7MMPRDGn2Pv3" Name="Input 2" Kind="InputPin" />
+                <Pin Id="AVIICmcTb5iP5DLhCUUNt2" Name="Output" Kind="StateOutputPin" />
+              </Node>
+              <Pad Id="HGGkU51HPIrN1U8krW4FcN" SlotId="RoUQXBk7a1FQSoUNqqhwNm" Bounds="1511,-122">
+                <p:ValueBoxSettings />
+              </Pad>
+              <ControlPoint Id="SHqK3oLMcHZQWwoqbq3nBc" Bounds="1527,1003" />
+              <ControlPoint Id="AEuceq8UjR9MpvoVBNCcmh" Bounds="352,173" />
+              <ControlPoint Id="BqsktKPjrXzPVEqiyv7FGM" Bounds="381,226" />
+              <ControlPoint Id="Vx7TXym87s0M4Bo5zUgaaV" Bounds="409,270" />
+              <Node Bounds="1417,20,56,19" Id="JFhGhF2sJfELdQQLoOCGfu">
+                <p:NodeReference LastCategoryFullName="Control" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="ProcessAppFlag" Name="TogEdge" />
+                </p:NodeReference>
+                <Pin Id="MCG9nmgl7MhLI6emvEBdN8" Name="Value" Kind="InputPin" />
+                <Pin Id="DiMHXWqtvw0Mkxi3RCPgcu" Name="Up Edge" Kind="OutputPin" />
+                <Pin Id="JCbocl8Bxm1MxAxOiimzBn" Name="Down Edge" Kind="OutputPin" />
+              </Node>
+              <Pad Id="Q2YwXy2jroeMtnbraynr3c" Comment="View" Bounds="1422,207,149,15" ShowValueBox="true" isIOBox="true" Value="RIGHT_GREY">
+                <p:TypeAnnotation LastCategoryFullName="sl" LastSymbolSource="VL.ZEDCam.dll">
+                  <Choice Kind="TypeFlag" Name="VIEW" />
+                </p:TypeAnnotation>
+              </Pad>
+              <ControlPoint Id="U89vvWIEbQbPJo0QQAqbpN" Bounds="1422,166" />
+              <Pad Id="QYnYDEWIeGBOOlWEY7Kheu" SlotId="RoUQXBk7a1FQSoUNqqhwNm" Bounds="-360,905">
+                <p:ValueBoxSettings />
+              </Pad>
+              <Node Bounds="-361,1024,46,26" Id="NNeHZOn4oUZP5jBWe5xyhc">
+                <p:NodeReference LastCategoryFullName="OpenCV.ZED" LastSymbolSource="VL.ZEDCam.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <CategoryReference Kind="Category" Name="OpenCV" />
+                  <CategoryReference Kind="Category" Name="ZED" />
+                  <Choice Kind="OperationCallFlag" Name="FOV_H" />
+                </p:NodeReference>
+                <Pin Id="TtMkN09XWIgMmq2gQMzx64" Name="Input" Kind="InputPin" />
+                <Pin Id="DGGTJEDTkoyPLJoVdfdnl5" Name="Output" Kind="OutputPin" />
+                <Pin Id="N3tbtEg5MjePRlrVgu09Wz" Name="FOV_H" Kind="OutputPin" />
+              </Node>
+              <Node Bounds="-361,961,91,26" Id="LG8JdemwDy4MmD7u9mrX3l">
+                <p:NodeReference LastCategoryFullName="OpenCV.ZED" LastSymbolSource="VL.ZEDCam.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <CategoryReference Kind="Category" Name="OpenCV" />
+                  <CategoryReference Kind="Category" Name="ZED" />
+                  <Choice Kind="OperationCallFlag" Name="FOV_V" />
+                </p:NodeReference>
+                <Pin Id="L680m9YkqR8LEmFrCVXude" Name="Input" Kind="InputPin" />
+                <Pin Id="JctwslJGntJPFZxKVRLhZ6" Name="Output" Kind="OutputPin" />
+                <Pin Id="H6VdZ2MAcyCLvnlZqsk9GM" Name="FOV_V" Kind="OutputPin" />
+              </Node>
+              <Node Bounds="-320,1077,51,19" Id="MQRKO0cfvLSMo5foQSvVku">
+                <p:NodeReference LastCategoryFullName="2D.Vector2" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="OperationCallFlag" Name="Vector (Join)" />
+                  <CategoryReference Kind="Vector2Type" Name="Vector2" NeedsToBeDirectParent="true" />
+                </p:NodeReference>
+                <Pin Id="VjHijuPwTndMXtyv1MpEWI" Name="X" Kind="InputPin" />
+                <Pin Id="PqZ1kq7SEYEPreSlvitg9C" Name="Y" Kind="InputPin" />
+                <Pin Id="PNYTA6ZOtJJMdh1LcZqfqo" Name="Output" Kind="StateOutputPin" />
+              </Node>
+              <ControlPoint Id="I051h3WjlzqNPY8ZfOMJs0" Bounds="-319,1147" />
+              <Pad Id="HGzM4buKPomM55rMFichUz" SlotId="RoUQXBk7a1FQSoUNqqhwNm" Bounds="-134,1015">
+                <p:ValueBoxSettings />
+              </Pad>
+              <ControlPoint Id="QF7s6gOvgL4PixWMxkwDnu" Bounds="-62,925" />
+              <Node Bounds="-54,948" Id="CL2RaTByKlOQFYg8NA4kXg">
+                <p:NodeReference LastCategoryFullName="Control" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="ProcessAppFlag" Name="Changed" />
+                </p:NodeReference>
+                <Pin Id="RF4JAJ4asvlMr9RMSqZl7g" Name="Value" Kind="InputPin" />
+                <Pin Id="GFbGl3x1FvFNdWoyPvyGKC" Name="Result" Kind="OutputPin" />
+                <Pin Id="Oc1C6GyPpJVLh0KvNGiIr8" Name="Unchanged" Kind="OutputPin" />
+              </Node>
+              <Node Bounds="-44,999,30,19" Id="JaPd8wesj8zP7gAA1Qo4k4">
+                <p:NodeReference LastCategoryFullName="Primitive.Boolean" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="OperationCallFlag" Name="OR" />
+                  <CategoryReference Kind="BooleanType" Name="Boolean" NeedsToBeDirectParent="true" />
+                </p:NodeReference>
+                <Pin Id="Nm8eW8K5PRdQUQab7wRST7" Name="Input" Kind="StateInputPin" />
+                <Pin Id="DUG8H3KFJX6QKuxZ3gjbeR" Name="Input 2" Kind="InputPin" />
+                <Pin Id="Mv0vkHdGH9sPZjr6wkQcRq" Name="Output" Kind="StateOutputPin" />
+              </Node>
+              <ControlPoint Id="ANLwGBlrxlvLOGwXEErJ5s" Bounds="33,974" />
+              <Node Bounds="-146,1050,91,79" Id="DJZe9WPM77FLhA1ghaIYfr">
+                <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
+                  <Choice Kind="ApplicationStatefulRegion" Name="If" />
+                  <FullNameCategoryReference ID="Primitive" />
+                </p:NodeReference>
+                <Pin Id="OkLAjQVQUm3PxePpA14jk0" Name="Condition" Kind="InputPin" />
+                <Patch Id="RHO5Di5i79SOL65YOZBK9D" ManuallySortedPins="true">
+                  <Node Bounds="-134,1078,66,26" Id="R6edyYzTmQyLDKRqm0cM2V">
+                    <p:NodeReference LastCategoryFullName="OpenCV.ZED" LastSymbolSource="VL.ZEDCam.vl">
+                      <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                      <CategoryReference Kind="Category" Name="OpenCV" />
+                      <CategoryReference Kind="Category" Name="ZED" />
+                      <Choice Kind="OperationCallFlag" Name="SetCamFPS" />
+                    </p:NodeReference>
+                    <Pin Id="CGKFh57c59zO5z9muR2whk" Name="Input" Kind="InputPin" />
+                    <Pin Id="JvthlhllxweQHeSdHqfg3M" Name="FPS" Kind="InputPin" />
+                    <Pin Id="HXRqCjeSnuYP6Qf4WDi0bI" Name="Output" Kind="OutputPin" />
+                    <Pin Id="MVwCuQc4nNNQYL9orRZL1J" Name="Current FPS" Kind="OutputPin" />
+                  </Node>
+                  <Patch Id="Rmq3Bj19LJfNSD1zyxK0jD" Name="Create" ManuallySortedPins="true" />
+                  <Patch Id="CQOTiGHYj49Ox5BsYjesDa" Name="Then" ManuallySortedPins="true" />
+                </Patch>
+                <ControlPoint Id="JbSpQM2WnINLVgGZq8qy0k" Bounds="-72,1123" Alignment="Bottom" />
+                <ControlPoint Id="NA4FSXZOxeGQCZh20BetCR" Bounds="-97,1056" Alignment="Top" />
+              </Node>
+              <Pad Id="JlH6cqhjmlFLYiIcqUwByq" SlotId="GO6mnK1OH06M8eIHOJQ5ol" Bounds="-70,1150">
+                <p:ValueBoxSettings />
+              </Pad>
+              <Pad Id="CNZeHGPQjNjNtAKzSmhUeF" SlotId="GO6mnK1OH06M8eIHOJQ5ol" Bounds="-104,977">
+                <p:ValueBoxSettings />
+              </Pad>
+              <ControlPoint Id="KkgPuUXXQLqOtHROLk1KmB" Bounds="-69,1183" />
+            </Canvas>
+            <ProcessDefinition Id="SQwEqXxXTYsMZ5sLvpPmtp" IsHidden="true">
+              <Fragment Id="Orl4HqHuGoCLbiqC5KHgPJ" Patch="LtrXNM5V3iGOahVk5lpYTq" Enabled="true" />
+              <Fragment Id="AvPIRzbrizmLxESVdRoTuh" Patch="SICSfmT3huuPpNPCRIQSqF" Enabled="true" />
+              <Fragment Id="HCycK8Jaoo6N9hodMYiTGE" Patch="GG3Z9kozAVCMXGrQzhPmeS" Enabled="true" />
+              <Fragment Id="Duyt1e4nkB0OX8q8q8XxVx" Patch="COJaHg8uwnCQKAfftaF7kd" Enabled="true" />
+            </ProcessDefinition>
+            <Link Id="QdFWlSlXJSpP8AE9SwHTWs" Ids="GUW09OrDySFPCddrMSenlt,E8UGD2g6C1zLWUvDv02Gmu" />
+            <Link Id="KOZBGIAlxfuQCXwv6EAvq2" Ids="O1rWwDx90PRPdOlZgvacfN,S5hjixZoyaIORWPRokufjD" IsFeedback="true" />
+            <Link Id="SX1VP5SPPmSN3TvSOvpZV4" Ids="GQ5Vb5qac1WOzmm58I6Rmj,S5hjixZoyaIORWPRokufjD" />
+            <Link Id="Pdf1D9S5Z5gP7TrvnRDbeW" Ids="S5hjixZoyaIORWPRokufjD,LfFjWV8Oi2BN8yQyt7QwVo" />
+            <Link Id="Mc8gMg4Kh4BOsp5tiz0D4o" Ids="QjlahBaapLPMaWgXPtcuxr,SXi3OmLHHrJLCE9DknJHw4" IsFeedback="true" />
+            <Link Id="SyTDeGU7cVTMSEIq4mrOuA" Ids="RNfjZt49zHSPiNoBMvwwun,D5vbwSLsJ4LPVmuvCtvK4K" />
+            <Link Id="Ma5PPxPGVdGOWR4jnA9YrQ" Ids="FTn0ncbgSZGMh34tysLztt,NGL1HsTYB19QDEXQdAEYFU" IsFeedback="true" />
+            <Link Id="DKYqBkEheojLvNJP2ePy1j" Ids="QjlahBaapLPMaWgXPtcuxr,FTn0ncbgSZGMh34tysLztt" />
+            <Link Id="UbHDb2swihBLPU6sNHZ6q6" Ids="FTn0ncbgSZGMh34tysLztt,AGwMSAcQjlAPVPBgYv0J7I" />
+            <Link Id="SljjlJgieuiPbelA5z8lvh" Ids="NyByx9rQuoLLAnIe0slquW,J3upqjK4uMuLPwqOQmxYcs" />
+            <Link Id="S1D2ivkvIToNyg2foEDGAr" Ids="MTbsBE9T7zONaxhu314dqK,EVBxnEqGA6PQECwft6quKM" />
+            <Link Id="KQHTAHZhl31MpjqCfEvKFw" Ids="OAss7akj09HNf1iIl4HK79,NGL1HsTYB19QDEXQdAEYFU" />
+            <Link Id="MLg8DqL5K0bQAj1qg6co5n" Ids="HAE9dhpRgltOradrjBeVRc,VMY4fsGmvt7NPtCAOkTbPp" IsHidden="true" />
+            <Link Id="CpvHBYz3Mo3OECrNMqBEFy" Ids="SCa1qD1p98rOehmEVwQ8ja,PfJ4Su7NWMFQDiYhCmzLka" IsHidden="true" />
+            <Link Id="EVQScbedIrgPQWvYHHRzzz" Ids="Lwi5xMogpowOxYgnp7YoyB,NJdGFSEulkoMx2Fnp4CCpb" IsHidden="true" />
+            <Link Id="FG2d9H6SeYILhVTrOlqZJ9" Ids="FU8wpNSj15FPgTRgvdt0Xo,JxxW9EZnQ1bLDM49sCd2dp" />
+            <Link Id="TrlHHqiTwtaPCDl0vGiRGS" Ids="Vy14Y2f2wIQORav1GzF5oz,LplGJcFf4FSPbjJg8TOy8x" />
+            <Link Id="Ry7DNkSJfoIOlYBKhyMGXR" Ids="VxhPmkx60C5Mu3zYaUVUs6,HOAF8KPlq4NN4MPPVmV6xC" IsFeedback="true" />
+            <Link Id="B4zDFfxl9CMPQpc6BXVxTG" Ids="DVddmksDPkrNv3vpIaZuGy,CvProh200N1PRLKV8fgRSs" IsFeedback="true" />
+            <Link Id="B3NdUtqnF1TLpbyEJ6zW5i" Ids="DVddmksDPkrNv3vpIaZuGy,QFwRTuegqVkNUXvnyhGlwo" />
+            <Link Id="Cy1AI5iOOCLL6ds3bxoNle" Ids="CX0fp2EVL8DOWCoP4AlkmY,Nkg5SykyQ8OO0PZ7GGyiPh" />
+            <Link Id="J5WsndnqmFzMnDfd5Ud1I0" Ids="RbgMXUGZGSAOKRCms9NBgM,KFfUSBeZrRJMnjM5d193FR" />
+            <Link Id="Q7A42DozWccP7bnGuUNdwo" Ids="QLDW2NmfZjaNNGILMuP4TN,Gkj9Yz71dGyQBMJCLD1bLm" />
+            <Link Id="MFawtGt8NO6O602KxDUJsx" Ids="VISs4TzYzzYNt26uuMrvdx,HZt6O0D4Fb8LwH9N4tcmhL" IsFeedback="true" />
+            <Link Id="UpbWDcIbGBIOYTTNvIIiYb" Ids="E5ydVEAC8EyOT2yKwBoomJ,LkSyGxhWZlmL1Ce2NVQWIk" IsFeedback="true" />
+            <Link Id="SH2bzErrZYDNCn6GyacvJ1" Ids="E5ydVEAC8EyOT2yKwBoomJ,Rn6HWBbo9pQM6oxvjPQDAw" />
+            <Link Id="PMDKUkZrKixMu0YGHH9JMH" Ids="E5ydVEAC8EyOT2yKwBoomJ,VISs4TzYzzYNt26uuMrvdx" />
+            <Link Id="J3mRkBSkUnsQJUuefsW2Ff" Ids="VISs4TzYzzYNt26uuMrvdx,QTlNIRwls3RNaRMc5Qpkw2" />
+            <Link Id="NYC8PpyK6guO3zjLQKvHZI" Ids="CUpVCCFJms8N3as4BtgkNn,MVBzVNG6Km2NmoXrfkZR3s" />
+            <Link Id="FseNjblVJTIMKLyTMkEBOf" Ids="HkfiYGa73N2ODXKLZh2uuT,PfxBCkiI5QoPkuCM4sta4e" />
+            <Link Id="ImLe4VFMea1Obssk7SGJ5W" Ids="Q05KsyDOTazLeFiL2O6sW4,MJJyNuAp6ZWPoUk8IRFsgw" />
+            <Link Id="BGo7OSbEpNxQWP1fBj1lp2" Ids="VmpDTWSP1eDLu8wCejrqpC,BAs04RRykqtNGwdYUIgp1t" />
+            <Link Id="UjMoEgEnjLKLtXodoWjfGv" Ids="PHBvlG67zsOPczK2yTQ2rJ,TAEBewXEpaKLDIJuMoB5Oa" />
+            <Link Id="LOsLEJjncGNPQE7tyTPDff" Ids="F4TtPG2HUaIQP5L1q6bLiW,OWpwn0XkCTWQIKE5ogE1a8" IsFeedback="true" />
+            <Link Id="Njf7vo2omqoNzDwj4mCs7n" Ids="VxhPmkx60C5Mu3zYaUVUs6,NJ4Fwgloj6nPJbCuwGPpn3" />
+            <Link Id="B2NEwCDjpgNMxu71TMkTmg" Ids="OIAbD2WsSrZO8O2X5b0Qgw,VxhPmkx60C5Mu3zYaUVUs6" />
+            <Link Id="LHkn3mzdnUJPT48PJKdalx" Ids="O1rWwDx90PRPdOlZgvacfN,BwlRA087xCaNmA9z0u0y5r" />
+            <Link Id="QIOukwGTzTaOyj78MDot4D" Ids="UwTa3LAwVx5QRS0kDNgxDo,Tmapm5GFJATOAQ0SeO298g" />
+            <Link Id="TxddRh1GjABLqdzNZWsk4E" Ids="BjMM6b6ttZoLEpRjDHO93n,GH9nsqALPhpO1TgZ1m1vur" />
+            <Link Id="MZib5MD6OvPO2GpJxaov2i" Ids="Abo40wJo8UwMVTobhh06gS,J8AU3ukwEKQQOwDpBjwhQX" />
+            <Link Id="QGBMosrqb9zQRRUQQFcfWT" Ids="M68x58NhmXXP5hEUZ5lvWc,FWQ57370JkAMUqRgvbPDAs" />
+            <Link Id="OEwEV00j0jTPPQB27nt5JS" Ids="PHBvlG67zsOPczK2yTQ2rJ,VA3fImujnM7Osd7erStgWK" />
+            <Link Id="DnajZ3VvnMQPshhfIRY2nu" Ids="FNqsH4Ec1usO1LLeG1Qy65,OWpwn0XkCTWQIKE5ogE1a8" />
+            <Link Id="PZBWNIhHOg7NZLUmJFxWhb" Ids="OWpwn0XkCTWQIKE5ogE1a8,SCa1qD1p98rOehmEVwQ8ja" />
+            <Link Id="Mzk4KyJriBKQRHgFRBs8WA" Ids="Bl1mwmPxjZEMElH5hUJJpC,L90M76Ekt1dL5czwwysNwb" />
+            <Link Id="Dbnv5GZIenQNjNwjp23YSl" Ids="R9osXm2lzugN6VDw4add0e,Tcehollm9qrNt6DUxH3Rxr" />
+            <Link Id="F2DGzcvexytOo7jdZcaAi2" Ids="LfFjWV8Oi2BN8yQyt7QwVo,KTi7Qfnc86aPs7TGUEZ1Ox" />
+            <Link Id="Uiv6PuyerrALt9VYdzFVxa" Ids="HkHiKqMXEo9MWyNQuLWu5e,CQJObwmpLeFMgdur5nevhO" />
+            <Link Id="UvXa8ERBROdNkvonEpje1C" Ids="OvJBpsB5SjCQMga07YDW22,Qu2vETVKY0yLbHeODL59M1" />
+            <Link Id="PO9R9eho38PLt8fbB1IEP8" Ids="OvJBpsB5SjCQMga07YDW22,CjYdOkUPb8QMPrjypVkCaX" />
+            <Link Id="MMPFi9KI80HMbRDyqrYs20" Ids="VyMrRfYlfCSNFZ4BJIja1V,FUw7ggJoWAiLlLKru9GCKv" />
+            <Link Id="JI3FmMo1KoRNHXMOwsxoTH" Ids="HRbHGXKToe5MWiAW3OLXZ4,Sg36KWpcUCMP2WFfUO0YAs" />
+            <Link Id="ImpFhFT3wo8PpO3vnOS01a" Ids="OKTB31LX2gbLKmCYMmFOLb,Smj8LD0f7wQMrfD8PWpmKY" />
+            <Link Id="CEvS2H9LpCVOF6gNVeIM58" Ids="PVfXpDdsHzFNgDtb45bXlE,AZw2Gv4dSHdLgiFn9hRznB" />
+            <Link Id="IIiruTP9TqtMKL8ViTMq0I" Ids="UthP68zkdFQPJO82Tzc2aM,KItrIoUeUpyPJneLkhKE6D" />
+            <Link Id="FBN8wZH655cPQkWWIktMTY" Ids="VEz5DxhRDTBPDKex6MqMjr,ApsdzlNfpZZP6I5oUz6pR1" />
+            <Link Id="Mh2rde4jeelQHg5B4RgthP" Ids="HkHiKqMXEo9MWyNQuLWu5e,CH6wKAyXMVZNulnsiHXb1H" />
+            <Link Id="RADstvbdmKfQLfZXbWL2Cs" Ids="JxMCDcEZhdJQXEnETAZdGZ,SnOXjl3z6UPNenvshFmwFF" IsFeedback="true" />
+            <Link Id="IViAMRBZWkLQZ1ky6PIGNI" Ids="IhN6IkdIurXLBfCp6bUlaW,JxMCDcEZhdJQXEnETAZdGZ" />
+            <Link Id="JyTG7cCI7mMPn7kAneRYCs" Ids="JxMCDcEZhdJQXEnETAZdGZ,AK6VTx7BpDdM2RjM3k50A2" />
+            <Link Id="IN9oHt0oh4XQMW19sqKnZ5" Ids="IHgjvHI3U5FLr3CQKRX2MD,UTD40FHvS4fQcLPJ3cA9NR" />
+            <Link Id="NbwnJMwbzZKMCpkFjkwYvI" Ids="SnOXjl3z6UPNenvshFmwFF,LfwyTflABtpLstNivI1BWc" />
+            <Link Id="H2m8MmGxp34MFoTPOfwjSD" Ids="OMDPUsupfNMOzSTbTpm5Zq,SnOXjl3z6UPNenvshFmwFF" />
+            <Link Id="FRz9SPJ5k07NfQPzuPEiG1" Ids="HuLW1RQX7QXLNPzp3hwrfJ,E72LDjtAet8Mjdnafu5rLI" />
+            <Patch Id="LtrXNM5V3iGOahVk5lpYTq" Name="Create" ParticipatingElements="UUlsETioTznNlQAaRR4yzj">
+              <Pin Id="UnFNqp6HRwcNiTeZ0qbfZj" Name="Resolution" Kind="InputPin" Bounds="225,205" />
+              <Pin Id="IBLK2B9KSuAPrg0D1mvmpi" Name="Depth Mode" Kind="InputPin" Bounds="334,240" />
+              <Pin Id="J73b4nhz9NTPWSkvg7IU7U" Name="Stabilisation" Kind="InputPin" Bounds="451,268" />
+            </Patch>
+            <Patch Id="SICSfmT3huuPpNPCRIQSqF" Name="Update">
+              <Pin Id="HqunMZoAzz7MmKjdwnYSmo" Name="Start" Kind="InputPin" Bounds="638,55" />
+              <Pin Id="AAn1209K2SSMSIzpyD59fT" Name="Stop" Kind="InputPin" Bounds="883,60" />
+              <Pin Id="E5GVl2gAyCCQW9hCkJYVg3" Name="Point Cloud" Kind="OutputPin" Bounds="1149,919" />
+              <Pin Id="C6uNQAHQ6QOO39iNcudOSZ" Name="Pointcloud" Kind="InputPin" Bounds="1345,144" />
+              <Pin Id="Qci1k1O8s0nMR97vYTUIbc" Name="View" Kind="InputPin" Bounds="1422,165" />
+              <Pin Id="K0cwK8QujuPQQe7zg0yOQB" Name="Image" Kind="OutputPin" Bounds="1457,935" />
+              <Pin Id="M5YJSvAKPRbQcf34tibSez" Name="Running" Kind="OutputPin" Bounds="1856,863" />
+              <Pin Id="Adzezgh0IpCLKsDgtlpNJU" Name="In Progress" Kind="OutputPin" Bounds="1650,911" />
+            </Patch>
+            <ProcessDefinition Id="JEA82xIuliGOuSKtjLwZTa">
+              <Fragment Id="H7FYhRSP9zzLa5mshBCy1d" Patch="LtrXNM5V3iGOahVk5lpYTq" Enabled="true" />
+              <Fragment Id="LmiQx96cKTrQAnwFxbZv23" Patch="SICSfmT3huuPpNPCRIQSqF" />
+              <Fragment Id="CP0IipL5jB8NGkEc0WlDHz" Patch="GG3Z9kozAVCMXGrQzhPmeS" />
+              <Fragment Id="FMxGbBpdzNTQHoqO6svJCJ" Patch="COJaHg8uwnCQKAfftaF7kd" />
+            </ProcessDefinition>
+            <Link Id="BQozqNBCaveOiP9BHy9bCO" Ids="Lbj2U6xKF0VPmnxvaOw8Sc,AQXjzyixQB4PsWHjoKugER" />
+            <Link Id="Bu3H3iA0BL2LqIUoraMYMq" Ids="AQXjzyixQB4PsWHjoKugER,E5GVl2gAyCCQW9hCkJYVg3" IsHidden="true" />
+            <Link Id="OenzSiozQNyNy91Z0oplwB" Ids="RGCmk7SkYBJNmVrUlNVfHL,EcdT9ucjZuROoELKrUovqr" />
+            <Link Id="NOnq2ElblNUPoH8XIDc1qO" Ids="EcdT9ucjZuROoELKrUovqr,K0cwK8QujuPQQe7zg0yOQB" IsHidden="true" />
+            <Link Id="VUeWA01VyJwO5KKyErg5Gc" Ids="LN4vG2IYo8fMiisA0QrUcC,CX0fp2EVL8DOWCoP4AlkmY" />
+            <Link Id="R7ua0CEcNpBPs6nmFPMnYu" Ids="AAn1209K2SSMSIzpyD59fT,LN4vG2IYo8fMiisA0QrUcC" IsHidden="true" />
+            <Link Id="Lt1y8Oi3iMvPysFmY2ukM8" Ids="UqH9ARKzEkVONygsKsQdoN,NyByx9rQuoLLAnIe0slquW" />
+            <Link Id="Vv2l6GrgjoiOKJSOOZjBU4" Ids="HqunMZoAzz7MmKjdwnYSmo,UqH9ARKzEkVONygsKsQdoN" IsHidden="true" />
+            <Slot Id="RoUQXBk7a1FQSoUNqqhwNm" Name="ZEDCam" />
+            <Patch Id="FSk6WRuvKqpN6V3PWaEpBE" Name="Dispose" ParticipatingElements="JA8jBIot3W5OqAevdEfaT4" />
+            <Link Id="VGsNKFugWj4LD1U7KaPf0r" Ids="NoJW2oaTXSHO0zQUG22do2,O1rWwDx90PRPdOlZgvacfN" />
+            <Link Id="QJpUIMcl9NYLVV3lSD4AK1" Ids="NoJW2oaTXSHO0zQUG22do2,Tt7iCPP2IZ0OdKr5S9Pmjc" />
+            <Link Id="Vq1yaFjS95DPFq4xyeF8Co" Ids="AH1yG7LbtvyN9DU1esIMOU,QjlahBaapLPMaWgXPtcuxr" />
+            <Link Id="R9qi0N8O1HSOZge1d1vKd2" Ids="GQXyX5p44tMQLZuKjeqdQw,E5ydVEAC8EyOT2yKwBoomJ" />
+            <Link Id="FthNYFdpBHpOlM5H5h5Z0x" Ids="QjlahBaapLPMaWgXPtcuxr,NAgp9ao64qFMT3BynAc3NU" />
+            <Link Id="IudLAZICnP9OfgxtoQXaOs" Ids="QD3KMlvljGlM729rN6Fub4,VngDL3M6ZbIP3ea61cjeBW" />
+            <Link Id="F6kQdaf5AM0LOdbEzrmZso" Ids="QD3KMlvljGlM729rN6Fub4,BTiPBNb5XLyPTxhqqEHoJO" />
+            <Link Id="NJeWfT4e7BvNKxYGnHXd92" Ids="QD3KMlvljGlM729rN6Fub4,DVddmksDPkrNv3vpIaZuGy" />
+            <Link Id="OoNKMukDsdmQMZ8bexbgxO" Ids="MXTiTlKQDQaLLVukvuuurX,OIAbD2WsSrZO8O2X5b0Qgw" />
+            <Link Id="LNOeQo8adDoLxbafPorcnd" Ids="C6uNQAHQ6QOO39iNcudOSZ,MXTiTlKQDQaLLVukvuuurX" IsHidden="true" />
+            <Link Id="GGwCxao5QBXPL9t9uRT80E" Ids="H6Bv41kVFXrLOPXgSzB3Id,GEIxWcVB20OOPIhGZj3bFS" />
+            <Link Id="A5czuAZ91PvNcI5Q11FQkH" Ids="O8i7PX5brjLLeRpDaMbbcA,K6CDHBW89kAPQnFZy4mSBu" />
+            <Link Id="As2HgLS9uyZPjkmbgVATti" Ids="K6CDHBW89kAPQnFZy4mSBu,Adzezgh0IpCLKsDgtlpNJU" IsHidden="true" />
+            <Link Id="EDFV1ALghmjNWz5Bl6EMwD" Ids="QO7TXNIoahGM1wVfmLbjlm,DcdaShuMbpRMAReKnpIp88" />
+            <Link Id="S9YQbp2SyplORIXOprPx53" Ids="TSS97YYZoPVMEcaZEiKphp,QZbpTWVPOf7MMPRDGn2Pv3" />
+            <Link Id="TtoaNQgUi2QOiNxFcSiOFT" Ids="HGGkU51HPIrN1U8krW4FcN,CJepAspgZeXLAv7W4TaKOc" />
+            <Link Id="IZRnD0jCONIPKdbxYRlApt" Ids="HGGkU51HPIrN1U8krW4FcN,SWiXlcp2kO3Ox9STQdkEli" />
+            <Link Id="POblzjbQhPVQG9v4QyUp6L" Ids="AVIICmcTb5iP5DLhCUUNt2,SHqK3oLMcHZQWwoqbq3nBc" />
+            <Link Id="GdhFkQVhEBwMBm1dEx7Ff5" Ids="SHqK3oLMcHZQWwoqbq3nBc,M5YJSvAKPRbQcf34tibSez" IsHidden="true" />
+            <Link Id="JZv1PrMR8dzPEhpFuC7xL8" Ids="AEuceq8UjR9MpvoVBNCcmh,CRmPzaUSNirMlobhb23PGa" />
+            <Link Id="PvplCwNP7MZOalDjaYvoJT" Ids="UnFNqp6HRwcNiTeZ0qbfZj,AEuceq8UjR9MpvoVBNCcmh" IsHidden="true" />
+            <Link Id="RY7UJzpDH03PFwCnLOU9Hg" Ids="BqsktKPjrXzPVEqiyv7FGM,HlTb61SBJ8cOSrHVxsSmOA" />
+            <Link Id="SsAfpdjquXDLTX9uAM1FnW" Ids="IBLK2B9KSuAPrg0D1mvmpi,BqsktKPjrXzPVEqiyv7FGM" IsHidden="true" />
+            <Link Id="Fw7VzuEorhdPBTgl5qsXPA" Ids="Vx7TXym87s0M4Bo5zUgaaV,Q9EHJZ57LkENF9rmQB8rkL" />
+            <Link Id="LhZM9QFKWfzMZcslZEeQLy" Ids="J73b4nhz9NTPWSkvg7IU7U,Vx7TXym87s0M4Bo5zUgaaV" IsHidden="true" />
+            <Link Id="QvtKsrBpYzeMC2aXGJhb1t" Ids="AVIICmcTb5iP5DLhCUUNt2,MCG9nmgl7MhLI6emvEBdN8" />
+            <Link Id="VbYqeLXHiN9MryWP16OUJx" Ids="DiMHXWqtvw0Mkxi3RCPgcu,Vy14Y2f2wIQORav1GzF5oz" />
+            <Link Id="MvlmjUExDFUQbJPPTvMmzO" Ids="JCbocl8Bxm1MxAxOiimzBn,FU8wpNSj15FPgTRgvdt0Xo" />
+            <Link Id="AlC6b0tatBQLzzErdsrftU" Ids="Q2YwXy2jroeMtnbraynr3c,IRgXFQiXX0kL5WryUhl3vD" />
+            <Link Id="L9Ea1TrezcPNi7cNi6pUqD" Ids="U89vvWIEbQbPJo0QQAqbpN,Q2YwXy2jroeMtnbraynr3c" />
+            <Link Id="M7yiTJgiG4VOtCcSF8vdc1" Ids="Qci1k1O8s0nMR97vYTUIbc,U89vvWIEbQbPJo0QQAqbpN" IsHidden="true" />
+            <Link Id="UMfVZoZq7quOBn1GgYLc2A" Ids="QYnYDEWIeGBOOlWEY7Kheu,L680m9YkqR8LEmFrCVXude" />
+            <Link Id="UAED2gQ9i8cQPwH3HXgNLw" Ids="JctwslJGntJPFZxKVRLhZ6,TtMkN09XWIgMmq2gQMzx64" />
+            <Link Id="ScYpjohxcMhNTH1SRm0q0d" Ids="N3tbtEg5MjePRlrVgu09Wz,VjHijuPwTndMXtyv1MpEWI" />
+            <Link Id="ALQn8CMeuWqL8tpkjTPRC9" Ids="H6VdZ2MAcyCLvnlZqsk9GM,PqZ1kq7SEYEPreSlvitg9C" />
+            <Link Id="VhUPyZ2Ggf3P1dPZ4myePt" Ids="PNYTA6ZOtJJMdh1LcZqfqo,I051h3WjlzqNPY8ZfOMJs0" />
+            <Link Id="Bmpg1ZLOsZwMRkvBFKRtzU" Ids="I051h3WjlzqNPY8ZfOMJs0,VyJdyqzZBddMvz9VKGiasw" IsHidden="true" />
+            <Patch Id="GG3Z9kozAVCMXGrQzhPmeS" Name="GetFOV">
+              <Pin Id="VyJdyqzZBddMvz9VKGiasw" Name="FOV" Kind="OutputPin" />
+            </Patch>
+            <Link Id="Ka40Pb6qdheNXte8TUI3tu" Ids="HGzM4buKPomM55rMFichUz,CGKFh57c59zO5z9muR2whk" />
+            <Patch Id="COJaHg8uwnCQKAfftaF7kd" Name="SetFPS">
+              <Pin Id="B9lXVYt3kHvPgXIOfrbPKH" Name="Current FPS" Kind="OutputPin" />
+              <Pin Id="Uby1ZgxzToZNXmEDhdiwGa" Name="FPS" Kind="InputPin" DefaultValue="30">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="TypeFlag" Name="Integer32" />
+                </p:TypeAnnotation>
+              </Pin>
+              <Pin Id="PN9K4DeTfkuLzfJpm9uIwv" Name="Force" Kind="InputPin" Bounds="33,974" />
+            </Patch>
+            <Link Id="TBVKusMPCxcO9L1MtPnC1h" Ids="QF7s6gOvgL4PixWMxkwDnu,JvthlhllxweQHeSdHqfg3M" />
+            <Link Id="HbwwRv93zxmPAeNMHpd3kI" Ids="Uby1ZgxzToZNXmEDhdiwGa,QF7s6gOvgL4PixWMxkwDnu" IsHidden="true" />
+            <Link Id="UiiVC6VCAmVPtcPUMzRQds" Ids="GFbGl3x1FvFNdWoyPvyGKC,Nm8eW8K5PRdQUQab7wRST7" />
+            <Link Id="K3P0hDHHbcDOdKOyllH7R4" Ids="QF7s6gOvgL4PixWMxkwDnu,RF4JAJ4asvlMr9RMSqZl7g" />
+            <Link Id="UH2gnXJOBJbORKNowQxNG8" Ids="ANLwGBlrxlvLOGwXEErJ5s,DUG8H3KFJX6QKuxZ3gjbeR" />
+            <Link Id="F302Sn0kZAgNP7ONNOSGjG" Ids="PN9K4DeTfkuLzfJpm9uIwv,ANLwGBlrxlvLOGwXEErJ5s" IsHidden="true" />
+            <Link Id="Ofvn4ljILRmObxdZg7vJKV" Ids="Mv0vkHdGH9sPZjr6wkQcRq,OkLAjQVQUm3PxePpA14jk0" />
+            <Link Id="AepmoqOE7w6QC2Gkt9DdRK" Ids="NA4FSXZOxeGQCZh20BetCR,JbSpQM2WnINLVgGZq8qy0k" IsFeedback="true" />
+            <Link Id="AlwUcP7Aks7MiXXHex0peZ" Ids="MVwCuQc4nNNQYL9orRZL1J,JbSpQM2WnINLVgGZq8qy0k" />
+            <Slot Id="GO6mnK1OH06M8eIHOJQ5ol" Name="Current FPS" />
+            <Link Id="TcBNhLeVu1aNBV8fcxHlyr" Ids="JbSpQM2WnINLVgGZq8qy0k,JlH6cqhjmlFLYiIcqUwByq" />
+            <Link Id="Jp3QArxF45KLRn2lFNZGLQ" Ids="CNZeHGPQjNjNtAKzSmhUeF,NA4FSXZOxeGQCZh20BetCR" />
+            <Link Id="DpeULy6J1XEOZiECxgnQ7w" Ids="KkgPuUXXQLqOtHROLk1KmB,B9lXVYt3kHvPgXIOfrbPKH" IsHidden="true" />
+            <Link Id="Lc9lp1iKzfQNxoBRxA8dMj" Ids="JlH6cqhjmlFLYiIcqUwByq,KkgPuUXXQLqOtHROLk1KmB" />
+          </Patch>
+        </Node>
+        <!--
+
+    ************************ Camera ************************
+
+-->
+        <Node Name="Camera" Bounds="275,331" Id="CHyxqfFioJaNMkvNf0Wf3j">
+          <p:NodeReference>
+            <Choice Kind="ContainerDefinition" Name="Process" />
+            <FullNameCategoryReference ID="Primitive" />
+          </p:NodeReference>
+          <Patch Id="POrIJdMbjNLLfTzWYFYVKF">
+            <Canvas Id="FQPQAuMtTSDL3WpyhlilT8" CanvasType="Group">
+              <Node Bounds="484,316,46,26" Id="NLngFSmncG8QJ5jz5u2gm7">
+                <p:NodeReference LastCategoryFullName="OpenCV.ZED.ZEDCam" LastSymbolSource="VL.ZEDCam.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <CategoryReference Kind="Category" Name="OpenCV" />
+                  <CategoryReference Kind="Category" Name="ZED" />
+                  <CategoryReference Kind="ClassType" Name="ZEDCam" />
+                  <Choice Kind="OperationCallFlag" Name="Create" />
+                </p:NodeReference>
+                <Pin Id="GdFVf0w9wsCPfzhmsEjZ8C" Name="Resolution" Kind="InputPin" />
+                <Pin Id="M7kczvH69cOPq5UrqgR9Xk" Name="Depth Mode" Kind="InputPin" />
+                <Pin Id="DXRFIE0ij8JQV8WnTEz9Ol" Name="Stabilisation" Kind="InputPin" />
+                <Pin Id="D389ybzG2kTOYEvqdiarRz" Name="Output" Kind="StateOutputPin" />
+              </Node>
+              <Pad Id="F4aCTJEBAvLPbN7rnp1ZYy" SlotId="PRel0VXvHFgNLkHxOHOHaE" Bounds="486,369">
+                <p:ValueBoxSettings />
+              </Pad>
+              <Node Bounds="636,360,274,26" Id="HTPN5rCKme1Mn3B7RfzAGt">
+                <p:NodeReference LastCategoryFullName="OpenCV.ZED.ZEDCam" LastSymbolSource="VL.ZEDCam.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <CategoryReference Kind="Category" Name="OpenCV" />
+                  <CategoryReference Kind="Category" Name="ZED" />
+                  <CategoryReference Kind="ClassType" Name="ZEDCam" />
+                  <Choice Kind="OperationCallFlag" Name="Update" />
+                </p:NodeReference>
+                <Pin Id="K6G5PAXVqGiOZ63dWI1Tqh" Name="Input" Kind="InputPin" />
+                <Pin Id="J3Sj6MY8z3KMZebd9kcPJw" Name="Start" Kind="InputPin" />
+                <Pin Id="EaVsLGdD1oEOqNsReLEo7o" Name="Stop" Kind="InputPin" />
+                <Pin Id="BGRHUDTc0QvMmsxHDa9G2p" Name="Pointcloud" Kind="InputPin" />
+                <Pin Id="RXJRES3JeF1QLMagkgXfqF" Name="View" Kind="StateInputPin" />
+                <Pin Id="R97DxYsPBmPNStdgBjmSOo" Name="Output" Kind="OutputPin" />
+                <Pin Id="TDx5kSVBNCLPZedUuRvSUR" Name="Point Cloud" Kind="OutputPin" />
+                <Pin Id="CO7nrao874oNcTC92kgQpT" Name="Image" Kind="OutputPin" />
+                <Pin Id="UGISTIioiVELj3VVnmuiZP" Name="Running" Kind="OutputPin" />
+                <Pin Id="Td4ZFrRMBqILQMoj0mOCC1" Name="In Progress" Kind="OutputPin" />
+              </Node>
+              <Pad Id="PrTwzsUfHCiOB3nMyOXBzp" SlotId="PRel0VXvHFgNLkHxOHOHaE" Bounds="638,305">
+                <p:ValueBoxSettings />
+              </Pad>
+              <Node Bounds="480,463,53,26" Id="Ngyfl1pFmyTK988xRcGPft">
+                <p:NodeReference LastCategoryFullName="OpenCV.ZED.ZEDCam" LastSymbolSource="VL.ZEDCam.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <CategoryReference Kind="Category" Name="OpenCV" />
+                  <CategoryReference Kind="Category" Name="ZED" />
+                  <CategoryReference Kind="ClassType" Name="ZEDCam" />
+                  <Choice Kind="OperationCallFlag" Name="Dispose" />
+                </p:NodeReference>
+                <Pin Id="ICR6jrW2bgHM6AxxuABSI9" Name="Input" Kind="StateInputPin" />
+                <Pin Id="IjQo2TJtXTMLekXGbW5umn" Name="Output" Kind="StateOutputPin" />
+              </Node>
+              <Pad Id="EuiW5B8VOT9LKEInTY4E6D" SlotId="PRel0VXvHFgNLkHxOHOHaE" Bounds="483,420">
+                <p:ValueBoxSettings />
+              </Pad>
+              <ControlPoint Id="KO0maykEVSxMsllRzzlBBd" Bounds="706,438" />
+              <ControlPoint Id="ScHZwThruwbMW9OlhOgU0d" Bounds="701,305" />
+              <ControlPoint Id="Oj7rfQXGXabMTcsRt7tLvL" Bounds="762,305" />
+              <ControlPoint Id="VJr4jqh9OBqNHXJ2EbGusW" Bounds="822,305" />
+              <ControlPoint Id="UunAdMqkJosLxUX36QWUd5" Bounds="639,439" />
+              <ControlPoint Id="E3blRtn2poZMzR7woTZNfB" Bounds="781,438" />
+              <ControlPoint Id="RgBEU7Wt5HVN9QlIJrfJ6W" Bounds="833,438" />
+              <ControlPoint Id="Pc5CFWMfvZ1L4zvIUKmCNK" Bounds="912,438" />
+              <ControlPoint Id="UNPcym1VE04MjpGrBISeEh" Bounds="484,188" />
+              <ControlPoint Id="Sogb5qtZgypNptJxfGtMgH" Bounds="505,226" />
+              <ControlPoint Id="ST0w30uuQmmMFgL4tYBS7y" Bounds="527,263" />
+              <ControlPoint Id="R1dLpJfQ8BQQVwIvsewS9h" Bounds="911,305" />
+            </Canvas>
+            <Patch Id="TH29oLlANbZMTXbiWATXmw" Name="Create" ParticipatingElements="NLngFSmncG8QJ5jz5u2gm7">
+              <Pin Id="UBVsbBrOOmDMPemKIYlbrc" Name="Resolution" Kind="InputPin" Bounds="484,283" DefaultValue="HD1080">
+                <p:TypeAnnotation LastCategoryFullName="sl" LastSymbolSource="VL.ZEDCam.dll">
+                  <Choice Kind="TypeFlag" Name="RESOLUTION" />
+                </p:TypeAnnotation>
+              </Pin>
+              <Pin Id="UW3mJVwuQ05NB7ZyoQhViK" Name="Depth Mode" Kind="InputPin" Bounds="506,284" DefaultValue="MEDIUM">
+                <p:TypeAnnotation LastCategoryFullName="sl" LastSymbolSource="VL.ZEDCam.dll">
+                  <Choice Kind="TypeFlag" Name="DEPTH_MODE" />
+                </p:TypeAnnotation>
+              </Pin>
+              <Pin Id="DWRSsmhqonzOyAwfTydQkh" Name="Stabilisation" Kind="InputPin" Bounds="524,278" DefaultValue="True">
+                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="TypeFlag" Name="Boolean" />
+                </p:TypeAnnotation>
+              </Pin>
+            </Patch>
+            <Patch Id="CdKmP5uKlCGLmx1hHIijSN" Name="Update">
+              <Pin Id="LENAYnrby36NYInUmBBgHC" Name="Output" Kind="OutputPin" />
+              <Pin Id="U7gNkdYJEhiMTp0GgbKbRp" Name="Start" Kind="InputPin" Bounds="660,249" />
+              <Pin Id="Slgs1FSF0koMvBEiEvd8QW" Name="Point Cloud" Kind="OutputPin" Bounds="662,450" />
+              <Pin Id="BNY45GUSn7rOl0e9X8hEIp" Name="Stop" Kind="InputPin" Bounds="724,271" />
+              <Pin Id="AzdY1zanYK3NWOo7SeBLYD" Name="Image" Kind="OutputPin" />
+              <Pin Id="Ea7Wq9bUmXvLNn6KJwmEw7" Name="Pointcloud" Kind="InputPin" Bounds="739,328" DefaultValue="XYZ_RIGHT">
+                <p:TypeAnnotation LastCategoryFullName="sl" LastSymbolSource="VL.ZEDCam.dll">
+                  <Choice Kind="TypeFlag" Name="MEASURE" />
+                </p:TypeAnnotation>
+              </Pin>
+              <Pin Id="KpEb36UTTaLMcGT8UTwhHU" Name="Running" Kind="OutputPin" />
+              <Pin Id="JxtSpY4oZecNu5Wr2Aw5e3" Name="View" Kind="InputPin" Bounds="911,320" />
+              <Pin Id="IIyH6UqlfP5MM8G0xRYIUm" Name="In Progress" Kind="OutputPin" />
+            </Patch>
+            <ProcessDefinition Id="PShgTbqviqSNyKZEFBPhPC">
+              <Fragment Id="JiO7jSZYko9Ohm6gLqax1M" Patch="TH29oLlANbZMTXbiWATXmw" Enabled="true" />
+              <Fragment Id="D5GHovF8zOLNJz66TiMyLU" Patch="CdKmP5uKlCGLmx1hHIijSN" Enabled="true" />
+            </ProcessDefinition>
+            <Slot Id="PRel0VXvHFgNLkHxOHOHaE" Name="Camera" />
+            <Link Id="M16WLxwgfqFNGBfIzMnB2l" Ids="D389ybzG2kTOYEvqdiarRz,F4aCTJEBAvLPbN7rnp1ZYy" />
+            <Patch Id="D3h5CT4QCGtMkp6q8aWahy" Name="Dispose" ParticipatingElements="Ngyfl1pFmyTK988xRcGPft" />
+            <Link Id="AtrasSs5pYVOevvxV5kAY1" Ids="EuiW5B8VOT9LKEInTY4E6D,ICR6jrW2bgHM6AxxuABSI9" />
+            <Link Id="CEviT50ILKMNINePlUmIjg" Ids="TDx5kSVBNCLPZedUuRvSUR,KO0maykEVSxMsllRzzlBBd" />
+            <Link Id="OIbhuDsMYYXQPgiqlLkeCm" Ids="KO0maykEVSxMsllRzzlBBd,Slgs1FSF0koMvBEiEvd8QW" IsHidden="true" />
+            <Link Id="TmJqujhhxBgPocfoIceyhQ" Ids="ScHZwThruwbMW9OlhOgU0d,J3Sj6MY8z3KMZebd9kcPJw" />
+            <Link Id="FG95yO8532aNxpJskMTYX5" Ids="U7gNkdYJEhiMTp0GgbKbRp,ScHZwThruwbMW9OlhOgU0d" IsHidden="true" />
+            <Link Id="RQtULcskHJaLyNocpzLnAX" Ids="Oj7rfQXGXabMTcsRt7tLvL,EaVsLGdD1oEOqNsReLEo7o" />
+            <Link Id="DlXmfGpqyd3LvPgH3oEsyY" Ids="BNY45GUSn7rOl0e9X8hEIp,Oj7rfQXGXabMTcsRt7tLvL" IsHidden="true" />
+            <Link Id="OViBcbO0q2rND2hs0Gs76H" Ids="VJr4jqh9OBqNHXJ2EbGusW,BGRHUDTc0QvMmsxHDa9G2p" />
+            <Link Id="VYTRsWLIijYP76vue3E4Pa" Ids="Ea7Wq9bUmXvLNn6KJwmEw7,VJr4jqh9OBqNHXJ2EbGusW" IsHidden="true" />
+            <Link Id="LsaivfRSvdpMCwNmkiKSnd" Ids="UunAdMqkJosLxUX36QWUd5,LENAYnrby36NYInUmBBgHC" IsHidden="true" />
+            <Link Id="ES03oZLhDyTN7GJDD16gsS" Ids="E3blRtn2poZMzR7woTZNfB,AzdY1zanYK3NWOo7SeBLYD" IsHidden="true" />
+            <Link Id="TRCBtavqpCGMOFVwbdvZxu" Ids="CO7nrao874oNcTC92kgQpT,E3blRtn2poZMzR7woTZNfB" />
+            <Link Id="P4OWVBucF6FQIvfmZ0znhQ" Ids="RgBEU7Wt5HVN9QlIJrfJ6W,KpEb36UTTaLMcGT8UTwhHU" IsHidden="true" />
+            <Link Id="S4wSHV0hHcQLfea7zus9Qk" Ids="UGISTIioiVELj3VVnmuiZP,RgBEU7Wt5HVN9QlIJrfJ6W" />
+            <Link Id="SIsiOfeye9gQALfggflBDz" Ids="Pc5CFWMfvZ1L4zvIUKmCNK,IIyH6UqlfP5MM8G0xRYIUm" IsHidden="true" />
+            <Link Id="OtuwM4EChrjNQRZn7kvBg9" Ids="Td4ZFrRMBqILQMoj0mOCC1,Pc5CFWMfvZ1L4zvIUKmCNK" />
+            <Link Id="Jl434XjnaFTOwPY3ZPIOi8" Ids="UNPcym1VE04MjpGrBISeEh,GdFVf0w9wsCPfzhmsEjZ8C" />
+            <Link Id="VFO82YcA2doNxQKzZHDknn" Ids="UBVsbBrOOmDMPemKIYlbrc,UNPcym1VE04MjpGrBISeEh" IsHidden="true" />
+            <Link Id="I3wmXZkI4TwNpXHNKluBsD" Ids="Sogb5qtZgypNptJxfGtMgH,M7kczvH69cOPq5UrqgR9Xk" />
+            <Link Id="QHpqh5uBd5GNFT9hFjgF6l" Ids="UW3mJVwuQ05NB7ZyoQhViK,Sogb5qtZgypNptJxfGtMgH" IsHidden="true" />
+            <Link Id="GnZeIhJEp7LQBACD4EIXbB" Ids="ST0w30uuQmmMFgL4tYBS7y,DXRFIE0ij8JQV8WnTEz9Ol" />
+            <Link Id="OPH37oQ1hVWLtC0jGpL2DC" Ids="DWRSsmhqonzOyAwfTydQkh,ST0w30uuQmmMFgL4tYBS7y" IsHidden="true" />
+            <Link Id="BkRqAHmLz7CLgSxT4Yfjxb" Ids="PrTwzsUfHCiOB3nMyOXBzp,K6G5PAXVqGiOZ63dWI1Tqh" />
+            <Link Id="CwGmpwZoJjUPazMAkJ2VTT" Ids="R1dLpJfQ8BQQVwIvsewS9h,RXJRES3JeF1QLMagkgXfqF" />
+            <Link Id="AFAkVRIRnvrPj0neQ5pDtI" Ids="JxtSpY4oZecNu5Wr2Aw5e3,R1dLpJfQ8BQQVwIvsewS9h" IsHidden="true" />
+            <Link Id="NVAcE3cFSeINYdxykdjtgr" Ids="R97DxYsPBmPNStdgBjmSOo,UunAdMqkJosLxUX36QWUd5" />
+          </Patch>
+        </Node>
+        <!--
+
+    ************************ FOV_H ************************
+
+-->
+        <Node Name="FOV_H" Bounds="509,267,117,80" Id="SdQOIRcM4VUOa6cAcR2fL2">
+          <p:NodeReference>
+            <Choice Kind="OperationDefinition" Name="Operation" />
+            <FullNameCategoryReference ID="Primitive" />
+          </p:NodeReference>
+          <p:HideCategory p:Type="Boolean">false</p:HideCategory>
+          <Patch Id="T5KwkSsOyi1MNhk3hC8fqx">
+            <Node Bounds="526,296,46,26" AutoConnect="true" Id="RJYBjMBUgKsNUtySYOmyaA">
+              <p:NodeReference LastCategoryFullName="sl.ZEDCam" LastSymbolSource="VL.ZEDCam.dll">
+                <Choice Kind="OperationNode" Name="FOV_H" />
+                <FullNameCategoryReference ID="sl.ZEDCam" />
+              </p:NodeReference>
+              <Pin Id="FHXQBKE4ol3PPNioxBxilO" Name="Input" Kind="StateInputPin" />
+              <Pin Id="HWuz7pBC6yrOWvccJL2EvN" Name="Output" Kind="StateOutputPin" />
+              <Pin Id="G2paWTkDA1uMFSuVuhr9ip" Name="FOV_H" Kind="OutputPin" />
+            </Node>
+            <Pin Id="TGTL2BirTJtP5DyY6oU4KC" Name="Input" Kind="InputPin" />
+            <Pin Id="AgKRjtRlZFmPEgWfO6ENyC" Name="Output" Kind="OutputPin" />
+            <Pin Id="VDvkSZS6ldCPrWepPLKqSn" Name="FOV_H" Kind="OutputPin" />
+          </Patch>
+        </Node>
+        <!--
+
+    ************************ FOV_V ************************
+
+-->
+        <Node Name="FOV_V" Bounds="751,254,117,82" Id="VyiBXaCTZeSM5lHof1liCc">
+          <p:NodeReference>
+            <Choice Kind="OperationDefinition" Name="Operation" />
+            <FullNameCategoryReference ID="Primitive" />
+          </p:NodeReference>
+          <p:HideCategory p:Type="Boolean">false</p:HideCategory>
+          <Patch Id="JgmTuj661IXLNNtZpSquIJ">
+            <Node Bounds="768,286,46,19" AutoConnect="true" Id="DPJvrMPeh5wMUnHMYIZ72J">
+              <p:NodeReference LastCategoryFullName="sl.ZEDCam" LastSymbolSource="VL.ZEDCam.dll">
+                <Choice Kind="OperationNode" Name="FOV_V" />
+                <FullNameCategoryReference ID="sl.ZEDCam" />
+              </p:NodeReference>
+              <Pin Id="QgOX6dlr4piM8S8uPJPPZj" Name="Input" Kind="StateInputPin" />
+              <Pin Id="CxWIikhoMFSOi0OXY7Gj6V" Name="Output" Kind="StateOutputPin" />
+              <Pin Id="S3hFCXT9Cw0MvIRLK9gjYY" Name="FOV_V" Kind="OutputPin" />
+            </Node>
+            <Pin Id="RnRfncwgsknOp8mX7VDzEy" Name="Input" Kind="InputPin" />
+            <Pin Id="NsnX3sJOuPKMzCBKF8VRsh" Name="Output" Kind="OutputPin" />
+            <Pin Id="RONcWifmjoKPdQdAugzxB0" Name="FOV_V" Kind="OutputPin" />
+          </Patch>
+        </Node>
+        <!--
+
+    ************************ SetCamFPS ************************
+
+-->
+        <Node Name="SetCamFPS" Bounds="514,442,112,84" Id="VPdLeoOrmEtM5OJuipjdyo">
+          <p:NodeReference>
+            <Choice Kind="OperationDefinition" Name="Operation" />
+            <FullNameCategoryReference ID="Primitive" />
+          </p:NodeReference>
+          <p:HideCategory p:Type="Boolean">false</p:HideCategory>
+          <Patch Id="IHdoF4AYz1nOZlNWMQ3VAQ">
+            <Node Bounds="526,474,66,26" AutoConnect="true" Id="AGXwcIPfRESOj1jUgJJADX">
+              <p:NodeReference LastCategoryFullName="sl.ZEDCam" LastSymbolSource="VL.ZEDCam.dll">
+                <Choice Kind="OperationNode" Name="SetCamFPS" />
+                <FullNameCategoryReference ID="sl.ZEDCam" />
+              </p:NodeReference>
+              <Pin Id="JnbJZe9M15zLIVOSaMJVup" Name="Input" Kind="StateInputPin" />
+              <Pin Id="G6nUh1PI4AYOBahsDzFtUZ" Name="FPS" Kind="InputPin" />
+              <Pin Id="ONSu8eJFoYsN8cgOTV7U59" Name="Output" Kind="StateOutputPin" />
+              <Pin Id="CPXfZPFjFAjNtRYlVtM2HI" Name="Current FPS" Kind="OutputPin" />
+            </Node>
+            <Pin Id="LbtYoHPUIXgNsH6g1g7QZN" Name="Input" Kind="InputPin" />
+            <Pin Id="Q2NRxFC1YNsMfVXh3DGD0a" Name="FPS" Kind="InputPin" />
+            <Pin Id="UTFsuV8KF1IOhq8KOcceMv" Name="Output" Kind="OutputPin" />
+            <Pin Id="BwE0d0TmntFPiplSNxZ2Fx" Name="Current FPS" Kind="OutputPin" />
+          </Patch>
+        </Node>
+      </Canvas>
+    </Canvas>
+    <!--
+
+    ************************ Application ************************
+
+-->
+    <Node Name="Application" Bounds="100,100" Id="G9Q5R3k5vNUPjcfNfo22PQ">
+      <p:NodeReference>
+        <Choice Kind="ContainerDefinition" Name="Process" />
+        <FullNameCategoryReference ID="Primitive" />
+      </p:NodeReference>
+      <Patch Id="PZ1sV9PGmBZOOAgwdZtu0G">
+        <Canvas Id="JBI7YOWj0aoMyElpri2j5A" CanvasType="Group" />
+        <Patch Id="BLqCZ6TItGoQSQrfF26BAe" Name="Create" />
+        <Patch Id="Tsgomm7mhCFMtK7AtWAxqU" Name="Update" />
+        <ProcessDefinition Id="Txjd2VxC5MbLochMWpokgM">
+          <Fragment Id="I1EwJ0scOaqNRw83uePH8Z" Patch="BLqCZ6TItGoQSQrfF26BAe" Enabled="true" />
+          <Fragment Id="CqURDl53uEfQCjBWbwvZHz" Patch="Tsgomm7mhCFMtK7AtWAxqU" Enabled="true" />
+        </ProcessDefinition>
+      </Patch>
+    </Node>
+  </Patch>
+  <PlatformDependency Id="UhaKxWAvRMYQRFouEaTj6J" Location="./lib/VL.ZEDCam.dll" />
+  <NugetDependency Id="S8E51M3lLvvMBqLme53ZlQ" Location="VL.OpenCV" Version="0.2.72-alpha" />
+  <PlatformDependency Id="Teb6wsHc2u6PMBLYfSu3FL" Location="C:/Users/Alexander/Documents/vvvv/beta-preview/Packages/VL.OpenCV.0.2.99-alpha/lib/net461/VL.OpenCV.dll" />
+</Document>

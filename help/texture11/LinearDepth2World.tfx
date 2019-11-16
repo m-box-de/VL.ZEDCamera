@@ -1,0 +1,34 @@
+//@author: rmt
+//@help: 
+//@tags: filter
+//@credits:
+
+#if !defined(PASSFORMAT0)
+#define PASSFORMAT0 "R32G32B32A32_Float"
+#endif
+
+Texture2D tex0: PREVIOUS;
+float4x4 tPI;
+
+SamplerState s0 <bool visible=true;string uiname="Sampler";> {Filter=MIN_MAG_MIP_LINEAR;AddressU=CLAMP;AddressV=CLAMP;};
+
+float4 pWORLD(float4 PosWVP:SV_POSITION,float2 UV:TEXCOORD0):SV_Target
+{
+	float z = tex0.SampleLevel(s0,UV,0).r;
+	
+	float x = UV.x * 2 - 1;
+    float y = (1 - UV.y) * 2 - 1;
+	
+    float4 vProjectedPos = float4(x, y, 0.0, 1.0f);
+	
+	float4 vPositionVS = mul(vProjectedPos, tPI);
+	vPositionVS.xyz *= z;
+	//vPositionVS.xyz /= vPositionVS.w;
+	
+	return vPositionVS;
+}
+
+technique10 FastBlur{
+	pass P0 <string format=PASSFORMAT0;>
+	{SetPixelShader(CompileShader(ps_4_0,pWORLD()));}
+}
