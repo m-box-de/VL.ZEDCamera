@@ -46,6 +46,11 @@ namespace sl
             //get { return this.camera.CalibrationParametersRectified.leftCam.vFOV; }
         }
 
+        public int FPS
+        {
+            get { return (int)this.camera.GetCameraFPS(); }
+            set { this.camera.SetCameraFPS(value); }
+        }
 
         // constructor
         public ZEDCam() : this(null, null) { }
@@ -205,15 +210,6 @@ namespace sl
 				//Console.WriteLine("Not open");
 			}
 		}
-
-        public void SetCamFPS(int FPS, out int CurrentFPS)
-        {
-            float currentFPS = this.camera.GetCameraFPS();
-            if ((int)currentFPS != FPS)
-                this.camera.SetCameraFPS(FPS);
-
-            CurrentFPS = (int)this.camera.GetCameraFPS();
-        }
 
 		public void Stop()
 		{
