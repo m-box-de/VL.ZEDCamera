@@ -180,8 +180,8 @@
               <Pad Id="HGzM4buKPomM55rMFichUz" SlotId="RoUQXBk7a1FQSoUNqqhwNm" Bounds="1593,250">
                 <p:ValueBoxSettings />
               </Pad>
-              <ControlPoint Id="QF7s6gOvgL4PixWMxkwDnu" Bounds="1623,235" />
-              <Node Bounds="1652,266,57,19" Id="CL2RaTByKlOQFYg8NA4kXg">
+              <ControlPoint Id="QF7s6gOvgL4PixWMxkwDnu" Bounds="1612,274" />
+              <Node Bounds="1632,298,57,19" Id="CL2RaTByKlOQFYg8NA4kXg">
                 <p:NodeReference LastCategoryFullName="Control" LastSymbolSource="CoreLibBasics.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <Choice Kind="ProcessAppFlag" Name="Changed" />
@@ -858,15 +858,15 @@
               <Pad Id="Ko1dcSfvwLgLTjIgfO8u3e" SlotId="RoUQXBk7a1FQSoUNqqhwNm" Bounds="1597,428">
                 <p:ValueBoxSettings />
               </Pad>
-              <Node Bounds="1591,300,66,26" Id="R6edyYzTmQyLDKRqm0cM2V">
+              <Node Bounds="1591,330,46,26" Id="LtT49MbsyKEL0fhLegZ47J">
                 <p:NodeReference LastCategoryFullName="sl.ZEDCam" LastSymbolSource="VL.ZEDCam.dll">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="OperationCallFlag" Name="SetFPS" />
+                  <Choice Kind="OperationCallFlag" Name="setFPS" />
                 </p:NodeReference>
-                <Pin Id="CGKFh57c59zO5z9muR2whk" Name="Input" Kind="InputPin" />
-                <Pin Id="NLCAJPjCBseQc3acCyYIHx" Name="Value" Kind="InputPin" />
-                <Pin Id="FvR5E4wpDpcPLdPXyETCCs" Name="Apply" Kind="InputPin" />
-                <Pin Id="OZ0lZBiBL7gOdw0MXUC6hw" Name="Output" Kind="OutputPin" />
+                <Pin Id="B66hlBdRgs9MY8T7fnRApI" Name="Input" Kind="StateInputPin" />
+                <Pin Id="QmblcOAVprdLPxv6lPzRYf" Name="X" Kind="InputPin" />
+                <Pin Id="RtUQsjBn8w7NNYVMXFI6j8" Name="Apply" Kind="InputPin" />
+                <Pin Id="BibZzDKqkjGNam3z06X728" Name="Output" Kind="StateOutputPin" />
               </Node>
             </Canvas>
             <ProcessDefinition Id="SQwEqXxXTYsMZ5sLvpPmtp" HasStateOut="true">
@@ -880,7 +880,7 @@
               <Fragment Id="KOO71lWaAnjLC2rnoMFE1n" Patch="T3BwzX35YBkLIvlSstgu6O" />
             </ProcessDefinition>
             <Patch Id="LtrXNM5V3iGOahVk5lpYTq" Name="Create" ParticipatingElements="UUlsETioTznNlQAaRR4yzj" />
-            <Patch Id="SICSfmT3huuPpNPCRIQSqF" Name="Update" ParticipatingElements="Ka40Pb6qdheNXte8TUI3tu,K3P0hDHHbcDOdKOyllH7R4" ManuallySortedPins="true">
+            <Patch Id="SICSfmT3huuPpNPCRIQSqF" Name="Update" ParticipatingElements="K3P0hDHHbcDOdKOyllH7R4" ManuallySortedPins="true">
               <Pin Id="HqunMZoAzz7MmKjdwnYSmo" Name="Start" Kind="InputPin" Bounds="638,55" />
               <Pin Id="AAn1209K2SSMSIzpyD59fT" Name="Stop" Kind="InputPin" Bounds="883,60" />
               <Pin Id="IkhMl83zW3BMHN87DtxOWO" Name="Resolution" Kind="InputPin" DefaultValue="HD1080">
@@ -888,9 +888,9 @@
                   <Choice Kind="TypeFlag" Name="RESOLUTION" />
                 </p:TypeAnnotation>
               </Pin>
-              <Pin Id="VdyJwJ9B9AsLBKZyUnvgV9" Name="FPS" Kind="InputPin" DefaultValue="30">
-                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-                  <Choice Kind="TypeFlag" Name="Integer32" />
+              <Pin Id="VdyJwJ9B9AsLBKZyUnvgV9" Name="FPS" Kind="InputPin" DefaultValue="_30FPS">
+                <p:TypeAnnotation LastCategoryFullName="sl.ZEDCam" LastSymbolSource="VL.ZEDCam.dll">
+                  <Choice Kind="TypeFlag" Name="fps" />
                 </p:TypeAnnotation>
               </Pin>
               <Pin Id="FnKWOWkx2IPOK49IQzdS3Z" Name="Depth Mode" Kind="InputPin" DefaultValue="MEDIUM">
@@ -948,7 +948,6 @@
             <Patch Id="GG3Z9kozAVCMXGrQzhPmeS" Name="GetFOV">
               <Pin Id="VyJdyqzZBddMvz9VKGiasw" Name="FOV" Kind="OutputPin" />
             </Patch>
-            <Link Id="Ka40Pb6qdheNXte8TUI3tu" Ids="HGzM4buKPomM55rMFichUz,CGKFh57c59zO5z9muR2whk" />
             <Patch Id="COJaHg8uwnCQKAfftaF7kd" Name="GetFPS">
               <Pin Id="TrlR1rJarKUL9duY4mZjwq" Name="Current FPS" Kind="OutputPin" />
             </Patch>
@@ -1102,12 +1101,13 @@
             <Link Id="CejShAKZOYsOkB5ld9wVeI" Ids="LskPoATMsFOOGWjx6QinX8,TAEBewXEpaKLDIJuMoB5Oa" />
             <Link Id="A7CgprBIDGSO3R3HWkHzIt" Ids="OHZqfNASYqxOjb2rnl9ZE7,QMTClHmOWbQNFhbGPlaaqO" />
             <Link Id="D2AYg0zKf7mPLyvRIljK2X" Ids="O5JV1sOpOJHNU7pxvgHDrf,HuyE8cs9Q0TNT0RNSDrQJX" />
-            <Link Id="GlABDuzCICFPlZdcdhHcpn" Ids="QF7s6gOvgL4PixWMxkwDnu,NLCAJPjCBseQc3acCyYIHx" />
             <Link Id="JDuVcz01v9QOqs6qYxCSMi" Ids="IC3tISN0fqxPd2ar80uPNe,R9WHQCoW6NpNE1jv17WBty" />
             <Link Id="NPo9KDryC3sMrq85ag2rbP" Ids="Ko1dcSfvwLgLTjIgfO8u3e,BlZSyiv40hMPSXLxDMxJNM" />
             <Link Id="JMMR6irgyxzLYZ57E3EzKV" Ids="Gr9JCDPYUl0MIMe3an4JQQ,LPokFz1vaEvNIT19ucVyjD" />
-            <Link Id="CyWs2Vm9qRlLBvOHxqsBbC" Ids="GFbGl3x1FvFNdWoyPvyGKC,FvR5E4wpDpcPLdPXyETCCs" />
             <Link Id="S2i0NTsUy3xQBythZp8FaN" Ids="KSHys3ZpKC1NBlVpxRru6U,RUyH5sGbdQrNWRppRPUk9Y" />
+            <Link Id="MgDkPzJfwCULS223k9gWBa" Ids="HGzM4buKPomM55rMFichUz,B66hlBdRgs9MY8T7fnRApI" />
+            <Link Id="K61wA9c7IULPIqrv2mbIkk" Ids="QF7s6gOvgL4PixWMxkwDnu,QmblcOAVprdLPxv6lPzRYf" />
+            <Link Id="P5CtKmZbTc8PCYEVA0ZPnP" Ids="GFbGl3x1FvFNdWoyPvyGKC,RtUQsjBn8w7NNYVMXFI6j8" />
           </Patch>
         </Node>
         <!--

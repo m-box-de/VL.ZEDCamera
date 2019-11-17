@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" LanguageVersion="2019.1.0-0930-g60a3dd6ea9" Version="0.128">
+<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" LanguageVersion="2019.1.0-0618-g6e4914d739" Version="0.128">
   <NugetDependency Id="RKFCmk1Lg5EP3I4IQegLTw" Location="VL.CoreLib" Version="0.35.21" />
   <Patch Id="Th8hpfHvBF4Lk6VOwDCc9D">
     <Canvas Id="NtZT52Xp5qNOXK0fF2H7kv" DefaultCategory="VVVV.Value" CanvasType="FullCategory">
@@ -237,11 +237,6 @@
               <Choice Kind="TypeFlag" Name="SENSING_MODE" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="U7JirJmv5klNo2sVrcTuKa" Comment="FPS" Bounds="272,187,35,15" ShowValueBox="true" isIOBox="true" Value="30">
-            <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-              <Choice Kind="TypeFlag" Name="Integer32" />
-            </p:TypeAnnotation>
-          </Pad>
           <Pad Id="NZvEs0jbi1WMxj4LpUD5hY" Comment="Measure3DReferenceFrame" Bounds="614,173,67,15" ShowValueBox="true" isIOBox="true" Value="WORLD">
             <p:TypeAnnotation LastCategoryFullName="sl" LastSymbolSource="VL.ZEDCam.dll">
               <Choice Kind="TypeFlag" Name="REFERENCE_FRAME" />
@@ -254,7 +249,7 @@
               <CategoryReference Kind="Category" Name="OpenCV" />
               <Choice Kind="ProcessAppFlag" Name="Renderer" />
             </p:NodeReference>
-            <Pin Id="BztP4JmGM3uLYljuV5HAQE" Name="Bounds" Kind="InputPin" DefaultValue="1500, 1056, 512, 316">
+            <Pin Id="BztP4JmGM3uLYljuV5HAQE" Name="Bounds" Kind="InputPin" DefaultValue="2062, 115, 1440, 840">
               <p:TypeAnnotation LastCategoryFullName="System.Drawing" LastSymbolSource="System.Drawing.dll">
                 <Choice Kind="TypeFlag" Name="Rectangle" />
               </p:TypeAnnotation>
@@ -281,6 +276,11 @@
             <Pin Id="GpRU2OwTBdOLT4L9hXPC8W" Name="Running" Kind="OutputPin" />
             <Pin Id="AjEZYFgnrUVOZMt4wwhmdf" Name="In Progress" Kind="OutputPin" />
           </Node>
+          <Pad Id="A9EWP0TCLj9P5O3FwBiTq6" Comment="FPS" Bounds="268,193,66,15" ShowValueBox="true" isIOBox="true" Value="_30FPS">
+            <p:TypeAnnotation LastCategoryFullName="sl.ZEDCam" LastSymbolSource="VL.ZEDCam.dll">
+              <Choice Kind="TypeFlag" Name="fps" />
+            </p:TypeAnnotation>
+          </Pad>
         </Canvas>
         <Patch Id="CeSpNUykYr4MEjdBKV8mIq" Name="Create" />
         <Patch Id="AFWHnnKwDoSMYgwtrogLS8" Name="Update" />
@@ -296,11 +296,11 @@
         <Link Id="BNcivZhoQfQMUKfRtwSX8k" Ids="HEMgq1gsALcNWWIu6NgX4u,V4yDSBdc4z8QP1Sb7PmFPO" />
         <Link Id="KClV4liQOS4OC8wc4kCmRJ" Ids="AA7LAz43XEGLotcVZYtRDD,E9ZGXly5LsDLRILjT1eW6n" />
         <Link Id="H4m4agEcl5BMAjwqeO7NHA" Ids="HqLyLHrStvqPQ7GxeT3r4k,CRn7SSlMQJoO2hYVjJrXVh" />
-        <Link Id="VS7CpdnmaEOODJ8q1bXsQl" Ids="U7JirJmv5klNo2sVrcTuKa,MkoaaSCEvujP0V7Z5XG2nA" />
         <Link Id="CnLQcwQRoE0QHYZftyxHaY" Ids="NZvEs0jbi1WMxj4LpUD5hY,PM7BEGv2SEJNezERqdImVL" />
         <Link Id="LHbXcadPQ3iNfxeHdkYFy9" Ids="V4HxnyHc5LxNWWxU6tBgUz,KrzDP5lLBE7MI70CpPbBqo" />
         <Link Id="UCW1mHHaVh7MRWpe0bWxl7" Ids="F3trqO8TP0HMx7fYZpHX5t,QtmpE8obVeDMfy8fgXTi2L" />
         <Link Id="Nnnz6q4qTQmPjztfEBDz64" Ids="QsBBxFBjdPcMxJTEDbPkxO,FW09aeeXIwaQFjfq8OqJX2" />
+        <Link Id="UTvb67pNo1GQWryDJnKnoW" Ids="A9EWP0TCLj9P5O3FwBiTq6,MkoaaSCEvujP0V7Z5XG2nA" />
       </Patch>
     </Node>
   </Patch>

@@ -52,6 +52,19 @@ namespace sl
             set { this.camera.SetCameraFPS(value); }
         }
 
+        public void setFPS (fps x)
+        {
+            int t = 30;
+            switch(x)
+            {
+                case fps._15FPS: t = 15; break;
+                case fps._30FPS: t = 30; break;
+                case fps._60FPS: t = 60; break;
+                case fps._100FPS:t = 100; break;
+            }
+            FPS = t;
+        }
+
         // constructor
         public ZEDCam() : this(null, null) { }
 
@@ -225,5 +238,25 @@ namespace sl
 		{
 			camera.SetCameraSettings();
 		}
-	}
+
+        public enum fps
+        {
+            /// <summary>
+            /// 2208*1242. Supported frame rate: 15 FPS.
+            /// </summary>
+            _15FPS,
+            /// <summary>
+            /// 1920*1080. Supported frame rates: 15, 30 FPS.
+            /// </summary>
+            _30FPS,
+            /// <summary>
+            /// 1280*720. Supported frame rates: 15, 30, 60 FPS.
+            /// </summary>
+            _60FPS,
+            /// <summary>
+            /// 672*376. Supported frame rates: 15, 30, 60, 100 FPS.
+            /// </summary>
+            _100FPS
+        };
+    }
 }
