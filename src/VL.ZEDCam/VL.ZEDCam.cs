@@ -155,21 +155,21 @@ namespace sl
 
             switch (view)
             {
-                case VIEW.LEFT: imgType = PixelFormat.B8G8R8A8_UNorm; break;
-                case VIEW.RIGHT: imgType = PixelFormat.B8G8R8A8_UNorm; break;
-                case VIEW.LEFT_GREY: imgType = PixelFormat.A8_UNorm; break;
-                case VIEW.RIGHT_GREY: imgType = PixelFormat.A8_UNorm; break;
-                case VIEW.LEFT_UNRECTIFIED: imgType = PixelFormat.B8G8R8A8_UNorm; break;
-                case VIEW.RIGHT_UNRECTIFIED: imgType = PixelFormat.B8G8R8A8_UNorm; break;
-                case VIEW.LEFT_UNRECTIFIED_GREY: imgType = PixelFormat.A8_UNorm; break;
-                case VIEW.RIGHT_UNRECTIFIED_GREY: imgType = PixelFormat.A8_UNorm; break;
-                case VIEW.SIDE_BY_SIDE: imgType = PixelFormat.B8G8R8A8_UNorm; break;
-                case VIEW.DEPTH: imgType = PixelFormat.R32_Float; break;
-                case VIEW.CONFIDENCE: imgType = PixelFormat.B8G8R8A8_UNorm; break;
-                case VIEW.NORMALS: imgType = PixelFormat.B8G8R8A8_UNorm; break;
-                case VIEW.DEPTH_RIGHT: imgType = PixelFormat.B8G8R8A8_UNorm; break;
-                case VIEW.NORMALS_RIGHT: imgType = PixelFormat.B8G8R8A8_UNorm; break;
-                default: imgType = PixelFormat.R8_UInt; break;
+                case VIEW.LEFT:                     imgType = PixelFormat.B8G8R8A8_UNorm; break;
+                case VIEW.RIGHT:                    imgType = PixelFormat.B8G8R8A8_UNorm; break;
+                case VIEW.LEFT_GREY:                imgType = PixelFormat.A8_UNorm; break;
+                case VIEW.RIGHT_GREY:               imgType = PixelFormat.A8_UNorm; break;
+                case VIEW.LEFT_UNRECTIFIED:         imgType = PixelFormat.B8G8R8A8_UNorm; break;
+                case VIEW.RIGHT_UNRECTIFIED:        imgType = PixelFormat.B8G8R8A8_UNorm; break;
+                case VIEW.LEFT_UNRECTIFIED_GREY:    imgType = PixelFormat.A8_UNorm; break;
+                case VIEW.RIGHT_UNRECTIFIED_GREY:   imgType = PixelFormat.A8_UNorm; break;
+                case VIEW.SIDE_BY_SIDE:             imgType = PixelFormat.B8G8R8A8_UNorm; break;
+                case VIEW.DEPTH:                    imgType = PixelFormat.R32_Float; break;
+                case VIEW.CONFIDENCE:               imgType = PixelFormat.B8G8R8A8_UNorm; break;
+                case VIEW.NORMALS:                  imgType = PixelFormat.B8G8R8A8_UNorm; break;
+                case VIEW.DEPTH_RIGHT:              imgType = PixelFormat.B8G8R8A8_UNorm; break;
+                case VIEW.NORMALS_RIGHT:            imgType = PixelFormat.B8G8R8A8_UNorm; break;
+                default:                            imgType = PixelFormat.None; break;
             }
             return Image.New2D(view == VIEW.SIDE_BY_SIDE ? camera.ImageWidth * 2 : camera.ImageWidth, camera.ImageHeight, mitmap, imgType, 1, mat.GetPtr());
         }
@@ -214,25 +214,25 @@ namespace sl
 
             switch (measure)
             {
-                case MEASURE.DISPARITY: imgType = PixelFormat.R32_Float; break;
-                case MEASURE.DEPTH: imgType = PixelFormat.R32_Float; break;
-                case MEASURE.CONFIDENCE: imgType = PixelFormat.R32_Float; break;
-                case MEASURE.XYZ: imgType = PixelFormat.R32G32B32A32_Float; break;
-                case MEASURE.XYZRGBA: imgType = PixelFormat.R32G32B32A32_Float; break;
-                case MEASURE.XYZBGRA: imgType = PixelFormat.R32G32B32A32_Float; break;
-                case MEASURE.XYZARGB: imgType = PixelFormat.R32G32B32A32_Float; break;
-                case MEASURE.XYZABGR: imgType = PixelFormat.R32G32B32A32_Float; break;
-                case MEASURE.NORMALS: imgType = PixelFormat.R32G32B32A32_Float; break;
-                case MEASURE.DISPARITY_RIGHT: imgType = PixelFormat.R32_Float; break;
-                case MEASURE.DEPTH_RIGHT: imgType = PixelFormat.R32_Float; break;
-                case MEASURE.XYZ_RIGHT: imgType = PixelFormat.R32G32B32A32_Float; break;
-                case MEASURE.XYZRGBA_RIGHT: imgType = PixelFormat.R32G32B32A32_Float; break;
-                case MEASURE.XYZBGRA_RIGHT: imgType = PixelFormat.R32G32B32A32_Float; break;
-                case MEASURE.XYZARGB_RIGHT: imgType = PixelFormat.R32G32B32A32_Float; break;
-                case MEASURE.XYZABGR_RIGHT: imgType = PixelFormat.R32G32B32A32_Float; break;
-                default: imgType = PixelFormat.R8_UInt; ; break;
+                case MEASURE.DISPARITY:         imgType = PixelFormat.R32_Float; break;
+                case MEASURE.DEPTH:             imgType = PixelFormat.R32_Float; break;
+                case MEASURE.CONFIDENCE:        imgType = PixelFormat.R32_Float; break;
+                case MEASURE.XYZ:               imgType = PixelFormat.R32G32B32A32_Float; break;
+                case MEASURE.XYZRGBA:           imgType = PixelFormat.R32G32B32A32_Float; break;
+                case MEASURE.XYZBGRA:           imgType = PixelFormat.R32G32B32A32_Float; break;
+                case MEASURE.XYZARGB:           imgType = PixelFormat.R32G32B32A32_Float; break;
+                case MEASURE.XYZABGR:           imgType = PixelFormat.R32G32B32A32_Float; break;
+                case MEASURE.NORMALS:           imgType = PixelFormat.R32G32B32A32_Float; break;
+                case MEASURE.DISPARITY_RIGHT:   imgType = PixelFormat.R32_Float; break;
+                case MEASURE.DEPTH_RIGHT:       imgType = PixelFormat.R32_Float; break;
+                case MEASURE.XYZ_RIGHT:         imgType = PixelFormat.R32G32B32A32_Float; break;
+                case MEASURE.XYZRGBA_RIGHT:     imgType = PixelFormat.R32G32B32A32_Float; break;
+                case MEASURE.XYZBGRA_RIGHT:     imgType = PixelFormat.R32G32B32A32_Float; break;
+                case MEASURE.XYZARGB_RIGHT:     imgType = PixelFormat.R32G32B32A32_Float; break;
+                case MEASURE.XYZABGR_RIGHT:     imgType = PixelFormat.R32G32B32A32_Float; break;
+                default:                        imgType = PixelFormat.None; ; break;
             }
-            return Image.New2D(camera.ImageWidth, camera.ImageHeight, mitmap, imgType, 1, depth_zed.GetPtr());
+                return Image.New2D(camera.ImageWidth, camera.ImageHeight, mitmap, imgType, 1, depth_zed.GetPtr());
         }
 
         public void InitZED_Sequential()
@@ -280,7 +280,7 @@ namespace sl
 
 		public void Close()
 		{
-			camera.Destroy();
+            camera.Destroy();
 		}
 
 		public void TT()

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" LanguageVersion="2019.1.0-0930-g60a3dd6ea9" Version="0.128">
+<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" LanguageVersion="2019.1.0-0975-gbe94390fc5" Version="0.128">
   <NugetDependency Id="RKFCmk1Lg5EP3I4IQegLTw" Location="VL.CoreLib" Version="0.35.21" />
   <NugetDependency Id="U2JwHqMJLyGLDs97lM6eZ6" Location="VL.CoreLib.VVVV" Version="0.35.21" />
   <Patch Id="Th8hpfHvBF4Lk6VOwDCc9D">
@@ -643,15 +643,6 @@
                         <Pin Id="OxPmCzuUhN6Oe7aIgJoakD" Name="Output" Kind="StateOutputPin" />
                         <Pin Id="VmpDTWSP1eDLu8wCejrqpC" Name="Result" Kind="OutputPin" />
                       </Node>
-                      <Node Bounds="158,1376,47,26" Id="FNMgEmkEX35NY3LrqHfpnm">
-                        <p:NodeReference LastCategoryFullName="VL.OpenCV.CvImage" LastSymbolSource="VL.OpenCV.dll">
-                          <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                          <CategoryReference Kind="AssemblyCategory" Name="CvImage" />
-                          <Choice Kind="OperationCallFlag" Name="Create" />
-                        </p:NodeReference>
-                        <Pin Id="BAs04RRykqtNGwdYUIgp1t" Name="Mat" Kind="InputPin" />
-                        <Pin Id="Abo40wJo8UwMVTobhh06gS" Name="Output" Kind="StateOutputPin" />
-                      </Node>
                       <Node Bounds="158,1297,61,26" Id="N3zdkteHEbsOaIfGuxIAnR">
                         <p:NodeReference LastCategoryFullName="sl.ZEDCam" LastSymbolSource="VL.ZEDCam.dll">
                           <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -765,15 +756,6 @@
                       <ControlPoint Id="MwgOriaRyxKPP29NXYDE59" Bounds="699,1271" />
                       <ControlPoint Id="LDZK8VKITmILk5uqZ3XB6N" Bounds="708,1426" />
                       <ControlPoint Id="EZaWnPIw9KMQSE9pSR0kTS" Bounds="801,1426" />
-                      <Node Bounds="706,1375,47,26" Id="VbWvXx59VZcPEq1VSYKif8">
-                        <p:NodeReference LastCategoryFullName="VL.OpenCV.CvImage" LastSymbolSource="VL.OpenCV.dll">
-                          <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                          <CategoryReference Kind="AssemblyCategory" Name="CvImage" />
-                          <Choice Kind="OperationCallFlag" Name="Create" />
-                        </p:NodeReference>
-                        <Pin Id="EkmzWREAjXFMjBPACWDBiq" Name="Mat" Kind="InputPin" />
-                        <Pin Id="RQcoS8xJltMNJwVKjJ9Xqt" Name="Output" Kind="StateOutputPin" />
-                      </Node>
                       <Node Bounds="706,1338,68,26" Id="VCc3vigbXwiLhprmPf4KPz">
                         <p:NodeReference LastCategoryFullName="sl.ZEDCam" LastSymbolSource="VL.ZEDCam.dll">
                           <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -964,7 +946,7 @@
               <Pin Id="B32oUwq0EZmOZMMAxFi8WT" Name="Running" Kind="OutputPin" />
             </Patch>
             <Link Id="Jf7LkAMJbH2QFaltelSW2Y" Ids="I1OgI35lluNMa0wmICkTct,MXTiTlKQDQaLLVukvuuurX" IsHidden="true" />
-            <Patch Id="JouBLiCXMLBOiKLlx1oC1S" Name="GetImage" ParticipatingElements="JhMu2FmACUlPBZnhdac4X6,CZ3YSshZSPYQNOPk0i9lOs,IFG6qDRHFJQNfXSZCqzgSy,TkJOyekZlnFOOE3xU8s1hN,PWQEc54OWUnPXWK0R1rBcC,KWzptEINEHuNLzfR209EQg,AxU0zWed0ObM07evQkgBAW,QZg3BPkxfyRK9cE0rQUIPC,FIbHoOxwoqlL3kfmDYoYkc,USBctC6Y9rLLbfbSm2agLa,EF93pFAdwmXLn1CSpd5cho,JZ94cuSa9DQLgpCGWct3RH,RCsgY7K8QG6ORhWhlhTmON,QTcL3nPn57FP3DKjUirxIy,HMg3ejeNvzTOIzkuRXeTa4,A9HoZc6IawnLQH28ksfH62,BEwgw17tH3wLB0Rbtm5Qgf">
+            <Patch Id="JouBLiCXMLBOiKLlx1oC1S" Name="GetImage" ParticipatingElements="JhMu2FmACUlPBZnhdac4X6,CZ3YSshZSPYQNOPk0i9lOs,IFG6qDRHFJQNfXSZCqzgSy,TkJOyekZlnFOOE3xU8s1hN,PWQEc54OWUnPXWK0R1rBcC,KWzptEINEHuNLzfR209EQg,AxU0zWed0ObM07evQkgBAW,QZg3BPkxfyRK9cE0rQUIPC,FIbHoOxwoqlL3kfmDYoYkc,USBctC6Y9rLLbfbSm2agLa,EF93pFAdwmXLn1CSpd5cho,JZ94cuSa9DQLgpCGWct3RH,RCsgY7K8QG6ORhWhlhTmON,QTcL3nPn57FP3DKjUirxIy,HMg3ejeNvzTOIzkuRXeTa4,A9HoZc6IawnLQH28ksfH62">
               <Pin Id="J80SuAMFjTCNbFPH8PvZOJ" Name="View" Kind="InputPin" />
               <Pin Id="C9NU7005SmXNCktTQxl0HM" Name="Image" Kind="OutputPin" />
               <Pin Id="R6gqqf6hJo1NYO1cPyutt3" Name="In Progress" Kind="OutputPin" />
@@ -1063,8 +1045,6 @@
             <Link Id="JPSXxwLMt3tL1vlS0btOeL" Ids="AVIICmcTb5iP5DLhCUUNt2,HTPgR15AxaLNoKgkHunMFZ" />
             <Link Id="AHoeHDPArRqQQagWjzWIS9" Ids="HTPgR15AxaLNoKgkHunMFZ,SHqK3oLMcHZQWwoqbq3nBc" />
             <Link Id="Up2aC1PAn1GL7FMBvnXCo9" Ids="QO7TXNIoahGM1wVfmLbjlm,KU1oJAGH7QbNXIFuntP3h3" />
-            <Link Id="BGo7OSbEpNxQWP1fBj1lp2" Ids="VmpDTWSP1eDLu8wCejrqpC,BAs04RRykqtNGwdYUIgp1t" />
-            <Link Id="N7XTi4m8Z7ePqgsXFXMPR4" Ids="Abo40wJo8UwMVTobhh06gS,SCa1qD1p98rOehmEVwQ8ja" />
             <Link Id="QoTSdrOH99HOPQZma3uwdH" Ids="NORzSQXk7hMOIk5JOLbRKf,Q7BawbyO9Y1LxD1UxjFMdR" />
             <Link Id="MnKqfSR0lX5NFzGr7548q5" Ids="Q7BawbyO9Y1LxD1UxjFMdR,QhE2hFt4KvUM1ycTA3szHx" IsHidden="true" />
             <Link Id="F5X2q8XhuAuQP9bxRYQGs4" Ids="OhokNgXmm2UMiL7ryClQ87,R6gqqf6hJo1NYO1cPyutt3" IsHidden="true" />
@@ -1089,9 +1069,7 @@
             <Link Id="QTcL3nPn57FP3DKjUirxIy" Ids="Sypqo41jTHTNk7A98AsLMU,DuQ3hFxv6nyPhNmNsatnDy" />
             <Link Id="HMg3ejeNvzTOIzkuRXeTa4" Ids="DuQ3hFxv6nyPhNmNsatnDy,VOv9IlDmGR5O5uNGiLDxjJ" />
             <Link Id="A9HoZc6IawnLQH28ksfH62" Ids="DX0rmrnZq3MMNfnRlRstZO,AhIPMuL7bmMOeuc132tHDm" />
-            <Link Id="BEwgw17tH3wLB0Rbtm5Qgf" Ids="RQcoS8xJltMNJwVKjJ9Xqt,LDZK8VKITmILk5uqZ3XB6N" />
             <Link Id="MuKUkKeUEJQO1hfJiiN9O8" Ids="JOxmeOZzfIeLOIj4rfhDaE,PkCRfC7SrnEOAnTqpGVz0C" />
-            <Link Id="G9sYidR7y3RL0dYaS1O2LT" Ids="UuNDLlHWbKRM17UAv1JXMo,EkmzWREAjXFMjBPACWDBiq" />
             <Link Id="TpQtysppqgUP1qOUuhoAdH" Ids="QEZrMwAKUwtPzePn0MiXe4,DkNKcy8gIbdL41sIZWvsVV" />
             <Link Id="Gd11rgMm8rgMQrTqHxks8Y" Ids="BVDXJbdpeMGMfiCidhFDoa,FGG38PuqaPHLIBEI7KphGC" />
             <Link Id="QDxuF2aUhNlN6DobNTLmnc" Ids="DDQKM4YiROzLba4WTDfXBj,T4rwf92Hf3xQPgV4L7yyU6" />
@@ -1108,6 +1086,8 @@
             <Link Id="MgDkPzJfwCULS223k9gWBa" Ids="HGzM4buKPomM55rMFichUz,B66hlBdRgs9MY8T7fnRApI" />
             <Link Id="K61wA9c7IULPIqrv2mbIkk" Ids="QF7s6gOvgL4PixWMxkwDnu,QmblcOAVprdLPxv6lPzRYf" />
             <Link Id="P5CtKmZbTc8PCYEVA0ZPnP" Ids="GFbGl3x1FvFNdWoyPvyGKC,RtUQsjBn8w7NNYVMXFI6j8" />
+            <Link Id="MDpwXDnxlrIMDDzzlZ5hbo" Ids="UuNDLlHWbKRM17UAv1JXMo,LDZK8VKITmILk5uqZ3XB6N" />
+            <Link Id="TkjjX5kstGfMnxXuNhFN7i" Ids="VmpDTWSP1eDLu8wCejrqpC,SCa1qD1p98rOehmEVwQ8ja" />
           </Patch>
         </Node>
         <!--

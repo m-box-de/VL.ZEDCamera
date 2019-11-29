@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" LanguageVersion="2019.1.0-0618-g6e4914d739" Version="0.128">
+<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" LanguageVersion="2019.1.0-0975-gbe94390fc5" Version="0.128">
   <NugetDependency Id="RKFCmk1Lg5EP3I4IQegLTw" Location="VL.CoreLib" Version="0.35.21" />
   <Patch Id="Th8hpfHvBF4Lk6VOwDCc9D">
     <Canvas Id="NtZT52Xp5qNOXK0fF2H7kv" DefaultCategory="VVVV.Value" CanvasType="FullCategory">
@@ -249,7 +249,7 @@
               <CategoryReference Kind="Category" Name="OpenCV" />
               <Choice Kind="ProcessAppFlag" Name="Renderer" />
             </p:NodeReference>
-            <Pin Id="BztP4JmGM3uLYljuV5HAQE" Name="Bounds" Kind="InputPin" DefaultValue="2062, 115, 1440, 840">
+            <Pin Id="BztP4JmGM3uLYljuV5HAQE" Name="Bounds" Kind="InputPin" DefaultValue="2062, 115, 1440, 1463">
               <p:TypeAnnotation LastCategoryFullName="System.Drawing" LastSymbolSource="System.Drawing.dll">
                 <Choice Kind="TypeFlag" Name="Rectangle" />
               </p:TypeAnnotation>
@@ -260,7 +260,7 @@
             <Pin Id="P9JcVfWkNzfL7x6MeipnvO" Name="Show Info" Kind="InputPin" />
             <Pin Id="P9J8FHJYjW1MYpc1kSZhCp" Name="Enabled" Kind="InputPin" />
           </Node>
-          <Node Bounds="96,489,65,26" Id="D4Tk2hp8528NE2pSoCiiel">
+          <Node Bounds="91,481,65,26" Id="D4Tk2hp8528NE2pSoCiiel">
             <p:NodeReference LastCategoryFullName="OpenCV.ZED.ZEDCamera" LastSymbolSource="VL.ZEDCam.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="OperationCallFlag" Name="GetImage" />
@@ -298,8 +298,6 @@
         <Link Id="H4m4agEcl5BMAjwqeO7NHA" Ids="HqLyLHrStvqPQ7GxeT3r4k,CRn7SSlMQJoO2hYVjJrXVh" />
         <Link Id="CnLQcwQRoE0QHYZftyxHaY" Ids="NZvEs0jbi1WMxj4LpUD5hY,PM7BEGv2SEJNezERqdImVL" />
         <Link Id="LHbXcadPQ3iNfxeHdkYFy9" Ids="V4HxnyHc5LxNWWxU6tBgUz,KrzDP5lLBE7MI70CpPbBqo" />
-        <Link Id="UCW1mHHaVh7MRWpe0bWxl7" Ids="F3trqO8TP0HMx7fYZpHX5t,QtmpE8obVeDMfy8fgXTi2L" />
-        <Link Id="Nnnz6q4qTQmPjztfEBDz64" Ids="QsBBxFBjdPcMxJTEDbPkxO,FW09aeeXIwaQFjfq8OqJX2" />
         <Link Id="UTvb67pNo1GQWryDJnKnoW" Ids="A9EWP0TCLj9P5O3FwBiTq6,MkoaaSCEvujP0V7Z5XG2nA" />
       </Patch>
     </Node>

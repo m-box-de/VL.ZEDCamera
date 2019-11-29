@@ -1,0 +1,2724 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VL.ZEDCam</name>
+    </assembly>
+    <members>
+        <member name="T:ZEDCameraSettings">
+            <summary>
+            Stores the camera settings (brightness/contrast, gain/exposure, etc.) and interfaces with the ZED
+            when they need to be loaded or changed. 
+            Created by ZEDCamera and referenced by ZEDCameraSettingsEditor.
+            </summary><remarks>
+            The actual settings themselves are stored in an instance of CameraSettings, for easier manipulation. 
+            But this class provides accessors for each value within it.
+            </remarks>
+        </member>
+        <member name="T:ZEDCameraSettings.CameraSettings">
+            <summary>
+            Container for ZED camera settings, with constructors for easily creating default or specific values
+            or making duplicate instances. 
+            </summary>
+        </member>
+        <member name="F:ZEDCameraSettings.CameraSettings.settings">
+            <summary>
+            Holds an int for each setting, with indexes corresponding to sl.CAMERA_SETTINGS.
+            </summary>
+        </member>
+        <member name="M:ZEDCameraSettings.CameraSettings.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Constructor. Call without arguments to set all values to default. 
+            </summary>
+            <param name="brightness">Camera's brightness setting.</param>
+            <param name="contrast">Camera's contrast setting.</param>
+            <param name="hue">Camera's hue setting.</param>
+            <param name="saturation">Camera's saturation setting.</param>
+            <param name="whiteBalance">Camera's white balance setting. -1 means automatic.</param>
+            <param name="gain">Camera's gain setting. -1 means automatic.</param>
+            <param name="exposure">Camera's exposure setting. -1 means automatic.</param>
+        </member>
+        <member name="M:ZEDCameraSettings.CameraSettings.#ctor(ZEDCameraSettings.CameraSettings)">
+            <summary>
+            Constructor. Sets settings to match another CameraSettings passed in the argument. 
+            </summary>
+            <param name="other"></param>
+        </member>
+        <member name="M:ZEDCameraSettings.CameraSettings.Clone">
+            <summary>
+            Returns a new instance of CameraSettings with the same settings as the instance this function was called with.
+            </summary>
+            <returns>New instance of CameraSettings.</returns>
+        </member>
+        <member name="P:ZEDCameraSettings.CameraSettings.Brightness">
+            <summary>
+            ZED camera's brightness setting. 
+            </summary>
+        </member>
+        <member name="P:ZEDCameraSettings.CameraSettings.Saturation">
+            <summary>
+            ZED camera's saturation setting. 
+            </summary>
+        </member>
+        <member name="P:ZEDCameraSettings.CameraSettings.Hue">
+            <summary>
+            ZED camera's hue setting. 
+            </summary>
+        </member>
+        <member name="P:ZEDCameraSettings.CameraSettings.Contrast">
+            <summary>
+            ZED camera's contrast setting. 
+            </summary>
+        </member>
+        <member name="P:ZEDCameraSettings.CameraSettings.Gain">
+            <summary>
+            ZED camera's gain setting. -1 means automatic.
+            </summary>
+        </member>
+        <member name="P:ZEDCameraSettings.CameraSettings.Exposure">
+            <summary>
+            ZED camera's exposure setting. -1 means automatic.
+            </summary>
+        </member>
+        <member name="P:ZEDCameraSettings.CameraSettings.WhiteBalance">
+            <summary>
+            ZED camera's white balance setting. -1 means automatic.
+            </summary>
+        </member>
+        <member name="P:ZEDCameraSettings.CameraSettings.LEDStatus">
+            <summary>
+            ZED camera's LED status
+            </summary>
+        </member>
+        <member name="F:ZEDCameraSettings.settings_">
+            <summary>
+            Reference to the settings container object. 
+            </summary>
+        </member>
+        <member name="P:ZEDCameraSettings.Settings">
+            <summary>
+            Reference to the settings container object. 
+            </summary>
+        </member>
+        <member name="F:ZEDCameraSettings.auto">
+            <summary>
+            Whether exposure is set to automatic. 
+            </summary>
+        </member>
+        <member name="F:ZEDCameraSettings.whiteBalanceAuto">
+            <summary>
+            Whether white balance is set to automatic.
+            </summary>
+        </member>
+        <member name="M:ZEDCameraSettings.#ctor">
+            <summary>
+            Constructor. Creates a new instance of CameraSettings to contain all settings values. 
+            </summary>
+        </member>
+        <member name="M:ZEDCameraSettings.SetSettings(sl.ZEDCamera)">
+            <summary>
+            Applies all settings from the container to the actual ZED camera.
+            </summary>
+            <param name="zedCamera">Current instance of the ZEDCamera wrapper.</param>
+        </member>
+        <member name="M:ZEDCameraSettings.ResetCameraSettings(sl.ZEDCamera)">
+            <summary>
+            Applies all settings from the container to the actual ZED camera.
+            </summary>
+            <param name="zedCamera">Current instance of the ZEDCamera wrapper.</param>
+        </member>
+        <member name="M:ZEDCameraSettings.LoadCameraSettings(sl.ZEDCamera,System.String)">
+            <summary>
+            Loads camera settings from a file, and sets them to the container and camera.
+            File is loaded from the root project folder (one above Assets). 
+            </summary>
+            <param name="zedCamera"></param>
+            <param name="path"></param>
+        </member>
+        <member name="M:ZEDCameraSettings.RetrieveSettingsCamera(sl.ZEDCamera)">
+            <summary>
+            Retrieves current settings from the ZED camera.
+            </summary>
+            <param name="zedCamera"></param>
+        </member>
+        <member name="M:ZEDCameraSettings.SetCameraSettings(System.Int32,sl.CAMERA_SETTINGS,System.Int32,System.Boolean)">
+            <summary>
+            Applies an individual setting to the ZED camera. 
+            </summary>
+            <param name="settings">Setting to be changed (brightness, contrast, gain, exposure, etc.)</param>
+            <param name="value">New value for the setting.</param>
+            <param name="usedefault">If true, ignores the value and applies the default setting.</param>
+        </member>
+        <member name="M:ZEDCameraSettings.GetCameraSettings(System.Int32,sl.CAMERA_SETTINGS)">
+            <summary>
+            Gets the value from an individual ZED camera setting (brightness, contrast, gain, exposure, etc.)
+            </summary>
+            <param name="settings">Setting to be retrieved.</param>
+            <returns>Current value.</returns>
+        </member>
+        <member name="M:ZEDCameraSettings.SaveCameraSettings(System.String)">
+            <summary>
+            Saves all camera settings into a file into the specified path/name. 
+            </summary>
+            <param name="path">Path and filename to save the file (ex. /Assets/ZED_Settings.conf)</param>
+        </member>
+        <member name="T:ZEDLogMessage">
+            <summary>
+            Holds the ERROR enum returned by various high- and mid-level camera functions, and the Error2Str() method for 
+            converting the errors to human-readible versions for displaying for the user. 
+            </summary>
+        </member>
+        <member name="P:ZEDLogMessage.zed_sdk_version">
+            <summary>
+            Current version of the required SDK plugin as a string. Used to display errors
+            relating to a missing or mismatched SDK version. 
+            </summary>
+        </member>
+        <member name="T:ZEDLogMessage.ERROR">
+            <summary>
+            Error categories returned by various camera functions, most often in GUIMessage.
+            See ZEDCommon.ERROR_CODE for errors straignt from the SDK.  
+            </summary>
+        </member>
+        <member name="F:ZEDLogMessage.ERROR.SCREEN_RESOLUTION">
+            <summary>
+            The screen resolution is not 16:9.
+            </summary>
+        </member>
+        <member name="F:ZEDLogMessage.ERROR.TRACKING_NOT_INITIALIZED">
+            <summary>
+            The ZED tracking could not be initialized.
+            </summary>
+        </member>
+        <member name="F:ZEDLogMessage.ERROR.CAMERA_NOT_INITIALIZED">
+            <summary>
+            The camera failed to initialize.
+            </summary>
+        </member>
+        <member name="F:ZEDLogMessage.ERROR.CAMERA_LOADING">
+            <summary>
+            The camera has not been initialized yet. 
+            </summary>
+        </member>
+        <member name="F:ZEDLogMessage.ERROR.SDK_MODULE_LOADING">
+            <summary>
+            SDK module are loading (tracking, object detection...)
+            </summary>
+        </member>
+        <member name="F:ZEDLogMessage.ERROR.UNABLE_TO_OPEN_CAMERA">
+            <summary>
+            Could not open the camera.
+            </summary>
+        </member>
+        <member name="F:ZEDLogMessage.ERROR.CAMERA_DETECTION_ISSUE">
+            <summary>
+            Camera detection issue.
+            </summary>
+        </member>
+        <member name="F:ZEDLogMessage.ERROR.SENSOR_NOT_DETECTED">
+            <summary>
+            Motion sensor not detected (ZED Mini only).
+            </summary>
+        </member>
+        <member name="F:ZEDLogMessage.ERROR.LOW_USB_BANDWIDTH">
+            <summary>
+            Low USB bandwidth.
+            </summary>
+        </member>
+        <member name="F:ZEDLogMessage.ERROR.VR_CAMERA_RIG_NOT_FOUND">
+            <summary>
+            SteamVR plugin Camera Rig prefab not found.
+            </summary>
+        </member>
+        <member name="F:ZEDLogMessage.ERROR.VR_CAMERA_RIG_CONTROLLER_NOT_FOUND">
+            <summary>
+            SteamVR plugin Camera Rig controller not found.
+            </summary>
+        </member>
+        <member name="F:ZEDLogMessage.ERROR.PAD_CAMERA_CALIBRATION_MISMATCH">
+            <summary>
+             A calibration file has been found but no controller/Tracker exists of the file's listed serial number. 
+            </summary>
+        </member>
+        <member name="F:ZEDLogMessage.ERROR.PAD_CAMERA_CALIBRATION_NOT_FOUND">
+            <summary>
+            The serial number of the calibration tool does not match any of the current controllers.
+            </summary>
+        </member>
+        <member name="F:ZEDLogMessage.ERROR.NOT_ENOUGH_PAD_DETECTED">
+            <summary>
+             At least one VR controller must be detected.
+            </summary>
+        </member>
+        <member name="F:ZEDLogMessage.ERROR.STEAMVR_NOT_INSTALLED">
+            <summary>
+            SteamVR Unity plugin hasn't been imported.
+            </summary>
+        </member>
+        <member name="F:ZEDLogMessage.ERROR.OVR_NOT_INSTALLED">
+            <summary>
+            Oculus Integration Unity plugin hasn't been imported. 
+            </summary>
+        </member>
+        <member name="F:ZEDLogMessage.ERROR.ZED_IS_DISCONNECETD">
+            <summary>
+            The ZED has been disconnected. (It was connected previously)
+            </summary>
+        </member>
+        <member name="F:ZEDLogMessage.ERROR.SDK_NOT_INSTALLED">
+            <summary>
+            The ZED SDK is not installed or a dependency is missing.
+            </summary>
+        </member>
+        <member name="F:ZEDLogMessage.ERROR.INCORRECT_ZED_SDK_VERSION">
+            <summary>
+            The ZED SDK is installed but it's not the version the Unity plugin requires.
+            </summary>
+        </member>
+        <member name="F:ZEDLogMessage.ERROR.SDK_DEPENDENCIES_ISSUE">
+            <summary>
+            The SDK has a missing dependency.
+            </summary>
+        </member>
+        <member name="F:ZEDLogMessage.ERROR.NAVMESH_NOT_GENERATED">
+            <summary>
+            Scanned mesh is too small to create a Nav Mesh.
+            </summary>
+        </member>
+        <member name="F:ZEDLogMessage.ERROR.TRACKING_BASE_AREA_NOT_FOUND">
+            <summary>
+            The tracking system could not load the spatial memory area file.
+            </summary>
+        </member>
+        <member name="M:ZEDLogMessage.Error2Str(ZEDLogMessage.ERROR)">
+            <summary>
+            Converts an ERROR enum to a string for displaying to the user. Called by various editor windows. 
+            </summary>
+            <param name="error">Error type to be converted to a string.</param>
+            <returns></returns>
+        </member>
+        <member name="F:sl.ZEDCam.fps._15FPS">
+            <summary>
+            2208*1242. Supported frame rate: 15 FPS.
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCam.fps._30FPS">
+            <summary>
+            1920*1080. Supported frame rates: 15, 30 FPS.
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCam.fps._60FPS">
+            <summary>
+            1280*720. Supported frame rates: 15, 30, 60 FPS.
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCam.fps._100FPS">
+            <summary>
+            672*376. Supported frame rates: 15, 30, 60, 100 FPS.
+            </summary>
+        </member>
+        <member name="T:sl.ZEDCamera">
+            <summary>
+            Main interface between Unity and the ZED SDK. Primarily consists of extern calls to the ZED SDK wrapper .dll and
+            low-level logic to process data sent to/received from it.  
+            </summary>
+            <remarks>The ZEDManager component creates a ZEDCamera instance in Awake() and handles all initialization. 
+            Most ZED functionality can be handled simply in Unity via ZEDManager or other high-level manager components 
+            (ZEDSpatialMappingManager, ZEDPlaneDetectionManager, etc.) 
+            Textures created by ZEDCamera by CreateTextureImageType() and CreateTextureMeasureType()
+            are updated automatically by the wrapper whenever a new frame is available. They represent a specific kind of
+            output, like left RGB image, or depth relative to the right sensor. As such, you never need more than one texture
+            of each kind, since it can simply be reused by all scripts that need it. Therefore, textures created in ZEDCamera
+            are indexed by their type (Image or Measure) and then by the options of each type. If a script needs a certain kind
+            of output, ZEDCamera will make a new one if it doesn't exist, but refer to the existing one otherwise.</remarks>
+            
+        </member>
+        <member name="T:sl.ZEDCamera.TYPE_VIEW">
+            <summary>
+            Type of textures requested.
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.TYPE_VIEW.RETRIEVE_IMAGE">
+            <summary>
+            Image-type texture. Human-viewable but loses measurement accuracy.
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.TYPE_VIEW.RETRIEVE_MEASURE">
+            <summary>
+            Measure-type texture. Preserves measurement accuracy but isn't human-viewable. 
+            </summary>
+        </member>
+        <member name="T:sl.ZEDCamera.TextureRequested">
+            <summary>
+            Information for a requested texture. Stored in the texturesRequested list so DestroyTexture()
+            can be called with the correct arguments in DestroyAllTexture().
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.TextureRequested.type">
+            <summary>
+            Texture type - 'image' or 'measure.' Assigned using ZEDCamera.TYPE_VIEW. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.TextureRequested.option">
+            <summary>
+            View mode (left/right eye, depth, etc.) Assigned using ZEDCommon.VIEW.
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.nameDll">
+            <summary>
+            DLL name, used for extern calls to the wrapper. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.texturesRequested">
+            <summary>
+            List of all requested textures. Used for destroying all textures when the camera closes. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.imageWidth">
+            <summary>
+            Width of the textures in pixels. Corresponds to the ZED's current resolution setting. 
+            </summary>
+        </member>
+        <member name="P:sl.ZEDCamera.ImageWidth">
+            <summary>
+            Width of the images returned by the ZED in pixels. Corresponds to the ZED's current resolution setting. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.imageHeight">
+            <summary>
+            Height of the textures in pixels. Corresponds to the ZED's current resolution setting. 
+            </summary>
+        </member>
+        <member name="P:sl.ZEDCamera.ImageHeight">
+            <summary>
+            Height of the images returned by the ZED in pixels. Corresponds to the ZED's current resolution setting. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.pluginIsReady">
+            <summary>
+            True if the ZED SDK is installed.
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.grabLock">
+            <summary>
+            Mutex for the image acquisition thread. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.currentResolution">
+            <summary>
+            Current ZED resolution setting. Set at initialization. 
+            </summary>
+        </member>
+        <member name="T:sl.ZEDCamera.DebugCallback">
+            <summary>
+            Callback for c++ debugging. Should not be used in C#.
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.fpsMax">
+            <summary>
+            Desired FPS from the ZED camera. This is the maximum FPS for the ZED's current
+            resolution unless a lower setting was specified in Init(). 
+            Maximum values are bound by the ZED's output, not system performance. 
+            </summary>
+        </member>
+        <member name="M:sl.ZEDCamera.GetRequestedCameraFPS">
+            <summary>
+            Desired FPS from the ZED camera. This is the maximum FPS for the ZED's current
+            resolution unless a lower setting was specified in Init(). 
+            Maximum values are bound by the ZED's output, not system performance. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.cameraSettingsManager">
+            <summary>
+            Holds camera settings like brightness/contrast, gain/exposure, etc. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.baseline">
+            <summary>
+            Camera's stereo baseline (distance between the cameras). Extracted from calibration files. 
+            </summary>
+        </member>
+        <member name="P:sl.ZEDCamera.Baseline">
+            <summary>
+            Camera's stereo baseline (distance between the cameras). Extracted from calibration files. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.fov_H">
+            <summary>
+            ZED's current horizontal field of view in degrees.
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.fov_V">
+            <summary>
+            ZED's current vertical field of view in degrees.
+            </summary>
+        </member>
+        <member name="P:sl.ZEDCamera.HorizontalFieldOfView">
+            <summary>
+            ZED's current horizontal field of view in degrees.
+            </summary>
+        </member>
+        <member name="P:sl.ZEDCamera.VerticalFieldOfView">
+            <summary>
+            ZED's current vertical field of view in degrees.
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.calibrationParametersRaw">
+            <summary>
+            Stereo parameters for current ZED camera prior to rectification (distorted). 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.calibrationParametersRectified">
+            <summary>
+            Stereo parameters for current ZED camera after rectification (undistorted). 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.cameraModel">
+            <summary>
+            Camera model - ZED or ZED Mini. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.cameraReady">
+            <summary>
+            Whether the camera has been successfully initialized. 
+            </summary>
+        </member>
+        <member name="P:sl.ZEDCamera.CalibrationParametersRaw">
+            <summary>
+            Stereo parameters for current ZED camera prior to rectification (distorted). 
+            </summary>
+        </member>
+        <member name="P:sl.ZEDCamera.CalibrationParametersRectified">
+            <summary>
+            Stereo parameters for current ZED camera after rectification (undistorted). 
+            </summary>
+        </member>
+        <member name="P:sl.ZEDCamera.CameraModel">
+            <summary>
+            Camera model - ZED or ZED Mini. 
+            </summary>
+        </member>
+        <member name="P:sl.ZEDCamera.IsCameraReady">
+            <summary>
+            Whether the camera has been successfully initialized. 
+            </summary>
+        </member>
+        <member name="P:sl.ZEDCamera.IsHmdCompatible">
+            <summary>
+            Whether the current device (ZED or ZED Mini) should be used for pass-through AR. 
+            True if using ZED Mini, false if using ZED. </summary><remarks>Note: the plugin will allow using the original ZED 
+            for pass-through but it will feel quite uncomfortable due to the baseline.</remarks>
+        </member>
+        <member name="F:sl.ZEDCamera.dependenciesNeeded">
+            <summary>
+            List of DLLs needed to run the plugin. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.tagZEDCamera">
+            <summary>
+            Layer that only the ZED is able to see. Used in ZEDSteamVRControllerManager for 'clone' controllers. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.CameraID">
+            <summary>
+            Camera ID (for multiple cameras)
+            </summary>
+        </member>
+        <member name="P:sl.ZEDCamera.Tag">
+            <summary>
+            Layer that only the ZED is able to see. Used in ZEDSteamVRControllerManager for 'clone' controllers. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.tagOneObject">
+            <summary>
+            Layer that the ZED can't see, but overlay cameras created by ZEDMeshRenderer and ZEDPlaneRenderer can.
+            </summary>
+        </member>
+        <member name="P:sl.ZEDCamera.TagOneObject">
+            <summary>
+            Layer that the ZED can't see, but overlay cameras created by ZEDMeshRenderer and ZEDPlaneRenderer can.
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.PluginVersion">
+            <summary>
+            Current Plugin Version.
+            </summary>
+        </member>
+        <member name="M:sl.ZEDCamera.PtrToStringUtf8(System.IntPtr)">
+            <summary>
+            Return a string from a pointer to a char. Used in GetSDKVersion(). 
+            </summary>
+            <param name="ptr">Pointer to a char.</param>
+            <returns>The char as a string.</returns>
+        </member>
+        <member name="M:sl.ZEDCamera.DebugMethod(System.String)">
+            <summary>
+            Displays a console message. Used to display C++ SDK messages in Unity's console. 
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:sl.ZEDCamera.StringUtf8ToByte(System.String)">
+            <summary>
+            Convert a pointer to a char into an array of bytes. Used to send file names to SDK for SVO recording.
+            </summary>
+            <param name="ptr">Pointer to a char.</param>
+            <returns>The array.</returns>
+        </member>
+        <member name="M:sl.ZEDCamera.GetFpsForResolution(sl.RESOLUTION)">
+            <summary>
+            Gets the max FPS for each resolution setting. Higher FPS will cause lower GPU performance.
+            </summary>
+            <param name="reso"></param>
+            <returns>The resolution</returns>
+        </member>
+        <member name="M:sl.ZEDCamera.CheckPlugin">
+            <summary>
+            Checks that the ZED plugin's dependencies are installed. 
+            </summary>
+        </member>
+        <member name="M:sl.ZEDCamera.CheckUSBDeviceConnected(sl.USB_DEVICE)">
+            <summary>
+            Checks if the USB device of a 'brand' type is connected. Used to check if a VR headset are connected
+            for display in ZEDManager's Inspector. 
+            </summary>
+            <returns><c>True</c>, if USB device connected was found, <c>false</c> otherwise.</returns>
+            <param name="Device brand.brand.">Type.</param>
+        </member>
+        <member name="M:sl.ZEDCamera.CheckDependencies(System.String[])">
+            <summary>
+            Checks if all the required DLLs are available and tries calling a dummy function from each one. 
+            </summary>
+            <param name="filesFound">All files in a specified directory.</param>
+            <returns>True if the dependencies were not found. False if they were all found.</returns>
+        </member>
+        <member name="M:sl.ZEDCamera.#ctor">
+            <summary>
+            Private constructor. Initializes lists to hold references to textures and texture requests. 
+            </summary>
+        </member>
+        <member name="M:sl.ZEDCamera.CreateCamera(System.Int32,System.Boolean)">
+            <summary>
+            Create a camera in Live mode (input comes from a connected ZED device, not SVO playback). 
+            </summary>
+            <param name="verbose">True to create detailed log file of SDK calls at the cost of performance.</param>
+        </member>
+        <member name="M:sl.ZEDCamera.Destroy">
+            <summary>
+            Closes the camera and deletes all textures.
+            Once destroyed, you need to recreate a camera instance to restart again.
+            </summary>
+        </member>
+        <member name="T:sl.ZEDCamera.dll_initParameters">
+            <summary>
+            DLL-friendly version of InitParameters (found in ZEDCommon.cs). 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.dll_initParameters.resolution">
+            <summary>
+            Resolution the ZED will be set to. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.dll_initParameters.cameraFps">
+            <summary>
+            Desired camera FPS. Max is set by resolution. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.dll_initParameters.cameraID">
+            <summary>
+            ID for identifying which of multiple connected ZEDs to use. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.dll_initParameters.svoRealTimeMode">
+            <summary>
+            True to skip dropped frames during SVO playback. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.dll_initParameters.coordinateUnit">
+            <summary>
+            Coordinate unit for all measurements (depth, tracking, etc.). Meters are recommended for Unity. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.dll_initParameters.coordinateSystem">
+            <summary>
+            Defines order and direction of coordinate system axes. Unity uses left-handed, Y up, so this setting is recommended. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.dll_initParameters.depthMode">
+            <summary>
+            Quality level of depth calculations. Higher settings improve accuracy but cost performance. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.dll_initParameters.depthMinimumDistance">
+            <summary>
+            Minimum distance from the camera from which depth will be computed, in the defined coordinateUnit. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.dll_initParameters.cameraImageFlip">
+            <summary>
+            True to flip images horizontally. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.dll_initParameters.enableRightSideMeasure">
+            <summary>
+            True if depth relative to the right sensor should be computed. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.dll_initParameters.cameraDisableSelfCalib">
+            <summary>
+            True to disable self-calibration, using unoptimized optional calibration parameters. 
+            False is recommended for optimized calibration. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.dll_initParameters.cameraBufferCountLinux">
+            <summary>
+            Set the number of buffers for the internal buffer process. LINUX ONLY - NOT CURRENTLY USED IN UNITY PLUGIN. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.dll_initParameters.sdkVerbose">
+            <summary>
+            True for the SDK to provide text feedback. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.dll_initParameters.sdkGPUId">
+            <summary>
+            ID of the graphics card on which the ZED's computations will be performed. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.dll_initParameters.depthStabilization">
+            <summary>
+            True to stabilize the depth map. Recommended. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDCamera.dll_initParameters.cameraDisableIMU">
+            <summary>
+            True to disable the IMU of the ZED Mini (in case USB2.0 is not available)
+            </summary>
+        </member>
+        <member name="M:sl.ZEDCamera.dll_initParameters.#ctor(sl.InitParameters)">
+            <summary>
+            Copy constructor. Takes values from Unity-suited InitParameters class. 
+            </summary>
+            <param name="init"></param>
+        </member>
+        <member name="M:sl.ZEDCamera.Init(sl.InitParameters@)">
+            <summary>
+            Checks if the ZED camera is plugged in, opens it, and initializes the projection matix and command buffers for updating textures.
+            </summary>
+            <param name="initParameters">Class with all initialization settings. 
+            A newly-instantiated InitParameters will have recommended default values.</param>
+            <returns>ERROR_CODE: The error code gives information about the internal connection process. 
+            If SUCCESS is returned, the camera is ready to use. Every other code indicates an error.</returns>
+        </member>
+        <member name="M:sl.ZEDCamera.Grab(sl.RuntimeParameters@)">
+            <summary>
+            Grabs a new image, rectifies it, and computes the disparity map and (optionally) the depth map.
+            The grabbing function is typically called in the main loop in a separate thread.
+            </summary><remarks>For more info, read about the SDK function it calls: 
+            https://www.stereolabs.com/developers/documentation/API/v2.5.1/classsl_1_1Camera.html#afa3678a18dd574e162977e97d7cbf67b </remarks>
+            <param name="runtimeParameters">Struct holding all grab parameters. </param>
+            <returns>the function returns false if no problem was encountered,
+            true otherwise.</returns>
+        </member>
+        <member name="M:sl.ZEDCamera.ResetSelfCalibration">
+            <summary>
+            The reset function can be called at any time AFTER the Init function has been called.
+            It will reset and recalculate to correct for misalignment, convergence and color mismatch.
+            It can be called after changing camera parameters without needing to restart your executable.
+            </summary>
+        </member>
+        <member name="M:sl.ZEDCamera.GetInputType">
+            <summary>
+            Return the INPUT_TYPE currently used
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:sl.ZEDCamera.EnableRecording(System.String,sl.SVO_COMPRESSION_MODE)">
+            <summary>
+            Creates a file for recording the ZED's output into a .SVO or .AVI video.
+            </summary><remarks>An SVO is Stereolabs' own format designed for the ZED. It holds the video feed with timestamps
+            as well as info about the camera used to record it.</remarks>
+            <param name="videoFileName">Filename. Whether it ends with .svo or .avi defines its file type.</param>
+            <param name="compressionMode">How much compression to use</param>
+            <returns>An ERROR_CODE that defines if the file was successfully created and can be filled with images.</returns>
+        </member>
+        <member name="M:sl.ZEDCamera.Record">
+            <summary>
+            Begins record the images to an SVO or AVI. EnableRecording() needs to be called first.
+            </summary>
+        </member>
+        <member name="M:sl.ZEDCamera.DisableRecording">
+            <summary>
+            Stops recording to an SVO/AVI, if applicable, and closes the file.
+            </summary>
+        </member>
+        <member name="M:sl.ZEDCamera.SetCameraFPS(System.Int32)">
+            <summary>
+            Sets a new target frame rate for the camera. If it's not possible with the current resolution,
+            the SDK will target the closest possible frame rate instead.
+            </summary>
+            <param name="fps">New target FPS.</param>
+        </member>
+        <member name="M:sl.ZEDCamera.SetSVOPosition(System.Int32)">
+            <summary>
+            Sets the position of the SVO file currently being read to a desired frame.
+            </summary>
+            <param name="frame">Index of the desired frame to be decoded.</param>
+        </member>
+        <member name="M:sl.ZEDCamera.GetConfidenceThreshold">
+            <summary>
+            Gets the current confidence threshold value for the disparity map (and by extension the depth map).
+            Values below the given threshold are removed from the depth map. 
+            </summary>
+            <returns>Filtering value between 0 and 100.</returns>
+        </member>
+        <member name="M:sl.ZEDCamera.GetCameraTimeStamp">
+            <summary>
+            Gets the timestamp at the time the latest grabbed frame was extracted from the USB stream. 
+            This is the closest timestamp you can get from when the image was taken. Must be called after calling grab().
+            </summary>
+            <returns>Current timestamp in nanoseconds. -1 means it's is not available, such as with an .SVO file without compression.</returns>
+        </member>
+        <member name="M:sl.ZEDCamera.GetCurrentTimeStamp">
+            <summary>
+            Gets the current timestamp at the time the function is called. Can be compared to the camera timestamp 
+            for synchronization, since they have the same reference (the computer's start time).
+            </summary>
+            <returns>The timestamp in nanoseconds.</returns>
+        </member>
+        <member name="M:sl.ZEDCamera.GetImageUpdaterTimeStamp">
+            <summary>
+            Timestamp from the most recent image update. Based on the computer's start time. 
+            </summary>
+            <returns>The timestamp in nanoseconds.</returns>
+        </member>
+        <member name="M:sl.ZEDCamera.GetSVOPosition">
+            <summary>
+            Get the current position of the SVO being recorded to. 
+            </summary>
+            <returns>Index of the frame being recorded to.</returns>
+        </member>
+        <member name="M:sl.ZEDCamera.GetSVONumberOfFrames">
+            <summary>
+            Gets the total number of frames in the loaded SVO file.
+            </summary>
+            <returns>Total frames in the SVO file. Returns -1 if the SDK is not reading an SVO.</returns>
+        </member>
+        <member name="M:sl.ZEDCamera.GetDepthMinRangeValue">
+            <summary>
+            Gets the closest measurable distance by the camera, according to the camera type and depth map parameters.
+            </summary>
+            <returns>The nearest possible depth value.</returns>
+        </member>
+        <member name="M:sl.ZEDCamera.GetDepthMaxRangeValue">
+            <summary>
+            Returns the current maximum distance of depth/disparity estimation.
+            </summary>
+            <returns>The closest depth</returns>
+        </member>
+        <member name="M:sl.ZEDCamera.DisableTracking(System.String)">
+            <summary>
+             Stop the motion tracking, if you want to restart, call enableTracking().
+            </summary>
+            <param name="path">The path to save the area file</param>
+        </member>
+        <member name="M:sl.ZEDCamera.GetAreaExportState">
+            <summary>
+            Returns the current state of the area learning saving
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:sl.ZEDCamera.SetConfidenceThreshold(System.Int32)">
+             <summary>
+             Sets a filtering value for the disparity map (and by extension the depth map). The filter removes depth values if their confidence 
+             value is below the filtering value. Should be called before any Grab() that should take the threshold into account. 
+             </summary>
+             <param name="threshold">Value in [1,100]. Lower values mean more confidence and precision, but less density.
+             Upper values result in more density, but less confidence overall. Values outside the range result in no filtering. 
+            </param>
+        </member>
+        <member name="M:sl.ZEDCamera.SetDepthMaxRangeValue(System.Single)">
+            <summary>
+            Sets the maximum distance of depth/disparity estimation. All values beyond will be reported as TOO_FAR and not used. 
+            </summary>
+            <param name="distanceMax">Maximum distance in the units set in the InitParameters used in Init().</param>
+        </member>
+        <member name="M:sl.ZEDCamera.GetCameraFPS">
+            <summary>
+            Returns the current camera FPS. This is limited primarily by resolution but can also be lower due to 
+            setting a lower desired resolution in Init() or from USB connection/bandwidth issues. 
+            </summary>
+            <returns>The current fps</returns>
+        </member>
+        <member name="M:sl.ZEDCamera.GetCameraModel">
+            <summary>
+            Gets the ZED camera model (ZED or ZED Mini).
+            </summary>
+            <returns>Model of the ZED as sl.MODEL.</returns>
+        </member>
+        <member name="M:sl.ZEDCamera.GetZEDFirmwareVersion">
+            <summary>
+            Gets the ZED's firmware version. 
+            </summary>
+            <returns>Firmware version.</returns>
+        </member>
+        <member name="M:sl.ZEDCamera.GetZEDSerialNumber">
+            <summary>
+            Gets the ZED's serial number. 
+            </summary>
+            <returns>Serial number</returns>
+        </member>
+        <member name="M:sl.ZEDCamera.GetFOV">
+            <summary>
+            Returns the ZED's vertical field of view in radians.
+            </summary>
+            <returns>Vertical field of view.</returns>
+        </member>
+        <member name="M:sl.ZEDCamera.GetSelfCalibrationStatus">
+            <summary>
+            Gets the status of the ZED's self-calibration process (not called, running, failed or success). 
+            </summary>
+            <returns>Self-calibration status.</returns>
+        </member>
+        <member name="M:sl.ZEDCamera.RetrieveTextures">
+            <summary>
+            Computes textures from the ZED. The new textures will not be displayed until an event is sent to the render thread.
+            This event is called from UpdateTextures().
+            </summary>
+        </member>
+        <member name="M:sl.ZEDCamera.SwapTextures">
+            <summary>
+            Swaps textures safely between the acquisition and rendering threads.
+            </summary>
+        </member>
+        <member name="M:sl.ZEDCamera.GetImagesTimeStamp">
+            <summary>
+            Timestamp of the images used the last time the ZED wrapper updated textures. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:sl.ZEDCamera.GetFrameDroppedCount">
+            <summary>
+            Gets the number of frames dropped since Grab() was called for the first time.
+            Based on camera timestamps and an FPS comparison. 
+            </summary><remarks>Similar to the Frame Drop display in the ZED Explorer app.</remarks>
+            <returns>Frames dropped since first Grab() call.</returns>
+        </member>
+        <member name="M:sl.ZEDCamera.GetFrameDroppedPercent">
+            <summary>
+            Gets the percentage of frames dropped since Grab() was called for the first time.
+            </summary>
+            <returns>Percentage of frames dropped.</returns>
+        </member>
+        <member name="M:sl.ZEDCamera.SetCameraSettings(sl.CAMERA_SETTINGS,System.Int32,System.Boolean)">
+            <summary>
+            Sets a value in the ZED's camera settings.
+            </summary>
+            <param name="settings">Setting to be changed (brightness, contrast, gain, exposure, etc.)</param>
+            <param name="value">New value.</param>
+            <param name="usedefault">If true, ignores the value and applies the default setting.</param>
+        </member>
+        <member name="M:sl.ZEDCamera.GetCameraSettings(sl.CAMERA_SETTINGS)">
+            <summary>
+            Gets the value of a given setting from the ZED camera. 
+            </summary>
+            <param name="settings">Setting to be retrieved (brightness, contrast, gain, exposure, etc.)</param>
+        </member>
+        <member name="M:sl.ZEDCamera.LoadCameraSettings(System.String)">
+            <summary>
+            Loads camera settings (brightness, contrast, hue, saturation, gain, exposure) from a file in the
+            project's root directory.
+            </summary>
+            <param name="path">Filename.</param>
+        </member>
+        <member name="M:sl.ZEDCamera.SaveCameraSettings(System.String)">
+            <summary>
+            Save the camera settings (brightness, contrast, hue, saturation, gain, exposure) to a file
+            relative to the project's root directory.
+            </summary>
+            <param name="path">Filename.</param>
+        </member>
+        <member name="M:sl.ZEDCamera.RetrieveCameraSettings">
+            <summary>
+            Retrieves camera settings from the ZED camera and loads them into a CameraSettings instance
+            handled by ZEDCameraSettingsManager. 
+            </summary>
+        </member>
+        <member name="M:sl.ZEDCamera.GetCameraSettings">
+            <summary>
+            Returns a copy of the camera settings from ZEDCameraSettingsManager. Modifying this copy
+            has no effect on the camera or ZEDCameraSettingsManager.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:sl.ZEDCamera.GetExposureUpdateType">
+            <summary>
+            Returns if the camera's exposure mode is set to automatic.
+            </summary>
+            <returns><c>True</c> if automatic, <c>false</c> if manual.</returns>
+        </member>
+        <member name="M:sl.ZEDCamera.GetWhiteBalanceUpdateType">
+            <summary>
+            Returns if the camera's white balance  is set to automatic. 
+            </summary>
+            <returns><c>True</c> if automatic, <c>false</c> if manual.</returns>
+        </member>
+        <member name="M:sl.ZEDCamera.SetCameraSettings">
+            <summary>
+            Applies all the settings registered in the ZEDCameraSettingsManager instance to the actual ZED camera.
+            </summary>
+        </member>
+        <member name="M:sl.ZEDCamera.IsZedConnected">
+            <summary>
+            Checks if the ZED camera is connected. 
+            </summary>
+            <remarks>The C++ SDK version of this call returns the number of connected ZEDs. But multiple ZEDs aren't supported in the Unity plugin.</remarks>
+            <returns>True if ZED is connected.</returns>
+        </member>
+        <member name="M:sl.ZEDCamera.GetSDKVersion">
+            <summary>
+            Gets the version of the currently installed ZED SDK.
+            </summary>
+            <returns>ZED SDK version as a string in the format MAJOR.MINOR.PATCH.</returns>
+        </member>
+        <member name="M:sl.ZEDCamera.AssertCameraIsReady">
+            <summary>
+            Checks if the camera has been initialized and the plugin has been loaded. Throws exceptions otherwise. 
+            </summary>
+        </member>
+        <member name="M:sl.ZEDCamera.RetrieveMeasure(sl.ZEDMat,sl.MEASURE,sl.ZEDMat.MEM,sl.Resolution)">
+            <summary>
+            Retrieves a measure texture from the ZED SDK and loads it into a ZEDMat. Use this to get an individual
+            texture from the last grabbed frame with measurements in every pixel - such as a depth map, confidence map, etc. 
+            Measure textures are not human-viewable but don't lose accuracy, unlike image textures.
+            </summary><remarks>
+            If you want to access the texture via script, you'll usually want to specify CPU memory. Then you can use
+            Marshal.Copy to move them into a new byte array, which you can load into a Texture2D.
+            RetrieveMeasure() calls Camera::retrieveMeasure() in the C++ SDK. For more info, read: 
+            https://www.stereolabs.com/developers/documentation/API/v2.5.1/classsl_1_1Camera.html#af799d12342a7b884242fffdef5588a7f
+            </remarks>
+            <param name="mat">ZEDMat to fill with the new texture.</param>
+            <param name="measure">Measure type (depth, confidence, xyz, etc.)</param>
+            <param name="mem">Whether the image should be on CPU or GPU memory.</param>
+            <param name="resolution">Resolution of the texture.</param>
+            <returns>Error code indicating if the retrieval was successful, and why it wasn't otherwise.</returns>
+        </member>
+        <member name="M:sl.ZEDCamera.RetrieveImage(sl.ZEDMat,sl.VIEW,sl.ZEDMat.MEM,sl.Resolution)">
+            <summary>
+            Retrieves an image texture from the ZED SDK and loads it into a ZEDMat. Use this to get an individual
+            texture from the last grabbed frame in a human-viewable format. Image textures work for when you want the result to be visible, 
+            such as the direct RGB image from the camera, or a greyscale image of the depth. However it will lose accuracy if used 
+            to show measurements like depth or confidence, unlike measure textures. 
+            </summary><remarks>
+            If you want to access the texture via script, you'll usually want to specify CPU memory. Then you can use
+            Marshal.Copy to move them into a new byte array, which you can load into a Texture2D. Note that you may need to
+            change the color space and/or flip the image. 
+            RetrieveMeasure() calls Camera::retrieveMeasure() in the C++ SDK. For more info, read: 
+            https://www.stereolabs.com/developers/documentation/API/v2.5.1/classsl_1_1Camera.html#ac40f337ccc76cacd3412b93f7f4638e2
+            </remarks>
+            <param name="mat">ZEDMat to fill with the new texture.</param>
+            <param name="view">Image type (left RGB, right depth map, etc.)</param>
+            <param name="mem">Whether the image should be on CPU or GPU memory.</param>
+            <param name="resolution">Resolution of the texture.</param>
+            <returns>Error code indicating if the retrieval was successful, and why it wasn't otherwise.</returns>
+        </member>
+        <member name="M:sl.ZEDCamera.EnableStreaming(sl.STREAMING_CODEC,System.UInt32,System.UInt16,System.Int32,System.Boolean)">
+            <summary>
+            Creates an streaming pipeline.
+            </summary>
+            <params>
+            Streaming parameters: See sl::StreamingParameters of ZED SDK. See ZED SDK API doc for more informations
+            </params>
+            <returns>An ERROR_CODE that defines if the streaming pipe was successfully created</returns>
+        </member>
+        <member name="M:sl.ZEDCamera.IsStreamingEnabled">
+            <summary>
+            0 if streaming is not enabled, 1 if streaming is on
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:sl.ZEDCamera.DisableStreaming">
+            <summary>
+            Stops the streaming pipeline.
+            </summary>
+        </member>
+        <member name="T:sl.Constant">
+            <summary>
+            Constant for plugin. Should not be changed
+            </summary>
+        </member>
+        <member name="T:sl.Matrix3x3">
+            <summary>
+            Holds a 3x3 matrix that can be marshaled between the ZED
+            Unity wrapper and C# scripts. 
+            </summary>
+        </member>
+        <member name="T:sl.Resolution">
+            <summary>
+            Holds a camera resolution as two pointers (for height and width) for easy
+            passing back and forth to the ZED Unity wrapper. 
+            </summary>
+        </member>
+        <member name="M:sl.Resolution.#ctor(System.UInt32,System.UInt32)">
+            <summary>
+            
+            </summary>
+            <param name="width"></param>
+            <param name="height"></param>
+        </member>
+        <member name="T:sl.CameraParameters">
+            <summary>
+            Calibration information for an individual sensor on the ZED (left or right). </summary>
+            <remarks>For more information, see: 
+            https://www.stereolabs.com/developers/documentation/API/v2.5.1/structsl_1_1CameraParameters.html </remarks>
+        </member>
+        <member name="F:sl.CameraParameters.fx">
+            <summary>
+            Focal X.
+            </summary>
+        </member>
+        <member name="F:sl.CameraParameters.fy">
+            <summary>
+            Focal Y.
+            </summary>
+        </member>
+        <member name="F:sl.CameraParameters.cx">
+            <summary>
+            Optical center X.
+            </summary>
+        </member>
+        <member name="F:sl.CameraParameters.cy">
+            <summary>
+            Optical center Y.
+            </summary>
+        </member>
+        <member name="F:sl.CameraParameters.disto">
+            <summary>
+            Distortion coefficients. 
+            </summary>
+        </member>
+        <member name="F:sl.CameraParameters.vFOV">
+            <summary>
+            Vertical field of view after stereo rectification.
+            </summary>
+        </member>
+        <member name="F:sl.CameraParameters.hFOV">
+            <summary>
+            Horizontal field of view after stereo rectification.
+            </summary>
+        </member>
+        <member name="F:sl.CameraParameters.dFOV">
+            <summary>
+            Diagonal field of view after stereo rectification.
+            </summary>
+        </member>
+        <member name="F:sl.CameraParameters.resolution">
+            <summary>
+            Camera's current resolution.
+            </summary>
+        </member>
+        <member name="T:sl.CalibrationParameters">
+            <summary>
+            Holds calibration information about the current ZED's hardware, including per-sensor
+            calibration and offsets between the two sensors. 
+            </summary> <remarks>For more info, see:
+            https://www.stereolabs.com/developers/documentation/API/v2.5.1/structsl_1_1CalibrationParameters.html </remarks>
+        </member>
+        <member name="F:sl.CalibrationParameters.Rot">
+            <summary>
+            Rotation (using Rodrigues' transformation) between the two sensors. Defined as 'tilt', 'convergence' and 'roll'.
+            </summary>
+        </member>
+        <member name="F:sl.CalibrationParameters.Trans">
+            <summary>
+            Translation between the two sensors. T[0] is the distance between the two cameras in meters.
+            </summary>
+        </member>
+        <member name="F:sl.CalibrationParameters.leftCam">
+            <summary>
+            Parameters of the left sensor.
+            </summary>
+        </member>
+        <member name="F:sl.CalibrationParameters.rightCam">
+            <summary>
+            Parameters of the right sensor.
+            </summary>
+        </member>
+        <member name="T:sl.Recording_state">
+            <summary>
+            Container for information about the current SVO recording process.  
+            </summary><remarks>
+            Mirrors sl.RecordingState in the ZED C++ SDK. For more info, visit: 
+            https://www.stereolabs.com/developers/documentation/API/v2.5.1/structsl_1_1RecordingState.html
+            </remarks>
+        </member>
+        <member name="F:sl.Recording_state.status">
+            <summary>
+            Status of the current frame. True if recording was successful, false if frame could not be written.
+            </summary>
+        </member>
+        <member name="F:sl.Recording_state.current_compression_time">
+            <summary>
+            Compression time for the current frame in milliseconds.
+            </summary>
+        </member>
+        <member name="F:sl.Recording_state.current_compression_ratio">
+            <summary>
+            Compression ratio (% of raw size) for the current frame.
+            </summary>
+        </member>
+        <member name="F:sl.Recording_state.average_compression_time">
+            <summary>
+            Average compression time in millisecond since beginning of recording.
+            </summary>
+        </member>
+        <member name="F:sl.Recording_state.average_compression_ratio">
+            <summary>
+            Compression ratio (% of raw size) since recording was started. 
+            </summary>
+        </member>
+        <member name="T:sl.ZED_SELF_CALIBRATION_STATE">
+            <summary>
+            Status of the ZED's self-calibration. Since v0.9.3, self-calibration is done in the background and 
+            starts in the sl.ZEDCamera.Init or Reset functions.
+            </summary><remarks>
+            Mirrors SELF_CALIBRATION_STATE in the ZED C++ SDK. For more info, see: 
+            https://www.stereolabs.com/developers/documentation/API/v2.5.1/group__Video__group.html#gacce19db438a07075b7e5e22ee5845c95
+            </remarks>
+        </member>
+        <member name="F:sl.ZED_SELF_CALIBRATION_STATE.SELF_CALIBRATION_NOT_CALLED">
+            <summary>
+            Self-calibration has not yet been called (no Init() called).
+            </summary>
+        </member>
+        <member name="F:sl.ZED_SELF_CALIBRATION_STATE.SELF_CALIBRATION_RUNNING">
+            <summary>
+            Self-calibration is currently running.
+            </summary>
+        </member>
+        <member name="F:sl.ZED_SELF_CALIBRATION_STATE.SELF_CALIBRATION_FAILED">
+            <summary>
+            Self-calibration has finished running but did not manage to get coherent values. Old Parameters are used instead.
+            </summary>
+        </member>
+        <member name="F:sl.ZED_SELF_CALIBRATION_STATE.SELF_CALIBRATION_SUCCESS">
+            <summary>
+            Self Calibration has finished running and successfully produces coherent values. 
+            </summary>
+        </member>
+        <member name="T:sl.DEPTH_MODE">
+            <summary>
+            Lists available depth computation modes. Each mode offers better accuracy than the 
+            mode before it, but at a performance cost. 
+            </summary><remarks>
+            Mirrors DEPTH_MODE in the ZED C++ SDK. For more info, see: 
+            https://www.stereolabs.com/developers/documentation/API/v2.5.1/group__Depth__group.html#ga8d542017c9b012a19a15d46be9b7fa43
+            </remarks>
+        </member>
+        <member name="F:sl.DEPTH_MODE.NONE">
+            <summary>
+            Does not compute any depth map. Only rectified stereo images will be available.
+            </summary>
+        </member>
+        <member name="F:sl.DEPTH_MODE.PERFORMANCE">
+            <summary>
+            Fastest mode for depth computation.
+            </summary>
+        </member>
+        <member name="F:sl.DEPTH_MODE.MEDIUM">
+            <summary>
+            Balanced quality mode. Depth map is robust in most environment and requires medium compute power.
+            </summary>
+        </member>
+        <member name="F:sl.DEPTH_MODE.QUALITY">
+            <summary>
+            Favors accuracy over performance. Requires more compute power.
+            </summary>
+        </member>
+        <member name="F:sl.DEPTH_MODE.ULTRA">
+            <summary>
+            Native depth. Very accurate, but at a large performance cost.
+            </summary>
+        </member>
+        <member name="T:sl.VIEW_MODE">
+            <summary>
+            Types of Image view modes, for creating human-viewable textures. 
+            Used only in ZEDRenderingPlane as a simplified version of sl.VIEW, which has more detailed options. 
+            </summary>
+        </member>
+        <member name="F:sl.VIEW_MODE.VIEW_IMAGE">
+            <summary>
+            Dsplays regular color images.
+            </summary>
+        </member>
+        <member name="F:sl.VIEW_MODE.VIEW_DEPTH">
+            <summary>
+            Displays a greyscale depth map.
+            </summary>
+        </member>
+        <member name="F:sl.VIEW_MODE.VIEW_NORMALS">
+            <summary>
+            Displays a normal map.
+            </summary>
+        </member>
+        <member name="T:sl.ERROR_CODE">
+            <summary>
+            List of error codes in the ZED SDK.
+            </summary><remarks>
+            Mirrors ERROR_CODE in the ZED C++ SDK. For more info, read: 
+            https://www.stereolabs.com/developers/documentation/API/v2.5.1/group__Camera__group.html#ga4db9ee29f2ff83c71567c12f6bfbf28c
+            </remarks>
+        </member>
+        <member name="F:sl.ERROR_CODE.SUCCESS">
+            <summary>
+            Operation was successful. 
+            </summary>
+        </member>
+        <member name="F:sl.ERROR_CODE.FAILURE">
+            <summary>
+            Standard, generic code for unsuccessful behavior when no other code is more appropriate. 
+            </summary>
+        </member>
+        <member name="F:sl.ERROR_CODE.NO_GPU_COMPATIBLE">
+            <summary>
+            No GPU found, or CUDA capability of the device is not supported.
+            </summary>
+        </member>
+        <member name="F:sl.ERROR_CODE.NOT_ENOUGH_GPUMEM">
+            <summary>
+            Not enough GPU memory for this depth mode. Try a different mode (such as PERFORMANCE).
+            </summary>
+        </member>
+        <member name="F:sl.ERROR_CODE.CAMERA_NOT_DETECTED">
+            <summary>
+            The ZED camera is not plugged in or detected.
+            </summary>
+        </member>
+        <member name="F:sl.ERROR_CODE.SENSOR_NOT_DETECTED">
+            <summary>
+            a ZED Mini is detected but the inertial sensor cannot be opened. (Never called for original ZED)
+            </summary>
+        </member>
+        <member name="F:sl.ERROR_CODE.INVALID_RESOLUTION">
+            <summary>
+            For Nvidia Jetson X1 only - resolution not yet supported (USB3.0 bandwidth).
+            </summary>
+        </member>
+        <member name="F:sl.ERROR_CODE.LOW_USB_BANDWIDTH">
+            <summary>
+            USB communication issues. Occurs when the camera FPS cannot be reached, due to a lot of corrupted frames.
+            Try changing the USB port.
+            </summary>
+        </member>
+        <member name="F:sl.ERROR_CODE.CALIBRATION_FILE_NOT_AVAILABLE">
+            <summary>
+            ZED calibration file is not found on the host machine. Use ZED Explorer or ZED Calibration to get one.
+            </summary>
+        </member>
+        <member name="F:sl.ERROR_CODE.INVALID_CALIBRATION_FILE">
+            <summary>
+            ZED calibration file is not valid. Try downloading the factory one or recalibrating using the ZED Calibration tool.
+            </summary>
+        </member>
+        <member name="F:sl.ERROR_CODE.INVALID_SVO_FILE">
+            <summary>
+            The provided SVO file is not valid.
+            </summary>
+        </member>
+        <member name="F:sl.ERROR_CODE.SVO_RECORDING_ERROR">
+            <summary>
+            An SVO recorder-related error occurred (such as not enough free storage or an invalid file path).
+            </summary>
+        </member>
+        <member name="F:sl.ERROR_CODE.SVO_UNSUPPORTED_COMPRESSION">
+            <summary>
+            An SVO related error when NVIDIA based compression cannot be loaded
+            </summary>
+        </member>
+        <member name="F:sl.ERROR_CODE.INVALID_COORDINATE_SYSTEM">
+            <summary>
+            The requested coordinate system is not available.
+            </summary>
+        </member>
+        <member name="F:sl.ERROR_CODE.INVALID_FIRMWARE">
+            <summary>
+            The firmware of the ZED is out of date. Update to the latest version.
+            </summary>
+        </member>
+        <member name="F:sl.ERROR_CODE.INVALID_FUNCTION_PARAMETERS">
+            <summary>
+             An invalid parameter has been set for the function.
+            </summary>
+        </member>
+        <member name="F:sl.ERROR_CODE.NOT_A_NEW_FRAME">
+            <summary>
+            In grab() only, the current call return the same frame as last call. Not a new frame.
+            </summary>
+        </member>
+        <member name="F:sl.ERROR_CODE.CUDA_ERROR">
+            <summary>
+            In grab() only, a CUDA error has been detected in the process. Activate wrapperVerbose in ZEDManager.cs for more info.
+            </summary>
+        </member>
+        <member name="F:sl.ERROR_CODE.CAMERA_NOT_INITIALIZED">
+            <summary>
+            In grab() only, ZED SDK is not initialized. Probably a missing call to sl::Camera::open.
+            </summary>
+        </member>
+        <member name="F:sl.ERROR_CODE.NVIDIA_DRIVER_OUT_OF_DATE">
+            <summary>
+            Your NVIDIA driver is too old and not compatible with your current CUDA version.
+            </summary>
+        </member>
+        <member name="F:sl.ERROR_CODE.INVALID_FUNCTION_CALL">
+            <summary>
+            The function call is not valid in the current context. Could be a missing a call to sl::Camera::open.
+            </summary>
+        </member>
+        <member name="F:sl.ERROR_CODE.CORRUPTED_SDK_INSTALLATION">
+            <summary>
+             The SDK wasn't able to load its dependencies, the installer should be launched.
+            </summary>
+        </member>
+        <member name="F:sl.ERROR_CODE.INCOMPATIBLE_SDK_VERSION">
+            <summary>
+            The installed SDK is not the SDK used to compile the program.
+            </summary>
+        </member>
+        <member name="F:sl.ERROR_CODE.INVALID_AREA_FILE">
+            <summary>
+            The given area file does not exist. Check the file path.
+            </summary>
+        </member>
+        <member name="F:sl.ERROR_CODE.INCOMPATIBLE_AREA_FILE">
+            <summary>
+            The area file does not contain enough data to be used ,or the sl::DEPTH_MODE used during the creation of the 
+            area file is different from the one currently set.
+            </summary>
+        </member>
+        <member name="F:sl.ERROR_CODE.CAMERA_FAILED_TO_SETUP">
+            <summary>
+            Camera failed to set up.
+            </summary>
+        </member>
+        <member name="F:sl.ERROR_CODE.CAMERA_DETECTION_ISSUE">
+            <summary>
+            Your ZED cannot be opened. Try replugging it to another USB port or flipping the USB-C connector (if using ZED Mini). 
+            </summary>
+        </member>
+        <member name="F:sl.ERROR_CODE.CAMERA_ALREADY_IN_USE">
+            <summary>
+            The Camera is already in use by another process.
+            </summary>
+        </member>
+        <member name="F:sl.ERROR_CODE.NO_GPU_DETECTED">
+            <summary>
+            No GPU found or CUDA is unable to list it. Can be a driver/reboot issue.
+            </summary>
+        </member>
+        <member name="F:sl.ERROR_CODE.PLANE_NOT_FOUND">
+            <summary>
+            Plane not found. Either no plane is detected in the scene, at the location or corresponding to the floor, 
+            or the floor plane doesn't match the prior given.
+            </summary>
+        </member>
+        <member name="F:sl.ERROR_CODE.AI_MODULE_NOT_AVAILABLE">
+            <summary>
+            Missing or corrupted AI module ressources. 
+            Please reinstall the ZED SDK with the AI (object detection) module to fix this issue
+            </summary>
+        </member>
+        <member name="F:sl.ERROR_CODE.INCOMPATIBLE_CUDNN_VERSION">
+            <summary>
+            The cuDNN library cannot be loaded, or is not compatible with this version of the ZED SDK
+            </summary>
+        </member>
+        <member name="F:sl.ERROR_CODE.ERROR_CODE_LAST">
+            <summary>
+            End of error code. Used before init has been called. 
+            </summary>
+        </member>
+        <member name="T:sl.RESOLUTION">
+            <summary>
+            Represents the available resolution options. 
+            </summary>
+        </member>
+        <member name="F:sl.RESOLUTION.HD2K">
+            <summary>
+            2208*1242. Supported frame rate: 15 FPS.
+            </summary>
+        </member>
+        <member name="F:sl.RESOLUTION.HD1080">
+            <summary>
+            1920*1080. Supported frame rates: 15, 30 FPS.
+            </summary>
+        </member>
+        <member name="F:sl.RESOLUTION.HD720">
+            <summary>
+            1280*720. Supported frame rates: 15, 30, 60 FPS.
+            </summary>
+        </member>
+        <member name="F:sl.RESOLUTION.VGA">
+            <summary>
+            672*376. Supported frame rates: 15, 30, 60, 100 FPS.
+            </summary>
+        </member>
+        <member name="T:sl.MODEL">
+            <summary>
+            Types of compatible ZED cameras. 
+            </summary>
+        </member>
+        <member name="F:sl.MODEL.ZED">
+            <summary>
+            Original ZED camera. 
+            </summary>
+        </member>
+        <member name="F:sl.MODEL.ZED_M">
+            <summary>
+            ZED Mini. 
+            </summary>
+        </member>
+        <member name="T:sl.SENSING_MODE">
+            <summary>
+            Lists available sensing modes - whether to produce the original depth map (STANDARD) or one with
+            smoothing and other effects added to fill gaps and roughness (FILL). 
+            </summary>
+        </member>
+        <member name="F:sl.SENSING_MODE.STANDARD">
+            <summary>
+            This mode outputs the standard ZED depth map that preserves edges and depth accuracy.
+            However, there will be missing data where a depth measurement couldn't be taken, such as from
+            a surface being occluded from one sensor but not the other. 
+            Better for: Obstacle detection, autonomous navigation, people detection, 3D reconstruction.
+            </summary>
+        </member>
+        <member name="F:sl.SENSING_MODE.FILL">
+            <summary>
+            This mode outputs a smooth and fully dense depth map. It doesn't have gaps in the data
+            like STANDARD where depth can't be calculated directly, but the values it fills them with
+            is less accurate than a real measurement. 
+            Better for: AR/VR, mixed-reality capture, image post-processing.
+            </summary>
+        </member>
+        <member name="T:sl.VIEW">
+            <summary>
+            Lists available view types retrieved from the camera, used for creating human-viewable (Image-type) textures.
+            </summary><remarks>
+            Based on the VIEW enum in the ZED C++ SDK. For more info, see: 
+            https://www.stereolabs.com/developers/documentation/API/v2.5.1/group__Video__group.html#ga77fc7bfc159040a1e2ffb074a8ad248c
+            </remarks>
+        </member>
+        <member name="F:sl.VIEW.LEFT">
+            <summary>
+            Left RGBA image. As a ZEDMat, MAT_TYPE is set to MAT_TYPE_8U_C4.
+            </summary>
+        </member>
+        <member name="F:sl.VIEW.RIGHT">
+            <summary>
+            Right RGBA image. As a ZEDMat, MAT_TYPE is set to sl::MAT_TYPE_8U_C4.
+            </summary>
+        </member>
+        <member name="F:sl.VIEW.LEFT_GREY">
+            <summary>
+            Left GRAY image. As a ZEDMat, MAT_TYPE is set to sl::MAT_TYPE_8U_C1.
+            </summary>
+        </member>
+        <member name="F:sl.VIEW.RIGHT_GREY">
+            <summary>
+            Right GRAY image. As a ZEDMat, MAT_TYPE is set to sl::MAT_TYPE_8U_C1.
+            </summary>
+        </member>
+        <member name="F:sl.VIEW.LEFT_UNRECTIFIED">
+            <summary>
+            Left RGBA unrectified image. As a ZEDMat, MAT_TYPE is set to sl::MAT_TYPE_8U_C4.
+            </summary>
+        </member>
+        <member name="F:sl.VIEW.RIGHT_UNRECTIFIED">
+            <summary>
+            Right RGBA unrectified image. As a ZEDMat, MAT_TYPE is set to sl::MAT_TYPE_8U_C4.
+            </summary>
+        </member>
+        <member name="F:sl.VIEW.LEFT_UNRECTIFIED_GREY">
+            <summary>
+            Left GRAY unrectified image. As a ZEDMat, MAT_TYPE is set to sl::MAT_TYPE_8U_C1.
+            </summary>
+        </member>
+        <member name="F:sl.VIEW.RIGHT_UNRECTIFIED_GREY">
+            <summary>
+            Right GRAY unrectified image. As a ZEDMat, MAT_TYPE is set to sl::MAT_TYPE_8U_C1.
+            </summary>
+        </member>
+        <member name="F:sl.VIEW.SIDE_BY_SIDE">
+            <summary>
+             Left and right image. Will be double the width to hold both. As a ZEDMat, MAT_TYPE is set to MAT_8U_C4.
+            </summary>
+        </member>
+        <member name="F:sl.VIEW.DEPTH">
+            <summary>
+            Normalized depth image. As a ZEDMat, MAT_TYPE is set to sl::MAT_TYPE_8U_C4.
+            <para>Use an Image texture for viewing only. For measurements, use a Measure type instead 
+            (ZEDCamera.RetrieveMeasure()) to preserve accuracy. </para>
+            </summary>
+        </member>
+        <member name="F:sl.VIEW.CONFIDENCE">
+            <summary>
+            Normalized confidence image. As a ZEDMat, MAT_TYPE is set to MAT_8U_C4.
+            <para>Use an Image texture for viewing only. For measurements, use a Measure type instead 
+            (ZEDCamera.RetrieveMeasure()) to preserve accuracy. </para>
+            </summary>
+        </member>
+        <member name="F:sl.VIEW.NORMALS">
+            <summary>
+            Color rendering of the normals. As a ZEDMat, MAT_TYPE is set to MAT_8U_C4.
+            <para>Use an Image texture for viewing only. For measurements, use a Measure type instead 
+            (ZEDCamera.RetrieveMeasure()) to preserve accuracy. </para>
+            </summary>
+        </member>
+        <member name="F:sl.VIEW.DEPTH_RIGHT">
+            <summary>
+            Color rendering of the right depth mapped on right sensor. As a ZEDMat, MAT_TYPE is set to MAT_8U_C4.
+            <para>Use an Image texture for viewing only. For measurements, use a Measure type instead 
+            (ZEDCamera.RetrieveMeasure()) to preserve accuracy. </para>
+            </summary>
+        </member>
+        <member name="F:sl.VIEW.NORMALS_RIGHT">
+            <summary>
+            Color rendering of the normals mapped on right sensor. As a ZEDMat, MAT_TYPE is set to MAT_8U_C4.
+            <para>Use an Image texture for viewing only. For measurements, use a Measure type instead 
+            (ZEDCamera.RetrieveMeasure()) to preserve accuracy. </para>
+            </summary>
+        </member>
+        <member name="T:sl.CAMERA_SETTINGS">
+            <summary>
+             Lists available camera settings for the ZED camera (contrast, hue, saturation, gain, etc.)
+            </summary>
+        </member>
+        <member name="F:sl.CAMERA_SETTINGS.BRIGHTNESS">
+            <summary>
+            Brightness control. Value should be between 0 and 8.
+            </summary>
+        </member>
+        <member name="F:sl.CAMERA_SETTINGS.CONTRAST">
+            <summary>
+            Contrast control. Value should be between 0 and 8.
+            </summary>
+        </member>
+        <member name="F:sl.CAMERA_SETTINGS.HUE">
+            <summary>
+            Hue control. Value should be between 0 and 11.
+            </summary>
+        </member>
+        <member name="F:sl.CAMERA_SETTINGS.SATURATION">
+            <summary>
+            Saturation control. Value should be between 0 and 8
+            </summary>
+        </member>
+        <member name="F:sl.CAMERA_SETTINGS.GAIN">
+            <summary>
+            Gain control. Value should be between 0 and 100 for manual control. 
+            If ZED_EXPOSURE is set to -1 (automatic mode), then gain will be automatic as well.
+            </summary>
+        </member>
+        <member name="F:sl.CAMERA_SETTINGS.EXPOSURE">
+            <summary>
+            Exposure control. Value can be between 0 and 100. 
+            Setting to -1 enables auto exposure and auto gain.
+            Setting to 0 disables auto exposure but doesn't change the last applied automatic values. 
+            Setting to 1-100 disables auto mode and sets exposure to the chosen value.
+            </summary>
+        </member>
+        <member name="F:sl.CAMERA_SETTINGS.WHITEBALANCE">
+            <summary>
+            Color temperature control. Value should be between 2800 and 6500 with a step of 100. 
+            </summary>
+        </member>
+        <member name="F:sl.CAMERA_SETTINGS.AUTO_WHITEBALANCE">
+            <summary>
+            Defines if the white balance is in automatic mode or not.
+            </summary>
+        </member>
+        <member name="F:sl.CAMERA_SETTINGS.LED_STATUS">
+            <summary>
+            front LED status (1==enable, 0 == disable)
+            </summary>
+        </member>
+        <member name="T:sl.MEASURE">
+            <summary>
+            Lists available measure types retrieved from the camera, used for creating precise measurement maps
+            (Measure-type textures). 
+            Based on the MEASURE enum in the ZED C++ SDK. For more info, see: 
+            https://www.stereolabs.com/developers/documentation/API/v2.5.1/group__Depth__group.html#ga798a8eed10c573d759ef7e5a5bcd545d
+            </summary>
+        </member>
+        <member name="F:sl.MEASURE.DISPARITY">
+            <summary>
+            Disparity map. As a ZEDMat, MAT_TYPE is set to MAT_32F_C1.
+            </summary>
+        </member>
+        <member name="F:sl.MEASURE.DEPTH">
+            <summary>
+            Depth map. As a ZEDMat, MAT_TYPE is set to MAT_32F_C1.
+            </summary>
+        </member>
+        <member name="F:sl.MEASURE.CONFIDENCE">
+            <summary>
+            Certainty/confidence of the disparity map. As a ZEDMat, MAT_TYPE is set to MAT_32F_C1.
+            </summary>
+        </member>
+        <member name="F:sl.MEASURE.XYZ">
+            <summary>
+            3D coordinates of the image points. Used for point clouds in ZEDPointCloudManager. 
+            As a ZEDMat, MAT_TYPE is set to MAT_32F_C4. The 4th channel may contain the colors.
+            </summary>
+        </member>
+        <member name="F:sl.MEASURE.XYZRGBA">
+            <summary>
+            3D coordinates and color of the image. As a ZEDMat, MAT_TYPE is set to MAT_32F_C4.
+            The 4th channel encodes 4 UCHARs for colors in R-G-B-A order.
+            </summary>
+        </member>
+        <member name="F:sl.MEASURE.XYZBGRA">
+            <summary>
+            3D coordinates and color of the image. As a ZEDMat, MAT_TYPE is set to MAT_32F_C4.
+            The 4th channel encode 4 UCHARs for colors in B-G-R-A order.
+            </summary>
+        </member>
+        <member name="F:sl.MEASURE.XYZARGB">
+            <summary>
+            3D coordinates and color of the image. As a ZEDMat, MAT_TYPE is set to MAT_32F_C4.
+            The 4th channel encodes 4 UCHARs for color in A-R-G-B order.
+            </summary>
+        </member>
+        <member name="F:sl.MEASURE.XYZABGR">
+            <summary>
+            3D coordinates and color of the image. As a ZEDMat, MAT_TYPE is set to MAT_32F_C4.
+            Channel 4 contains color in A-B-G-R order.
+            </summary>
+        </member>
+        <member name="F:sl.MEASURE.NORMALS">
+            <summary>
+            3D coordinates and color of the image. As a ZEDMat, MAT_TYPE is set to MAT_32F_C4. 
+            The 4th channel encode 4 UCHARs for color in A-B-G-R order.
+            </summary>
+        </member>
+        <member name="F:sl.MEASURE.DISPARITY_RIGHT">
+            <summary>
+            Disparity map for the right sensor. As a ZEDMat, MAT_TYPE is set to  MAT_32F_C1.
+            </summary>
+        </member>
+        <member name="F:sl.MEASURE.DEPTH_RIGHT">
+            <summary>
+            Depth map for right sensor. As a ZEDMat, MAT_TYPE is set to MAT_32F_C1.
+            </summary>
+        </member>
+        <member name="F:sl.MEASURE.XYZ_RIGHT">
+            <summary>
+            Point cloud for right sensor. As a ZEDMat, MAT_TYPE is set to MAT_32F_C4. Channel 4 is empty.
+            </summary>
+        </member>
+        <member name="F:sl.MEASURE.XYZRGBA_RIGHT">
+            <summary>
+            Colored point cloud for right sensor. As a ZEDMat, MAT_TYPE is set to MAT_32F_C4. 
+            Channel 4 contains colors in R-G-B-A order.
+            </summary>
+        </member>
+        <member name="F:sl.MEASURE.XYZBGRA_RIGHT">
+            <summary>
+            Colored point cloud for right sensor. As a ZEDMat, MAT_TYPE is set to MAT_32F_C4. 
+            Channel 4 contains colors in B-G-R-A order.
+            </summary>
+        </member>
+        <member name="F:sl.MEASURE.XYZARGB_RIGHT">
+            <summary>
+             Colored point cloud for right sensor. As a ZEDMat, MAT_TYPE is set to MAT_32F_C4.
+             Channel 4 contains colors in A-R-G-B order.
+            </summary>
+        </member>
+        <member name="F:sl.MEASURE.XYZABGR_RIGHT">
+            <summary>
+            Colored point cloud for right sensor. As a ZEDMat, MAT_TYPE is set to MAT_32F_C4. 
+            Channel 4 contains colors in A-B-G-R order.
+            </summary>
+        </member>
+        <member name="F:sl.MEASURE.NORMALS_RIGHT">
+            <summary>
+             Normals vector for right view. As a ZEDMat, MAT_TYPE is set to MAT_32F_C4. 
+             Channel 4 is empty (set to 0).
+            </summary>
+        </member>
+        <member name="T:sl.TIME_REFERENCE">
+            <summary>
+            Categories indicating when a timestamp is captured. 
+            </summary>
+        </member>
+        <member name="F:sl.TIME_REFERENCE.IMAGE">
+            <summary>
+            Timestamp from when the image was received over USB from the camera, defined
+            by when the entire image was available in memory. 
+            </summary>
+        </member>
+        <member name="F:sl.TIME_REFERENCE.CURRENT">
+            <summary>
+            Timestamp from when the relevant function was called. 
+            </summary>
+        </member>
+        <member name="T:sl.REFERENCE_FRAME">
+            <summary>
+            Reference frame (world or camera) for tracking and depth sensing.
+            </summary>
+        </member>
+        <member name="F:sl.REFERENCE_FRAME.WORLD">
+            <summary>
+            Matrix contains the total displacement from the world origin/the first tracked point. 
+            </summary>
+        </member>
+        <member name="F:sl.REFERENCE_FRAME.CAMERA">
+            <summary>
+            Matrix contains the displacement from the previous camera position to the current one. 
+            </summary>
+        </member>
+        <member name="T:sl.TRACKING_STATE">
+            <summary>
+            Possible states of the ZED's Tracking system.
+            </summary>
+        </member>
+        <member name="F:sl.TRACKING_STATE.TRACKING_SEARCH">
+            <summary>
+            Tracking is searching for a match from the database to relocate to a previously known position.
+            </summary>
+        </member>
+        <member name="F:sl.TRACKING_STATE.TRACKING_OK">
+            <summary>
+            Tracking is operating normally; tracking data should be correct.
+            </summary>
+        </member>
+        <member name="F:sl.TRACKING_STATE.TRACKING_OFF">
+            <summary>
+            Tracking is not enabled. 
+            </summary>
+        </member>
+        <member name="T:sl.SVO_COMPRESSION_MODE">
+            <summary>
+            SVO compression modes.
+            </summary>
+        </member>
+        <member name="F:sl.SVO_COMPRESSION_MODE.RAW_BASED">
+            <summary>
+            RAW images; no compression. This option can lead to extremely large file sizes. 
+            </summary>
+        </member>
+        <member name="F:sl.SVO_COMPRESSION_MODE.LOSSLESS_BASED">
+            <summary>
+            Lossless compression based on png/zstd. Average size = 42% of RAW.
+            </summary>
+        </member>
+        <member name="F:sl.SVO_COMPRESSION_MODE.LOSSY_BASED">
+            <summary>
+            Lossy compression based on jpeg. Average size = 22% of RAW.
+            </summary>
+        </member>
+        <member name="F:sl.SVO_COMPRESSION_MODE.AVCHD_BASED">
+            <summary>
+            AVCHD Based compression (H264). Available since ZED SDK 2.7
+            </summary>
+        </member>
+        <member name="F:sl.SVO_COMPRESSION_MODE.HEVC_BASED">
+            <summary>
+            HEVC Based compression (H265). Available since ZED SDK 2.7
+            </summary>
+        </member>
+        <member name="T:sl.STREAMING_CODEC">
+            <summary>
+            Streaming codecs
+            </summary>
+        </member>
+        <member name="F:sl.STREAMING_CODEC.AVCHD_BASED">
+            <summary>
+            AVCHD Based compression (H264)
+            </summary>
+        </member>
+        <member name="F:sl.STREAMING_CODEC.HEVC_BASED">
+            <summary>
+            HEVC Based compression (H265)
+            </summary>
+        </member>
+        <member name="T:sl.MESH_FILE_FORMAT">
+            <summary>
+            Mesh formats that can be saved/loaded with spatial mapping. 
+            </summary>
+        </member>
+        <member name="F:sl.MESH_FILE_FORMAT.PLY">
+            <summary>
+            Contains only vertices and faces.
+            </summary>
+        </member>
+        <member name="F:sl.MESH_FILE_FORMAT.BIN">
+            <summary>
+            Contains only vertices and faces, encoded in binary.
+            </summary>
+        </member>
+        <member name="F:sl.MESH_FILE_FORMAT.OBJ">
+            <summary>
+            Contains vertices, normals, faces, and texture information (if possible).
+            </summary>
+        </member>
+        <member name="T:sl.FILTER">
+            <summary>
+            Presets for filtering meshes scannedw ith spatial mapping. Higher values reduce total face count by more. 
+            </summary>
+        </member>
+        <member name="F:sl.FILTER.LOW">
+            <summary>
+            Soft decimation and smoothing.
+            </summary>
+        </member>
+        <member name="F:sl.FILTER.MEDIUM">
+            <summary>
+            Decimate the number of faces and apply a soft smooth.
+            </summary>
+        </member>
+        <member name="F:sl.FILTER.HIGH">
+            <summary>
+            Drastically reduce the number of faces.
+            </summary>
+        </member>
+        <member name="T:sl.SPATIAL_MAPPING_STATE">
+            <summary>
+            Possible states of the ZED's Spatial Mapping system.
+            </summary>
+        </member>
+        <member name="F:sl.SPATIAL_MAPPING_STATE.SPATIAL_MAPPING_STATE_INITIALIZING">
+            <summary>
+            Spatial mapping is initializing.
+            </summary>
+        </member>
+        <member name="F:sl.SPATIAL_MAPPING_STATE.SPATIAL_MAPPING_STATE_OK">
+            <summary>
+            Depth and tracking data were correctly integrated into the fusion algorithm.
+            </summary>
+        </member>
+        <member name="F:sl.SPATIAL_MAPPING_STATE.SPATIAL_MAPPING_STATE_NOT_ENOUGH_MEMORY">
+            <summary>
+            Maximum memory dedicated to scanning has been reached; the mesh will no longer be updated.
+            </summary>
+        </member>
+        <member name="F:sl.SPATIAL_MAPPING_STATE.SPATIAL_MAPPING_STATE_NOT_ENABLED">
+            <summary>
+            EnableSpatialMapping() wasn't called (or the scanning was stopped and not relaunched).
+            </summary>
+        </member>
+        <member name="F:sl.SPATIAL_MAPPING_STATE.SPATIAL_MAPPING_STATE_FPS_TOO_LOW">
+            <summary>
+            Effective FPS is too low to give proper results for spatial mapping. 
+            Consider using performance-friendly parameters (DEPTH_MODE_PERFORMANCE, VGA or HD720 camera resolution, 
+            and LOW spatial mapping resolution).
+            </summary>
+        </member>
+        <member name="T:sl.UNIT">
+            <summary>
+            Units used by the SDK for measurements and tracking. METER is best to stay consistent with Unity.
+            </summary>
+        </member>
+        <member name="F:sl.UNIT.MILLIMETER">
+            <summary>
+            International System, 1/1000 meters.
+            </summary>
+        </member>
+        <member name="F:sl.UNIT.CENTIMETER">
+            <summary>
+            International System, 1/100 meters.
+            </summary>
+        </member>
+        <member name="F:sl.UNIT.METER">
+            <summary>
+            International System, 1/1 meters.
+            </summary>
+        </member>
+        <member name="F:sl.UNIT.INCH">
+            <summary>
+             Imperial Unit, 1/12 feet.
+            </summary>
+        </member>
+        <member name="F:sl.UNIT.FOOT">
+            <summary>
+             Imperial Unit, 1/1 feet.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:sl.InitParameters" -->
+        <member name="F:sl.InitParameters.resolution">
+            <summary>
+            Resolution the ZED will be set to.  
+            </summary>
+        </member>
+        <member name="F:sl.InitParameters.cameraFPS">
+            <summary>
+            Requested FPS for this resolution. Setting it to 0 will choose the default FPS for this resolution. 
+            </summary>
+        </member>
+        <member name="F:sl.InitParameters.cameraID">
+            <summary>
+            ID for identifying which of multiple connected ZEDs to use. 
+            </summary>
+        </member>
+        <member name="F:sl.InitParameters.pathSVO">
+            <summary>
+            Path to a recorded SVO file to play, including filename.
+            </summary>
+        </member>
+        <member name="F:sl.InitParameters.svoRealTimeMode">
+            <summary>
+            In SVO playback, this mode simulates a live camera and consequently skipped frames if the computation framerate is too slow.
+            </summary>
+        </member>
+        <member name="F:sl.InitParameters.coordinateUnit">
+            <summary>
+             Define a unit for all metric values (depth, point clouds, tracking, meshes, etc.) Meters are recommended for Unity. 
+            </summary>
+        </member>
+        <member name="F:sl.InitParameters.coordinateSystem">
+            <summary>
+            This defines the order and the direction of the axis of the coordinate system. 
+            LEFT_HANDED_Y_UP is recommended to match Unity's coordinates. 
+            </summary>
+        </member>
+        <member name="F:sl.InitParameters.depthMode">
+            <summary>
+            Quality level of depth calculations. Higher settings improve accuracy but cost performance. 
+            </summary>
+        </member>
+        <member name="F:sl.InitParameters.depthMinimumDistance">
+            <summary>
+            Minimum distance from the camera from which depth will be computed, in the defined coordinateUnit. 
+            </summary>
+        </member>
+        <member name="F:sl.InitParameters.cameraImageFlip">
+            <summary>
+             Defines if images are horizontally flipped.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:sl.InitParameters.enableRightSideMeasure" -->
+        <member name="F:sl.InitParameters.cameraDisableSelfCalib">
+            <summary>
+            True to disable self-calibration and use the optional calibration parameters without optimizing them.
+            False is recommended, so that calibration parameters can be optimized.
+            </summary>
+        </member>
+        <member name="F:sl.InitParameters.cameraBufferCountLinux">
+            <summary>
+            Set the number of buffers for the internal buffer process. LINUX ONLY - NOT CURRENTLY USED IN UNITY PLUGIN. 
+            </summary>
+        </member>
+        <member name="F:sl.InitParameters.sdkVerbose">
+            <summary>
+            True for the SDK to provide text feedback. 
+            </summary>
+        </member>
+        <member name="F:sl.InitParameters.sdkGPUId">
+            <summary>
+            ID of the graphics card on which the ZED's computations will be performed. 
+            </summary>
+        </member>
+        <member name="F:sl.InitParameters.sdkVerboseLogFile">
+            <summary>
+            If set to verbose, the filename of the log file into which the SDK will store its text output.
+            </summary>
+        </member>
+        <member name="F:sl.InitParameters.depthStabilization">
+            <summary>
+            True to stabilize the depth map. Recommended. 
+            </summary>
+        </member>
+        <member name="F:sl.InitParameters.optionalSettingsPath">
+            <summary>
+            Optional path for searching configuration (calibration) file SNxxxx.conf. (introduced in ZED SDK 2.6)
+            </summary>
+        </member>
+        <member name="F:sl.InitParameters.cameraDisableIMU">
+            <summary>
+            True to stabilize the depth map. Recommended. 
+            </summary>
+        </member>
+        <member name="F:sl.InitParameters.ipStream">
+            <summary>
+            Path to a recorded SVO file to play, including filename.
+            </summary>
+        </member>
+        <member name="F:sl.InitParameters.portStream">
+            <summary>
+            Path to a recorded SVO file to play, including filename.
+            </summary>
+        </member>
+        <member name="M:sl.InitParameters.#ctor">
+            <summary>
+            Constructor. Sets default initialization parameters recommended for Unity. 
+            </summary>
+        </member>
+        <member name="T:sl.COORDINATE_SYSTEM">
+            <summary>
+            List of available coordinate systems. Left-Handed, Y Up is recommended to stay consistent with Unity. 
+            consistent with Unity. 
+            </summary>
+        </member>
+        <member name="F:sl.COORDINATE_SYSTEM.IMAGE">
+            <summary>
+            Standard coordinates system used in computer vision. 
+            Used in OpenCV. See: http://docs.opencv.org/2.4/modules/calib3d/doc/camera_calibration_and_3d_reconstruction.html 
+            </summary>
+        </member>
+        <member name="F:sl.COORDINATE_SYSTEM.LEFT_HANDED_Y_UP">
+            <summary>
+            Left-Handed with Y up and Z forward. Recommended. Used in Unity with DirectX.
+            </summary>
+        </member>
+        <member name="F:sl.COORDINATE_SYSTEM.RIGHT_HANDED_Y_UP">
+            <summary>
+             Right-Handed with Y pointing up and Z backward. Used in OpenGL.
+            </summary>
+        </member>
+        <member name="F:sl.COORDINATE_SYSTEM.RIGHT_HANDED_Z_UP">
+            <summary>
+            Right-Handed with Z pointing up and Y forward. Used in 3DSMax.
+            </summary>
+        </member>
+        <member name="F:sl.COORDINATE_SYSTEM.LEFT_HANDED_Z_UP">
+            <summary>
+            Left-Handed with Z axis pointing up and X forward. Used in Unreal Engine.
+            </summary>
+        </member>
+        <member name="T:sl.AREA_EXPORT_STATE">
+            <summary>
+             Possible states of the ZED's spatial memory area export, for saving 3D features used 
+             by the tracking system to relocalize the camera. This is used when saving a mesh generated
+             by spatial mapping when Save Mesh is enabled - a .area file is saved as well. 
+            </summary>
+        </member>
+        <member name="F:sl.AREA_EXPORT_STATE.AREA_EXPORT_STATE_SUCCESS">
+            <summary>
+            Spatial memory file has been successfully created.
+            </summary>
+        </member>
+        <member name="F:sl.AREA_EXPORT_STATE.AREA_EXPORT_STATE_RUNNING">
+            <summary>
+            Spatial memory file is currently being written to.
+            </summary>
+        </member>
+        <member name="F:sl.AREA_EXPORT_STATE.AREA_EXPORT_STATE_NOT_STARTED">
+            <summary>
+            Spatial memory file export has not been called.
+            </summary>
+        </member>
+        <member name="F:sl.AREA_EXPORT_STATE.AREA_EXPORT_STATE_FILE_EMPTY">
+            <summary>
+            Spatial memory contains no data; the file is empty.
+            </summary>
+        </member>
+        <member name="F:sl.AREA_EXPORT_STATE.AREA_EXPORT_STATE_FILE_ERROR">
+            <summary>
+            Spatial memory file has not been written to because of a bad file name.
+            </summary>
+        </member>
+        <member name="F:sl.AREA_EXPORT_STATE.AREA_EXPORT_STATE_SPATIAL_MEMORY_DISABLED">
+            <summary>
+            Spatial memory has been disabled, so no file can be created.
+            </summary>
+        </member>
+        <member name="T:sl.RuntimeParameters">
+            <summary>
+            Runtime parameters used by the ZEDCamera.Grab() function, and its Camera::grab() counterpart in the SDK. 
+            </summary>
+        </member>
+        <member name="F:sl.RuntimeParameters.sensingMode">
+            <summary>
+            Defines the algorithm used for depth map computation, more info : \ref SENSING_MODE definition.
+            </summary>
+        </member>
+        <member name="F:sl.RuntimeParameters.measure3DReferenceFrame">
+            <summary>
+            Provides 3D measures (point cloud and normals) in the desired reference frame (default is REFERENCE_FRAME_CAMERA).
+            </summary>
+        </member>
+        <member name="F:sl.RuntimeParameters.enableDepth">
+            <summary>
+            Defines whether the depth map should be computed.
+            </summary>
+        </member>
+        <member name="F:sl.RuntimeParameters.enablePointCloud">
+            <summary>
+             Defines whether the point cloud should be computed (including XYZRGBA).
+            </summary>
+        </member>
+        <member name="T:sl.TRACKING_FRAME">
+            <summary>
+            Part of the ZED (left/right sensor, center) that's considered its center for tracking purposes.
+            </summary>
+        </member>
+        <member name="F:sl.TRACKING_FRAME.LEFT_EYE">
+            <summary>
+            Camera's center is at the left sensor.
+            </summary>
+        </member>
+        <member name="F:sl.TRACKING_FRAME.CENTER_EYE">
+            <summary>
+            Camera's center is in the camera's physical center, between the sensors.
+            </summary>
+        </member>
+        <member name="F:sl.TRACKING_FRAME.RIGHT_EYE">
+            <summary>
+            Camera's center is at the right sensor.
+            </summary>
+        </member>
+        <member name="T:sl.USB_DEVICE">
+            <summary>
+            Types of USB device brands.
+            </summary>
+        </member>
+        <member name="F:sl.USB_DEVICE.USB_DEVICE_OCULUS">
+            <summary>
+            Oculus device, eg. Oculus Rift VR Headset. 
+            </summary>
+        </member>
+        <member name="F:sl.USB_DEVICE.USB_DEVICE_HTC">
+            <summary>
+            HTC device, eg. HTC Vive. 
+            </summary>
+        </member>
+        <member name="F:sl.USB_DEVICE.USB_DEVICE_STEREOLABS">
+            <summary>
+            Stereolabs device, eg. ZED/ZED Mini. 
+            </summary>
+        </member>
+        <member name="T:sl.char2">
+            <summary>
+            Represents a 2D vector of uchars for use on both the CPU and GPU. 
+            </summary>
+        </member>
+        <member name="T:sl.char3">
+            <summary>
+            Represents a 3D vector of uchars for use on both the CPU and GPU. 
+            </summary>
+        </member>
+        <member name="T:sl.char4">
+            <summary>
+            Represents a 4D vector of uchars for use on both the CPU and GPU. 
+            </summary>
+        </member>
+        <member name="T:sl.float2">
+            <summary>
+            Represents a 2D vector of floats for use on both the CPU and GPU. 
+            </summary>
+        </member>
+        <member name="T:sl.float3">
+            <summary>
+            Represents a 3D vector of floats for use on both the CPU and GPU. 
+            </summary>
+        </member>
+        <member name="T:sl.float4">
+            <summary>
+            Represents a 4D vector of floats for use on both the CPU and GPU. 
+            </summary>
+        </member>
+        <member name="T:sl.ZEDMat">
+            <summary>
+            Mirrors the sl::Mat class used in the ZED C++ SDK to store images. 
+            Can be used to retrieve individual images from GPU or CPU memory: see ZEDCamera.RetrieveImage() 
+            and ZEDCamera.RetrieveMeasure(). 
+            </summary><remarks>
+            For more information on the Mat class it mirrors, see: 
+            https://www.stereolabs.com/developers/documentation/API/v2.5.1/classsl_1_1Mat.html
+            </remarks>
+        </member>
+        <member name="T:sl.ZEDMat.MAT_TYPE">
+            <summary>
+            Type of mat, indicating the data type and the number of channels it holds. 
+            Proper mat type depends on the image type. See sl.VIEW and sl.MEASURE (in ZEDCommon.cs)
+            </summary>
+        </member>
+        <member name="F:sl.ZEDMat.MAT_TYPE.MAT_32F_C1">
+            <summary>
+            Float, one channel. Used for depth and disparity Measure-type textures.
+            </summary>
+        </member>
+        <member name="F:sl.ZEDMat.MAT_TYPE.MAT_32F_C2">
+            <summary>
+            Float, two channels. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDMat.MAT_TYPE.MAT_32F_C3">
+            <summary>
+            Float, three channels.
+            </summary>
+        </member>
+        <member name="F:sl.ZEDMat.MAT_TYPE.MAT_32F_C4">
+            <summary>
+            Float, four channels. Used for normals and XYZ (point cloud) measure-type textures 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDMat.MAT_TYPE.MAT_8U_C1">
+            <summary>
+            Unsigned char, one channel. Used for greyscale image-type textures like depth and confidence displays. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDMat.MAT_TYPE.MAT_8U_C2">
+            <summary>
+            Unsigned char, two channels. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDMat.MAT_TYPE.MAT_8U_C3">
+            <summary>
+            Unsigned char, three channels. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDMat.MAT_TYPE.MAT_8U_C4">
+            <summary>
+            Unsigned char, four channels. Used for color images, like the main RGB image from each sensor. 
+            </summary>
+        </member>
+        <member name="T:sl.ZEDMat.COPY_TYPE">
+            <summary>
+            Categories for copying data within or between the CPU (processor) memory and GPU (graphics card) memory.
+            </summary>
+        </member>
+        <member name="F:sl.ZEDMat.COPY_TYPE.COPY_TYPE_CPU_CPU">
+            <summary>
+            Copies data from one place in CPU memory to another. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDMat.COPY_TYPE.COPY_TYPE_CPU_GPU">
+            <summary>
+            Copies data from CPU memory to GPU memory.
+            </summary>
+        </member>
+        <member name="F:sl.ZEDMat.COPY_TYPE.COPY_TYPE_GPU_GPU">
+            <summary>
+            Copies data from one place in GPU memory to another. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDMat.COPY_TYPE.COPY_TYPE_GPU_CPU">
+            <summary>
+            Copies data from GPU memory to CPU memory. 
+            </summary>
+        </member>
+        <member name="T:sl.ZEDMat.MEM">
+            <summary>
+            Which memory to store an image/mat: CPU/processor memory or GPU (graphics card) memory.
+            </summary>
+        </member>
+        <member name="F:sl.ZEDMat.MEM.MEM_CPU">
+            <summary>
+            Store on memory accessible by the CPU. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDMat.MEM.MEM_GPU">
+            <summary>
+            Store on memory accessible by the GPU. 
+            </summary>
+        </member>
+        <member name="F:sl.ZEDMat._matInternalPtr">
+            <summary>
+            Returns the internal ptr of a Mat. 
+            </summary>
+        </member>
+        <member name="P:sl.ZEDMat.MatPtr">
+            <summary>
+            Returns the internal ptr of a Mat.
+            </summary>
+        </member>
+        <member name="M:sl.ZEDMat.#ctor">
+            <summary>
+            Creates an empty Mat.
+            </summary>
+        </member>
+        <member name="M:sl.ZEDMat.#ctor(System.IntPtr)">
+            <summary>
+            Creates a mat from an existing internal ptr.
+            </summary>
+            <param name="ptr">IntPtr to create the material with.</param>
+        </member>
+        <member name="M:sl.ZEDMat.#ctor(sl.Resolution,sl.ZEDMat.MAT_TYPE,sl.ZEDMat.MEM)">
+            <summary>
+            Creates a Mat with a given resolution.
+            </summary>
+            <param name="resolution">Resolution for the new Mat.</param>
+            <param name="type">Data type and number of channels the Mat will hold.
+            Depends on texture type: see sl.VIEW and sl.MEASURE in ZEDCommon.cs.</param>
+            <param name="mem">Whether Mat should exist on CPU or GPU memory.
+            Choose depending on where you'll need to access it from.</param>
+        </member>
+        <member name="M:sl.ZEDMat.#ctor(System.UInt32,System.UInt32,sl.ZEDMat.MAT_TYPE,sl.ZEDMat.MEM)">
+            <summary>
+            Creates a Mat with a given width and height.
+            </summary>
+            <param name="width">Width of the new Mat.</param>
+            <param name="height">Height of the new Mat.</param>
+            <param name="type">Data type and number of channels the Mat will hold.
+            Depends on texture type: see sl.VIEW and sl.MEASURE in ZEDCommon.cs.</param>
+            <param name="mem">Whether Mat should exist on CPU or GPU memory.
+            Choose depending on where you'll need to access it from.</param>
+        </member>
+        <member name="M:sl.ZEDMat.IsInit">
+            <summary>
+            True if the Mat has been initialized.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:sl.ZEDMat.Free(sl.ZEDMat.MEM)">
+            <summary>
+            Frees the memory of the Mat.
+            </summary>
+            <param name="mem">Whether the Mat is on CPU or GPU memory.</param>
+        </member>
+        <member name="M:sl.ZEDMat.UpdateCPUFromGPU">
+            <summary>
+            Copies data from the GPU to the CPU, if possible.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:sl.ZEDMat.UpdateGPUFromCPU">
+            <summary>
+            Copies data from the CPU to the GPU, if possible.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:sl.ZEDMat.GetInfos">
+            <summary>
+            Returns information about the Mat.
+            </summary>
+            <returns>String providing Mat information.</returns>
+        </member>
+        <member name="M:sl.ZEDMat.CopyTo(sl.ZEDMat,sl.ZEDMat.COPY_TYPE)">
+            <summary>
+            Copies data from this Mat to another Mat (deep copy).
+            </summary>
+            <param name="dest">Mat that the data will be copied to.</param>
+            <param name="copyType">The To and From memory types.</param>
+            <returns>Error code indicating if the copy was successful, or why it wasn't.</returns>
+        </member>
+        <member name="M:sl.ZEDMat.Read(System.String)">
+            <summary>
+            Reads an image from a file. Supports .png and .jpeg. Only works if Mat has access to MEM_CPU.
+            </summary>
+            <param name="filePath">File path, including file name and extension.</param>
+            <returns>Error code indicating if the read was successful, or why it wasn't.</returns>
+        </member>
+        <member name="M:sl.ZEDMat.Write(System.String)">
+            <summary>
+            Writes the Mat into a file as an image. Only works if Mat has access to MEM_CPU.
+            </summary>
+            <param name="filePath">File path, including file name and extension.</param>
+            <returns>Error code indicating if the write was successful, or why it wasn't.</returns>
+        </member>
+        <member name="M:sl.ZEDMat.GetWidth">
+            <summary>
+            Returns the width of the matrix.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:sl.ZEDMat.GetHeight">
+            <summary>
+            Returns the height of the matrix.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:sl.ZEDMat.GetChannels">
+            <summary>
+            Returns the number of values/channels stored in each pixel.
+            </summary>
+            <returns>Number of values/channels.</returns>
+        </member>
+        <member name="M:sl.ZEDMat.GetPixelBytes">
+            <summary>
+            Returns the size in bytes of one pixel.
+            </summary>
+            <returns>Size in bytes.</returns>
+        </member>
+        <member name="M:sl.ZEDMat.GetStep">
+            <summary>
+             Returns the memory 'step' in number/length of elements - how many values make up each row of pixels.
+            </summary>
+            <returns>Step length.</returns>
+        </member>
+        <member name="M:sl.ZEDMat.GetStepBytes">
+            <summary>
+            Returns the memory 'step' in bytes - how many bytes make up each row of pixels.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:sl.ZEDMat.GetWidthBytes">
+            <summary>
+            Returns the size of each row in bytes.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:sl.ZEDMat.GetMemoryType">
+            <summary>
+            Returns the type of memory (CPU and/or GPU).
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:sl.ZEDMat.IsMemoryOwner">
+            <summary>
+            Returns whether the Mat is the owner of the memory it's accessing.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:sl.ZEDMat.GetResolution">
+            <summary>
+            Returns the resolution of the image that this Mat holds. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:sl.ZEDMat.Alloc(System.UInt32,System.UInt32,sl.ZEDMat.MAT_TYPE,sl.ZEDMat.MEM)">
+            <summary>
+            Allocates memory for the Mat.
+            </summary>
+            <param name="width">Width of the image/matrix in pixels.</param>
+            <param name="height">Height of the image/matrix in pixels.</param>
+            <param name="matType">Type of matrix (data type and channels; see sl.MAT_TYPE)</param>
+            <param name="mem">Where the buffer will be stored - CPU memory or GPU memory.</param>
+        </member>
+        <member name="M:sl.ZEDMat.Alloc(sl.Resolution,sl.ZEDMat.MAT_TYPE,sl.ZEDMat.MEM)">
+            <summary>
+            Allocates memory for the Mat.
+            </summary>
+            <param name="resolution">Size of the image/matrix in pixels.</param>
+            <param name="matType">Type of matrix (data type and channels; see sl.MAT_TYPE)</param>
+            <param name="mem">Where the buffer will be stored - CPU memory or GPU memory.</param>
+        </member>
+        <member name="M:sl.ZEDMat.SetFrom(sl.ZEDMat,sl.ZEDMat.COPY_TYPE)">
+            <summary>
+            Copies data from another Mat into this one(deep copy).
+            </summary>
+            <param name="src">Source Mat from which to copy.</param>
+            <param name="copyType">The To and From memory types.</param>
+            <returns>ERROR_CODE (as an int) indicating if the copy was successful, or why it wasn't.</returns>
+        </member>
+        <member name="M:sl.ZEDMat.Clone(sl.ZEDMat)">
+            <summary>
+            Duplicates a Mat by copying all its data into a new one (deep copy).
+            </summary>
+            <param name="source"></param>
+        </member>
+        <member name="M:sl.ZEDMat.GetValue(System.Int32,System.Int32,System.Single@,sl.ZEDMat.MEM)">
+            <summary>
+            Returns the value of a specific point in the matrix. (MAT_32F_C1)
+            </summary>
+            <param name="x">Row the point is in.</param>
+            <param name="y">Column the point is in.</param>
+            <param name="value">Gets filled with the current value.</param>
+            <param name="mem">Whether point is on CPU memory or GPU memory.</param>
+            <returns>Error code indicating if the get was successful, or why it wasn't.</returns>
+        </member>
+        <member name="M:sl.ZEDMat.GetValue(System.Int32,System.Int32,sl.float2@,sl.ZEDMat.MEM)">
+            <summary>
+            Returns the value of a specific point in the matrix. (MAT_32F_C2)
+            </summary>
+            <param name="x">Row the point is in.</param>
+            <param name="y">Column the point is in.</param>
+            <param name="value">Gets filled with the current value.</param>
+            <param name="mem">Whether point is on CPU memory or GPU memory.</param>
+            <returns>Error code indicating if the get was successful, or why it wasn't.</returns>
+        </member>
+        <member name="M:sl.ZEDMat.GetValue(System.Int32,System.Int32,sl.float3@,sl.ZEDMat.MEM)">
+            <summary>
+            Returns the value of a specific point in the matrix. (MAT_32F_C3)
+            </summary>
+            <param name="x">Row the point is in.</param>
+            <param name="y">Column the point is in.</param>
+            <param name="value">Gets filled with the current value.</param>
+            <param name="mem">Whether point is on CPU memory or GPU memory.</param>
+            <returns>Error code indicating if the get was successful, or why it wasn't.</returns>
+        </member>
+        <member name="M:sl.ZEDMat.GetValue(System.Int32,System.Int32,sl.float4@,sl.ZEDMat.MEM)">
+            <summary>
+            Returns the value of a specific point in the matrix. (MAT_32F_C4)
+            </summary>
+            <param name="x">Row the point is in.</param>
+            <param name="y">Column the point is in.</param>
+            <param name="value">Gets filled with the current value.</param>
+            <param name="mem">Whether point is on CPU memory or GPU memory.</param>
+            <returns>Error code indicating if the get was successful, or why it wasn't.</returns>
+        </member>
+        <member name="M:sl.ZEDMat.GetValue(System.Int32,System.Int32,System.Byte@,sl.ZEDMat.MEM)">
+            <summary>
+            Returns the value of a specific point in the matrix. (MAT_TYPE_8U_C1)
+            </summary>
+            <param name="x">Row the point is in.</param>
+            <param name="y">Column the point is in.</param>
+            <param name="value">Gets filled with the current value.</param>
+            <param name="mem">Whether point is on CPU memory or GPU memory.</param>
+            <returns>Error code indicating if the get was successful, or why it wasn't.</returns>
+        </member>
+        <member name="M:sl.ZEDMat.GetValue(System.Int32,System.Int32,sl.char2@,sl.ZEDMat.MEM)">
+            <summary>
+            Returns the value of a specific point in the matrix. (MAT_TYPE_8U_C2)
+            </summary>
+            <param name="x">Row the point is in.</param>
+            <param name="y">Column the point is in.</param>
+            <param name="value">Gets filled with the current value.</param>
+            <param name="mem">Whether point is on CPU memory or GPU memory.</param>
+            <returns>Error code indicating if the get was successful, or why it wasn't.</returns>
+        </member>
+        <member name="M:sl.ZEDMat.GetValue(System.Int32,System.Int32,sl.char3@,sl.ZEDMat.MEM)">
+            <summary>
+            Returns the value of a specific point in the matrix. (MAT_TYPE_8U_C3)
+            </summary>
+            <param name="x">Row the point is in.</param>
+            <param name="y">Column the point is in.</param>
+            <param name="value">Gets filled with the current value.</param>
+            <param name="mem">Whether point is on CPU memory or GPU memory.</param>
+            <returns>Error code indicating if the get was successful, or why it wasn't.</returns>
+        </member>
+        <member name="M:sl.ZEDMat.GetValue(System.Int32,System.Int32,sl.char4@,sl.ZEDMat.MEM)">
+            <summary>
+            Returns the value of a specific point in the matrix. (MAT_TYPE_8U_C4)
+            </summary>
+            <param name="x">Row the point is in.</param>
+            <param name="y">Column the point is in.</param>
+            <param name="value">Gets filled with the current value.</param>
+            <param name="mem">Whether point is on CPU memory or GPU memory.</param>
+            <returns>Error code indicating if the get was successful, or why it wasn't.</returns>
+        </member>
+        <member name="M:sl.ZEDMat.SetValue(System.Int32,System.Int32,System.Single@,sl.ZEDMat.MEM)">
+            <summary>
+            Sets a value to a specific point in the matrix. (MAT_32F_C1)
+            </summary>
+            <param name="x">Row the point is in.</param>
+            <param name="y">Column the point is in.</param>
+            <param name="value">Value to which the point will be set.</param>
+            <param name="mem">Whether point is on CPU memory or GPU memory.</param>
+            <returns>Error code indicating if the set was successful, or why it wasn't.</returns>
+        </member>
+        <member name="M:sl.ZEDMat.SetValue(System.Int32,System.Int32,sl.float2@,sl.ZEDMat.MEM)">
+            <summary>
+            Sets a value to a specific point in the matrix. (MAT_32F_C2)
+            </summary>
+            <param name="x">Row the point is in.</param>
+            <param name="y">Column the point is in.</param>
+            <param name="value">Value to which the point will be set.</param>
+            <param name="mem">Whether point is on CPU memory or GPU memory.</param>
+            <returns>Error code indicating if the set was successful, or why it wasn't.</returns>
+        </member>
+        <member name="M:sl.ZEDMat.SetValue(System.Int32,System.Int32,sl.float3@,sl.ZEDMat.MEM)">
+            <summary>
+            Sets a value to a specific point in the matrix. (MAT_32F_C3)
+            </summary>
+            <param name="x">Row the point is in.</param>
+            <param name="y">Column the point is in.</param>
+            <param name="value">Value to which the point will be set.</param>
+            <param name="mem">Whether point is on CPU memory or GPU memory.</param>
+            <returns>Error code indicating if the set was successful, or why it wasn't.</returns>
+        </member>
+        <member name="M:sl.ZEDMat.SetValue(System.Int32,System.Int32,sl.float4,sl.ZEDMat.MEM)">
+            <summary>
+            Sets a value to a specific point in the matrix. (MAT_32F_C4)
+            </summary>
+            <param name="x">Row the point is in.</param>
+            <param name="y">Column the point is in.</param>
+            <param name="value">Value to which the point will be set.</param>
+            <param name="mem">Whether point is on CPU memory or GPU memory.</param>
+            <returns>Error code indicating if the set was successful, or why it wasn't.</returns>
+        </member>
+        <member name="M:sl.ZEDMat.SetValue(System.Int32,System.Int32,System.Byte@,sl.ZEDMat.MEM)">
+            <summary>
+            Sets a value to a specific point in the matrix. (MAT_TYPE_8U_C1)
+            </summary>
+            <param name="x">Row the point is in.</param>
+            <param name="y">Column the point is in.</param>
+            <param name="value">Value to which the point will be set.</param>
+            <param name="mem">Whether point is on CPU memory or GPU memory.</param>
+            <returns>Error code indicating if the set was successful, or why it wasn't.</returns>
+        </member>
+        <member name="M:sl.ZEDMat.SetValue(System.Int32,System.Int32,sl.char2@,sl.ZEDMat.MEM)">
+            <summary>
+            Sets a value to a specific point in the matrix. (MAT_TYPE_8U_C2)
+            </summary>
+            <param name="x">Row the point is in.</param>
+            <param name="y">Column the point is in.</param>
+            <param name="value">Value to which the point will be set.</param>
+            <param name="mem">Whether point is on CPU memory or GPU memory.</param>
+            <returns>Error code indicating if the set was successful, or why it wasn't.</returns>
+        </member>
+        <member name="M:sl.ZEDMat.SetValue(System.Int32,System.Int32,sl.char3@,sl.ZEDMat.MEM)">
+            <summary>
+            Sets a value to a specific point in the matrix. (MAT_TYPE_8U_C3)
+            </summary>
+            <param name="x">Row the point is in.</param>
+            <param name="y">Column the point is in.</param>
+            <param name="value">Value to which the point will be set.</param>
+            <param name="mem">Whether point is on CPU memory or GPU memory.</param>
+            <returns>Error code indicating if the set was successful, or why it wasn't.</returns>
+        </member>
+        <member name="M:sl.ZEDMat.SetValue(System.Int32,System.Int32,sl.char4@,sl.ZEDMat.MEM)">
+            <summary>
+            Sets a value to a specific point in the matrix. (MAT_TYPE_8U_C4)
+            </summary>
+            <param name="x">Row the point is in.</param>
+            <param name="y">Column the point is in.</param>
+            <param name="value">Value to which the point will be set.</param>
+            <param name="mem">Whether point is on CPU memory or GPU memory.</param>
+            <returns>Error code indicating if the set was successful, or why it wasn't.</returns>
+        </member>
+        <member name="M:sl.ZEDMat.SetTo(System.Single@,sl.ZEDMat.MEM)">
+            <summary>
+            Fills the entire Mat with the given value. (MAT_32F_C1)
+            </summary>
+            <param name="value">Value with which to fill the Mat.</param>
+            <param name="mem">Which buffer to fill - CPU or GPU memory.</param>
+            <returns>Whether the set was successful, or why it wasn't.</returns>
+        </member>
+        <member name="M:sl.ZEDMat.SetTo(sl.float2@,sl.ZEDMat.MEM)">
+            <summary>
+            Fills the entire Mat with the given value. (MAT_32F_C2)
+            </summary>
+            <param name="value">Value with which to fill the Mat.</param>
+            <param name="mem">Which buffer to fill - CPU or GPU memory.</param>
+            <returns>Whether the set was successful, or why it wasn't.</returns>
+        </member>
+        <member name="M:sl.ZEDMat.SetTo(sl.float3@,sl.ZEDMat.MEM)">
+            <summary>
+            Fills the entire Mat with the given value. (MAT_32F_C3)
+            </summary>
+            <param name="value">Value with which to fill the Mat.</param>
+            <param name="mem">Which buffer to fill - CPU or GPU memory.</param>
+            <returns>Whether the set was successful, or why it wasn't.</returns>
+        </member>
+        <member name="M:sl.ZEDMat.SetTo(sl.float4@,sl.ZEDMat.MEM)">
+            <summary>
+            Fills the entire Mat with the given value. (MAT_32F_C4)
+            </summary>
+            <param name="value">Value with which to fill the Mat.</param>
+            <param name="mem">Which buffer to fill - CPU or GPU memory.</param>
+            <returns>Whether the set was successful, or why it wasn't.</returns>
+        </member>
+        <member name="M:sl.ZEDMat.SetTo(System.Byte@,sl.ZEDMat.MEM)">
+            <summary>
+            Fills the entire Mat with the given value. (MAT_TYPE_8U_C1)
+            </summary>
+            <param name="value">Value with which to fill the Mat.</param>
+            <param name="mem">Which buffer to fill - CPU or GPU memory.</param>
+            <returns>Whether the set was successful, or why it wasn't.</returns>
+        </member>
+        <member name="M:sl.ZEDMat.SetTo(sl.char2@,sl.ZEDMat.MEM)">
+            <summary>
+            Fills the entire Mat with the given value. (MAT_TYPE_8U_C2)
+            </summary>
+            <param name="value">Value with which to fill the Mat.</param>
+            <param name="mem">Which buffer to fill - CPU or GPU memory.</param>
+            <returns>Whether the set was successful, or why it wasn't.</returns>
+        </member>
+        <member name="M:sl.ZEDMat.SetTo(sl.char3@,sl.ZEDMat.MEM)">
+            <summary>
+            Fills the entire Mat with the given value. (MAT_TYPE_8U_C3)
+            </summary>
+            <param name="value">Value with which to fill the Mat.</param>
+            <param name="mem">Which buffer to fill - CPU or GPU memory.</param>
+            <returns>Whether the set was successful, or why it wasn't.</returns>
+        </member>
+        <member name="M:sl.ZEDMat.SetTo(sl.char4@,sl.ZEDMat.MEM)">
+            <summary>
+            Fills the entire Mat with the given value. (MAT_TYPE_8U_C4)
+            </summary>
+            <param name="value">Value with which to fill the Mat.</param>
+            <param name="mem">Which buffer to fill - CPU or GPU memory.</param>
+            <returns>Whether the set was successful, or why it wasn't.</returns>
+        </member>
+    </members>
+</doc>
