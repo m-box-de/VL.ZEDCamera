@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
-using OpenCvSharp;
+using Xenko.Graphics;
 using System.Runtime.InteropServices;
 
 
@@ -119,47 +119,71 @@ namespace sl
 			})
 		{ }
 
-		public Mat FetchImage(VIEW view)
-		{
-			if (mats.Count < matIndex + 1)
-			{
-				mats.Add(new ZEDMat());
-			}
-			var mat = mats[matIndex++];
-			camera.RetrieveImage(mat, view);
+        public Image FetchImage(VIEW view)
+        {
+            if (mats.Count < matIndex + 1)
+            {
+                mats.Add(new ZEDMat());
+            }
+            var mat = mats[matIndex++];
+            camera.RetrieveImage(mat, view);
+            /*           
+                                   MatType cvType;
 
-			MatType cvType;
+                                   switch (view)
+                                   {
+                                       case VIEW.LEFT: cvType = MatType.CV_8UC4; break;
+                                       case VIEW.RIGHT: cvType = MatType.CV_8UC4; break;
+                                       case VIEW.LEFT_GREY: cvType = MatType.CV_8UC1; break;
+                                       case VIEW.RIGHT_GREY: cvType = MatType.CV_8UC1; break;
+                                       case VIEW.LEFT_UNRECTIFIED: cvType = MatType.CV_8UC4; break;
+                                       case VIEW.RIGHT_UNRECTIFIED: cvType = MatType.CV_8UC4; break;
+                                       case VIEW.LEFT_UNRECTIFIED_GREY: cvType = MatType.CV_8UC1; break;
+                                       case VIEW.RIGHT_UNRECTIFIED_GREY: cvType = MatType.CV_8UC1; break;
+                                       case VIEW.SIDE_BY_SIDE: cvType = MatType.CV_8UC4; break;
+                                       case VIEW.DEPTH: cvType = MatType.CV_32FC1; break;
+                                       case VIEW.CONFIDENCE: cvType = MatType.CV_8UC4; break;
+                                       case VIEW.NORMALS: cvType = MatType.CV_8UC4; break;
+                                       case VIEW.DEPTH_RIGHT: cvType = MatType.CV_8UC4; break;
+                                       case VIEW.NORMALS_RIGHT: cvType = MatType.CV_8UC4; break;
+                                       default: cvType = -1; break;
+                                   }
+                                   return new Mat(camera.ImageHeight, view == VIEW.SIDE_BY_SIDE ? camera.ImageWidth * 2 : camera.ImageWidth, cvType, mat.GetPtr());
+                        */
+            MipMapCount mitmap = 1;
+            PixelFormat imgType;
 
-			switch (view)
-			{
-				case VIEW.LEFT:						cvType = MatType.CV_8UC4; break;
-				case VIEW.RIGHT:					cvType = MatType.CV_8UC4; break;
-				case VIEW.LEFT_GREY:				cvType = MatType.CV_8UC1; break;
-				case VIEW.RIGHT_GREY:				cvType = MatType.CV_8UC1; break;
-				case VIEW.LEFT_UNRECTIFIED:			cvType = MatType.CV_8UC4; break;
-				case VIEW.RIGHT_UNRECTIFIED:		cvType = MatType.CV_8UC4; break;
-				case VIEW.LEFT_UNRECTIFIED_GREY:	cvType = MatType.CV_8UC1; break;
-				case VIEW.RIGHT_UNRECTIFIED_GREY:	cvType = MatType.CV_8UC1; break;
-				case VIEW.SIDE_BY_SIDE:				cvType = MatType.CV_8UC4; break;
-				case VIEW.DEPTH:					cvType = MatType.CV_32FC1; break;
-				case VIEW.CONFIDENCE:				cvType = MatType.CV_8UC4; break;
-				case VIEW.NORMALS:					cvType = MatType.CV_8UC4; break;
-				case VIEW.DEPTH_RIGHT:				cvType = MatType.CV_8UC4; break;
-				case VIEW.NORMALS_RIGHT:			cvType = MatType.CV_8UC4; break;
-				default:							cvType = -1; break;
-			}
-			return new Mat(camera.ImageHeight, view == VIEW.SIDE_BY_SIDE ? camera.ImageWidth * 2 : camera.ImageWidth, cvType, mat.GetPtr());
-		}
+            switch (view)
+            {
+                case VIEW.LEFT: imgType = PixelFormat.B8G8R8A8_UNorm; break;
+                case VIEW.RIGHT: imgType = PixelFormat.B8G8R8A8_UNorm; break;
+                case VIEW.LEFT_GREY: imgType = PixelFormat.A8_UNorm; break;
+                case VIEW.RIGHT_GREY: imgType = PixelFormat.A8_UNorm; break;
+                case VIEW.LEFT_UNRECTIFIED: imgType = PixelFormat.B8G8R8A8_UNorm; break;
+                case VIEW.RIGHT_UNRECTIFIED: imgType = PixelFormat.B8G8R8A8_UNorm; break;
+                case VIEW.LEFT_UNRECTIFIED_GREY: imgType = PixelFormat.A8_UNorm; break;
+                case VIEW.RIGHT_UNRECTIFIED_GREY: imgType = PixelFormat.A8_UNorm; break;
+                case VIEW.SIDE_BY_SIDE: imgType = PixelFormat.B8G8R8A8_UNorm; break;
+                case VIEW.DEPTH: imgType = PixelFormat.R32_Float; break;
+                case VIEW.CONFIDENCE: imgType = PixelFormat.B8G8R8A8_UNorm; break;
+                case VIEW.NORMALS: imgType = PixelFormat.B8G8R8A8_UNorm; break;
+                case VIEW.DEPTH_RIGHT: imgType = PixelFormat.B8G8R8A8_UNorm; break;
+                case VIEW.NORMALS_RIGHT: imgType = PixelFormat.B8G8R8A8_UNorm; break;
+                default: imgType = PixelFormat.R8_UInt; break;
+            }
+            return Image.New2D(view == VIEW.SIDE_BY_SIDE ? camera.ImageWidth * 2 : camera.ImageWidth, camera.ImageHeight, mitmap, imgType, 1, mat.GetPtr());
+        }
 
-		public Mat FetchPointCloud(MEASURE measure)
-		{
-			if (mats.Count < matIndex + 1)
-			{
-				mats.Add(new ZEDMat());
-			}
-			var depth_zed = mats[matIndex++];
-			camera.RetrieveMeasure(depth_zed, measure);
+        public Image FetchPointCloud(MEASURE measure)
+        {
+            if (mats.Count < matIndex + 1)
+            {
+                mats.Add(new ZEDMat());
+            }
+            var depth_zed = mats[matIndex++];
+            camera.RetrieveMeasure(depth_zed, measure);
 
+            /*
 			MatType cvType;
 
 			switch (measure)
@@ -184,9 +208,34 @@ namespace sl
 			}
 
 			return new Mat(camera.ImageHeight, camera.ImageWidth, cvType, depth_zed.GetPtr());
-		}
+            */
+            MipMapCount mitmap = 1;
+            PixelFormat imgType;
 
-		public void InitZED_Sequential()
+            switch (measure)
+            {
+                case MEASURE.DISPARITY: imgType = PixelFormat.R32_Float; break;
+                case MEASURE.DEPTH: imgType = PixelFormat.R32_Float; break;
+                case MEASURE.CONFIDENCE: imgType = PixelFormat.R32_Float; break;
+                case MEASURE.XYZ: imgType = PixelFormat.R32G32B32A32_Float; break;
+                case MEASURE.XYZRGBA: imgType = PixelFormat.R32G32B32A32_Float; break;
+                case MEASURE.XYZBGRA: imgType = PixelFormat.R32G32B32A32_Float; break;
+                case MEASURE.XYZARGB: imgType = PixelFormat.R32G32B32A32_Float; break;
+                case MEASURE.XYZABGR: imgType = PixelFormat.R32G32B32A32_Float; break;
+                case MEASURE.NORMALS: imgType = PixelFormat.R32G32B32A32_Float; break;
+                case MEASURE.DISPARITY_RIGHT: imgType = PixelFormat.R32_Float; break;
+                case MEASURE.DEPTH_RIGHT: imgType = PixelFormat.R32_Float; break;
+                case MEASURE.XYZ_RIGHT: imgType = PixelFormat.R32G32B32A32_Float; break;
+                case MEASURE.XYZRGBA_RIGHT: imgType = PixelFormat.R32G32B32A32_Float; break;
+                case MEASURE.XYZBGRA_RIGHT: imgType = PixelFormat.R32G32B32A32_Float; break;
+                case MEASURE.XYZARGB_RIGHT: imgType = PixelFormat.R32G32B32A32_Float; break;
+                case MEASURE.XYZABGR_RIGHT: imgType = PixelFormat.R32G32B32A32_Float; break;
+                default: imgType = PixelFormat.R8_UInt; ; break;
+            }
+            return Image.New2D(camera.ImageWidth, camera.ImageHeight, mitmap, imgType, 1, depth_zed.GetPtr());
+        }
+
+        public void InitZED_Sequential()
 		{
 			while (lastInitStatus != sl.ERROR_CODE.SUCCESS)
 			{
