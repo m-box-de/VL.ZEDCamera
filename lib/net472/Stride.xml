@@ -1,0 +1,3019 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Stride</name>
+    </assembly>
+    <members>
+        <member name="T:Stride.CompilationMode">
+            <summary>
+            An enum that describes the compilation mode used to compile a game.
+            </summary>
+        </member>
+        <member name="F:Stride.CompilationMode.Debug">
+            <summary>
+            The game was compiled in debug mode. 
+            </summary>
+            <remarks>
+            Impact on compilation on other components:
+            - Shaders are compiled in debug mode with debug information.
+            </remarks>
+        </member>
+        <member name="F:Stride.CompilationMode.Release">
+            <summary>
+            The game was compiled in release mode.
+            </summary>
+            <remarks>
+            Impact on compilation on other components:
+            - Shaders are compiled in optimization level 1 with debug information.
+            </remarks>
+        </member>
+        <member name="F:Stride.CompilationMode.AppStore">
+            <summary>
+            The game was compiled in release mode for app-store (for end-user release)
+            </summary>
+            <remarks>
+            Impact on compilation on other components:
+            - Shaders are compiled in optimization level 2 with <c>no debug</c> information.
+            </remarks>
+        </member>
+        <member name="F:Stride.CompilationMode.Testing">
+            <summary>
+            The game was compiled in testing mode. 
+            </summary>
+            <remarks>
+            Impact on compilation on other components:
+            - Shaders are compiled in debug mode with debug information.
+            </remarks>
+        </member>
+        <member name="T:Stride.Rendering.AssemblyEffectKeysAttribute">
+            <summary>
+            Assembly attribute used to mark assembly that has been preprocessed using the <see cref="!:ParameterKeyProcessor"/>.
+            Assemblies without this attribute will have all of their type members tagged with <see cref="!:EffectKeysAttribute"/> scanned for <see cref="T:Stride.Rendering.ParameterKey"/>.
+            </summary>
+        </member>
+        <member name="T:Stride.Rendering.ParameterCollectionExtensions">
+            <summary>
+            Extensions for <see cref="T:Stride.Rendering.ParameterCollection"/>.
+            </summary>
+        </member>
+        <member name="T:Stride.Rendering.ParameterKey">
+            <summary>
+            Key of an effect parameter.
+            </summary>
+        </member>
+        <member name="M:Stride.Rendering.ParameterKey.#ctor(System.Type,System.String,System.Int32,Stride.Core.PropertyKeyMetadata[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Rendering.ParameterKey" /> class.
+            </summary>
+            <param name="propertyType">Type of the property.</param>
+            <param name="name">The name.</param>
+            <param name="length">The length.</param>
+            <param name="metadatas">The metadatas.</param>
+        </member>
+        <member name="P:Stride.Rendering.ParameterKey.Length">
+            <summary>
+            Gets the number of elements for this key.
+            </summary>
+        </member>
+        <member name="M:Stride.Rendering.ParameterKey.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to this instance.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with this instance.</param>
+            <returns>
+              <c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Stride.Rendering.ParameterKey.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            </returns>
+        </member>
+        <member name="M:Stride.Rendering.ParameterKey.op_Equality(Stride.Rendering.ParameterKey,Stride.Rendering.ParameterKey)">
+            <summary>
+            Implements the operator ==.
+            </summary>
+            <param name="left">The left.</param>
+            <param name="right">The right.</param>
+            <returns>
+            The result of the operator.
+            </returns>
+        </member>
+        <member name="M:Stride.Rendering.ParameterKey.op_Inequality(Stride.Rendering.ParameterKey,Stride.Rendering.ParameterKey)">
+            <summary>
+            Implements the operator !=.
+            </summary>
+            <param name="left">The left.</param>
+            <param name="right">The right.</param>
+            <returns>
+            The result of the operator.
+            </returns>
+        </member>
+        <member name="M:Stride.Rendering.ParameterKey.ConvertValue(System.Object)">
+            <summary>
+            Converts the value passed by parameter to the expecting value of this parameter key (for example, if value is
+            an integer while this parameter key is expecting a float)
+            </summary>
+            <param name="value">The value.</param>
+            <returns>System.Object.</returns>
+        </member>
+        <member name="T:Stride.Rendering.ParameterKey`1">
+            <summary>
+            Key of an gereric effect parameter.
+            </summary>
+            <typeparam name="T">Type of the parameter key.</typeparam>
+        </member>
+        <member name="M:Stride.Rendering.ParameterKey`1.#ctor(Stride.Rendering.ParameterKeyType,System.String,System.Int32,Stride.Core.PropertyKeyMetadata)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Rendering.ParameterKey`1"/> class.
+            </summary>
+            <param name="type"></param>
+            <param name="name">The name.</param>
+            <param name="length">The length.</param>
+            <param name="metadata">The metadata.</param>
+        </member>
+        <member name="M:Stride.Rendering.ParameterKey`1.#ctor(Stride.Rendering.ParameterKeyType,System.String,System.Int32,Stride.Core.PropertyKeyMetadata[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Rendering.ParameterKey`1"/> class.
+            </summary>
+            <param name="type"></param>
+            <param name="name">The name.</param>
+            <param name="length">The length.</param>
+            <param name="metadatas">The metadatas.</param>
+        </member>
+        <member name="T:Stride.Rendering.ValueParameterKey`1">
+            <summary>
+            A blittable value effect key, usually for use by shaders (.sdsl).
+            </summary>
+            <typeparam name="T">Type of the parameter key.</typeparam>
+        </member>
+        <member name="T:Stride.Rendering.ObjectParameterKey`1">
+            <summary>
+            An object (or boxed value) effect key, usually for use by shaders (.sdsl).
+            </summary>
+            <typeparam name="T">Type of the parameter key.</typeparam>
+        </member>
+        <member name="T:Stride.Rendering.PermutationParameterKey`1">
+            <summary>
+            An effect permutation key, usually for use by effects (.sdfx).
+            </summary>
+            <typeparam name="T">Type of the parameter key.</typeparam>
+        </member>
+        <member name="M:Stride.Rendering.ParameterKeys.GetKeys">
+            <summary>
+            Returns property keys matching a given type
+            </summary>
+            <param name="keyType">Type of the key.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Stride.Rendering.ParameterKeys.IndexedKey``1(``0,System.Int32)">
+            <summary>
+            Creates the key with specified index.
+            </summary>
+            <param name="index">The index.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Stride.Rendering.ParameterKeys.ComposeWith``1(``0,System.String)">
+            <summary>
+            Compose a key with a name (e.g  if key is `MyKey.MyKeyName` and name is `MyName`, the result key will be `MyKey.MyKeyName.MyName`)
+            </summary>
+            <typeparam name="T">Type of the key value</typeparam>
+            <param name="key">The key.</param>
+            <param name="name">The name to append to the key.</param>
+            <returns>The composition of key and name</returns>
+            <exception cref="T:System.ArgumentNullException">
+            key
+            or
+            name
+            </exception>
+        </member>
+        <member name="M:Stride.Rendering.ParameterKeys.ComposeIndexer``1(``0,System.String,System.Int32)">
+            <summary>
+            Compose a key with a name and index (e.g  if key is `MyKey.MyKeyName` and name is `MyName` and index is 5, the result key will be `MyKey.MyKeyName.MyName[5]`)
+            </summary>
+            <typeparam name="T">Type of the key value</typeparam>
+            <param name="key">The key.</param>
+            <param name="name">The name to append to the key.</param>
+            <param name="index">The index.</param>
+            <returns>T.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            key
+            or
+            name
+            </exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">index;Must be >= 0</exception>
+        </member>
+        <member name="T:Stride.Rendering.ParameterKeyValueMetadata`1">
+            <summary>
+            Metadata used for <see cref="T:Stride.Rendering.ParameterKey"/>
+            </summary>
+        </member>
+        <member name="M:Stride.Rendering.ParameterKeyValueMetadata`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Rendering.ParameterKeyValueMetadata"/> class.
+            </summary>
+        </member>
+        <member name="M:Stride.Rendering.ParameterKeyValueMetadata`1.#ctor(`0)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Rendering.ParameterKeyValueMetadata"/> class.
+            </summary>
+            <param name="setupDelegate">The setup delegate.</param>
+        </member>
+        <member name="P:Stride.Rendering.ParameterKeyValueMetadata`1.DefaultValue">
+            <summary>
+            Gets the default value.
+            </summary>
+        </member>
+        <member name="T:Stride.Rendering.ParameterCollection">
+            <summary>
+            Manage several effect parameters (resources and data). A specific data and resource layout can be forced (usually by the consuming effect).
+            </summary>
+        </member>
+        <member name="M:Stride.Rendering.ParameterCollection.GetAccessor``1(Stride.Rendering.ObjectParameterKey{``0},System.Boolean)">
+            <summary>
+            Gets an accessor to get and set objects more quickly.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="parameterKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Stride.Rendering.ParameterCollection.GetAccessor``1(Stride.Rendering.PermutationParameterKey{``0},System.Boolean)">
+            <summary>
+            Gets an accessor to get and set permutations more quickly.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="parameterKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Stride.Rendering.ParameterCollection.GetAccessor``1(Stride.Rendering.ValueParameterKey{``0},System.Int32)">
+            <summary>
+            Gets an accessor to get and set blittable values more quickly.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="parameterKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Stride.Rendering.ParameterCollection.Set``1(Stride.Rendering.ObjectParameterKey{``0},``0)">
+            <summary>
+            Sets an object.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="parameter"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Stride.Rendering.ParameterCollection.Get``1(Stride.Rendering.ObjectParameterKey{``0},System.Boolean)">
+            <summary>
+            Gets an object.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="parameter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Stride.Rendering.ParameterCollection.Set``1(Stride.Rendering.PermutationParameterKey{``0},``0)">
+            <summary>
+            Sets a permutation.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="parameter"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Stride.Rendering.ParameterCollection.Get``1(Stride.Rendering.PermutationParameterKey{``0},System.Boolean)">
+            <summary>
+            Gets a permutation.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="parameter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Stride.Rendering.ParameterCollection.Set``1(Stride.Rendering.ValueParameterKey{``0},``0)">
+            <summary>
+            Sets a blittable value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="parameter"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Stride.Rendering.ParameterCollection.Set``1(Stride.Rendering.ValueParameterKey{``0},``0@)">
+            <summary>
+            Sets a blittable value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="parameter"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Stride.Rendering.ParameterCollection.Set``1(Stride.Rendering.ValueParameterKey{``0},``0[])">
+            <summary>
+            Sets blittable values.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="parameter"></param>
+            <param name="values"></param>
+        </member>
+        <member name="M:Stride.Rendering.ParameterCollection.Set``1(Stride.Rendering.ValueParameterKey{``0},System.Int32,``0@)">
+            <summary>
+            Sets blittable values.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="parameter"></param>
+            <param name="values"></param>
+        </member>
+        <member name="M:Stride.Rendering.ParameterCollection.Get``1(Stride.Rendering.ValueParameterKey{``0})">
+            <summary>
+            Gets a blittable value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="parameter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Stride.Rendering.ParameterCollection.GetValues``1(Stride.Rendering.ValueParameterKey{``0})">
+            <summary>
+            Gets blittable values.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Stride.Rendering.ParameterCollection.CopyTo``1(Stride.Rendering.ValueParameterKey{``0},Stride.Rendering.ParameterCollection,Stride.Rendering.ValueParameterKey{``0})">
+            <summary>
+            Copies all blittable values of a given key to the specified <see cref="T:Stride.Rendering.ParameterCollection"/>.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="key">The key for the values to copy.</param>
+            <param name="destination">The collection to copy the values to.</param>
+            <param name="destinationKey">The key for the values of the destination collection.</param>
+        </member>
+        <member name="M:Stride.Rendering.ParameterCollection.Set``1(Stride.Rendering.ValueParameter{``0},``0)">
+            <summary>
+            Sets a blittable value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="parameter"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Stride.Rendering.ParameterCollection.Set``1(Stride.Rendering.ValueParameter{``0},``0@)">
+            <summary>
+            Sets a blittable value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="parameter"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Stride.Rendering.ParameterCollection.Set``1(Stride.Rendering.ValueParameter{``0},System.Int32,``0@)">
+            <summary>
+            Sets blittable values.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="parameter"></param>
+            <param name="count"></param>
+            <param name="firstValue"></param>
+        </member>
+        <member name="M:Stride.Rendering.ParameterCollection.Set``1(Stride.Rendering.PermutationParameter{``0},``0)">
+            <summary>
+            Sets a permutation.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="parameter"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Stride.Rendering.ParameterCollection.Set``1(Stride.Rendering.ObjectParameterAccessor{``0},``0)">
+            <summary>
+            Sets an object.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="parameterAccessor"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Stride.Rendering.ParameterCollection.Get``1(Stride.Rendering.ValueParameter{``0})">
+            <summary>
+            Gets a value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="parameter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Stride.Rendering.ParameterCollection.Get``1(Stride.Rendering.PermutationParameter{``0})">
+            <summary>
+            Gets a permutation.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="parameter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Stride.Rendering.ParameterCollection.Get``1(Stride.Rendering.ObjectParameterAccessor{``0})">
+            <summary>
+            Gets an object.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="parameterAccessor"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Stride.Rendering.ParameterCollection.Clear">
+            <summary>
+            Clears the collection, including the layout.
+            </summary>
+        </member>
+        <member name="M:Stride.Rendering.ParameterCollection.ContainsKey(Stride.Rendering.ParameterKey)">
+            <summary>
+            Determines whether current collection contains a value for this key.
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Stride.Rendering.ParameterCollection.UpdateLayout(Stride.Rendering.ParameterCollectionLayout)">
+            <summary>
+            Reorganizes internal data and resources to match the given objects, and append extra values at the end.
+            </summary>
+            <param name="collectionLayout"></param>
+        </member>
+        <member name="M:Stride.Rendering.ParameterCollection.CompositionCopier.Copy(Stride.Rendering.ParameterCollection)">
+            <summary>
+            Copies data from source to destination according to previously compiled layout.
+            </summary>
+            <param name="source"></param>
+        </member>
+        <member name="M:Stride.Rendering.ParameterCollection.CompositionCopier.Compile(Stride.Rendering.ParameterCollection,Stride.Rendering.ParameterCollection,System.String)">
+            <summary>
+            Compute copy operations. Assumes destination layout is sequential.
+            </summary>
+            <param name="dest"></param>
+            <param name="source"></param>
+            <param name="keyRoot"></param>
+        </member>
+        <member name="M:Stride.Rendering.ParameterKeyInfo.#ctor(Stride.Rendering.ParameterKey,System.Int32,System.Int32)">
+            <summary>
+            Describes a value parameter.
+            </summary>
+            <param name="key"></param>
+            <param name="offset"></param>
+            <param name="size"></param>
+        </member>
+        <member name="M:Stride.Rendering.ParameterKeyInfo.#ctor(Stride.Rendering.ParameterKey,System.Int32)">
+            <summary>
+            Describes a resource parameter.
+            </summary>
+            <param name="key"></param>
+            <param name="bindingSlot"></param>
+        </member>
+        <member name="T:Stride.Graphics.ColorExtensions">
+            <summary>
+            Extension class for <see cref="T:Stride.Core.Mathematics.Color"/>
+            </summary>
+        </member>
+        <member name="M:Stride.Graphics.ColorExtensions.WithAlpha(Stride.Core.Mathematics.Color,System.Byte)">
+            <summary>
+            Create a copy of the color with the provided alpha value.
+            </summary>
+            <param name="color">The color to take as reference</param>
+            <param name="alpha">The alpha value of the new color</param>
+            <returns>The color with the provided alpha value</returns>
+        </member>
+        <member name="M:Stride.Graphics.ColorExtensions.ToColorSpace(Stride.Core.Mathematics.Color4,Stride.Graphics.ColorSpace)">
+            <summary>
+            Converts the color in gamma space to the specified <see cref="T:Stride.Graphics.ColorSpace"/>.
+            </summary>
+            <param name="color">The color.</param>
+            <param name="colorSpace">The color space.</param>
+            <returns>The color converted to the specified color space.</returns>
+        </member>
+        <member name="M:Stride.Graphics.ColorExtensions.ToColorSpace(Stride.Core.Mathematics.Color3,Stride.Graphics.ColorSpace)">
+            <summary>
+            Converts the color in gamma space to the specified <see cref="T:Stride.Graphics.ColorSpace"/>.
+            </summary>
+            <param name="color">The color.</param>
+            <param name="colorSpace">The color space.</param>
+            <returns>The color converted to the specified color space.</returns>
+        </member>
+        <member name="M:Stride.Graphics.ColorExtensions.ToColorSpace(Stride.Core.Mathematics.Color4,Stride.Graphics.ColorSpace,Stride.Graphics.ColorSpace)">
+            <summary>
+            Converts the color from a particualr color space to the specified <see cref="T:Stride.Graphics.ColorSpace"/>.
+            </summary>
+            <param name="color">The color.</param>
+            <param name="sourceColorSpace">The color space of this instance.</param>
+            <param name="colorSpace">The color space.</param>
+            <returns>The color converted to the specified color space.</returns>
+        </member>
+        <member name="M:Stride.Graphics.ColorExtensions.ToColorSpace(Stride.Core.Mathematics.Color3,Stride.Graphics.ColorSpace,Stride.Graphics.ColorSpace)">
+            <summary>
+            Converts the color from a particualr color space to the specified <see cref="T:Stride.Graphics.ColorSpace"/>.
+            </summary>
+            <param name="color">The color.</param>
+            <param name="sourceColorSpace">The color space of this instance.</param>
+            <param name="colorSpace">The color space.</param>
+            <returns>The color converted to the specified color space.</returns>
+        </member>
+        <member name="T:Stride.Graphics.ColorSpace">
+            <summary>
+            The colorspace used for textures, materials, lighting...
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.ColorSpace.Linear">
+            <summary>
+            Use a linear colorspace.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.ColorSpace.Gamma">
+            <summary>
+            Use a gamma colorspace.
+            </summary>
+        </member>
+        <member name="T:Stride.Graphics.CompareFunction">
+            <summary>
+            Comparison options.
+            </summary>
+            <remarks>
+            A comparison option determines whether how the runtime compares source (new) data against destination (existing) data before storing the new data. 
+            The comparison option is declared in a description before an object is created. 
+            The API allows you to set a comparison option for a depth-stencil buffer (see <see cref="!:IDepthStencilState"/>), depth-stencil operations, or sampler state (see <see cref="!:SamplerState"/>).
+            </remarks>
+        </member>
+        <member name="F:Stride.Graphics.CompareFunction.Never">
+            <summary>
+            Never pass the comparison.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.CompareFunction.Less">
+            <summary>
+            If the source data is less than the destination data, the comparison passes.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.CompareFunction.Equal">
+            <summary>
+            If the source data is equal to the destination data, the comparison passes.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.CompareFunction.LessEqual">
+            <summary>
+            If the source data is less than or equal to the destination data, the comparison passes.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.CompareFunction.Greater">
+            <summary>
+            If the source data is greater than the destination data, the comparison passes.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.CompareFunction.NotEqual">
+            <summary>
+            If the source data is not equal to the destination data, the comparison passes.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.CompareFunction.GreaterEqual">
+            <summary>
+            If the source data is greater than or equal to the destination data, the comparison passes.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.CompareFunction.Always">
+            <summary>
+            Always pass the comparison.
+            </summary>
+        </member>
+        <member name="T:Stride.Graphics.DataBox">
+            <summary>
+            Provides access to data organized in 3D.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.DataBox.empty">
+            <summary>
+            An empty DataBox.
+            </summary>
+        </member>
+        <member name="M:Stride.Graphics.DataBox.#ctor(System.IntPtr,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Graphics.DataBox"/> struct.
+            </summary>
+            <param name="datapointer">The datapointer.</param>
+            <param name="rowPitch">The row pitch.</param>
+            <param name="slicePitch">The slice pitch.</param>
+        </member>
+        <member name="F:Stride.Graphics.DataBox.DataPointer">
+            <summary>
+            Pointer to the data.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.DataBox.RowPitch">
+            <summary>
+            Gets the number of bytes per row.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.DataBox.SlicePitch">
+            <summary>
+            Gets the number of bytes per slice (for a 3D texture, a slice is a 2D image)
+            </summary>
+        </member>
+        <member name="P:Stride.Graphics.DataBox.IsEmpty">
+            <summary>
+            Gets a value indicating whether this instance is empty.
+            </summary>
+            <value><c>true</c> if this instance is empty; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:Stride.Graphics.DataBox.op_Equality(Stride.Graphics.DataBox,Stride.Graphics.DataBox)">
+            <summary>
+            Implements the operator ==.
+            </summary>
+            <param name="left">The left.</param>
+            <param name="right">The right.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:Stride.Graphics.DataBox.op_Inequality(Stride.Graphics.DataBox,Stride.Graphics.DataBox)">
+            <summary>
+            Implements the operator !=.
+            </summary>
+            <param name="left">The left.</param>
+            <param name="right">The right.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="T:Stride.Graphics.DataRectangle">
+            <summary>
+            Provides a pointer to 2D data.
+            </summary>
+        </member>
+        <member name="M:Stride.Graphics.DataRectangle.#ctor(System.IntPtr,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Graphics.DataRectangle"/> class.
+            </summary>
+            <param name="dataPointer">The pointer to the data.</param>
+            <param name="pitch">The stride.</param>
+        </member>
+        <member name="F:Stride.Graphics.DataRectangle.DataPointer">
+            <summary>
+            Gets or sets a pointer to the data.
+            </summary>
+            <value>
+            The stream.
+            </value>
+        </member>
+        <member name="F:Stride.Graphics.DataRectangle.Pitch">
+            <summary>
+            Gets or sets the number of bytes per row.
+            </summary>
+            <value>
+            The row pitch in bytes.
+            </value>
+        </member>
+        <member name="F:Stride.Graphics.DDS.MagicHeader">
+            <summary>
+            Magic code to identify DDS header
+            </summary>
+        </member>
+        <member name="T:Stride.Graphics.DDS.DDSPixelFormat">
+            <summary>
+            Internal structure used to describe a DDS pixel format.
+            </summary>
+        </member>
+        <member name="M:Stride.Graphics.DDS.DDSPixelFormat.#ctor(Stride.Graphics.DDS.PixelFormatFlags,System.Int32,System.Int32,System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Graphics.DDS.DDSPixelFormat" /> struct.
+            </summary>
+            <param name="flags">The flags.</param>
+            <param name="fourCC">The four CC.</param>
+            <param name="rgbBitCount">The RGB bit count.</param>
+            <param name="rBitMask">The r bit mask.</param>
+            <param name="gBitMask">The g bit mask.</param>
+            <param name="bBitMask">The b bit mask.</param>
+            <param name="aBitMask">A bit mask.</param>
+        </member>
+        <member name="T:Stride.Graphics.DDS.PixelFormatFlags">
+            <summary>
+            PixelFormat flags.
+            </summary>
+        </member>
+        <member name="T:Stride.Graphics.DDS.HeaderFlags">
+            <summary>
+            DDS Header flags.
+            </summary>
+        </member>
+        <member name="T:Stride.Graphics.DDS.SurfaceFlags">
+            <summary>
+            DDS Surface flags.
+            </summary>
+        </member>
+        <member name="T:Stride.Graphics.DDS.CubemapFlags">
+            <summary>
+            DDS Cubemap flags.
+            </summary>
+        </member>
+        <member name="T:Stride.Graphics.DDS.ResourceDimension">
+            <summary>
+            <p>Identifies the type of resource being used.</p>
+            </summary>
+            <remarks>
+            <p>This enumeration is used in <strong><see cref="!:SharpDX.Direct3D11.Resource.GetDimension" /></strong>. </p>
+            </remarks>
+            <!-- Der enthaltene XML-Abschnitt konnte nur teilweise oder gar nicht eingefügt werden. --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3D11_RESOURCE_DIMENSION']/*" />
+        </member>
+        <member name="F:Stride.Graphics.DDS.ResourceDimension.Unknown">
+            <summary>
+            <dd> <p>Resource is of unknown type.</p> </dd>
+            </summary>
+            <!-- Der enthaltene XML-Abschnitt konnte nur teilweise oder gar nicht eingefügt werden. --><include file=".\..\Documentation\CodeComments.xml" path="/comments/comment[@id='D3D11_RESOURCE_DIMENSION_UNKNOWN']/*" />
+        </member>
+        <member name="F:Stride.Graphics.DDS.ResourceDimension.Buffer">
+            <summary>
+            <dd> <p>Resource is a buffer.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.DDS.ResourceDimension.Texture1D">
+            <summary>
+            <dd> <p>Resource is a 1D texture.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.DDS.ResourceDimension.Texture2D">
+            <summary>
+            <dd> <p>Resource is a 2D texture.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.DDS.ResourceDimension.Texture3D">
+            <summary>
+            <dd> <p>Resource is a 3D texture.</p> </dd>
+            </summary>
+        </member>
+        <member name="T:Stride.Graphics.DDS.ResourceOptionFlags">
+            <summary>
+            <p>Identifies options for resources.</p>
+            </summary>
+            <remarks>
+            <p>This enumeration is used in <strong><see cref="!:SharpDX.Direct3D11.BufferDescription"/></strong>, <strong><see cref="!:SharpDX.Direct3D11.Texture1DDescription"/></strong>, <strong><see cref="!:SharpDX.Direct3D11.Texture2DDescription"/></strong>, <strong><see cref="!:SharpDX.Direct3D11.Texture3DDescription"/></strong>. </p><p>These flags can be combined by bitwise OR.</p>
+            </remarks>
+        </member>
+        <member name="F:Stride.Graphics.DDS.ResourceOptionFlags.GenerateMipMaps">
+            <summary>
+            <dd> <p>Enables MIP map generation by using <strong><see cref="!:SharpDX.Direct3D11.DeviceContext.GenerateMips"/></strong> on a texture resource. The resource must be created with the <strong>bind flags</strong> that specify that the resource is a render target and a shader resource.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.DDS.ResourceOptionFlags.Shared">
+            <summary>
+            <dd> <p>Enables resource data sharing between two or more Direct3D devices. The only resources that can be shared are 2D non-mipmapped textures.</p> <p><strong><see cref="!:SharpDX.Direct3D11.ResourceOptionFlags.Shared"/></strong> and <strong><see cref="!:SharpDX.Direct3D11.ResourceOptionFlags.SharedKeyedmutex"/></strong> are mutually exclusive.</p> <p><strong>WARP</strong> and <strong>REF</strong> devices do not support shared resources. If you try to create a resource with this flag on either a <strong>WARP</strong> or <strong>REF</strong> device,  the create method will return an <strong>E_OUTOFMEMORY</strong> error code.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.DDS.ResourceOptionFlags.TextureCube">
+            <summary>
+            <dd> <p>Sets a resource to be a cube texture created from a Texture2DArray that contains 6 textures.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.DDS.ResourceOptionFlags.DrawindirectArgs">
+            <summary>
+            <dd> <p>Enables instancing of GPU-generated content.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.DDS.ResourceOptionFlags.BufferAllowRawViews">
+            <summary>
+            <dd> <p>Enables a resource as a byte address buffer.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.DDS.ResourceOptionFlags.BufferStructured">
+            <summary>
+            <dd> <p>Enables a resource as a structured buffer.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.DDS.ResourceOptionFlags.ResourceClamp">
+            <summary>
+            <dd> <p>Enables a resource with MIP map clamping for use with <strong><see cref="!:SharpDX.Direct3D11.DeviceContext.SetMinimumLod"/></strong>.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.DDS.ResourceOptionFlags.SharedKeyedmutex">
+            <summary>
+            <dd> <p>Enables the resource  to be synchronized by using the <strong><see cref="!:SharpDX.DXGI.KeyedMutex.Acquire"/></strong> and  <strong><see cref="!:SharpDX.DXGI.KeyedMutex.Release"/></strong> APIs.  The following Direct3D?11 resource creation  APIs, that take <strong><see cref="!:SharpDX.Direct3D11.ResourceOptionFlags"/></strong> parameters, have been extended to support the new flag.</p> <ul> <li> <strong><see cref="!:SharpDX.Direct3D11.Device.CreateTexture1D"/></strong> </li> <li> <strong><see cref="!:SharpDX.Direct3D11.Device.CreateTexture2D"/></strong> </li> <li> <strong><see cref="!:SharpDX.Direct3D11.Device.CreateTexture3D"/></strong> </li> <li> <strong><see cref="!:SharpDX.Direct3D11.Device.CreateBuffer"/></strong> </li> </ul> <p>If you call any of these  methods with the <strong><see cref="!:SharpDX.Direct3D11.ResourceOptionFlags.SharedKeyedmutex"/></strong> flag set, the interface returned will support the <strong><see cref="!:SharpDX.DXGI.KeyedMutex"/></strong> interface.  You can retrieve a reference to the <strong><see cref="!:SharpDX.DXGI.KeyedMutex"/></strong> interface from the resource by using <strong>IUnknown::QueryInterface</strong>.  The <strong><see cref="!:SharpDX.DXGI.KeyedMutex"/></strong> interface implements the <strong><see cref="!:SharpDX.DXGI.KeyedMutex.Acquire"/></strong> and <strong><see cref="!:SharpDX.DXGI.KeyedMutex.Release"/></strong> APIs to synchronize access to the surface. The device that creates the surface, and any other device that opens the surface  by using <strong>OpenSharedResource</strong>, must call <strong><see cref="!:SharpDX.DXGI.KeyedMutex.Acquire"/></strong> before they issue any rendering commands to the surface. When those devices finish rendering, they must call <strong><see cref="!:SharpDX.DXGI.KeyedMutex.Release"/></strong>.</p> <p><strong> <see cref="!:SharpDX.Direct3D11.ResourceOptionFlags.Shared"/></strong> and <strong><see cref="!:SharpDX.Direct3D11.ResourceOptionFlags.SharedKeyedmutex"/></strong> are mutually exclusive.</p> <p><strong>WARP</strong> and <strong>REF</strong> devices do not support shared resources. If you try to create a resource with this flag on either a <strong>WARP</strong> or <strong>REF</strong> device,  the create method will return an <strong>E_OUTOFMEMORY</strong> error code.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.DDS.ResourceOptionFlags.GdiCompatible">
+            <summary>
+            <dd> <p>Enables a resource compatible with GDI. You must set the <strong><see cref="!:SharpDX.Direct3D11.ResourceOptionFlags.GdiCompatible"/></strong> flag  on surfaces that you use with GDI. Setting the <strong><see cref="!:SharpDX.Direct3D11.ResourceOptionFlags.GdiCompatible"/></strong> flag allows GDI rendering on the surface via <strong><see cref="!:SharpDX.DXGI.Surface1.GetDC"/></strong>.
+            </p> <p>Consider the following programming tips for using <see cref="!:SharpDX.Direct3D11.ResourceOptionFlags.GdiCompatible"/> when you create a texture or use that texture in a swap chain:</p> <ul> <li><see cref="!:SharpDX.Direct3D11.ResourceOptionFlags.SharedKeyedmutex"/> and <see cref="!:SharpDX.Direct3D11.ResourceOptionFlags.GdiCompatible"/> are mutually exclusive. Therefore, do not use them together.</li> <li><see cref="!:SharpDX.Direct3D11.ResourceOptionFlags.ResourceClamp"/> and <see cref="!:SharpDX.Direct3D11.ResourceOptionFlags.GdiCompatible"/> are mutually exclusive. Therefore, do not use them together.</li> <li>You must bind the texture as a render target for the output-merger stage. For example, set the <see cref="!:SharpDX.Direct3D11.BindFlags.RenderTarget"/> flag in the <strong>BindFlags</strong> member of the <strong><see cref="!:SharpDX.Direct3D11.Texture2DDescription"/></strong> structure.</li> <li>You must set the maximum number of MIP map levels to 1. For example, set the <strong>MipLevels</strong> member of the <strong><see cref="!:SharpDX.Direct3D11.Texture2DDescription"/></strong> structure to 1.</li> <li>You must specify that the texture requires read and write access by the GPU. For example, set the <strong>Usage</strong> member of the <strong><see cref="!:SharpDX.Direct3D11.Texture2DDescription"/></strong> structure to <see cref="!:SharpDX.Direct3D11.ResourceUsage.Default"/>.</li> <li> <p>You must set the texture format to one of the following types. </p> <ul> <li><see cref="!:SharpDX.DXGI.Format.B8G8R8A8_UNorm"/>
+            </li> <li><see cref="!:SharpDX.DXGI.Format.B8G8R8A8_Typeless"/></li> <li><see cref="!:SharpDX.DXGI.Format.B8G8R8A8_UNorm_SRgb"/>
+            </li> </ul>For example, set the <strong>Format</strong> member of the <strong><see cref="!:SharpDX.Direct3D11.Texture2DDescription"/></strong> structure to one of these  types.</li> <li>You cannot use <see cref="!:SharpDX.Direct3D11.ResourceOptionFlags.GdiCompatible"/> with multisampling. Therefore, set the <strong>Count</strong> member of the <strong><see cref="!:SharpDX.DXGI.SampleDescription"/></strong> structure to 1. Then, set the <strong>SampleDesc</strong> member of the <strong><see cref="!:SharpDX.Direct3D11.Texture2DDescription"/></strong> structure to this <strong><see cref="!:SharpDX.DXGI.SampleDescription"/></strong> structure.</li> </ul> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.DDS.ResourceOptionFlags.None">
+            <summary>
+            None.
+            </summary>
+        </member>
+        <member name="T:Stride.Graphics.DDSFlags">
+            <summary>
+            Flags used by <see cref="M:Stride.Graphics.DDSHelper.LoadFromDDSMemory(System.IntPtr,System.Int32,System.Boolean,System.Nullable{System.Runtime.InteropServices.GCHandle})"/>.
+            </summary>
+        </member>
+        <member name="M:Stride.Graphics.DDSHelper.LegacyMap.#ctor(Stride.Graphics.PixelFormat,Stride.Graphics.DDSHelper.ConversionFlags,Stride.Graphics.DDS.DDSPixelFormat)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Graphics.DDSHelper.LegacyMap" /> struct.
+            </summary>
+            <param name="format">The format.</param>
+            <param name="conversionFlags">The conversion flags.</param>
+            <param name="pixelFormat">The pixel format.</param>
+        </member>
+        <member name="M:Stride.Graphics.DDSHelper.DecodeDDSHeader(System.IntPtr,System.Int32,Stride.Graphics.DDSFlags,Stride.Graphics.ImageDescription@,Stride.Graphics.DDSHelper.ConversionFlags@)">
+            <summary>
+            Decodes DDS header including optional DX10 extended header
+            </summary>
+            <param name="headerPtr">Pointer to the DDS header.</param>
+            <param name="size">Size of the DDS content.</param>
+            <param name="flags">Flags used for decoding the DDS header.</param>
+            <param name="description">Output texture description.</param>
+            <param name="convFlags">Output conversion flags.</param>
+            <exception cref="T:System.ArgumentException">If the argument headerPtr is null</exception>
+            <exception cref="T:System.InvalidOperationException">If the DDS header contains invalid datas.</exception>
+            <returns>True if the decoding is successfull, false if this is not a DDS header.</returns>
+        </member>
+        <member name="M:Stride.Graphics.DDSHelper.EncodeDDSHeader(Stride.Graphics.ImageDescription,Stride.Graphics.DDSFlags,System.IntPtr,System.Int32,System.Int32@)">
+            <summary>
+            Encodes DDS file header (magic value, header, optional DX10 extended header)
+            </summary>
+            <param name="flags">Flags used for decoding the DDS header.</param>
+            <param name="description">Output texture description.</param>
+            <param name="pDestination">Pointer to the DDS output header. Can be set to IntPtr.Zero to calculated the required bytes.</param>
+            <param name="maxsize">The maximum size of the destination buffer.</param>
+            <param name="required">Output the number of bytes required to write the DDS header.</param>
+            <exception cref="T:System.ArgumentException">If the argument headerPtr is null</exception>
+            <exception cref="T:System.InvalidOperationException">If the DDS header contains invalid datas.</exception>
+            <returns>True if the decoding is successfull, false if this is not a DDS header.</returns>
+        </member>
+        <member name="M:Stride.Graphics.DDSHelper.LegacyExpandScanline(System.IntPtr,System.Int32,Stride.Graphics.PixelFormat,System.IntPtr,System.Int32,Stride.Graphics.DDSHelper.TEXP_LEGACY_FORMAT,System.UInt32*,Stride.Graphics.DDSHelper.ScanlineFlags)">
+            <summary>
+            Converts an image row with optional clearing of alpha value to 1.0
+            </summary>
+            <param name="pDestination"></param>
+            <param name="outSize"></param>
+            <param name="outFormat"></param>
+            <param name="pSource"></param>
+            <param name="inSize"></param>
+            <param name="inFormat"></param>
+            <param name="pal8"></param>
+            <param name="flags"></param>
+        </member>
+        <member name="M:Stride.Graphics.DDSHelper.LoadFromDDSMemory(System.IntPtr,System.Int32,System.Boolean,System.Nullable{System.Runtime.InteropServices.GCHandle})">
+            <summary>
+            Load a DDS file in memory
+            </summary>
+            <param name="pSource"></param>
+            <param name="size"></param>
+            <param name="handle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Stride.Graphics.DDSHelper.CreateImageFromDDS(System.IntPtr,System.Int32,System.Int32,Stride.Graphics.ImageDescription,Stride.Graphics.Image.PitchFlags,Stride.Graphics.DDSHelper.ConversionFlags,System.UInt32*,System.Nullable{System.Runtime.InteropServices.GCHandle})">
+            <summary>
+            Converts or copies image data from pPixels into scratch image data
+            </summary>
+            <param name="pDDS"></param>
+            <param name="offset"></param>
+            <param name="size"></param>
+            <param name="metadata"></param>
+            <param name="cpFlags"></param>
+            <param name="convFlags"></param>
+            <param name="pal8"></param>
+            <param name="handle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Stride.Graphics.DDSHelper.ExpandScanline(System.IntPtr,System.Int32,System.IntPtr,System.Int32,Stride.Graphics.PixelFormat,Stride.Graphics.DDSHelper.ScanlineFlags)">
+            <summary>
+            Converts an image row with optional clearing of alpha value to 1.0
+            </summary>
+            <param name="pDestination"></param>
+            <param name="outSize"></param>
+            <param name="pSource"></param>
+            <param name="inSize"></param>
+            <param name="inFormat"></param>
+            <param name="flags"></param>
+        </member>
+        <member name="M:Stride.Graphics.DDSHelper.CopyScanline(System.IntPtr,System.Int32,System.IntPtr,System.Int32,Stride.Graphics.PixelFormat,Stride.Graphics.DDSHelper.ScanlineFlags)">
+            <summary>
+            Copies an image row with optional clearing of alpha value to 1.0.
+            </summary>
+            <remarks>
+            This method can be used in place as well, otherwise copies the image row unmodified.
+            </remarks>
+            <param name="pDestination">The destination buffer.</param>
+            <param name="outSize">The destination size.</param>
+            <param name="pSource">The source buffer.</param>
+            <param name="inSize">The source size.</param>
+            <param name="format">The <see cref="!:Format"/> of the source scanline.</param>
+            <param name="flags">Scanline flags used when copying the scanline.</param>
+        </member>
+        <member name="M:Stride.Graphics.DDSHelper.SwizzleScanline(System.IntPtr,System.Int32,System.IntPtr,System.Int32,Stride.Graphics.PixelFormat,Stride.Graphics.DDSHelper.ScanlineFlags)">
+            <summary>
+            Swizzles (RGB &lt;-&gt; BGR) an image row with optional clearing of alpha value to 1.0.
+            </summary>
+            <param name="pDestination">The destination buffer.</param>
+            <param name="outSize">The destination size.</param>
+            <param name="pSource">The source buffer.</param>
+            <param name="inSize">The source size.</param>
+            <param name="format">The <see cref="!:Format"/> of the source scanline.</param>
+            <param name="flags">Scanline flags used when copying the scanline.</param>
+            <remarks>
+            This method can be used in place as well, otherwise copies the image row unmodified.
+            </remarks>
+        </member>
+        <member name="T:Stride.Graphics.DisplayOrientation">
+            <summary>
+            Describes the orientation of the display.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.DisplayOrientation.Default">
+            <summary>
+            The default value for the orientation.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.DisplayOrientation.LandscapeLeft">
+            <summary>
+            Displays in landscape mode to the left.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.DisplayOrientation.LandscapeRight">
+            <summary>
+            Displays in landscape mode to the right.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.DisplayOrientation.Portrait">
+            <summary>
+            Displays in portrait mode.
+            </summary>
+        </member>
+        <member name="T:Stride.Graphics.Font.Glyph">
+            <summary>
+            Description of a glyph (a single character)
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.Font.Glyph.Character">
+            <summary>
+            Unicode codepoint.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.Font.Glyph.Subrect">
+            <summary>
+            Glyph image data (may only use a portion of a larger bitmap).
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.Font.Glyph.Offset">
+            <summary>
+            Layout information.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.Font.Glyph.XAdvance">
+            <summary>
+            Advance X
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.Font.Glyph.BitmapIndex">
+            <summary>
+            Index of the bitmap. 
+            </summary>
+        </member>
+        <member name="T:Stride.Graphics.Font.Kerning">
+            <summary>
+            Describes kerning information.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.Font.Kerning.First">
+            <summary>
+            Unicode for the 1st character.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.Font.Kerning.Second">
+            <summary>
+            Unicode for the 2nd character.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.Font.Kerning.Offset">
+            <summary>
+            X Offsets in pixels to apply between the 1st and 2nd character.
+            </summary>
+        </member>
+        <member name="T:Stride.Graphics.GraphicsPlatform">
+            <summary>
+            The graphics platform.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.GraphicsPlatform.Null">
+            <summary>
+            The Null Shader.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.GraphicsPlatform.Direct3D11">
+            <summary>
+            HLSL Direct3D Shader.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.GraphicsPlatform.Direct3D12">
+            <summary>
+            HLSL Direct3D Shader.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.GraphicsPlatform.OpenGL">
+            <summary>
+            GLSL OpenGL Shader.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.GraphicsPlatform.OpenGLES">
+            <summary>
+            GLSL OpenGL ES Shader.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.GraphicsPlatform.Vulkan">
+            <summary>
+            GLSL/SPIR-V Shader.
+            </summary>
+        </member>
+        <member name="T:Stride.Graphics.GraphicsProfile">
+            <summary>
+            Identifies the set of supported devices for the demo based on device capabilities.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.GraphicsProfile.Level_9_1">
+            <summary>
+            DirectX9 support (HLSL 3.0)
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.GraphicsProfile.Level_9_2">
+            <summary>
+            DirectX9 support (HLSL 3.0)
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.GraphicsProfile.Level_9_3">
+            <summary>
+            DirectX9 support (HLSL 3.0)
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.GraphicsProfile.Level_10_0">
+            <summary>
+            DirectX10 support (HLSL 4.0, Geometry Shader)
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.GraphicsProfile.Level_10_1">
+            <summary>
+            DirectX10.1 support (HLSL 4.1, Geometry Shader)
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.GraphicsProfile.Level_11_0">
+            <summary>
+            DirectX11 support (HLSL 5.0, Compute Shaders, Domain/Hull Shaders)
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.GraphicsProfile.Level_11_1">
+            <summary>
+            DirectX11.1 support (HLSL 5.0, Compute Shaders, Domain/Hull Shaders)
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.GraphicsProfile.Level_11_2">
+            <summary>
+            DirectX11.2 support (HLSL 5.0, Compute Shaders, Domain/Hull Shaders)
+            </summary>
+        </member>
+        <member name="T:Stride.Graphics.Image">
+            <summary>
+            Provides method to instantiate an image 1D/2D/3D supporting TextureArray and mipmaps on the CPU or to load/save an image from the disk.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.Image.PixelBuffers">
+            <summary>
+            Pixel buffers.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.Image.pixelBufferArray">
+            <summary>
+            Provides access to all pixel buffers.
+            </summary>
+            <remarks>
+            For Texture3D, each z slice of the Texture3D has a pixelBufferArray * by the number of mipmaps.
+            For other textures, there is Description.MipLevels * Description.ArraySize pixel buffers.
+            </remarks>
+        </member>
+        <member name="F:Stride.Graphics.Image.totalSizeInBytes">
+            <summary>
+            Gets the total number of bytes occupied by this image in memory.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.Image.buffer">
+            <summary>
+            Pointer to the buffer.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.Image.bufferIsDisposable">
+            <summary>
+            True if the buffer must be disposed.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.Image.handle">
+            <summary>
+            Handle != null if the buffer is a pinned managed object on the LOH (Large Object Heap).
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.Image.Description">
+            <summary>
+            Description of this image.
+            </summary>
+        </member>
+        <member name="M:Stride.Graphics.Image.#ctor(Stride.Graphics.ImageDescription,System.IntPtr,System.Int32,System.Nullable{System.Runtime.InteropServices.GCHandle},System.Boolean,Stride.Graphics.Image.PitchFlags,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Graphics.Image" /> class.
+            </summary>
+            <param name="description">The image description.</param>
+            <param name="dataPointer">The pointer to the data buffer.</param>
+            <param name="offset">The offset from the beginning of the data buffer.</param>
+            <param name="handle">The handle (optionnal).</param>
+            <param name="bufferIsDisposable">if set to <c>true</c> [buffer is disposable].</param>
+            <exception cref="T:System.InvalidOperationException">If the format is invalid, or width/height/depth/arraysize is invalid with respect to the dimension.</exception>
+        </member>
+        <member name="M:Stride.Graphics.Image.Clear">
+            <summary>
+            Reset the buffer (by default it is not cleared)
+            </summary>
+        </member>
+        <member name="M:Stride.Graphics.Image.GetMipMapDescription(System.Int32)">
+            <summary>
+            Gets the mipmap description of this instance for the specified mipmap level.
+            </summary>
+            <param name="mipmap">The mipmap.</param>
+            <returns>A description of a particular mipmap for this texture.</returns>
+        </member>
+        <member name="M:Stride.Graphics.Image.GetPixelBuffer(System.Int32,System.Int32)">
+            <summary>
+            Gets the pixel buffer for the specified array/z slice and mipmap level.
+            </summary>
+            <param name="arrayOrZSliceIndex">For 3D image, the parameter is the Z slice, otherwise it is an index into the texture array.</param>
+            <param name="mipmap">The mipmap.</param>
+            <returns>A <see cref="F:Stride.Graphics.Image.pixelBufferArray"/>.</returns>
+            <exception cref="T:System.ArgumentException">If arrayOrZSliceIndex or mipmap are out of range.</exception>
+        </member>
+        <member name="M:Stride.Graphics.Image.GetPixelBuffer(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Gets the pixel buffer for the specified array/z slice and mipmap level.
+            </summary>
+            <param name="arrayIndex">Index into the texture array. Must be set to 0 for 3D images.</param>
+            <param name="zIndex">Z index for 3D image. Must be set to 0 for all 1D/2D images.</param>
+            <param name="mipmap">The mipmap.</param>
+            <returns>A <see cref="F:Stride.Graphics.Image.pixelBufferArray"/>.</returns>
+            <exception cref="T:System.ArgumentException">If arrayIndex, zIndex or mipmap are out of range.</exception>
+        </member>
+        <member name="M:Stride.Graphics.Image.Register(Stride.Graphics.ImageFileType,Stride.Graphics.Image.ImageLoadDelegate,Stride.Graphics.Image.ImageSaveDelegate)">
+            <summary>
+            Registers a loader/saver for a specified image file type.
+            </summary>
+            <param name="type">The file type (use integer and explicit casting to <see cref="T:Stride.Graphics.ImageFileType"/> to register other fileformat.</param>
+            <param name="loader">The loader delegate (can be null).</param>
+            <param name="saver">The saver delegate (can be null).</param>
+            <exception cref="T:System.ArgumentException"></exception>
+        </member>
+        <member name="P:Stride.Graphics.Image.DataPointer">
+            <summary>
+            Gets a pointer to the image buffer in memory.
+            </summary>
+            <value>A pointer to the image buffer in memory.</value>
+        </member>
+        <member name="P:Stride.Graphics.Image.PixelBuffer">
+            <summary>
+            Provides access to all pixel buffers.
+            </summary>
+            <remarks>
+            For Texture3D, each z slice of the Texture3D has a pixelBufferArray * by the number of mipmaps.
+            For other textures, there is Description.MipLevels * Description.ArraySize pixel buffers.
+            </remarks>
+        </member>
+        <member name="P:Stride.Graphics.Image.TotalSizeInBytes">
+            <summary>
+            Gets the total number of bytes occupied by this image in memory.
+            </summary>
+        </member>
+        <member name="M:Stride.Graphics.Image.ToDataBox">
+            <summary>
+            Gets the databox from this image.
+            </summary>
+            <returns>The databox of this image.</returns>
+        </member>
+        <member name="M:Stride.Graphics.Image.ComputeDataBox">
+            <summary>
+            Gets the databox from this image.
+            </summary>
+            <returns>The databox of this image.</returns>
+        </member>
+        <member name="M:Stride.Graphics.Image.New(Stride.Graphics.ImageDescription)">
+            <summary>
+            Creates a new instance of <see cref="T:Stride.Graphics.Image"/> from an image description.
+            </summary>
+            <param name="description">The image description.</param>
+            <returns>A new image.</returns>
+        </member>
+        <member name="M:Stride.Graphics.Image.New1D(System.Int32,Stride.Graphics.MipMapCount,Stride.Graphics.PixelFormat,System.Int32)">
+            <summary>
+            Creates a new instance of a 1D <see cref="T:Stride.Graphics.Image"/>.
+            </summary>
+            <param name="width">The width.</param>
+            <param name="mipMapCount">The mip map count.</param>
+            <param name="format">The format.</param>
+            <param name="arraySize">Size of the array.</param>
+            <returns>A new image.</returns>
+        </member>
+        <member name="M:Stride.Graphics.Image.New2D(System.Int32,System.Int32,Stride.Graphics.MipMapCount,Stride.Graphics.PixelFormat,System.Int32,System.Int32)">
+            <summary>
+            Creates a new instance of a 2D <see cref="T:Stride.Graphics.Image"/>.
+            </summary>
+            <param name="width">The width.</param>
+            <param name="height">The height.</param>
+            <param name="mipMapCount">The mip map count.</param>
+            <param name="format">The format.</param>
+            <param name="arraySize">Size of the array.</param>
+            <returns>A new image.</returns>
+        </member>
+        <member name="M:Stride.Graphics.Image.NewCube(System.Int32,Stride.Graphics.MipMapCount,Stride.Graphics.PixelFormat)">
+            <summary>
+            Creates a new instance of a Cube <see cref="T:Stride.Graphics.Image"/>.
+            </summary>
+            <param name="width">The width.</param>
+            <param name="mipMapCount">The mip map count.</param>
+            <param name="format">The format.</param>
+            <returns>A new image.</returns>
+        </member>
+        <member name="M:Stride.Graphics.Image.New3D(System.Int32,System.Int32,System.Int32,Stride.Graphics.MipMapCount,Stride.Graphics.PixelFormat)">
+            <summary>
+            Creates a new instance of a 3D <see cref="T:Stride.Graphics.Image"/>.
+            </summary>
+            <param name="width">The width.</param>
+            <param name="height">The height.</param>
+            <param name="depth">The depth.</param>
+            <param name="mipMapCount">The mip map count.</param>
+            <param name="format">The format.</param>
+            <returns>A new image.</returns>
+        </member>
+        <member name="M:Stride.Graphics.Image.New(Stride.Graphics.ImageDescription,System.IntPtr)">
+            <summary>
+            Creates a new instance of <see cref="T:Stride.Graphics.Image"/> from an image description.
+            </summary>
+            <param name="description">The image description.</param>
+            <param name="dataPointer">Pointer to an existing buffer.</param>
+            <returns>A new image.</returns>
+        </member>
+        <member name="M:Stride.Graphics.Image.New(Stride.Graphics.ImageDescription,System.IntPtr,System.Int32,System.Nullable{System.Runtime.InteropServices.GCHandle},System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Graphics.Image" /> class.
+            </summary>
+            <param name="description">The image description.</param>
+            <param name="dataPointer">The pointer to the data buffer.</param>
+            <param name="offset">The offset from the beginning of the data buffer.</param>
+            <param name="handle">The handle (optionnal).</param>
+            <param name="bufferIsDisposable">if set to <c>true</c> [buffer is disposable].</param>
+            <exception cref="T:System.InvalidOperationException">If the format is invalid, or width/height/depth/arraysize is invalid with respect to the dimension.</exception>
+        </member>
+        <member name="M:Stride.Graphics.Image.New1D(System.Int32,Stride.Graphics.MipMapCount,Stride.Graphics.PixelFormat,System.Int32,System.IntPtr)">
+            <summary>
+            Creates a new instance of a 1D <see cref="T:Stride.Graphics.Image"/>.
+            </summary>
+            <param name="width">The width.</param>
+            <param name="mipMapCount">The mip map count.</param>
+            <param name="format">The format.</param>
+            <param name="arraySize">Size of the array.</param>
+            <param name="dataPointer">Pointer to an existing buffer.</param>
+            <returns>A new image.</returns>
+        </member>
+        <member name="M:Stride.Graphics.Image.New2D(System.Int32,System.Int32,Stride.Graphics.MipMapCount,Stride.Graphics.PixelFormat,System.Int32,System.IntPtr,System.Int32)">
+            <summary>
+            Creates a new instance of a 2D <see cref="T:Stride.Graphics.Image"/>.
+            </summary>
+            <param name="width">The width.</param>
+            <param name="height">The height.</param>
+            <param name="mipMapCount">The mip map count.</param>
+            <param name="format">The format.</param>
+            <param name="arraySize">Size of the array.</param>
+            <param name="dataPointer">Pointer to an existing buffer.</param>
+            <param name="rowStride">Specify a specific rowStride, only valid when mipMapCount == 1 and pixel format is not compressed.</param>
+            <returns>A new image.</returns>
+        </member>
+        <member name="M:Stride.Graphics.Image.NewCube(System.Int32,Stride.Graphics.MipMapCount,Stride.Graphics.PixelFormat,System.IntPtr)">
+            <summary>
+            Creates a new instance of a Cube <see cref="T:Stride.Graphics.Image"/>.
+            </summary>
+            <param name="width">The width.</param>
+            <param name="mipMapCount">The mip map count.</param>
+            <param name="format">The format.</param>
+            <param name="dataPointer">Pointer to an existing buffer.</param>
+            <returns>A new image.</returns>
+        </member>
+        <member name="M:Stride.Graphics.Image.New3D(System.Int32,System.Int32,System.Int32,Stride.Graphics.MipMapCount,Stride.Graphics.PixelFormat,System.IntPtr)">
+            <summary>
+            Creates a new instance of a 3D <see cref="T:Stride.Graphics.Image"/>.
+            </summary>
+            <param name="width">The width.</param>
+            <param name="height">The height.</param>
+            <param name="depth">The depth.</param>
+            <param name="mipMapCount">The mip map count.</param>
+            <param name="format">The format.</param>
+            <param name="dataPointer">Pointer to an existing buffer.</param>
+            <returns>A new image.</returns>
+        </member>
+        <member name="M:Stride.Graphics.Image.Load(Stride.Graphics.DataPointer,System.Boolean,System.Boolean)">
+            <summary>
+            Loads an image from an unmanaged memory pointer.
+            </summary>
+            <param name="dataBuffer">Pointer to an unmanaged memory. If <see cref="!:makeACopy"/> is false, this buffer must be allocated with <see cref="M:Stride.Core.Utilities.AllocateMemory(System.Int32,System.Int32)"/>.</param>
+            <param name="makeACopy">True to copy the content of the buffer to a new allocated buffer, false otherwise.</param>
+            <param name="loadAsSRGB">Indicate if the image should be loaded as an sRGB texture</param>
+            <returns>An new image.</returns>
+            <remarks>If <see cref="!:makeACopy"/> is set to false, the returned image is now the holder of the unmanaged pointer and will release it on Dispose. </remarks>
+        </member>
+        <member name="M:Stride.Graphics.Image.Load(System.IntPtr,System.Int32,System.Boolean,System.Boolean)">
+            <summary>
+            Loads an image from an unmanaged memory pointer.
+            </summary>
+            <param name="dataPointer">Pointer to an unmanaged memory. If <see cref="!:makeACopy"/> is false, this buffer must be allocated with <see cref="M:Stride.Core.Utilities.AllocateMemory(System.Int32,System.Int32)"/>.</param>
+            <param name="dataSize">Size of the unmanaged buffer.</param>
+            <param name="makeACopy">True to copy the content of the buffer to a new allocated buffer, false otherwise.</param>
+            <param name="loadAsSRGB">Indicate if the image should be loaded as an sRGB texture</param>
+            <returns>An new image.</returns>
+            <remarks>If <see cref="!:makeACopy"/> is set to false, the returned image is now the holder of the unmanaged pointer and will release it on Dispose. </remarks>
+        </member>
+        <member name="M:Stride.Graphics.Image.Load(System.Byte[],System.Boolean)">
+            <summary>
+            Loads an image from a managed buffer.
+            </summary>
+            <param name="buffer">Reference to a managed buffer.</param>
+            <param name="loadAsSRGB">Indicate if the image should be loaded as an sRGB texture</param>
+            <returns>An new image.</returns>
+            <remarks>This method support the following format: <c>dds, bmp, jpg, png, gif, tiff, wmp, tga</c>.</remarks>
+        </member>
+        <member name="M:Stride.Graphics.Image.Load(System.IO.Stream,System.Boolean)">
+            <summary>
+            Loads the specified image from a stream.
+            </summary>
+            <param name="imageStream">The image stream.</param>
+            <param name="loadAsSRGB">Indicate if the image should be loaded as an sRGB texture. If false, the image is loaded in its default format.</param>
+            <returns>An new image.</returns>
+            <remarks>This method support the following format: <c>dds, bmp, jpg, png, gif, tiff, wmp, tga</c>.</remarks>
+        </member>
+        <member name="M:Stride.Graphics.Image.Save(System.IO.Stream,Stride.Graphics.ImageFileType)">
+            <summary>
+            Saves this instance to a stream.
+            </summary>
+            <param name="imageStream">The destination stream.</param>
+            <param name="fileType">Specify the output format.</param>
+            <remarks>This method support the following format: <c>dds, bmp, jpg, png, gif, tiff, wmp, tga</c>.</remarks>
+        </member>
+        <member name="M:Stride.Graphics.Image.CalculateMipLevels(System.Int32,Stride.Graphics.MipMapCount)">
+            <summary>
+            Calculates the number of miplevels for a Texture 1D.
+            </summary>
+            <param name="width">The width of the texture.</param>
+            <param name="mipLevels">A <see cref="T:Stride.Graphics.MipMapCount"/>, set to true to calculates all mipmaps, to false to calculate only 1 miplevel, or > 1 to calculate a specific amount of levels.</param>
+            <returns>The number of miplevels.</returns>
+        </member>
+        <member name="M:Stride.Graphics.Image.CalculateMipLevels(System.Int32,System.Int32,Stride.Graphics.MipMapCount)">
+            <summary>
+            Calculates the number of miplevels for a Texture 2D.
+            </summary>
+            <param name="width">The width of the texture.</param>
+            <param name="height">The height of the texture.</param>
+            <param name="mipLevels">A <see cref="T:Stride.Graphics.MipMapCount"/>, set to true to calculates all mipmaps, to false to calculate only 1 miplevel, or > 1 to calculate a specific amount of levels.</param>
+            <returns>The number of miplevels.</returns>
+        </member>
+        <member name="M:Stride.Graphics.Image.CalculateMipLevels(System.Int32,System.Int32,System.Int32,Stride.Graphics.MipMapCount)">
+            <summary>
+            Calculates the number of miplevels for a Texture 2D.
+            </summary>
+            <param name="width">The width of the texture.</param>
+            <param name="height">The height of the texture.</param>
+            <param name="depth">The depth of the texture.</param>
+            <param name="mipLevels">A <see cref="T:Stride.Graphics.MipMapCount"/>, set to true to calculates all mipmaps, to false to calculate only 1 miplevel, or > 1 to calculate a specific amount of levels.</param>
+            <returns>The number of miplevels.</returns>
+        </member>
+        <member name="M:Stride.Graphics.Image.Load(System.IntPtr,System.Int32,System.Boolean,System.Nullable{System.Runtime.InteropServices.GCHandle},System.Boolean)">
+            <summary>
+            Loads an image from the specified pointer.
+            </summary>
+            <param name="dataPointer">The data pointer.</param>
+            <param name="dataSize">Size of the data.</param>
+            <param name="makeACopy">if set to <c>true</c> [make A copy].</param>
+            <param name="handle">The handle.</param>
+            <param name="loadAsSRGB">Indicate if the image should be loaded as an sRGB texture</param>
+            <returns></returns>
+            <exception cref="T:System.NotSupportedException"></exception>
+        </member>
+        <member name="M:Stride.Graphics.Image.Save(Stride.Graphics.PixelBuffer[],System.Int32,Stride.Graphics.ImageDescription,System.IO.Stream,Stride.Graphics.ImageFileType)">
+            <summary>
+            Saves this instance to a stream.
+            </summary>
+            <param name="pixelBuffers">The buffers to save.</param>
+            <param name="count">The number of buffers to save.</param>
+            <param name="description">Global description of the buffer.</param>
+            <param name="imageStream">The destination stream.</param>
+            <param name="fileType">Specify the output format.</param>
+            <remarks>This method support the following format: <c>dds, bmp, jpg, png, gif, tiff, wmp, tga</c>.</remarks>
+        </member>
+        <member name="M:Stride.Graphics.Image.CalculateImageArray(Stride.Graphics.ImageDescription,Stride.Graphics.Image.PitchFlags,System.Int32,System.Int32@,System.Int32@)">
+            <summary>
+            Determines number of image array entries and pixel size.
+            </summary>
+            <param name="imageDesc">Description of the image to create.</param>
+            <param name="pitchFlags">Pitch flags.</param>
+            <param name="bufferCount">Output number of mipmap.</param>
+            <param name="pixelSizeInBytes">Output total size to allocate pixel buffers for all images.</param>
+        </member>
+        <member name="M:Stride.Graphics.Image.SetupImageArray(System.IntPtr,System.Int32,System.Int32,Stride.Graphics.ImageDescription,Stride.Graphics.Image.PitchFlags,Stride.Graphics.PixelBuffer[])">
+            <summary>
+            Allocates PixelBuffers 
+            </summary>
+            <param name="buffer"></param>
+            <param name="pixelSize"></param>
+            <param name="imageDesc"></param>
+            <param name="pitchFlags"></param>
+            <param name="output"></param>
+        </member>
+        <member name="T:Stride.Graphics.ImageDescription">
+            <summary>
+            A description for <see cref="T:Stride.Graphics.Image"/>.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.ImageDescription.Dimension">
+            <summary>
+            The dimension of a texture.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.ImageDescription.Width">
+            <summary>
+            <dd> <p>Texture width (in texels). The  range is from 1 to <see cref="!:SharpDX.Direct3D11.Resource.MaximumTexture1DSize"/> (16384). However, the range is actually constrained by the feature level at which you create the rendering device. For more information about restrictions, see Remarks.</p> </dd>
+            </summary>
+            <remarks>
+            This field is valid for all textures: <see cref="!:Texture1D"/>, <see cref="!:Texture2D"/>, <see cref="!:Texture3D"/> and <see cref="!:TextureCube"/>.
+            </remarks>
+        </member>
+        <member name="F:Stride.Graphics.ImageDescription.Height">
+            <summary>
+            <dd> <p>Texture height (in texels). The  range is from 1 to <see cref="!:SharpDX.Direct3D11.Resource.MaximumTexture3DSize"/> (2048). However, the range is actually constrained by the feature level at which you create the rendering device. For more information about restrictions, see Remarks.</p> </dd>
+            </summary>
+            <remarks>
+            This field is only valid for <see cref="!:Texture2D"/>, <see cref="!:Texture3D"/> and <see cref="!:TextureCube"/>.
+            </remarks>
+        </member>
+        <member name="F:Stride.Graphics.ImageDescription.Depth">
+            <summary>
+            <dd> <p>Texture depth (in texels). The  range is from 1 to <see cref="!:SharpDX.Direct3D11.Resource.MaximumTexture3DSize"/> (2048). However, the range is actually constrained by the feature level at which you create the rendering device. For more information about restrictions, see Remarks.</p> </dd>
+            </summary>
+            <remarks>
+            This field is only valid for <see cref="!:Texture3D"/>.
+            </remarks>
+        </member>
+        <member name="F:Stride.Graphics.ImageDescription.ArraySize">
+            <summary>
+            <dd> <p>Number of textures in the array. The  range is from 1 to <see cref="!:SharpDX.Direct3D11.Resource.MaximumTexture1DArraySize"/> (2048). However, the range is actually constrained by the feature level at which you create the rendering device. For more information about restrictions, see Remarks.</p> </dd>
+            </summary>
+            <remarks>
+            This field is only valid for <see cref="!:Texture1D"/>, <see cref="!:Texture2D"/> and <see cref="!:TextureCube"/>
+            </remarks>
+            <remarks>
+            This field is only valid for textures: <see cref="!:Texture1D"/>, <see cref="!:Texture2D"/> and <see cref="!:TextureCube"/>.
+            </remarks>
+        </member>
+        <member name="F:Stride.Graphics.ImageDescription.MipLevels">
+            <summary>
+            <dd> <p>The maximum number of mipmap levels in the texture. See the remarks in <strong><see cref="!:SharpDX.Direct3D11.ShaderResourceViewDescription.Texture1DResource"/></strong>. Use 1 for a multisampled texture; or 0 to generate a full set of subtextures.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.ImageDescription.Format">
+            <summary>
+            <dd> <p>Texture format (see <strong><see cref="!:SharpDX.DXGI.Format"/></strong>).</p> </dd>
+            </summary>
+        </member>
+        <member name="T:Stride.Graphics.ImageFileType">
+            <summary>
+            Image file format used by <see cref="M:Stride.Graphics.Image.Save(System.IO.Stream,Stride.Graphics.ImageFileType)"/>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.ImageFileType.Stride">
+            <summary>
+            Stride image file.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.ImageFileType.Dds">
+            <summary>
+            A DDS file.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.ImageFileType.Png">
+            <summary>
+            A PNG file.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.ImageFileType.Gif">
+            <summary>
+            A GIF file.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.ImageFileType.Jpg">
+            <summary>
+            A JPG file.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.ImageFileType.Bmp">
+            <summary>
+            A BMP file.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.ImageFileType.Tiff">
+            <summary>
+            A TIFF file.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.ImageFileType.Wmp">
+            <summary>
+            A WMP file.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.ImageFileType.Tga">
+            <summary>
+            A TGA File.
+            </summary>
+        </member>
+        <member name="M:Stride.Graphics.ImageFileTypeExtensions.ToFileExtension(Stride.Graphics.ImageFileType)">
+            <summary>
+            Return the file extension corresponding to the image file type.
+            </summary>
+            <param name="fileType">The file type</param>
+            <returns>The file extension (for example ".png").</returns>
+        </member>
+        <member name="T:Stride.Graphics.MipMapCount">
+            <summary>
+            A simple wrapper to specify number of mipmaps.
+             Set to true to specify all mipmaps or sets an integer value >= 1
+            to specify the exact number of mipmaps.
+            </summary>
+            <remarks>
+            This structure use implicit conversion:
+            <ul>
+            <li>Set to <c>true</c> to specify all mipmaps.</li>
+            <li>Set to <c>false</c> to specify a single mipmap.</li>
+            <li>Set to an integer value >=1 to specify an exact count of mipmaps.</li>
+            </ul>
+            </remarks>
+        </member>
+        <member name="F:Stride.Graphics.MipMapCount.Auto">
+            <summary>
+            Automatic mipmap level based on texture size.
+            </summary>
+        </member>
+        <member name="M:Stride.Graphics.MipMapCount.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Graphics.MipMapCount" /> struct.
+            </summary>
+            <param name="allMipMaps">if set to <c>true</c> generates all mip maps.</param>
+        </member>
+        <member name="M:Stride.Graphics.MipMapCount.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Graphics.MipMapCount" /> struct.
+            </summary>
+            <param name="count">The count.</param>
+        </member>
+        <member name="F:Stride.Graphics.MipMapCount.Count">
+            <summary>
+            Number of mipmaps.
+            </summary>
+            <remarks>
+            Zero(0) means generate all mipmaps. One(1) generates a single mipmap... etc.
+            </remarks>
+        </member>
+        <member name="M:Stride.Graphics.MipMapCount.op_Implicit(Stride.Graphics.MipMapCount)~System.Boolean">
+            <summary>
+            Performs an explicit conversion from <see cref="T:Stride.Graphics.MipMapCount"/> to <see cref="T:System.Boolean"/>.
+            </summary>
+            <param name="mipMap">The value.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Stride.Graphics.MipMapCount.op_Implicit(System.Boolean)~Stride.Graphics.MipMapCount">
+            <summary>
+            Performs an explicit conversion from <see cref="T:System.Boolean"/> to <see cref="T:Stride.Graphics.MipMapCount"/>.
+            </summary>
+            <param name="mipMapAll">True to generate all mipmaps, false to use a single mipmap.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Stride.Graphics.MipMapCount.op_Implicit(Stride.Graphics.MipMapCount)~System.Int32">
+            <summary>
+            Performs an explicit conversion from <see cref="T:Stride.Graphics.MipMapCount"/> to <see cref="T:System.Int32"/>.
+            </summary>
+            <param name="mipMap">The value.</param>
+            <returns>The count of mipmap (0 means all mipmaps).</returns>
+        </member>
+        <member name="M:Stride.Graphics.MipMapCount.op_Implicit(System.Int32)~Stride.Graphics.MipMapCount">
+            <summary>
+            Performs an explicit conversion from <see cref="T:System.Int32"/> to <see cref="T:Stride.Graphics.MipMapCount"/>.
+            </summary>
+            <param name="mipMapCount">True to generate all mipmaps, false to use a single mipmap.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="T:Stride.Graphics.MipMapDescription">
+            <summary>
+            Describes a mipmap.
+            </summary>
+        </member>
+        <member name="M:Stride.Graphics.MipMapDescription.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Graphics.MipMapDescription" /> class.
+            </summary>
+            <param name="width">The width.</param>
+            <param name="height">The height.</param>
+            <param name="depth">The depth.</param>
+            <param name="rowStride">The row stride.</param>
+            <param name="depthStride">The depth stride.</param>
+        </member>
+        <member name="F:Stride.Graphics.MipMapDescription.Width">
+            <summary>
+            Width of this mipmap.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.MipMapDescription.Height">
+            <summary>
+            Height of this mipmap.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.MipMapDescription.WidthPacked">
+            <summary>
+            Width of this mipmap.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.MipMapDescription.HeightPacked">
+            <summary>
+            Height of this mipmap.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.MipMapDescription.Depth">
+            <summary>
+            Depth of this mipmap.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.MipMapDescription.RowStride">
+            <summary>
+            RowStride of this mipmap (number of bytes per row).
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.MipMapDescription.DepthStride">
+            <summary>
+            DepthStride of this mipmap (number of bytes per depth slice).
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.MipMapDescription.MipmapSize">
+            <summary>
+            Size in bytes of this whole mipmap.
+            </summary>
+        </member>
+        <member name="M:Stride.Graphics.MipMapDescription.op_Equality(Stride.Graphics.MipMapDescription,Stride.Graphics.MipMapDescription)">
+            <summary>
+            Implements the ==.
+            </summary>
+            <param name="left">The left.</param>
+            <param name="right">The right.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:Stride.Graphics.MipMapDescription.op_Inequality(Stride.Graphics.MipMapDescription,Stride.Graphics.MipMapDescription)">
+            <summary>
+            Implements the !=.
+            </summary>
+            <param name="left">The left.</param>
+            <param name="right">The right.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="T:Stride.Graphics.PixelBuffer">
+            <summary>
+            An unmanaged buffer of pixels.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelBuffer.isStrictRowStride">
+            <summary>
+            True when RowStride == sizeof(pixelformat) * width
+            </summary>
+        </member>
+        <member name="M:Stride.Graphics.PixelBuffer.#ctor(System.Int32,System.Int32,Stride.Graphics.PixelFormat,System.Int32,System.Int32,System.IntPtr)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Graphics.PixelBuffer" /> struct.
+            </summary>
+            <param name="width">The width.</param>
+            <param name="height">The height.</param>
+            <param name="format">The format.</param>
+            <param name="rowStride">The row pitch.</param>
+            <param name="bufferStride">The slice pitch.</param>
+            <param name="dataPointer">The pixels.</param>
+        </member>
+        <member name="P:Stride.Graphics.PixelBuffer.Width">
+            <summary>
+            Gets the width.
+            </summary>
+            <value>The width.</value>
+        </member>
+        <member name="P:Stride.Graphics.PixelBuffer.Height">
+            <summary>
+            Gets the height.
+            </summary>
+            <value>The height.</value>
+        </member>
+        <member name="P:Stride.Graphics.PixelBuffer.Format">
+            <summary>
+            Gets the format.
+            </summary>
+            <value>The format.</value>
+        </member>
+        <member name="P:Stride.Graphics.PixelBuffer.PixelSize">
+            <summary>
+            Gets the pixel size in bytes.
+            </summary>
+            <value>The pixel size in bytes.</value>
+        </member>
+        <member name="P:Stride.Graphics.PixelBuffer.RowStride">
+            <summary>
+            Gets the row stride in number of bytes.
+            </summary>
+            <value>The row stride in number of bytes.</value>
+        </member>
+        <member name="P:Stride.Graphics.PixelBuffer.BufferStride">
+            <summary>
+            Gets the total size in bytes of this pixel buffer.
+            </summary>
+            <value>The size in bytes of the pixel buffer.</value>
+        </member>
+        <member name="P:Stride.Graphics.PixelBuffer.DataPointer">
+            <summary>
+            Gets the pointer to the pixel buffer.
+            </summary>
+            <value>The pointer to the pixel buffer.</value>
+        </member>
+        <member name="M:Stride.Graphics.PixelBuffer.CopyTo(Stride.Graphics.PixelBuffer)">
+            <summary>
+            Copies this pixel buffer to a destination pixel buffer.
+            </summary>
+            <param name="pixelBuffer">The destination pixel buffer.</param>
+            <remarks>
+            The destination pixel buffer must have exactly the same dimensions (width, height) and format than this instance.
+            Destination buffer can have different row stride.
+            </remarks>
+        </member>
+        <member name="M:Stride.Graphics.PixelBuffer.Save(System.IO.Stream,Stride.Graphics.ImageFileType)">
+            <summary>
+            Saves this pixel buffer to a stream.
+            </summary>
+            <param name="imageStream">The destination stream.</param>
+            <param name="fileType">Specify the output format.</param>
+            <remarks>This method support the following format: <c>dds, bmp, jpg, png, gif, tiff, wmp, tga</c>.</remarks>
+        </member>
+        <member name="M:Stride.Graphics.PixelBuffer.GetPixel``1(System.Int32,System.Int32)">
+            <summary>
+            Gets the pixel value at a specified position.
+            </summary>
+            <typeparam name="T">Type of the pixel data</typeparam>
+            <param name="x">The x-coordinate.</param>
+            <param name="y">The y-coordinate.</param>
+            <returns>The pixel value.</returns>
+            <remarks>
+            Caution, this method doesn't check bounding.
+            </remarks>
+        </member>
+        <member name="M:Stride.Graphics.PixelBuffer.SetPixel``1(System.Int32,System.Int32,``0)">
+            <summary>
+            Gets the pixel value at a specified position.
+            </summary>
+            <typeparam name="T">Type of the pixel data</typeparam>
+            <param name="x">The x-coordinate.</param>
+            <param name="y">The y-coordinate.</param>
+            <param name="value">The pixel value.</param>
+            <remarks>
+            Caution, this method doesn't check bounding.
+            </remarks>
+        </member>
+        <member name="M:Stride.Graphics.PixelBuffer.GetPixels``1(System.Int32)">
+            <summary>
+            Gets scanline pixels from the buffer.
+            </summary>
+            <typeparam name="T">Type of the pixel data</typeparam>
+            <param name="yOffset">The y line offset.</param>
+            <returns>Scanline pixels from the buffer</returns>
+            <exception cref="T:System.ArgumentException">If the sizeof(T) is an invalid size</exception>
+            <remarks>
+            This method is working on a row basis. The <see cref="!:yOffset"/> is specifying the first row to get 
+            the pixels from.
+            </remarks>
+        </member>
+        <member name="M:Stride.Graphics.PixelBuffer.GetPixels``1(``0[],System.Int32)">
+            <summary>
+            Gets scanline pixels from the buffer.
+            </summary>
+            <typeparam name="T">Type of the pixel data</typeparam>
+            <param name="pixels">An allocated scanline pixel buffer</param>
+            <param name="yOffset">The y line offset.</param>
+            <returns>Scanline pixels from the buffer</returns>
+            <exception cref="T:System.ArgumentException">If the sizeof(T) is an invalid size</exception>
+            <remarks>
+            This method is working on a row basis. The <see cref="!:yOffset"/> is specifying the first row to get 
+            the pixels from.
+            </remarks>
+        </member>
+        <member name="M:Stride.Graphics.PixelBuffer.GetPixels``1(``0[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Gets scanline pixels from the buffer.
+            </summary>
+            <typeparam name="T">Type of the pixel data</typeparam>
+            <param name="pixels">An allocated scanline pixel buffer</param>
+            <param name="yOffset">The y line offset.</param>
+            <param name="pixelIndex">Offset into the destination <see cref="!:pixels"/> buffer.</param>
+            <param name="pixelCount">Number of pixels to write into the destination <see cref="!:pixels"/> buffer.</param>
+            <exception cref="T:System.ArgumentException">If the sizeof(T) is an invalid size</exception>
+            <remarks>
+            This method is working on a row basis. The <see cref="!:yOffset"/> is specifying the first row to get 
+            the pixels from.
+            </remarks>
+        </member>
+        <member name="M:Stride.Graphics.PixelBuffer.SetPixels``1(``0[],System.Int32)">
+            <summary>
+            Sets scanline pixels to the buffer.
+            </summary>
+            <typeparam name="T">Type of the pixel data</typeparam>
+            <param name="sourcePixels">Source pixel buffer</param>
+            <param name="yOffset">The y line offset.</param>
+            <exception cref="T:System.ArgumentException">If the sizeof(T) is an invalid size</exception>
+            <remarks>
+            This method is working on a row basis. The <see cref="!:yOffset"/> is specifying the first row to get 
+            the pixels from.
+            </remarks>
+        </member>
+        <member name="M:Stride.Graphics.PixelBuffer.SetPixels``1(``0[],System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Sets scanline pixels to the buffer.
+            </summary>
+            <typeparam name="T">Type of the pixel data</typeparam>
+            <param name="sourcePixels">Source pixel buffer</param>
+            <param name="yOffset">The y line offset.</param>
+            <param name="pixelIndex">Offset into the source <see cref="!:sourcePixels"/> buffer.</param>
+            <param name="pixelCount">Number of pixels to write into the source <see cref="!:sourcePixels"/> buffer.</param>
+            <exception cref="T:System.ArgumentException">If the sizeof(T) is an invalid size</exception>
+            <remarks>
+            This method is working on a row basis. The <see cref="!:yOffset"/> is specifying the first row to get 
+            the pixels from.
+            </remarks>
+        </member>
+        <member name="T:Stride.Graphics.PixelBufferArray">
+            <summary>
+            Used by <see cref="T:Stride.Graphics.Image"/> to provide a selector to a <see cref="T:Stride.Graphics.PixelBuffer"/>.
+            </summary>
+        </member>
+        <member name="P:Stride.Graphics.PixelBufferArray.Item(System.Int32)">
+            <summary>
+            Gets the pixel buffer.
+            </summary>
+            <returns>A <see cref="T:Stride.Graphics.PixelBuffer"/>.</returns>
+        </member>
+        <member name="P:Stride.Graphics.PixelBufferArray.Count">
+            <summary>
+            Gets the total number of pixel buffers.
+            </summary>
+            <returns>The total number of pixel buffers.</returns>
+        </member>
+        <member name="P:Stride.Graphics.PixelBufferArray.Item(System.Int32,System.Int32)">
+            <summary>
+            Gets the pixel buffer for the specified array/z slice and mipmap level.
+            </summary>
+            <param name="arrayOrDepthSlice">For 3D image, the parameter is the Z slice, otherwise it is an index into the texture array.</param>
+            <param name="mipIndex">The mip map slice index.</param>
+            <returns>A <see cref="T:Stride.Graphics.PixelBuffer"/>.</returns>
+        </member>
+        <member name="P:Stride.Graphics.PixelBufferArray.Item(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Gets the pixel buffer for the specified array/z slice and mipmap level.
+            </summary>
+            <param name="arrayIndex">Index into the texture array. Must be set to 0 for 3D images.</param>
+            <param name="zIndex">Z index for 3D image. Must be set to 0 for all 1D/2D images.</param>
+            <param name="mipIndex">The mip map slice index.</param>
+            <returns>A <see cref="T:Stride.Graphics.PixelBuffer"/>.</returns>
+        </member>
+        <member name="T:Stride.Graphics.PixelFormat">
+            <summary>
+            Defines various types of pixel formats.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.None">
+            <summary>
+            <dd> <p>The format is not known.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R32G32B32A32_Typeless">
+            <summary>
+            <dd> <p>A four-component, 128-bit typeless format that supports 32 bits per channel including alpha. 1</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R32G32B32A32_Float">
+            <summary>
+            <dd> <p>A four-component, 128-bit floating-point format that supports 32 bits per channel including alpha. 1</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R32G32B32A32_UInt">
+            <summary>
+            <dd> <p>A four-component, 128-bit unsigned-integer format that supports 32 bits per channel including alpha. 1</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R32G32B32A32_SInt">
+            <summary>
+            <dd> <p>A four-component, 128-bit signed-integer format that supports 32 bits per channel including alpha. 1</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R32G32B32_Typeless">
+            <summary>
+            <dd> <p>A three-component, 96-bit typeless format that supports 32 bits per color channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R32G32B32_Float">
+            <summary>
+            <dd> <p>A three-component, 96-bit floating-point format that supports 32 bits per color channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R32G32B32_UInt">
+            <summary>
+            <dd> <p>A three-component, 96-bit unsigned-integer format that supports 32 bits per color channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R32G32B32_SInt">
+            <summary>
+            <dd> <p>A three-component, 96-bit signed-integer format that supports 32 bits per color channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R16G16B16A16_Typeless">
+            <summary>
+            <dd> <p>A four-component, 64-bit typeless format that supports 16 bits per channel including alpha.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R16G16B16A16_Float">
+            <summary>
+            <dd> <p>A four-component, 64-bit floating-point format that supports 16 bits per channel including alpha.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R16G16B16A16_UNorm">
+            <summary>
+            <dd> <p>A four-component, 64-bit unsigned-normalized-integer format that supports 16 bits per channel including alpha.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R16G16B16A16_UInt">
+            <summary>
+            <dd> <p>A four-component, 64-bit unsigned-integer format that supports 16 bits per channel including alpha.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R16G16B16A16_SNorm">
+            <summary>
+            <dd> <p>A four-component, 64-bit signed-normalized-integer format that supports 16 bits per channel including alpha.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R16G16B16A16_SInt">
+            <summary>
+            <dd> <p>A four-component, 64-bit signed-integer format that supports 16 bits per channel including alpha.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R32G32_Typeless">
+            <summary>
+            <dd> <p>A two-component, 64-bit typeless format that supports 32 bits for the red channel and 32 bits for the green channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R32G32_Float">
+            <summary>
+            <dd> <p>A two-component, 64-bit floating-point format that supports 32 bits for the red channel and 32 bits for the green channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R32G32_UInt">
+            <summary>
+            <dd> <p>A two-component, 64-bit unsigned-integer format that supports 32 bits for the red channel and 32 bits for the green channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R32G32_SInt">
+            <summary>
+            <dd> <p>A two-component, 64-bit signed-integer format that supports 32 bits for the red channel and 32 bits for the green channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R32G8X24_Typeless">
+            <summary>
+            <dd> <p>A two-component, 64-bit typeless format that supports 32 bits for the red channel, 8 bits for the green channel, and 24 bits are unused.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.D32_Float_S8X24_UInt">
+            <summary>
+            <dd> <p>A 32-bit floating-point component, and two unsigned-integer components (with an additional 32 bits). This format supports 32-bit depth, 8-bit stencil, and 24 bits are unused.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R32_Float_X8X24_Typeless">
+            <summary>
+            <dd> <p>A 32-bit floating-point component, and two typeless components (with an additional 32 bits). This format supports 32-bit red channel, 8 bits are unused, and 24 bits are unused.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.X32_Typeless_G8X24_UInt">
+            <summary>
+            <dd> <p>A 32-bit typeless component, and two unsigned-integer components (with an additional 32 bits). This format has 32 bits unused, 8 bits for green channel, and 24 bits are unused.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R10G10B10A2_Typeless">
+            <summary>
+            <dd> <p>A four-component, 32-bit typeless format that supports 10 bits for each color and 2 bits for alpha.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R10G10B10A2_UNorm">
+            <summary>
+            <dd> <p>A four-component, 32-bit unsigned-normalized-integer format that supports 10 bits for each color and 2 bits for alpha.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R10G10B10A2_UInt">
+            <summary>
+            <dd> <p>A four-component, 32-bit unsigned-integer format that supports 10 bits for each color and 2 bits for alpha.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R11G11B10_Float">
+            <summary>
+            <dd> <p>Three partial-precision floating-point numbers encoded into a single 32-bit value (a variant of s10e5, which is sign bit, 10-bit mantissa, and 5-bit biased (15) exponent).  There are no sign bits, and there is a 5-bit biased (15) exponent for each channel, 6-bit mantissa  for R and G, and a 5-bit mantissa for B, as shown in the following illustration.</p> <p></p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R8G8B8A8_Typeless">
+            <summary>
+            <dd> <p>A four-component, 32-bit typeless format that supports 8 bits per channel including alpha.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R8G8B8A8_UNorm">
+            <summary>
+            <dd> <p>A four-component, 32-bit unsigned-normalized-integer format that supports 8 bits per channel including alpha.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R8G8B8A8_UNorm_SRgb">
+            <summary>
+            <dd> <p>A four-component, 32-bit unsigned-normalized integer sRGB format that supports 8 bits per channel including alpha.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R8G8B8A8_UInt">
+            <summary>
+            <dd> <p>A four-component, 32-bit unsigned-integer format that supports 8 bits per channel including alpha.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R8G8B8A8_SNorm">
+            <summary>
+            <dd> <p>A four-component, 32-bit signed-normalized-integer format that supports 8 bits per channel including alpha.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R8G8B8A8_SInt">
+            <summary>
+            <dd> <p>A four-component, 32-bit signed-integer format that supports 8 bits per channel including alpha.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R16G16_Typeless">
+            <summary>
+            <dd> <p>A two-component, 32-bit typeless format that supports 16 bits for the red channel and 16 bits for the green channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R16G16_Float">
+            <summary>
+            <dd> <p>A two-component, 32-bit floating-point format that supports 16 bits for the red channel and 16 bits for the green channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R16G16_UNorm">
+            <summary>
+            <dd> <p>A two-component, 32-bit unsigned-normalized-integer format that supports 16 bits each for the green and red channels.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R16G16_UInt">
+            <summary>
+            <dd> <p>A two-component, 32-bit unsigned-integer format that supports 16 bits for the red channel and 16 bits for the green channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R16G16_SNorm">
+            <summary>
+            <dd> <p>A two-component, 32-bit signed-normalized-integer format that supports 16 bits for the red channel and 16 bits for the green channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R16G16_SInt">
+            <summary>
+            <dd> <p>A two-component, 32-bit signed-integer format that supports 16 bits for the red channel and 16 bits for the green channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R32_Typeless">
+            <summary>
+            <dd> <p>A single-component, 32-bit typeless format that supports 32 bits for the red channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.D32_Float">
+            <summary>
+            <dd> <p>A single-component, 32-bit floating-point format that supports 32 bits for depth.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R32_Float">
+            <summary>
+            <dd> <p>A single-component, 32-bit floating-point format that supports 32 bits for the red channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R32_UInt">
+            <summary>
+            <dd> <p>A single-component, 32-bit unsigned-integer format that supports 32 bits for the red channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R32_SInt">
+            <summary>
+            <dd> <p>A single-component, 32-bit signed-integer format that supports 32 bits for the red channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R24G8_Typeless">
+            <summary>
+            <dd> <p>A two-component, 32-bit typeless format that supports 24 bits for the red channel and 8 bits for the green channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.D24_UNorm_S8_UInt">
+            <summary>
+            <dd> <p>A 32-bit z-buffer format that supports 24 bits for depth and 8 bits for stencil.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R24_UNorm_X8_Typeless">
+            <summary>
+            <dd> <p>A 32-bit format, that contains a 24 bit, single-component, unsigned-normalized integer, with an additional typeless 8 bits. This format has 24 bits red channel and 8 bits unused.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.X24_Typeless_G8_UInt">
+            <summary>
+            <dd> <p>A 32-bit format, that contains a 24 bit, single-component, typeless format,  with an additional 8 bit unsigned integer component. This format has 24 bits unused and 8 bits green channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R8G8_Typeless">
+            <summary>
+            <dd> <p>A two-component, 16-bit typeless format that supports 8 bits for the red channel and 8 bits for the green channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R8G8_UNorm">
+            <summary>
+            <dd> <p>A two-component, 16-bit unsigned-normalized-integer format that supports 8 bits for the red channel and 8 bits for the green channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R8G8_UInt">
+            <summary>
+            <dd> <p>A two-component, 16-bit unsigned-integer format that supports 8 bits for the red channel and 8 bits for the green channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R8G8_SNorm">
+            <summary>
+            <dd> <p>A two-component, 16-bit signed-normalized-integer format that supports 8 bits for the red channel and 8 bits for the green channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R8G8_SInt">
+            <summary>
+            <dd> <p>A two-component, 16-bit signed-integer format that supports 8 bits for the red channel and 8 bits for the green channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R16_Typeless">
+            <summary>
+            <dd> <p>A single-component, 16-bit typeless format that supports 16 bits for the red channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R16_Float">
+            <summary>
+            <dd> <p>A single-component, 16-bit floating-point format that supports 16 bits for the red channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.D16_UNorm">
+            <summary>
+            <dd> <p>A single-component, 16-bit unsigned-normalized-integer format that supports 16 bits for depth.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R16_UNorm">
+            <summary>
+            <dd> <p>A single-component, 16-bit unsigned-normalized-integer format that supports 16 bits for the red channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R16_UInt">
+            <summary>
+            <dd> <p>A single-component, 16-bit unsigned-integer format that supports 16 bits for the red channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R16_SNorm">
+            <summary>
+            <dd> <p>A single-component, 16-bit signed-normalized-integer format that supports 16 bits for the red channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R16_SInt">
+            <summary>
+            <dd> <p>A single-component, 16-bit signed-integer format that supports 16 bits for the red channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R8_Typeless">
+            <summary>
+            <dd> <p>A single-component, 8-bit typeless format that supports 8 bits for the red channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R8_UNorm">
+            <summary>
+            <dd> <p>A single-component, 8-bit unsigned-normalized-integer format that supports 8 bits for the red channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R8_UInt">
+            <summary>
+            <dd> <p>A single-component, 8-bit unsigned-integer format that supports 8 bits for the red channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R8_SNorm">
+            <summary>
+            <dd> <p>A single-component, 8-bit signed-normalized-integer format that supports 8 bits for the red channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R8_SInt">
+            <summary>
+            <dd> <p>A single-component, 8-bit signed-integer format that supports 8 bits for the red channel.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.A8_UNorm">
+            <summary>
+            <dd> <p>A single-component, 8-bit unsigned-normalized-integer format for alpha only.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R1_UNorm">
+            <summary>
+            <dd> <p>A single-component, 1-bit unsigned-normalized integer format that supports 1 bit for the red channel. 2.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R9G9B9E5_Sharedexp">
+            <summary>
+            <dd> <p>Three partial-precision floating-point numbers encoded into a single 32-bit value all sharing the same 5-bit exponent (variant of s10e5, which is sign bit, 10-bit mantissa, and 5-bit biased (15) exponent).  There is no sign bit, and there is a shared 5-bit biased (15) exponent and a 9-bit mantissa for each channel, as shown in the following illustration. 2.</p> <p></p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R8G8_B8G8_UNorm">
+            <summary>
+            <dd> <p>A four-component, 32-bit unsigned-normalized-integer format. This packed RGB format is analogous to the UYVY format. Each 32-bit block describes a pair of pixels: (R8, G8, B8) and (R8, G8, B8) where the R8/B8 values are repeated, and the G8 values are unique to each pixel. 3</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.G8R8_G8B8_UNorm">
+            <summary>
+            <dd> <p>A four-component, 32-bit unsigned-normalized-integer format. This packed RGB format is analogous to the YUY2 format. Each 32-bit block describes a pair of pixels: (R8, G8, B8) and (R8, G8, B8) where the R8/B8 values are repeated, and the G8 values are unique to each pixel. 3</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.BC1_Typeless">
+            <summary>
+            <dd> <p>Four-component typeless block-compression format. For information about block-compression formats, see Texture Block Compression in Direct3D 11.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.BC1_UNorm">
+            <summary>
+            <dd> <p>Four-component block-compression format. For information about block-compression formats, see Texture Block Compression in Direct3D 11.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.BC1_UNorm_SRgb">
+            <summary>
+            <dd> <p>Four-component block-compression format for sRGB data. For information about block-compression formats, see Texture Block Compression in Direct3D 11.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.BC2_Typeless">
+            <summary>
+            <dd> <p>Four-component typeless block-compression format. For information about block-compression formats, see Texture Block Compression in Direct3D 11.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.BC2_UNorm">
+            <summary>
+            <dd> <p>Four-component block-compression format. For information about block-compression formats, see Texture Block Compression in Direct3D 11.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.BC2_UNorm_SRgb">
+            <summary>
+            <dd> <p>Four-component block-compression format for sRGB data. For information about block-compression formats, see Texture Block Compression in Direct3D 11.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.BC3_Typeless">
+            <summary>
+            <dd> <p>Four-component typeless block-compression format. For information about block-compression formats, see Texture Block Compression in Direct3D 11.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.BC3_UNorm">
+            <summary>
+            <dd> <p>Four-component block-compression format. For information about block-compression formats, see Texture Block Compression in Direct3D 11.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.BC3_UNorm_SRgb">
+            <summary>
+            <dd> <p>Four-component block-compression format for sRGB data. For information about block-compression formats, see Texture Block Compression in Direct3D 11.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.BC4_Typeless">
+            <summary>
+            <dd> <p>One-component typeless block-compression format. For information about block-compression formats, see Texture Block Compression in Direct3D 11.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.BC4_UNorm">
+            <summary>
+            <dd> <p>One-component block-compression format. For information about block-compression formats, see Texture Block Compression in Direct3D 11.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.BC4_SNorm">
+            <summary>
+            <dd> <p>One-component block-compression format. For information about block-compression formats, see Texture Block Compression in Direct3D 11.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.BC5_Typeless">
+            <summary>
+            <dd> <p>Two-component typeless block-compression format. For information about block-compression formats, see Texture Block Compression in Direct3D 11.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.BC5_UNorm">
+            <summary>
+            <dd> <p>Two-component block-compression format. For information about block-compression formats, see Texture Block Compression in Direct3D 11.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.BC5_SNorm">
+            <summary>
+            <dd> <p>Two-component block-compression format. For information about block-compression formats, see Texture Block Compression in Direct3D 11.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.B5G6R5_UNorm">
+            <summary>
+            <dd> <p>A three-component, 16-bit unsigned-normalized-integer format that supports 5 bits for blue, 6 bits for green, and 5 bits for red.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.B5G5R5A1_UNorm">
+            <summary>
+            <dd> <p>A four-component, 16-bit unsigned-normalized-integer format that supports 5 bits for each color channel and 1-bit alpha.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.B8G8R8A8_UNorm">
+            <summary>
+            <dd> <p>A four-component, 32-bit unsigned-normalized-integer format that supports 8 bits for each color channel and 8-bit alpha.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.B8G8R8X8_UNorm">
+            <summary>
+            <dd> <p>A four-component, 32-bit unsigned-normalized-integer format that supports 8 bits for each color channel and 8 bits unused.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.R10G10B10_Xr_Bias_A2_UNorm">
+            <summary>
+            <dd> <p>A four-component, 32-bit 2.8-biased fixed-point format that supports 10 bits for each color channel and 2-bit alpha.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.B8G8R8A8_Typeless">
+            <summary>
+            <dd> <p>A four-component, 32-bit typeless format that supports 8 bits for each channel including alpha. 4</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.B8G8R8A8_UNorm_SRgb">
+            <summary>
+            <dd> <p>A four-component, 32-bit unsigned-normalized standard RGB format that supports 8 bits for each channel including alpha. 4</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.B8G8R8X8_Typeless">
+            <summary>
+            <dd> <p>A four-component, 32-bit typeless format that supports 8 bits for each color channel, and 8 bits are unused. 4</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.B8G8R8X8_UNorm_SRgb">
+            <summary>
+            <dd> <p>A four-component, 32-bit unsigned-normalized standard RGB format that supports 8 bits for each color channel, and 8 bits are unused. 4</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.BC6H_Typeless">
+            <summary>
+            <dd> <p>A typeless block-compression format. 4 For information about block-compression formats, see Texture Block Compression in Direct3D 11.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.BC6H_Uf16">
+            <summary>
+            <dd> <p>A block-compression format. 4 For information about block-compression formats, see Texture Block Compression in Direct3D 11.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.BC6H_Sf16">
+            <summary>
+            <dd> <p>A block-compression format. 4 For information about block-compression formats, see Texture Block Compression in Direct3D 11.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.BC7_Typeless">
+            <summary>
+            <dd> <p>A typeless block-compression format. 4 For information about block-compression formats, see Texture Block Compression in Direct3D 11.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.BC7_UNorm">
+            <summary>
+            <dd> <p>A block-compression format. 4 For information about block-compression formats, see Texture Block Compression in Direct3D 11.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.PixelFormat.BC7_UNorm_SRgb">
+            <summary>
+            <dd> <p>A block-compression format. 4 For information about block-compression formats, see Texture Block Compression in Direct3D 11.</p> </dd>
+            </summary>
+        </member>
+        <member name="T:Stride.Graphics.PixelFormatExtensions">
+            <summary>
+            Extensions to <see cref="T:Stride.Graphics.PixelFormat"/>.
+            </summary>
+        </member>
+        <member name="M:Stride.Graphics.PixelFormatExtensions.SizeInBytes(Stride.Graphics.PixelFormat)">
+            <summary>
+            Calculates the size of a <see cref="T:Stride.Graphics.PixelFormat"/> in bytes.
+            </summary>
+            <param name="format">The dxgi format.</param>
+            <returns>size of in bytes</returns>
+        </member>
+        <member name="M:Stride.Graphics.PixelFormatExtensions.SizeInBits(Stride.Graphics.PixelFormat)">
+            <summary>
+            Calculates the size of a <see cref="T:Stride.Graphics.PixelFormat"/> in bits.
+            </summary>
+            <param name="format">The pixel format.</param>
+            <returns>The size in bits</returns>
+        </member>
+        <member name="M:Stride.Graphics.PixelFormatExtensions.AlphaSizeInBits(Stride.Graphics.PixelFormat)">
+            <summary>
+            Calculate the size of the alpha channel in bits depending on the pixel format.
+            </summary>
+            <param name="format">The pixel format</param>
+            <returns>The size in bits</returns>
+        </member>
+        <member name="M:Stride.Graphics.PixelFormatExtensions.IsValid(Stride.Graphics.PixelFormat)">
+            <summary>
+            Returns true if the <see cref="T:Stride.Graphics.PixelFormat"/> is valid.
+            </summary>
+            <param name="format">A format to validate</param>
+            <returns>True if the <see cref="T:Stride.Graphics.PixelFormat"/> is valid.</returns>
+        </member>
+        <member name="M:Stride.Graphics.PixelFormatExtensions.IsCompressed(Stride.Graphics.PixelFormat)">
+            <summary>
+            Returns true if the <see cref="T:Stride.Graphics.PixelFormat"/> is a compressed format.
+            </summary>
+            <param name="fmt">The format to check for compressed.</param>
+            <returns>True if the <see cref="T:Stride.Graphics.PixelFormat"/> is a compressed format</returns>
+        </member>
+        <member name="M:Stride.Graphics.PixelFormatExtensions.HasAlpha32Bits(Stride.Graphics.PixelFormat)">
+            <summary>
+            Returns true if the <see cref="T:Stride.Graphics.PixelFormat"/> is an uncompressed 32 bit color with an Alpha channel.
+            </summary>
+            <param name="fmt">The format to check for an uncompressed 32 bit color with an Alpha channel.</param>
+            <returns>True if the <see cref="T:Stride.Graphics.PixelFormat"/> is an uncompressed 32 bit color with an Alpha channel</returns>
+        </member>
+        <member name="M:Stride.Graphics.PixelFormatExtensions.HasAlpha(Stride.Graphics.PixelFormat)">
+            <summary>
+            Returns true if the <see cref="T:Stride.Graphics.PixelFormat"/> has an Alpha channel.
+            </summary>
+            <param name="fmt">The format to check for an Alpha channel.</param>
+            <returns>True if the <see cref="T:Stride.Graphics.PixelFormat"/> has an Alpha channel</returns>
+        </member>
+        <member name="M:Stride.Graphics.PixelFormatExtensions.IsPacked(Stride.Graphics.PixelFormat)">
+            <summary>
+            Determines whether the specified <see cref="T:Stride.Graphics.PixelFormat"/> is packed.
+            </summary>
+            <param name="fmt">The DXGI Format.</param>
+            <returns><c>true</c> if the specified <see cref="T:Stride.Graphics.PixelFormat"/> is packed; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Stride.Graphics.PixelFormatExtensions.IsVideo(Stride.Graphics.PixelFormat)">
+            <summary>
+            Determines whether the specified <see cref="T:Stride.Graphics.PixelFormat"/> is video.
+            </summary>
+            <param name="fmt">The <see cref="T:Stride.Graphics.PixelFormat"/>.</param>
+            <returns><c>true</c> if the specified <see cref="T:Stride.Graphics.PixelFormat"/> is video; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Stride.Graphics.PixelFormatExtensions.IsSRgb(Stride.Graphics.PixelFormat)">
+            <summary>
+            Determines whether the specified <see cref="T:Stride.Graphics.PixelFormat"/> is a SRGB format.
+            </summary>
+            <param name="fmt">The <see cref="T:Stride.Graphics.PixelFormat"/>.</param>
+            <returns><c>true</c> if the specified <see cref="T:Stride.Graphics.PixelFormat"/> is a SRGB format; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Stride.Graphics.PixelFormatExtensions.IsHDR(Stride.Graphics.PixelFormat)">
+            <summary>
+            Determines whether the specified <see cref="T:Stride.Graphics.PixelFormat"/> is HDR (either 16 or 32bits float)
+            </summary>
+            <param name="fmt">The FMT.</param>
+            <returns><c>true</c> if the specified pixel format is HDR (floating point); otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Stride.Graphics.PixelFormatExtensions.IsTypeless(Stride.Graphics.PixelFormat)">
+            <summary>
+            Determines whether the specified <see cref="T:Stride.Graphics.PixelFormat"/> is typeless.
+            </summary>
+            <param name="fmt">The <see cref="T:Stride.Graphics.PixelFormat"/>.</param>
+            <returns><c>true</c> if the specified <see cref="T:Stride.Graphics.PixelFormat"/> is typeless; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Stride.Graphics.PixelFormatExtensions.HasSRgbEquivalent(Stride.Graphics.PixelFormat)">
+            <summary>
+            Determine if the format has an equivalent sRGB format.
+            </summary>
+            <param name="format">the non-sRGB format</param>
+            <returns>true if the format has an sRGB equivalent</returns>
+        </member>
+        <member name="M:Stride.Graphics.PixelFormatExtensions.HasNonSRgbEquivalent(Stride.Graphics.PixelFormat)">
+            <summary>
+            Determine if the format has an equivalent non-sRGB format.
+            </summary>
+            <param name="format">the sRGB format</param>
+            <returns>true if the format has an non-sRGB equivalent</returns>
+        </member>
+        <member name="M:Stride.Graphics.PixelFormatExtensions.ToSRgb(Stride.Graphics.PixelFormat)">
+            <summary>
+            Find the equivalent sRGB format to the provided format.
+            </summary>
+            <param name="format">The non sRGB format.</param>
+            <returns>
+            The equivalent sRGB format if any, the provided format else.
+            </returns>
+        </member>
+        <member name="M:Stride.Graphics.PixelFormatExtensions.ToNonSRgb(Stride.Graphics.PixelFormat)">
+            <summary>
+            Find the equivalent non sRGB format to the provided sRGB format.
+            </summary>
+            <param name="format">The non sRGB format.</param>
+            <returns>
+            The equivalent non sRGB format if any, the provided format else.
+            </returns>
+        </member>
+        <member name="M:Stride.Graphics.PixelFormatExtensions.IsRGBAOrder(Stride.Graphics.PixelFormat)">
+            <summary>
+            Determines whether the specified format is in RGBA order.
+            </summary>
+            <param name="format">The format.</param>
+            <returns>
+              <c>true</c> if the specified format is in RGBA order; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Stride.Graphics.PixelFormatExtensions.IsBGRAOrder(Stride.Graphics.PixelFormat)">
+            <summary>
+            Determines whether the specified format is in BGRA order.
+            </summary>
+            <param name="format">The format.</param>
+            <returns>
+              <c>true</c> if the specified format is in BGRA order; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Stride.Graphics.PixelFormatExtensions.#cctor">
+            <summary>
+            Static initializer to speed up size calculation (not sure the JIT is enough "smart" for this kind of thing).
+            </summary>
+        </member>
+        <member name="T:Stride.Graphics.SamplerStateDescription">
+            <summary>
+            Describes a sampler state.
+            </summary>
+        </member>
+        <member name="M:Stride.Graphics.SamplerStateDescription.#ctor(Stride.Graphics.TextureFilter,Stride.Graphics.TextureAddressMode)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Graphics.SamplerStateDescription"/> class.
+            </summary>
+            <param name="filter">The filter.</param>
+            <param name="addressMode">The address mode.</param>
+        </member>
+        <member name="F:Stride.Graphics.SamplerStateDescription.Filter">
+            <summary>
+            Gets or sets filtering method to use when sampling a texture (see <see cref="T:Stride.Graphics.TextureFilter"/>).
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.SamplerStateDescription.AddressU">
+            <summary>
+            Gets or sets method to use for resolving a u texture coordinate that is outside the 0 to 1 range (see <see cref="T:Stride.Graphics.TextureAddressMode"/>).
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.SamplerStateDescription.AddressV">
+            <summary>
+            Gets or sets method to use for resolving a v texture coordinate that is outside the 0 to 1 range.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.SamplerStateDescription.AddressW">
+            <summary>
+            Gets or sets method to use for resolving a w texture coordinate that is outside the 0 to 1 range.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.SamplerStateDescription.MipMapLevelOfDetailBias">
+            <summary>
+            Gets or sets offset from the calculated mipmap level.
+            For example, if Direct3D calculates that a texture should be sampled at mipmap level 3 and MipLODBias is 2, then the texture will be sampled at mipmap level 5.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.SamplerStateDescription.MaxAnisotropy">
+            <summary>
+            Gets or sets clamping value used if Anisotropy or ComparisonAnisotropy is specified in Filter. Valid values are between 1 and 16.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.SamplerStateDescription.CompareFunction">
+            <summary>
+            Gets or sets a function that compares sampled data against existing sampled data. The function options are listed in <see cref="F:Stride.Graphics.SamplerStateDescription.CompareFunction"/>.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.SamplerStateDescription.BorderColor">
+            <summary>
+            Gets or sets border color to use if <see cref="F:Stride.Graphics.TextureAddressMode.Border"/> is specified for AddressU, AddressV, or AddressW. Range must be between 0.0 and 1.0 inclusive.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.SamplerStateDescription.MinMipLevel">
+            <summary>
+            Gets or sets lower end of the mipmap range to clamp access to, where 0 is the largest and most detailed mipmap level and any level higher than that is less detailed.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.SamplerStateDescription.MaxMipLevel">
+            <summary>
+            Gets or sets upper end of the mipmap range to clamp access to, where 0 is the largest and most detailed mipmap level and any level higher than that is less detailed. This value must be greater than or equal to MinLOD. To have no upper limit on LOD set this to a large value such as D3D11_FLOAT32_MAX.
+            </summary>
+        </member>
+        <member name="P:Stride.Graphics.SamplerStateDescription.Default">
+            <summary>
+            Gets default values for this instance.
+            </summary>
+        </member>
+        <member name="T:Stride.Graphics.StandardImageHelper">
+            <summary>
+            This class is responsible to provide image loader for png, gif, bmp.
+            </summary>
+            <summary>
+            This class is responsible to provide image loader for png, gif, bmp.
+            TODO: Replace using System.Drawing, as it is not available on all platforms (not on Windows 8/WP8).
+            </summary>
+        </member>
+        <member name="T:Stride.Graphics.TextureAddressMode">
+            <summary>
+            Identify a technique for resolving texture coordinates that are outside of the boundaries of a texture.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.TextureAddressMode.Wrap">
+            <summary>
+            Tile the texture at every (u,v) integer junction. For example, for u values between 0 and 3, the texture is repeated three times. 
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.TextureAddressMode.Mirror">
+            <summary>
+            Flip the texture at every (u,v) integer junction. For u values between 0 and 1, for example, the texture is addressed normally; between 1 and 2, the texture is flipped (mirrored); between 2 and 3, the texture is normal again; and so on.  
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.TextureAddressMode.Clamp">
+            <summary>
+            Texture coordinates outside the range [0.0, 1.0] are set to the texture color at 0.0 or 1.0, respectively. 
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.TextureAddressMode.Border">
+            <summary>
+            Texture coordinates outside the range [0.0, 1.0] are set to the border color specified in <see cref="!:SamplerState"/> or HLSL code. 
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.TextureAddressMode.MirrorOnce">
+            <summary>
+            Similar to D3D11_TEXTURE_ADDRESS_MIRROR and D3D11_TEXTURE_ADDRESS_CLAMP. Takes the absolute value of the texture coordinate (thus, mirroring around 0), and then clamps to the maximum value. 
+            </summary>
+        </member>
+        <member name="T:Stride.Graphics.TextureDimension">
+            <summary>
+            Defines the dimension of a texture.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.TextureDimension.Texture1D">
+            <summary>
+            The texture dimension is 1D.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.TextureDimension.Texture2D">
+            <summary>
+            The texture dimension is 2D.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.TextureDimension.Texture3D">
+            <summary>
+            The texture dimension is 3D.
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.TextureDimension.TextureCube">
+            <summary>
+            The texture dimension is a CubeMap.
+            </summary>
+        </member>
+        <member name="T:Stride.Graphics.TextureFilter">
+            <summary>
+            Filtering options during texture sampling.
+            </summary>
+            <remarks>
+            During texture sampling, one or more texels are read and combined (this is calling filtering) to produce a single value. Point sampling reads a single texel while linear sampling reads two texels (endpoints) and linearly interpolates a third value between the endpoints. HLSL texture-sampling functions also support comparison filtering during texture sampling. Comparison filtering compares each sampled texel against a comparison value. The boolean result is blended the same way that normal texture filtering is blended. You can use HLSL intrinsic texture-sampling functions that implement texture filtering only or companion functions that use texture filtering with comparison filtering.  Texture Sampling FunctionTexture Sampling Function with Comparison Filtering samplesamplecmp or samplecmplevelzero  ? Comparison filters only work with textures that have the following DXGI formats: R32_FLOAT_X8X24_TYPELESS, R32_FLOAT, R24_UNORM_X8_TYPELESS, R16_UNORM. 
+            </remarks>
+        </member>
+        <member name="F:Stride.Graphics.TextureFilter.Point">
+            <summary>
+            Use point sampling for minification, magnification, and mip-level sampling. 
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.TextureFilter.MinMagPointMipLinear">
+            <summary>
+            Use point sampling for minification and magnification; use linear interpolation for mip-level sampling. 
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.TextureFilter.MinPointMagLinearMipPoint">
+            <summary>
+            Use point sampling for minification; use linear interpolation for magnification; use point sampling for mip-level sampling. 
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.TextureFilter.MinPointMagMipLinear">
+            <summary>
+            Use point sampling for minification; use linear interpolation for magnification and mip-level sampling. 
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.TextureFilter.MinLinearMagMipPoint">
+            <summary>
+            Use linear interpolation for minification; use point sampling for magnification and mip-level sampling. 
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.TextureFilter.MinLinearMagPointMipLinear">
+            <summary>
+            Use linear interpolation for minification; use point sampling for magnification; use linear interpolation for mip-level sampling. 
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.TextureFilter.MinMagLinearMipPoint">
+            <summary>
+            Use linear interpolation for minification and magnification; use point sampling for mip-level sampling. 
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.TextureFilter.Linear">
+            <summary>
+            Use linear interpolation for minification, magnification, and mip-level sampling. 
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.TextureFilter.Anisotropic">
+            <summary>
+            Use anisotropic interpolation for minification, magnification, and mip-level sampling. 
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.TextureFilter.ComparisonPoint">
+            <summary>
+            Use point sampling for minification, magnification, and mip-level sampling. Compare the result to the comparison value. 
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.TextureFilter.ComparisonMinMagPointMipLinear">
+            <summary>
+            Use point sampling for minification and magnification; use linear interpolation for mip-level sampling. Compare the result to the comparison value. 
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.TextureFilter.ComparisonMinPointMagLinearMipPoint">
+            <summary>
+            Use point sampling for minification; use linear interpolation for magnification; use point sampling for mip-level sampling. Compare the result to the comparison value. 
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.TextureFilter.ComparisonMinPointMagMipLinear">
+            <summary>
+            Use point sampling for minification; use linear interpolation for magnification and mip-level sampling. Compare the result to the comparison value. 
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.TextureFilter.ComparisonMinLinearMagMipPoint">
+            <summary>
+            Use linear interpolation for minification; use point sampling for magnification and mip-level sampling. Compare the result to the comparison value. 
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.TextureFilter.ComparisonMinLinearMagPointMipLinear">
+            <summary>
+            Use linear interpolation for minification; use point sampling for magnification; use linear interpolation for mip-level sampling. Compare the result to the comparison value. 
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.TextureFilter.ComparisonMinMagLinearMipPoint">
+            <summary>
+            Use linear interpolation for minification and magnification; use point sampling for mip-level sampling. Compare the result to the comparison value. 
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.TextureFilter.ComparisonLinear">
+            <summary>
+            Use linear interpolation for minification, magnification, and mip-level sampling. Compare the result to the comparison value. 
+            </summary>
+        </member>
+        <member name="F:Stride.Graphics.TextureFilter.ComparisonAnisotropic">
+            <summary>
+            Use anisotropic interpolation for minification, magnification, and mip-level sampling. Compare the result to the comparison value. 
+            </summary>
+        </member>
+        <member name="T:Stride.FourCC">
+            <summary>
+            A FourCC descriptor.
+            </summary>
+        </member>
+        <member name="M:Stride.FourCC.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.FourCC" /> struct.
+            </summary>
+            <param name="fourCC">The fourCC value as a string .</param>
+        </member>
+        <member name="M:Stride.FourCC.#ctor(System.Char,System.Char,System.Char,System.Char)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.FourCC" /> struct.
+            </summary>
+            <param name="byte1">The byte1.</param>
+            <param name="byte2">The byte2.</param>
+            <param name="byte3">The byte3.</param>
+            <param name="byte4">The byte4.</param>
+        </member>
+        <member name="M:Stride.FourCC.#ctor(System.UInt32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.FourCC" /> struct.
+            </summary>
+            <param name="fourCC">The fourCC value as an uint.</param>
+        </member>
+        <member name="M:Stride.FourCC.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.FourCC" /> struct.
+            </summary>
+            <param name="fourCC">The fourCC value as an int.</param>
+        </member>
+        <member name="M:Stride.FourCC.op_Implicit(Stride.FourCC)~System.UInt32">
+            <summary>
+            Performs an implicit conversion from <see cref="!:SharpDX.Multimedia.FourCC"/> to <see cref="T:System.Int32"/>.
+            </summary>
+            <param name="d">The d.</param>
+            <returns>
+            The result of the conversion.
+            </returns>
+        </member>
+        <member name="M:Stride.FourCC.op_Implicit(Stride.FourCC)~System.Int32">
+            <summary>
+            Performs an implicit conversion from <see cref="!:SharpDX.Multimedia.FourCC"/> to <see cref="T:System.Int32"/>.
+            </summary>
+            <param name="d">The d.</param>
+            <returns>
+            The result of the conversion.
+            </returns>
+        </member>
+        <member name="M:Stride.FourCC.op_Implicit(System.UInt32)~Stride.FourCC">
+            <summary>
+            Performs an implicit conversion from <see cref="T:System.Int32"/> to <see cref="!:SharpDX.Multimedia.FourCC"/>.
+            </summary>
+            <param name="d">The d.</param>
+            <returns>
+            The result of the conversion.
+            </returns>
+        </member>
+        <member name="M:Stride.FourCC.op_Implicit(System.Int32)~Stride.FourCC">
+            <summary>
+            Performs an implicit conversion from <see cref="T:System.Int32"/> to <see cref="!:SharpDX.Multimedia.FourCC"/>.
+            </summary>
+            <param name="d">The d.</param>
+            <returns>
+            The result of the conversion.
+            </returns>
+        </member>
+        <member name="M:Stride.FourCC.op_Implicit(Stride.FourCC)~System.String">
+            <summary>
+            Performs an implicit conversion from <see cref="!:SharpDX.Multimedia.FourCC"/> to <see cref="T:System.String"/>.
+            </summary>
+            <param name="d">The d.</param>
+            <returns>
+            The result of the conversion.
+            </returns>
+        </member>
+        <member name="M:Stride.FourCC.op_Implicit(System.String)~Stride.FourCC">
+            <summary>
+            Performs an implicit conversion from <see cref="T:System.String"/> to <see cref="!:SharpDX.Multimedia.FourCC"/>.
+            </summary>
+            <param name="d">The d.</param>
+            <returns>
+            The result of the conversion.
+            </returns>
+        </member>
+        <member name="P:Stride.Media.IMediaExtractor.MediaDuration">
+            <summary>
+            Returns the total duration of the media
+            </summary>
+        </member>
+        <member name="P:Stride.Media.IMediaExtractor.MediaCurrentTime">
+            <summary>
+            Gets the current presentation time of the media
+            </summary>
+        </member>
+        <member name="P:Stride.Media.IMediaExtractor.MediaType">
+            <summary>
+            Returns the type of media that is extracted
+            </summary>
+        </member>
+        <member name="M:Stride.Media.IMediaExtractor.ReachedEndOfMedia">
+            <summary>
+            Specifies if the end of the media has been reached.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Stride.Media.IMediaExtractor.SeekRequestCompleted">
+            <summary>
+            Indicate if a previous seek request has been completed.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Stride.Media.IMediaPlayer">
+            <summary>
+            Interface for playable media
+            </summary>
+        </member>
+        <member name="M:Stride.Media.IMediaPlayer.Play">
+            <summary>
+            Start or resume playing the media.
+            </summary>
+            <remarks>A call to Play when the media is already playing has no effects.</remarks>
+        </member>
+        <member name="M:Stride.Media.IMediaPlayer.Pause">
+            <summary>
+            Pause the media.
+            </summary>
+            <remarks>A call to Pause when the media is already paused or stopped has no effects.</remarks>
+        </member>
+        <member name="M:Stride.Media.IMediaPlayer.Stop">
+            <summary>
+            Stop playing the media immediately and reset the media to the beginning of the source.
+            </summary>
+            <remarks>A call to Stop when the media is already stopped has no effects</remarks>
+        </member>
+        <member name="P:Stride.Media.IMediaReader.IsDisposed">
+            <summary>
+            Specifies if the extractor has been disposed
+            </summary>
+        </member>
+        <member name="P:Stride.Media.IMediaReader.SpeedFactor">
+            <summary>
+            Set the play speed of the media
+            </summary>
+        </member>
+        <member name="M:Stride.Media.IMediaReader.Seek(System.TimeSpan)">
+            <summary>
+            Seek to provided position in the media source.
+            </summary>
+        </member>
+        <member name="T:Stride.Media.PlayRange">
+            <summary>
+            Describes the range of audio samples to play, in time unit.
+            </summary>
+        </member>
+        <member name="F:Stride.Media.PlayRange.Start">
+            <summary>
+            The Stating time.
+            </summary>
+        </member>
+        <member name="F:Stride.Media.PlayRange.Length">
+            <summary>
+            The Length of the audio extract to play.
+            </summary>
+        </member>
+        <member name="M:Stride.Media.PlayRange.#ctor(System.TimeSpan,System.TimeSpan)">
+            <summary>
+            Creates a new PlayRange structure.
+            </summary>
+            <param name="start">The Stating time.</param>
+            <param name="length">The Length of the audio extract to play.</param>
+        </member>
+        <member name="P:Stride.Media.PlayRange.End">
+            <summary>
+            The Ending time.
+            </summary>
+        </member>
+        <member name="M:Stride.Media.PlayRange.IsValid">
+            <summary>
+            Returns true if the range specifies a valid play range. 
+            This is <see cref="F:Stride.Media.PlayRange.Start"/> is positive and <see cref="F:Stride.Media.PlayRange.Length"/> is strictly positive.
+            </summary>
+        </member>
+        <member name="T:Stride.Media.PlayState">
+            <summary>
+            Current state (playing, paused, or stopped) of a media.
+            </summary>
+        </member>
+        <member name="F:Stride.Media.PlayState.Playing">
+            <summary>
+            The media is currently being played.
+            </summary>
+        </member>
+        <member name="F:Stride.Media.PlayState.Paused">
+            <summary>
+            The media is currently paused.
+            </summary>
+        </member>
+        <member name="F:Stride.Media.PlayState.Stopped">
+            <summary>
+            The media is currently stopped.
+            </summary>
+        </member>
+        <member name="T:Stride.StrideVersion">
+            <summary>
+            Internal version used to identify Stride version.
+            </summary>
+            <remarks>
+            During package build, PackageUpdateVersionTask is updating that file and expect some specific text regex so be careful if you change any of this.
+            </remarks>
+        </member>
+        <member name="F:Stride.StrideVersion.PublicVersion">
+            <summary>
+            The version used by editor for display purpose. 4th digit needs to be at least 1 if used (due to NuGet special cases).
+            </summary>
+        </member>
+        <member name="F:Stride.StrideVersion.AssemblyVersion">
+            <summary>
+            The current assembly version as text, currently same as <see cref="F:Stride.StrideVersion.PublicVersion"/>.
+            </summary>
+        </member>
+        <member name="F:Stride.StrideVersion.NuGetVersionSimple">
+            <summary>
+            The NuGet package version without special tags.
+            </summary>
+        </member>
+        <member name="F:Stride.StrideVersion.NuGetVersion">
+            <summary>
+            The NuGet package version.
+            </summary>
+        </member>
+        <member name="F:Stride.StrideVersion.NuGetVersionSuffix">
+            <summary>
+            The NuGet package suffix (i.e. -beta01). Automatically set by Stride.GitVersioning.GenerateVersionFile.
+            Three possible values:
+            - Empty: official release
+            - -betaXX: development version (XX should corespond to development asset versioning)
+            - -betaXX-YYYY: beta release (YYYY is the git height since current version has been bumped)
+            </summary>
+        </member>
+        <member name="F:Stride.StrideVersion.BuildMetadata">
+            <summary>
+            The build metadata, usually +g[git_hash] during package. Automatically set by Stride.GitVersioning.GenerateVersionFile.
+            </summary>
+        </member>
+        <member name="F:Stride.StrideVersion.AssemblyInformationalVersion">
+            <summary>
+            The informational assembly version, containing -beta01 or +g[git_hash] during package.
+            </summary>
+        </member>
+        <member name="T:Stride.PublicKeys">
+            <summary>
+            Assembly signing information.
+            </summary>
+        </member>
+        <member name="F:Stride.PublicKeys.Default">
+            <summary>
+            Assembly name suffix that contains signing information.
+            </summary>
+        </member>
+    </members>
+</doc>

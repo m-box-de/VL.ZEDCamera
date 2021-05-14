@@ -124,7 +124,11 @@ namespace sl
             /// <summary>
             /// Unsigned char, four channels. Used for color images, like the main RGB image from each sensor. 
             /// </summary>
-            MAT_8U_C4 
+            MAT_8U_C4,
+            /// <summary>
+            /// Unsigned short 1 channel.
+            /// </summary>
+            MAT_16U_C1
         };
 
         /// <summary>
@@ -166,7 +170,7 @@ namespace sl
         };
 
         #region DLL Calls
-        const string nameDll = "sl_unitywrapper";
+        const string nameDll = sl.ZEDCommon.NameDLL;
 
         [DllImport(nameDll, EntryPoint = "dllz_mat_create_new")]
         private static extern IntPtr dllz_mat_create_new(sl.Resolution resolution, int type, int mem);
@@ -176,10 +180,8 @@ namespace sl
 
         [DllImport(nameDll, EntryPoint = "dllz_mat_is_init")]
         private static extern bool dllz_mat_is_init(System.IntPtr ptr);
-
         [DllImport(nameDll, EntryPoint = "dllz_mat_free")]
         private static extern bool dllz_mat_free(System.IntPtr ptr, int type);
-
         [DllImport(nameDll, EntryPoint = "dllz_mat_get_infos")]
         private static extern bool dllz_mat_get_infos(System.IntPtr ptr, byte[] buffer);
 
@@ -250,7 +252,7 @@ namespace sl
         private static extern int dllz_mat_read(System.IntPtr ptr, string filePath);
 
         [DllImport(nameDll, EntryPoint = "dllz_mat_write")]
-        private static extern int dllz_mat_write(System.IntPtr ptr, string filePath);
+        private static extern int dllz_mat_write(System.IntPtr ptr, string filePath,int compression_level);
 
         [DllImport(nameDll, EntryPoint = "dllz_mat_copy_to")]
         private static extern int dllz_mat_copy_to(System.IntPtr ptr, System.IntPtr dest, int cpyType);
@@ -316,7 +318,7 @@ namespace sl
         /// </summary>
         public ZEDMat()
         {
-            _matInternalPtr = dllz_mat_create_new_empty();
+            _matInternalPtr = dllz_mat_create_new_empty();//IntPtr.Zero;
         }
 
         /// <summary>
@@ -340,7 +342,7 @@ namespace sl
         /// Depends on texture type: see sl.VIEW and sl.MEASURE in ZEDCommon.cs.</param>
         /// <param name="mem">Whether Mat should exist on CPU or GPU memory.
         /// Choose depending on where you'll need to access it from.</param>
-        public ZEDMat(sl.Resolution resolution, MAT_TYPE type, MEM mem = MEM.MEM_CPU)
+        public void Create(sl.Resolution resolution, MAT_TYPE type, MEM mem = MEM.MEM_CPU)
         {
             _matInternalPtr = dllz_mat_create_new(resolution, (int)(type), (int)(mem));
         }
@@ -354,7 +356,7 @@ namespace sl
         /// Depends on texture type: see sl.VIEW and sl.MEASURE in ZEDCommon.cs.</param>
         /// <param name="mem">Whether Mat should exist on CPU or GPU memory.
         /// Choose depending on where you'll need to access it from.</param>
-        public ZEDMat(uint width, uint height, MAT_TYPE type, MEM mem = MEM.MEM_CPU)
+        public void Create(uint width, uint height, MAT_TYPE type, MEM mem = MEM.MEM_CPU)
         {
             _matInternalPtr = dllz_mat_create_new(new sl.Resolution(width, height), (int)(type), (int)(mem));
         }
@@ -375,7 +377,7 @@ namespace sl
         public void Free(MEM mem = (MEM.MEM_GPU | MEM.MEM_CPU))
         {
             dllz_mat_free(_matInternalPtr, (int)mem);
-            _matInternalPtr = System.IntPtr.Zero;
+            _matInternalPtr = IntPtr.Zero;
         }
 
         /// <summary>
@@ -432,10 +434,11 @@ namespace sl
         /// Writes the Mat into a file as an image. Only works if Mat has access to MEM_CPU.
         /// </summary>
         /// <param name="filePath">File path, including file name and extension.</param>
+        /// <param name="compression_level"> Compression level used. Highest value means highest compression (smaller size). Range : [0 - 100].</param>
         /// <returns>Error code indicating if the write was successful, or why it wasn't.</returns>
-        public sl.ERROR_CODE Write(string filePath)
+        public sl.ERROR_CODE Write(string filePath,int compressionLevel = -1)
         {
-            return (sl.ERROR_CODE)dllz_mat_write(_matInternalPtr, filePath);
+            return (sl.ERROR_CODE)dllz_mat_write(_matInternalPtr, filePath, compressionLevel);
         }
 
         /// <summary>

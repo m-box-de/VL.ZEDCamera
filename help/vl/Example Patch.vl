@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" LanguageVersion="2019.1.0-0975-gbe94390fc5" Version="0.128">
-  <NugetDependency Id="RKFCmk1Lg5EP3I4IQegLTw" Location="VL.CoreLib" Version="0.35.21" />
+<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" LanguageVersion="2021.4.0.82" Version="0.128">
+  <NugetDependency Id="RKFCmk1Lg5EP3I4IQegLTw" Location="VL.CoreLib" Version="2021.4.0-0082-ga65ac42b69" />
   <Patch Id="Th8hpfHvBF4Lk6VOwDCc9D">
     <Canvas Id="NtZT52Xp5qNOXK0fF2H7kv" DefaultCategory="VVVV.Value" CanvasType="FullCategory">
       <!--
@@ -207,7 +207,7 @@
               <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
             </p:ValueBoxSettings>
           </Pad>
-          <Pad Id="K6AxiaUxPfZPFri6QIxg2o" Comment="Resolution" Bounds="221,149,66,15" ShowValueBox="true" isIOBox="true" Value="HD720">
+          <Pad Id="K6AxiaUxPfZPFri6QIxg2o" Comment="Resolution" Bounds="221,149,66,15" ShowValueBox="true" isIOBox="true" Value="HD1080">
             <p:TypeAnnotation LastCategoryFullName="sl" LastSymbolSource="VL.ZEDCam.dll">
               <Choice Kind="TypeFlag" Name="RESOLUTION" />
             </p:TypeAnnotation>
@@ -260,7 +260,7 @@
             <Pin Id="P9JcVfWkNzfL7x6MeipnvO" Name="Show Info" Kind="InputPin" />
             <Pin Id="P9J8FHJYjW1MYpc1kSZhCp" Name="Enabled" Kind="InputPin" />
           </Node>
-          <Node Bounds="91,481,65,26" Id="D4Tk2hp8528NE2pSoCiiel">
+          <Node Bounds="93,457,65,26" Id="D4Tk2hp8528NE2pSoCiiel">
             <p:NodeReference LastCategoryFullName="OpenCV.ZED.ZEDCamera" LastSymbolSource="VL.ZEDCam.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="OperationCallFlag" Name="GetImage" />
@@ -281,6 +281,38 @@
               <Choice Kind="TypeFlag" Name="fps" />
             </p:TypeAnnotation>
           </Pad>
+          <Node Bounds="331,508" Id="QHlJcU9pby1NIIqZ25sQ46">
+            <p:NodeReference LastCategoryFullName="Stride.Utils" LastSymbolSource="VL.Stride.Graphics.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="GraphicsDevice" />
+              <CategoryReference Kind="Category" Name="Utils" NeedsToBeDirectParent="true">
+                <p:OuterCategoryReference Kind="Category" Name="Stride" NeedsToBeDirectParent="true" />
+              </CategoryReference>
+            </p:NodeReference>
+            <Pin Id="FZEbfyhoTJFPeysqvPcWTd" Name="Output" Kind="OutputPin" />
+          </Node>
+          <Node Bounds="406,616,25,19" Id="EvIlrXbo28ZPQzmFojnZtt">
+            <p:NodeReference LastCategoryFullName="Stride.Textures" LastSymbolSource="VL.Stride.Rendering.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="ProcessAppFlag" Name="ImageToTexture" />
+            </p:NodeReference>
+            <Pin Id="DO8CzRa1cBJMXxHOhXSBad" Name="Image" Kind="InputPin" />
+            <Pin Id="J7WQutBYrrEPX4aFON17zJ" Name="Is SRgb" Kind="InputPin" />
+            <Pin Id="B597Gs6WbmwLZx2wmvhTSw" Name="Output" Kind="OutputPin" />
+            <Pin Id="OPmWbNmbq1hQaqdVZ09KHS" Name="Changed" Kind="OutputPin" />
+          </Node>
+          <Node Bounds="348,723" Id="FLV230m4aUvLsmVdJe0IbF">
+            <p:NodeReference LastCategoryFullName="OpenCV.ZED.ZEDCamera" LastSymbolSource="VL.ZEDCam.vl">
+              <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+              <Choice Kind="OperationCallFlag" Name="GetPointcloud" />
+            </p:NodeReference>
+            <Pin Id="B0cHvtM9TSnNkn19p7eRx4" Name="Input" Kind="StateInputPin" />
+            <Pin Id="IZ7FA3fiuQxM29XzhAl1xJ" Name="Pointcloud" Kind="InputPin" />
+            <Pin Id="PSvsyzHjL8bPCcP3mpa2Wv" Name="Output" Kind="StateOutputPin" />
+            <Pin Id="LCz44wdl98qNyKHGkMhWBp" Name="Point Cloud" Kind="OutputPin" />
+            <Pin Id="BU2fNz8uKJ9LBUhQBP3uBA" Name="Running" Kind="OutputPin" />
+            <Pin Id="NsGqCZ5kIJnMrl5z24tO6t" Name="In Progress" Kind="OutputPin" />
+          </Node>
         </Canvas>
         <Patch Id="CeSpNUykYr4MEjdBKV8mIq" Name="Create" />
         <Patch Id="AFWHnnKwDoSMYgwtrogLS8" Name="Update" />
@@ -302,6 +334,7 @@
       </Patch>
     </Node>
   </Patch>
-  <NugetDependency Id="IcRI9w6ph6kP5Dyqgsdd0b" Location="VL.OpenCV" Version="0.2.121-alpha" />
+  <NugetDependency Id="IcRI9w6ph6kP5Dyqgsdd0b" Location="VL.OpenCV" Version="2.0.0" />
   <DocumentDependency Id="K8hMU0pQ11JLWYOcSOliqv" Location="../../VL.ZEDCam.vl" />
+  <NugetDependency Id="CRebAmoB3mCQR3ezyfhf2k" Location="VL.Stride" Version="2021.4.0-0082-ga65ac42b69" />
 </Document>

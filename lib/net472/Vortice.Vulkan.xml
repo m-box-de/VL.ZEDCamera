@@ -1,0 +1,3558 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Vortice.Vulkan</name>
+    </assembly>
+    <members>
+        <member name="T:Vortice.Vulkan.Vulkan">
+            <summary>
+            Provides Vulkan specific constants for special values, layer names and extension names.
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EnableBetaExtensions">
+            <summary>
+            VK_ENABLE_BETA_EXTENSIONS = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.LodClampNone">
+            <summary>
+            VK_LOD_CLAMP_NONE = 1000.0f
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.RemainingMipLevels">
+            <summary>
+            VK_REMAINING_MIP_LEVELS = (~0U)
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.RemainingArrayLayers">
+            <summary>
+            VK_REMAINING_ARRAY_LAYERS = (~0U)
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.WholeSize">
+            <summary>
+            VK_WHOLE_SIZE = (~0ULL)
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AttachmentUnused">
+            <summary>
+            VK_ATTACHMENT_UNUSED = (~0U)
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.QueueFamilyIgnored">
+            <summary>
+            VK_QUEUE_FAMILY_IGNORED = (~0U)
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.SubpassExternal">
+            <summary>
+            VK_SUBPASS_EXTERNAL = (~0U)
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.MaxPhysicalDeviceNameSize">
+            <summary>
+            VK_MAX_PHYSICAL_DEVICE_NAME_SIZE = 256
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.UuidSize">
+            <summary>
+            VK_UUID_SIZE = 16
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.MaxMemoryTypes">
+            <summary>
+            VK_MAX_MEMORY_TYPES = 32
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.MaxMemoryHeaps">
+            <summary>
+            VK_MAX_MEMORY_HEAPS = 16
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.MaxExtensionNameSize">
+            <summary>
+            VK_MAX_EXTENSION_NAME_SIZE = 256
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.MaxDescriptionSize">
+            <summary>
+            VK_MAX_DESCRIPTION_SIZE = 256
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.MaxDeviceGroupSize">
+            <summary>
+            VK_MAX_DEVICE_GROUP_SIZE = 32
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.LuidSize">
+            <summary>
+            VK_LUID_SIZE = 8
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.QueueFamilyExternal">
+            <summary>
+            VK_QUEUE_FAMILY_EXTERNAL = (~0U-1)
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.MaxDriverNameSize">
+            <summary>
+            VK_MAX_DRIVER_NAME_SIZE = 256
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.MaxDriverInfoSize">
+            <summary>
+            VK_MAX_DRIVER_INFO_SIZE = 256
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRSurface">
+            <summary>
+            VK_KHR_surface = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRSurfaceSpecVersion">
+            <summary>
+            VK_KHR_SURFACE_SPEC_VERSION = 25
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRSurfaceExtensionName">
+            <summary>
+            VK_KHR_SURFACE_EXTENSION_NAME = "VK_KHR_surface"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRSwapchain">
+            <summary>
+            VK_KHR_swapchain = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRSwapchainSpecVersion">
+            <summary>
+            VK_KHR_SWAPCHAIN_SPEC_VERSION = 70
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRSwapchainExtensionName">
+            <summary>
+            VK_KHR_SWAPCHAIN_EXTENSION_NAME = "VK_KHR_swapchain"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRDisplay">
+            <summary>
+            VK_KHR_display = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRDisplaySpecVersion">
+            <summary>
+            VK_KHR_DISPLAY_SPEC_VERSION = 23
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRDisplayExtensionName">
+            <summary>
+            VK_KHR_DISPLAY_EXTENSION_NAME = "VK_KHR_display"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRDisplaySwapchain">
+            <summary>
+            VK_KHR_display_swapchain = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRDisplaySwapchainSpecVersion">
+            <summary>
+            VK_KHR_DISPLAY_SWAPCHAIN_SPEC_VERSION = 10
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRDisplaySwapchainExtensionName">
+            <summary>
+            VK_KHR_DISPLAY_SWAPCHAIN_EXTENSION_NAME = "VK_KHR_display_swapchain"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRSamplerMirrorClampToEdge">
+            <summary>
+            VK_KHR_sampler_mirror_clamp_to_edge = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRSamplerMirrorClampToEdgeSpecVersion">
+            <summary>
+            VK_KHR_SAMPLER_MIRROR_CLAMP_TO_EDGE_SPEC_VERSION = 3
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRSamplerMirrorClampToEdgeExtensionName">
+            <summary>
+            VK_KHR_SAMPLER_MIRROR_CLAMP_TO_EDGE_EXTENSION_NAME = "VK_KHR_sampler_mirror_clamp_to_edge"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRMultiview">
+            <summary>
+            VK_KHR_multiview = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRMultiviewSpecVersion">
+            <summary>
+            VK_KHR_MULTIVIEW_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRMultiviewExtensionName">
+            <summary>
+            VK_KHR_MULTIVIEW_EXTENSION_NAME = "VK_KHR_multiview"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRGetPhysicalDeviceProperties2">
+            <summary>
+            VK_KHR_get_physical_device_properties2 = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRGetPhysicalDeviceProperties2SpecVersion">
+            <summary>
+            VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_SPEC_VERSION = 2
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRGetPhysicalDeviceProperties2ExtensionName">
+            <summary>
+            VK_KHR_GET_PHYSICAL_DEVICE_PROPERTIES_2_EXTENSION_NAME = "VK_KHR_get_physical_device_properties2"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRDeviceGroup">
+            <summary>
+            VK_KHR_device_group = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRDeviceGroupSpecVersion">
+            <summary>
+            VK_KHR_DEVICE_GROUP_SPEC_VERSION = 4
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRDeviceGroupExtensionName">
+            <summary>
+            VK_KHR_DEVICE_GROUP_EXTENSION_NAME = "VK_KHR_device_group"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRShaderDrawParameters">
+            <summary>
+            VK_KHR_shader_draw_parameters = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRShaderDrawParametersSpecVersion">
+            <summary>
+            VK_KHR_SHADER_DRAW_PARAMETERS_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRShaderDrawParametersExtensionName">
+            <summary>
+            VK_KHR_SHADER_DRAW_PARAMETERS_EXTENSION_NAME = "VK_KHR_shader_draw_parameters"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRMaintenance1">
+            <summary>
+            VK_KHR_maintenance1 = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRMaintenance1SpecVersion">
+            <summary>
+            VK_KHR_MAINTENANCE1_SPEC_VERSION = 2
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRMaintenance1ExtensionName">
+            <summary>
+            VK_KHR_MAINTENANCE1_EXTENSION_NAME = "VK_KHR_maintenance1"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRDeviceGroupCreation">
+            <summary>
+            VK_KHR_device_group_creation = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRDeviceGroupCreationSpecVersion">
+            <summary>
+            VK_KHR_DEVICE_GROUP_CREATION_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRDeviceGroupCreationExtensionName">
+            <summary>
+            VK_KHR_DEVICE_GROUP_CREATION_EXTENSION_NAME = "VK_KHR_device_group_creation"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.MaxDeviceGroupSizeKHR">
+            <summary>
+            VK_MAX_DEVICE_GROUP_SIZE_KHR = VK_MAX_DEVICE_GROUP_SIZE
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRExternalMemoryCapabilities">
+            <summary>
+            VK_KHR_external_memory_capabilities = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRExternalMemoryCapabilitiesSpecVersion">
+            <summary>
+            VK_KHR_EXTERNAL_MEMORY_CAPABILITIES_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRExternalMemoryCapabilitiesExtensionName">
+            <summary>
+            VK_KHR_EXTERNAL_MEMORY_CAPABILITIES_EXTENSION_NAME = "VK_KHR_external_memory_capabilities"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.LuidSizeKHR">
+            <summary>
+            VK_LUID_SIZE_KHR = VK_LUID_SIZE
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRExternalMemory">
+            <summary>
+            VK_KHR_external_memory = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRExternalMemorySpecVersion">
+            <summary>
+            VK_KHR_EXTERNAL_MEMORY_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRExternalMemoryExtensionName">
+            <summary>
+            VK_KHR_EXTERNAL_MEMORY_EXTENSION_NAME = "VK_KHR_external_memory"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.QueueFamilyExternalKHR">
+            <summary>
+            VK_QUEUE_FAMILY_EXTERNAL_KHR = VK_QUEUE_FAMILY_EXTERNAL
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRExternalMemoryFd">
+            <summary>
+            VK_KHR_external_memory_fd = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRExternalMemoryFdSpecVersion">
+            <summary>
+            VK_KHR_EXTERNAL_MEMORY_FD_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRExternalMemoryFdExtensionName">
+            <summary>
+            VK_KHR_EXTERNAL_MEMORY_FD_EXTENSION_NAME = "VK_KHR_external_memory_fd"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRExternalSemaphoreCapabilities">
+            <summary>
+            VK_KHR_external_semaphore_capabilities = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRExternalSemaphoreCapabilitiesSpecVersion">
+            <summary>
+            VK_KHR_EXTERNAL_SEMAPHORE_CAPABILITIES_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRExternalSemaphoreCapabilitiesExtensionName">
+            <summary>
+            VK_KHR_EXTERNAL_SEMAPHORE_CAPABILITIES_EXTENSION_NAME = "VK_KHR_external_semaphore_capabilities"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRExternalSemaphore">
+            <summary>
+            VK_KHR_external_semaphore = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRExternalSemaphoreSpecVersion">
+            <summary>
+            VK_KHR_EXTERNAL_SEMAPHORE_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRExternalSemaphoreExtensionName">
+            <summary>
+            VK_KHR_EXTERNAL_SEMAPHORE_EXTENSION_NAME = "VK_KHR_external_semaphore"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRExternalSemaphoreFd">
+            <summary>
+            VK_KHR_external_semaphore_fd = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRExternalSemaphoreFdSpecVersion">
+            <summary>
+            VK_KHR_EXTERNAL_SEMAPHORE_FD_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRExternalSemaphoreFdExtensionName">
+            <summary>
+            VK_KHR_EXTERNAL_SEMAPHORE_FD_EXTENSION_NAME = "VK_KHR_external_semaphore_fd"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRPushDescriptor">
+            <summary>
+            VK_KHR_push_descriptor = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRPushDescriptorSpecVersion">
+            <summary>
+            VK_KHR_PUSH_DESCRIPTOR_SPEC_VERSION = 2
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRPushDescriptorExtensionName">
+            <summary>
+            VK_KHR_PUSH_DESCRIPTOR_EXTENSION_NAME = "VK_KHR_push_descriptor"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRShaderFloat16Int8">
+            <summary>
+            VK_KHR_shader_float16_int8 = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRShaderFloat16Int8SpecVersion">
+            <summary>
+            VK_KHR_SHADER_FLOAT16_INT8_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRShaderFloat16Int8ExtensionName">
+            <summary>
+            VK_KHR_SHADER_FLOAT16_INT8_EXTENSION_NAME = "VK_KHR_shader_float16_int8"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHR16bitStorage">
+            <summary>
+            VK_KHR_16bit_storage = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHR16bitStorageSpecVersion">
+            <summary>
+            VK_KHR_16BIT_STORAGE_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHR16bitStorageExtensionName">
+            <summary>
+            VK_KHR_16BIT_STORAGE_EXTENSION_NAME = "VK_KHR_16bit_storage"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRIncrementalPresent">
+            <summary>
+            VK_KHR_incremental_present = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRIncrementalPresentSpecVersion">
+            <summary>
+            VK_KHR_INCREMENTAL_PRESENT_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRIncrementalPresentExtensionName">
+            <summary>
+            VK_KHR_INCREMENTAL_PRESENT_EXTENSION_NAME = "VK_KHR_incremental_present"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRDescriptorUpdateTemplate">
+            <summary>
+            VK_KHR_descriptor_update_template = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRDescriptorUpdateTemplateSpecVersion">
+            <summary>
+            VK_KHR_DESCRIPTOR_UPDATE_TEMPLATE_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRDescriptorUpdateTemplateExtensionName">
+            <summary>
+            VK_KHR_DESCRIPTOR_UPDATE_TEMPLATE_EXTENSION_NAME = "VK_KHR_descriptor_update_template"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRImagelessFramebuffer">
+            <summary>
+            VK_KHR_imageless_framebuffer = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRImagelessFramebufferSpecVersion">
+            <summary>
+            VK_KHR_IMAGELESS_FRAMEBUFFER_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRImagelessFramebufferExtensionName">
+            <summary>
+            VK_KHR_IMAGELESS_FRAMEBUFFER_EXTENSION_NAME = "VK_KHR_imageless_framebuffer"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRCreateRenderpass2">
+            <summary>
+            VK_KHR_create_renderpass2 = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRCreateRenderpass2SpecVersion">
+            <summary>
+            VK_KHR_CREATE_RENDERPASS_2_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRCreateRenderpass2ExtensionName">
+            <summary>
+            VK_KHR_CREATE_RENDERPASS_2_EXTENSION_NAME = "VK_KHR_create_renderpass2"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRSharedPresentableImage">
+            <summary>
+            VK_KHR_shared_presentable_image = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRSharedPresentableImageSpecVersion">
+            <summary>
+            VK_KHR_SHARED_PRESENTABLE_IMAGE_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRSharedPresentableImageExtensionName">
+            <summary>
+            VK_KHR_SHARED_PRESENTABLE_IMAGE_EXTENSION_NAME = "VK_KHR_shared_presentable_image"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRExternalFenceCapabilities">
+            <summary>
+            VK_KHR_external_fence_capabilities = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRExternalFenceCapabilitiesSpecVersion">
+            <summary>
+            VK_KHR_EXTERNAL_FENCE_CAPABILITIES_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRExternalFenceCapabilitiesExtensionName">
+            <summary>
+            VK_KHR_EXTERNAL_FENCE_CAPABILITIES_EXTENSION_NAME = "VK_KHR_external_fence_capabilities"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRExternalFence">
+            <summary>
+            VK_KHR_external_fence = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRExternalFenceSpecVersion">
+            <summary>
+            VK_KHR_EXTERNAL_FENCE_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRExternalFenceExtensionName">
+            <summary>
+            VK_KHR_EXTERNAL_FENCE_EXTENSION_NAME = "VK_KHR_external_fence"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRExternalFenceFd">
+            <summary>
+            VK_KHR_external_fence_fd = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRExternalFenceFdSpecVersion">
+            <summary>
+            VK_KHR_EXTERNAL_FENCE_FD_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRExternalFenceFdExtensionName">
+            <summary>
+            VK_KHR_EXTERNAL_FENCE_FD_EXTENSION_NAME = "VK_KHR_external_fence_fd"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRPerformanceQuery">
+            <summary>
+            VK_KHR_performance_query = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRPerformanceQuerySpecVersion">
+            <summary>
+            VK_KHR_PERFORMANCE_QUERY_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRPerformanceQueryExtensionName">
+            <summary>
+            VK_KHR_PERFORMANCE_QUERY_EXTENSION_NAME = "VK_KHR_performance_query"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRMaintenance2">
+            <summary>
+            VK_KHR_maintenance2 = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRMaintenance2SpecVersion">
+            <summary>
+            VK_KHR_MAINTENANCE2_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRMaintenance2ExtensionName">
+            <summary>
+            VK_KHR_MAINTENANCE2_EXTENSION_NAME = "VK_KHR_maintenance2"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRGetSurfaceCapabilities2">
+            <summary>
+            VK_KHR_get_surface_capabilities2 = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRGetSurfaceCapabilities2SpecVersion">
+            <summary>
+            VK_KHR_GET_SURFACE_CAPABILITIES_2_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRGetSurfaceCapabilities2ExtensionName">
+            <summary>
+            VK_KHR_GET_SURFACE_CAPABILITIES_2_EXTENSION_NAME = "VK_KHR_get_surface_capabilities2"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRVariablePointers">
+            <summary>
+            VK_KHR_variable_pointers = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRVariablePointersSpecVersion">
+            <summary>
+            VK_KHR_VARIABLE_POINTERS_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRVariablePointersExtensionName">
+            <summary>
+            VK_KHR_VARIABLE_POINTERS_EXTENSION_NAME = "VK_KHR_variable_pointers"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRGetDisplayProperties2">
+            <summary>
+            VK_KHR_get_display_properties2 = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRGetDisplayProperties2SpecVersion">
+            <summary>
+            VK_KHR_GET_DISPLAY_PROPERTIES_2_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRGetDisplayProperties2ExtensionName">
+            <summary>
+            VK_KHR_GET_DISPLAY_PROPERTIES_2_EXTENSION_NAME = "VK_KHR_get_display_properties2"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRDedicatedAllocation">
+            <summary>
+            VK_KHR_dedicated_allocation = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRDedicatedAllocationSpecVersion">
+            <summary>
+            VK_KHR_DEDICATED_ALLOCATION_SPEC_VERSION = 3
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRDedicatedAllocationExtensionName">
+            <summary>
+            VK_KHR_DEDICATED_ALLOCATION_EXTENSION_NAME = "VK_KHR_dedicated_allocation"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRStorageBufferStorageClass">
+            <summary>
+            VK_KHR_storage_buffer_storage_class = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRStorageBufferStorageClassSpecVersion">
+            <summary>
+            VK_KHR_STORAGE_BUFFER_STORAGE_CLASS_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRStorageBufferStorageClassExtensionName">
+            <summary>
+            VK_KHR_STORAGE_BUFFER_STORAGE_CLASS_EXTENSION_NAME = "VK_KHR_storage_buffer_storage_class"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRRelaxedBlockLayout">
+            <summary>
+            VK_KHR_relaxed_block_layout = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRRelaxedBlockLayoutSpecVersion">
+            <summary>
+            VK_KHR_RELAXED_BLOCK_LAYOUT_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRRelaxedBlockLayoutExtensionName">
+            <summary>
+            VK_KHR_RELAXED_BLOCK_LAYOUT_EXTENSION_NAME = "VK_KHR_relaxed_block_layout"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRGetMemoryRequirements2">
+            <summary>
+            VK_KHR_get_memory_requirements2 = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRGetMemoryRequirements2SpecVersion">
+            <summary>
+            VK_KHR_GET_MEMORY_REQUIREMENTS_2_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRGetMemoryRequirements2ExtensionName">
+            <summary>
+            VK_KHR_GET_MEMORY_REQUIREMENTS_2_EXTENSION_NAME = "VK_KHR_get_memory_requirements2"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRImageFormatList">
+            <summary>
+            VK_KHR_image_format_list = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRImageFormatListSpecVersion">
+            <summary>
+            VK_KHR_IMAGE_FORMAT_LIST_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRImageFormatListExtensionName">
+            <summary>
+            VK_KHR_IMAGE_FORMAT_LIST_EXTENSION_NAME = "VK_KHR_image_format_list"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRSamplerYcbcrConversion">
+            <summary>
+            VK_KHR_sampler_ycbcr_conversion = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRSamplerYcbcrConversionSpecVersion">
+            <summary>
+            VK_KHR_SAMPLER_YCBCR_CONVERSION_SPEC_VERSION = 14
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRSamplerYcbcrConversionExtensionName">
+            <summary>
+            VK_KHR_SAMPLER_YCBCR_CONVERSION_EXTENSION_NAME = "VK_KHR_sampler_ycbcr_conversion"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRBindMemory2">
+            <summary>
+            VK_KHR_bind_memory2 = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRBindMemory2SpecVersion">
+            <summary>
+            VK_KHR_BIND_MEMORY_2_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRBindMemory2ExtensionName">
+            <summary>
+            VK_KHR_BIND_MEMORY_2_EXTENSION_NAME = "VK_KHR_bind_memory2"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRMaintenance3">
+            <summary>
+            VK_KHR_maintenance3 = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRMaintenance3SpecVersion">
+            <summary>
+            VK_KHR_MAINTENANCE3_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRMaintenance3ExtensionName">
+            <summary>
+            VK_KHR_MAINTENANCE3_EXTENSION_NAME = "VK_KHR_maintenance3"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRDrawIndirectCount">
+            <summary>
+            VK_KHR_draw_indirect_count = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRDrawIndirectCountSpecVersion">
+            <summary>
+            VK_KHR_DRAW_INDIRECT_COUNT_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRDrawIndirectCountExtensionName">
+            <summary>
+            VK_KHR_DRAW_INDIRECT_COUNT_EXTENSION_NAME = "VK_KHR_draw_indirect_count"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRShaderSubgroupExtendedTypes">
+            <summary>
+            VK_KHR_shader_subgroup_extended_types = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRShaderSubgroupExtendedTypesSpecVersion">
+            <summary>
+            VK_KHR_SHADER_SUBGROUP_EXTENDED_TYPES_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRShaderSubgroupExtendedTypesExtensionName">
+            <summary>
+            VK_KHR_SHADER_SUBGROUP_EXTENDED_TYPES_EXTENSION_NAME = "VK_KHR_shader_subgroup_extended_types"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHR8bitStorage">
+            <summary>
+            VK_KHR_8bit_storage = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHR8bitStorageSpecVersion">
+            <summary>
+            VK_KHR_8BIT_STORAGE_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHR8bitStorageExtensionName">
+            <summary>
+            VK_KHR_8BIT_STORAGE_EXTENSION_NAME = "VK_KHR_8bit_storage"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRShaderAtomicInt64">
+            <summary>
+            VK_KHR_shader_atomic_int64 = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRShaderAtomicInt64SpecVersion">
+            <summary>
+            VK_KHR_SHADER_ATOMIC_INT64_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRShaderAtomicInt64ExtensionName">
+            <summary>
+            VK_KHR_SHADER_ATOMIC_INT64_EXTENSION_NAME = "VK_KHR_shader_atomic_int64"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRShaderClock">
+            <summary>
+            VK_KHR_shader_clock = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRShaderClockSpecVersion">
+            <summary>
+            VK_KHR_SHADER_CLOCK_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRShaderClockExtensionName">
+            <summary>
+            VK_KHR_SHADER_CLOCK_EXTENSION_NAME = "VK_KHR_shader_clock"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRDriverProperties">
+            <summary>
+            VK_KHR_driver_properties = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRDriverPropertiesSpecVersion">
+            <summary>
+            VK_KHR_DRIVER_PROPERTIES_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRDriverPropertiesExtensionName">
+            <summary>
+            VK_KHR_DRIVER_PROPERTIES_EXTENSION_NAME = "VK_KHR_driver_properties"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.MaxDriverNameSizeKHR">
+            <summary>
+            VK_MAX_DRIVER_NAME_SIZE_KHR = VK_MAX_DRIVER_NAME_SIZE
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.MaxDriverInfoSizeKHR">
+            <summary>
+            VK_MAX_DRIVER_INFO_SIZE_KHR = VK_MAX_DRIVER_INFO_SIZE
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRShaderFloatControls">
+            <summary>
+            VK_KHR_shader_float_controls = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRShaderFloatControlsSpecVersion">
+            <summary>
+            VK_KHR_SHADER_FLOAT_CONTROLS_SPEC_VERSION = 4
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRShaderFloatControlsExtensionName">
+            <summary>
+            VK_KHR_SHADER_FLOAT_CONTROLS_EXTENSION_NAME = "VK_KHR_shader_float_controls"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRDepthStencilResolve">
+            <summary>
+            VK_KHR_depth_stencil_resolve = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRDepthStencilResolveSpecVersion">
+            <summary>
+            VK_KHR_DEPTH_STENCIL_RESOLVE_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRDepthStencilResolveExtensionName">
+            <summary>
+            VK_KHR_DEPTH_STENCIL_RESOLVE_EXTENSION_NAME = "VK_KHR_depth_stencil_resolve"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRSwapchainMutableFormat">
+            <summary>
+            VK_KHR_swapchain_mutable_format = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRSwapchainMutableFormatSpecVersion">
+            <summary>
+            VK_KHR_SWAPCHAIN_MUTABLE_FORMAT_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRSwapchainMutableFormatExtensionName">
+            <summary>
+            VK_KHR_SWAPCHAIN_MUTABLE_FORMAT_EXTENSION_NAME = "VK_KHR_swapchain_mutable_format"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRTimelineSemaphore">
+            <summary>
+            VK_KHR_timeline_semaphore = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRTimelineSemaphoreSpecVersion">
+            <summary>
+            VK_KHR_TIMELINE_SEMAPHORE_SPEC_VERSION = 2
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRTimelineSemaphoreExtensionName">
+            <summary>
+            VK_KHR_TIMELINE_SEMAPHORE_EXTENSION_NAME = "VK_KHR_timeline_semaphore"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRVulkanMemoryModel">
+            <summary>
+            VK_KHR_vulkan_memory_model = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRVulkanMemoryModelSpecVersion">
+            <summary>
+            VK_KHR_VULKAN_MEMORY_MODEL_SPEC_VERSION = 3
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRVulkanMemoryModelExtensionName">
+            <summary>
+            VK_KHR_VULKAN_MEMORY_MODEL_EXTENSION_NAME = "VK_KHR_vulkan_memory_model"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRSpirv14">
+            <summary>
+            VK_KHR_spirv_1_4 = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRSpirv14SpecVersion">
+            <summary>
+            VK_KHR_SPIRV_1_4_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRSpirv14ExtensionName">
+            <summary>
+            VK_KHR_SPIRV_1_4_EXTENSION_NAME = "VK_KHR_spirv_1_4"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRSurfaceProtectedCapabilities">
+            <summary>
+            VK_KHR_surface_protected_capabilities = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRSurfaceProtectedCapabilitiesSpecVersion">
+            <summary>
+            VK_KHR_SURFACE_PROTECTED_CAPABILITIES_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRSurfaceProtectedCapabilitiesExtensionName">
+            <summary>
+            VK_KHR_SURFACE_PROTECTED_CAPABILITIES_EXTENSION_NAME = "VK_KHR_surface_protected_capabilities"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRSeparateDepthStencilLayouts">
+            <summary>
+            VK_KHR_separate_depth_stencil_layouts = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRSeparateDepthStencilLayoutsSpecVersion">
+            <summary>
+            VK_KHR_SEPARATE_DEPTH_STENCIL_LAYOUTS_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRSeparateDepthStencilLayoutsExtensionName">
+            <summary>
+            VK_KHR_SEPARATE_DEPTH_STENCIL_LAYOUTS_EXTENSION_NAME = "VK_KHR_separate_depth_stencil_layouts"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRUniformBufferStandardLayout">
+            <summary>
+            VK_KHR_uniform_buffer_standard_layout = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRUniformBufferStandardLayoutSpecVersion">
+            <summary>
+            VK_KHR_UNIFORM_BUFFER_STANDARD_LAYOUT_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRUniformBufferStandardLayoutExtensionName">
+            <summary>
+            VK_KHR_UNIFORM_BUFFER_STANDARD_LAYOUT_EXTENSION_NAME = "VK_KHR_uniform_buffer_standard_layout"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRBufferDeviceAddress">
+            <summary>
+            VK_KHR_buffer_device_address = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRBufferDeviceAddressSpecVersion">
+            <summary>
+            VK_KHR_BUFFER_DEVICE_ADDRESS_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRBufferDeviceAddressExtensionName">
+            <summary>
+            VK_KHR_BUFFER_DEVICE_ADDRESS_EXTENSION_NAME = "VK_KHR_buffer_device_address"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRPipelineExecutableProperties">
+            <summary>
+            VK_KHR_pipeline_executable_properties = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRPipelineExecutablePropertiesSpecVersion">
+            <summary>
+            VK_KHR_PIPELINE_EXECUTABLE_PROPERTIES_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRPipelineExecutablePropertiesExtensionName">
+            <summary>
+            VK_KHR_PIPELINE_EXECUTABLE_PROPERTIES_EXTENSION_NAME = "VK_KHR_pipeline_executable_properties"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRShaderNonSemanticInfo">
+            <summary>
+            VK_KHR_shader_non_semantic_info = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRShaderNonSemanticInfoSpecVersion">
+            <summary>
+            VK_KHR_SHADER_NON_SEMANTIC_INFO_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRShaderNonSemanticInfoExtensionName">
+            <summary>
+            VK_KHR_SHADER_NON_SEMANTIC_INFO_EXTENSION_NAME = "VK_KHR_shader_non_semantic_info"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTDebugReport">
+            <summary>
+            VK_EXT_debug_report = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTDebugReportSpecVersion">
+            <summary>
+            VK_EXT_DEBUG_REPORT_SPEC_VERSION = 9
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTDebugReportExtensionName">
+            <summary>
+            VK_EXT_DEBUG_REPORT_EXTENSION_NAME = "VK_EXT_debug_report"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVGlslShader">
+            <summary>
+            VK_NV_glsl_shader = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVGlslShaderSpecVersion">
+            <summary>
+            VK_NV_GLSL_SHADER_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVGlslShaderExtensionName">
+            <summary>
+            VK_NV_GLSL_SHADER_EXTENSION_NAME = "VK_NV_glsl_shader"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTDepthRangeUnrestricted">
+            <summary>
+            VK_EXT_depth_range_unrestricted = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTDepthRangeUnrestrictedSpecVersion">
+            <summary>
+            VK_EXT_DEPTH_RANGE_UNRESTRICTED_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTDepthRangeUnrestrictedExtensionName">
+            <summary>
+            VK_EXT_DEPTH_RANGE_UNRESTRICTED_EXTENSION_NAME = "VK_EXT_depth_range_unrestricted"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.ImgFilterCubic">
+            <summary>
+            VK_IMG_filter_cubic = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.ImgFilterCubicSpecVersion">
+            <summary>
+            VK_IMG_FILTER_CUBIC_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.ImgFilterCubicExtensionName">
+            <summary>
+            VK_IMG_FILTER_CUBIC_EXTENSION_NAME = "VK_IMG_filter_cubic"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDRasterizationOrder">
+            <summary>
+            VK_AMD_rasterization_order = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDRasterizationOrderSpecVersion">
+            <summary>
+            VK_AMD_RASTERIZATION_ORDER_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDRasterizationOrderExtensionName">
+            <summary>
+            VK_AMD_RASTERIZATION_ORDER_EXTENSION_NAME = "VK_AMD_rasterization_order"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDShaderTrinaryMinmax">
+            <summary>
+            VK_AMD_shader_trinary_minmax = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDShaderTrinaryMinmaxSpecVersion">
+            <summary>
+            VK_AMD_SHADER_TRINARY_MINMAX_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDShaderTrinaryMinmaxExtensionName">
+            <summary>
+            VK_AMD_SHADER_TRINARY_MINMAX_EXTENSION_NAME = "VK_AMD_shader_trinary_minmax"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDShaderExplicitVertexParameter">
+            <summary>
+            VK_AMD_shader_explicit_vertex_parameter = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDShaderExplicitVertexParameterSpecVersion">
+            <summary>
+            VK_AMD_SHADER_EXPLICIT_VERTEX_PARAMETER_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDShaderExplicitVertexParameterExtensionName">
+            <summary>
+            VK_AMD_SHADER_EXPLICIT_VERTEX_PARAMETER_EXTENSION_NAME = "VK_AMD_shader_explicit_vertex_parameter"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTDebugMarker">
+            <summary>
+            VK_EXT_debug_marker = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTDebugMarkerSpecVersion">
+            <summary>
+            VK_EXT_DEBUG_MARKER_SPEC_VERSION = 4
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTDebugMarkerExtensionName">
+            <summary>
+            VK_EXT_DEBUG_MARKER_EXTENSION_NAME = "VK_EXT_debug_marker"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDGcnShader">
+            <summary>
+            VK_AMD_gcn_shader = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDGcnShaderSpecVersion">
+            <summary>
+            VK_AMD_GCN_SHADER_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDGcnShaderExtensionName">
+            <summary>
+            VK_AMD_GCN_SHADER_EXTENSION_NAME = "VK_AMD_gcn_shader"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVDedicatedAllocation">
+            <summary>
+            VK_NV_dedicated_allocation = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVDedicatedAllocationSpecVersion">
+            <summary>
+            VK_NV_DEDICATED_ALLOCATION_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVDedicatedAllocationExtensionName">
+            <summary>
+            VK_NV_DEDICATED_ALLOCATION_EXTENSION_NAME = "VK_NV_dedicated_allocation"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTTransformFeedback">
+            <summary>
+            VK_EXT_transform_feedback = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTTransformFeedbackSpecVersion">
+            <summary>
+            VK_EXT_TRANSFORM_FEEDBACK_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTTransformFeedbackExtensionName">
+            <summary>
+            VK_EXT_TRANSFORM_FEEDBACK_EXTENSION_NAME = "VK_EXT_transform_feedback"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVXImageViewHandle">
+            <summary>
+            VK_NVX_image_view_handle = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVXImageViewHandleSpecVersion">
+            <summary>
+            VK_NVX_IMAGE_VIEW_HANDLE_SPEC_VERSION = 2
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVXImageViewHandleExtensionName">
+            <summary>
+            VK_NVX_IMAGE_VIEW_HANDLE_EXTENSION_NAME = "VK_NVX_image_view_handle"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDDrawIndirectCount">
+            <summary>
+            VK_AMD_draw_indirect_count = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDDrawIndirectCountSpecVersion">
+            <summary>
+            VK_AMD_DRAW_INDIRECT_COUNT_SPEC_VERSION = 2
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDDrawIndirectCountExtensionName">
+            <summary>
+            VK_AMD_DRAW_INDIRECT_COUNT_EXTENSION_NAME = "VK_AMD_draw_indirect_count"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDNegativeViewportHeight">
+            <summary>
+            VK_AMD_negative_viewport_height = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDNegativeViewportHeightSpecVersion">
+            <summary>
+            VK_AMD_NEGATIVE_VIEWPORT_HEIGHT_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDNegativeViewportHeightExtensionName">
+            <summary>
+            VK_AMD_NEGATIVE_VIEWPORT_HEIGHT_EXTENSION_NAME = "VK_AMD_negative_viewport_height"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDGpuShaderHalfFloat">
+            <summary>
+            VK_AMD_gpu_shader_half_float = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDGpuShaderHalfFloatSpecVersion">
+            <summary>
+            VK_AMD_GPU_SHADER_HALF_FLOAT_SPEC_VERSION = 2
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDGpuShaderHalfFloatExtensionName">
+            <summary>
+            VK_AMD_GPU_SHADER_HALF_FLOAT_EXTENSION_NAME = "VK_AMD_gpu_shader_half_float"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDShaderBallot">
+            <summary>
+            VK_AMD_shader_ballot = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDShaderBallotSpecVersion">
+            <summary>
+            VK_AMD_SHADER_BALLOT_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDShaderBallotExtensionName">
+            <summary>
+            VK_AMD_SHADER_BALLOT_EXTENSION_NAME = "VK_AMD_shader_ballot"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDTextureGatherBiasLod">
+            <summary>
+            VK_AMD_texture_gather_bias_lod = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDTextureGatherBiasLodSpecVersion">
+            <summary>
+            VK_AMD_TEXTURE_GATHER_BIAS_LOD_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDTextureGatherBiasLodExtensionName">
+            <summary>
+            VK_AMD_TEXTURE_GATHER_BIAS_LOD_EXTENSION_NAME = "VK_AMD_texture_gather_bias_lod"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDShaderInfo">
+            <summary>
+            VK_AMD_shader_info = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDShaderInfoSpecVersion">
+            <summary>
+            VK_AMD_SHADER_INFO_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDShaderInfoExtensionName">
+            <summary>
+            VK_AMD_SHADER_INFO_EXTENSION_NAME = "VK_AMD_shader_info"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDShaderImageLoadStoreLod">
+            <summary>
+            VK_AMD_shader_image_load_store_lod = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDShaderImageLoadStoreLodSpecVersion">
+            <summary>
+            VK_AMD_SHADER_IMAGE_LOAD_STORE_LOD_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDShaderImageLoadStoreLodExtensionName">
+            <summary>
+            VK_AMD_SHADER_IMAGE_LOAD_STORE_LOD_EXTENSION_NAME = "VK_AMD_shader_image_load_store_lod"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVCornerSampledImage">
+            <summary>
+            VK_NV_corner_sampled_image = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVCornerSampledImageSpecVersion">
+            <summary>
+            VK_NV_CORNER_SAMPLED_IMAGE_SPEC_VERSION = 2
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVCornerSampledImageExtensionName">
+            <summary>
+            VK_NV_CORNER_SAMPLED_IMAGE_EXTENSION_NAME = "VK_NV_corner_sampled_image"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.ImgFormatPvrtc">
+            <summary>
+            VK_IMG_format_pvrtc = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.ImgFormatPvrtcSpecVersion">
+            <summary>
+            VK_IMG_FORMAT_PVRTC_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.ImgFormatPvrtcExtensionName">
+            <summary>
+            VK_IMG_FORMAT_PVRTC_EXTENSION_NAME = "VK_IMG_format_pvrtc"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVExternalMemoryCapabilities">
+            <summary>
+            VK_NV_external_memory_capabilities = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVExternalMemoryCapabilitiesSpecVersion">
+            <summary>
+            VK_NV_EXTERNAL_MEMORY_CAPABILITIES_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVExternalMemoryCapabilitiesExtensionName">
+            <summary>
+            VK_NV_EXTERNAL_MEMORY_CAPABILITIES_EXTENSION_NAME = "VK_NV_external_memory_capabilities"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVExternalMemory">
+            <summary>
+            VK_NV_external_memory = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVExternalMemorySpecVersion">
+            <summary>
+            VK_NV_EXTERNAL_MEMORY_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVExternalMemoryExtensionName">
+            <summary>
+            VK_NV_EXTERNAL_MEMORY_EXTENSION_NAME = "VK_NV_external_memory"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTValidation">
+            <summary>
+            VK_EXT_validation_flags = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTValidationSpecVersion">
+            <summary>
+            VK_EXT_VALIDATION_FLAGS_SPEC_VERSION = 2
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTValidationExtensionName">
+            <summary>
+            VK_EXT_VALIDATION_FLAGS_EXTENSION_NAME = "VK_EXT_validation_flags"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTShaderSubgroupBallot">
+            <summary>
+            VK_EXT_shader_subgroup_ballot = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTShaderSubgroupBallotSpecVersion">
+            <summary>
+            VK_EXT_SHADER_SUBGROUP_BALLOT_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTShaderSubgroupBallotExtensionName">
+            <summary>
+            VK_EXT_SHADER_SUBGROUP_BALLOT_EXTENSION_NAME = "VK_EXT_shader_subgroup_ballot"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTShaderSubgroupVote">
+            <summary>
+            VK_EXT_shader_subgroup_vote = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTShaderSubgroupVoteSpecVersion">
+            <summary>
+            VK_EXT_SHADER_SUBGROUP_VOTE_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTShaderSubgroupVoteExtensionName">
+            <summary>
+            VK_EXT_SHADER_SUBGROUP_VOTE_EXTENSION_NAME = "VK_EXT_shader_subgroup_vote"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTTextureCompressionAstcHdr">
+            <summary>
+            VK_EXT_texture_compression_astc_hdr = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTTextureCompressionAstcHdrSpecVersion">
+            <summary>
+            VK_EXT_TEXTURE_COMPRESSION_ASTC_HDR_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTTextureCompressionAstcHdrExtensionName">
+            <summary>
+            VK_EXT_TEXTURE_COMPRESSION_ASTC_HDR_EXTENSION_NAME = "VK_EXT_texture_compression_astc_hdr"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTAstcDecodeMode">
+            <summary>
+            VK_EXT_astc_decode_mode = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTAstcDecodeModeSpecVersion">
+            <summary>
+            VK_EXT_ASTC_DECODE_MODE_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTAstcDecodeModeExtensionName">
+            <summary>
+            VK_EXT_ASTC_DECODE_MODE_EXTENSION_NAME = "VK_EXT_astc_decode_mode"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTConditionalRendering">
+            <summary>
+            VK_EXT_conditional_rendering = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTConditionalRenderingSpecVersion">
+            <summary>
+            VK_EXT_CONDITIONAL_RENDERING_SPEC_VERSION = 2
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTConditionalRenderingExtensionName">
+            <summary>
+            VK_EXT_CONDITIONAL_RENDERING_EXTENSION_NAME = "VK_EXT_conditional_rendering"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVClipSpaceWScaling">
+            <summary>
+            VK_NV_clip_space_w_scaling = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVClipSpaceWScalingSpecVersion">
+            <summary>
+            VK_NV_CLIP_SPACE_W_SCALING_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVClipSpaceWScalingExtensionName">
+            <summary>
+            VK_NV_CLIP_SPACE_W_SCALING_EXTENSION_NAME = "VK_NV_clip_space_w_scaling"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTDirectModeDisplay">
+            <summary>
+            VK_EXT_direct_mode_display = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTDirectModeDisplaySpecVersion">
+            <summary>
+            VK_EXT_DIRECT_MODE_DISPLAY_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTDirectModeDisplayExtensionName">
+            <summary>
+            VK_EXT_DIRECT_MODE_DISPLAY_EXTENSION_NAME = "VK_EXT_direct_mode_display"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTDisplaySurfaceCounter">
+            <summary>
+            VK_EXT_display_surface_counter = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTDisplaySurfaceCounterSpecVersion">
+            <summary>
+            VK_EXT_DISPLAY_SURFACE_COUNTER_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTDisplaySurfaceCounterExtensionName">
+            <summary>
+            VK_EXT_DISPLAY_SURFACE_COUNTER_EXTENSION_NAME = "VK_EXT_display_surface_counter"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTDisplayControl">
+            <summary>
+            VK_EXT_display_control = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTDisplayControlSpecVersion">
+            <summary>
+            VK_EXT_DISPLAY_CONTROL_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTDisplayControlExtensionName">
+            <summary>
+            VK_EXT_DISPLAY_CONTROL_EXTENSION_NAME = "VK_EXT_display_control"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.GoogleDisplayTiming">
+            <summary>
+            VK_GOOGLE_display_timing = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.GoogleDisplayTimingSpecVersion">
+            <summary>
+            VK_GOOGLE_DISPLAY_TIMING_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.GoogleDisplayTimingExtensionName">
+            <summary>
+            VK_GOOGLE_DISPLAY_TIMING_EXTENSION_NAME = "VK_GOOGLE_display_timing"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVSampleMaskOverrideCoverage">
+            <summary>
+            VK_NV_sample_mask_override_coverage = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVSampleMaskOverrideCoverageSpecVersion">
+            <summary>
+            VK_NV_SAMPLE_MASK_OVERRIDE_COVERAGE_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVSampleMaskOverrideCoverageExtensionName">
+            <summary>
+            VK_NV_SAMPLE_MASK_OVERRIDE_COVERAGE_EXTENSION_NAME = "VK_NV_sample_mask_override_coverage"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVGeometryShaderPassthrough">
+            <summary>
+            VK_NV_geometry_shader_passthrough = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVGeometryShaderPassthroughSpecVersion">
+            <summary>
+            VK_NV_GEOMETRY_SHADER_PASSTHROUGH_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVGeometryShaderPassthroughExtensionName">
+            <summary>
+            VK_NV_GEOMETRY_SHADER_PASSTHROUGH_EXTENSION_NAME = "VK_NV_geometry_shader_passthrough"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVViewportArray2">
+            <summary>
+            VK_NV_viewport_array2 = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVViewportArray2SpecVersion">
+            <summary>
+            VK_NV_VIEWPORT_ARRAY2_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVViewportArray2ExtensionName">
+            <summary>
+            VK_NV_VIEWPORT_ARRAY2_EXTENSION_NAME = "VK_NV_viewport_array2"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVXMultiviewPerViewAttributes">
+            <summary>
+            VK_NVX_multiview_per_view_attributes = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVXMultiviewPerViewAttributesSpecVersion">
+            <summary>
+            VK_NVX_MULTIVIEW_PER_VIEW_ATTRIBUTES_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVXMultiviewPerViewAttributesExtensionName">
+            <summary>
+            VK_NVX_MULTIVIEW_PER_VIEW_ATTRIBUTES_EXTENSION_NAME = "VK_NVX_multiview_per_view_attributes"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVViewportSwizzle">
+            <summary>
+            VK_NV_viewport_swizzle = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVViewportSwizzleSpecVersion">
+            <summary>
+            VK_NV_VIEWPORT_SWIZZLE_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVViewportSwizzleExtensionName">
+            <summary>
+            VK_NV_VIEWPORT_SWIZZLE_EXTENSION_NAME = "VK_NV_viewport_swizzle"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTDiscardRectangles">
+            <summary>
+            VK_EXT_discard_rectangles = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTDiscardRectanglesSpecVersion">
+            <summary>
+            VK_EXT_DISCARD_RECTANGLES_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTDiscardRectanglesExtensionName">
+            <summary>
+            VK_EXT_DISCARD_RECTANGLES_EXTENSION_NAME = "VK_EXT_discard_rectangles"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTConservativeRasterization">
+            <summary>
+            VK_EXT_conservative_rasterization = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTConservativeRasterizationSpecVersion">
+            <summary>
+            VK_EXT_CONSERVATIVE_RASTERIZATION_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTConservativeRasterizationExtensionName">
+            <summary>
+            VK_EXT_CONSERVATIVE_RASTERIZATION_EXTENSION_NAME = "VK_EXT_conservative_rasterization"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTDepthClipEnable">
+            <summary>
+            VK_EXT_depth_clip_enable = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTDepthClipEnableSpecVersion">
+            <summary>
+            VK_EXT_DEPTH_CLIP_ENABLE_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTDepthClipEnableExtensionName">
+            <summary>
+            VK_EXT_DEPTH_CLIP_ENABLE_EXTENSION_NAME = "VK_EXT_depth_clip_enable"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTSwapchainColorspace">
+            <summary>
+            VK_EXT_swapchain_colorspace = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTSwapchainColorSpaceSpecVersion">
+            <summary>
+            VK_EXT_SWAPCHAIN_COLOR_SPACE_SPEC_VERSION = 4
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTSwapchainColorSpaceExtensionName">
+            <summary>
+            VK_EXT_SWAPCHAIN_COLOR_SPACE_EXTENSION_NAME = "VK_EXT_swapchain_colorspace"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTHdrMetadata">
+            <summary>
+            VK_EXT_hdr_metadata = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTHdrMetadataSpecVersion">
+            <summary>
+            VK_EXT_HDR_METADATA_SPEC_VERSION = 2
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTHdrMetadataExtensionName">
+            <summary>
+            VK_EXT_HDR_METADATA_EXTENSION_NAME = "VK_EXT_hdr_metadata"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTExternalMemoryDmaBuf">
+            <summary>
+            VK_EXT_external_memory_dma_buf = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTExternalMemoryDmaBufSpecVersion">
+            <summary>
+            VK_EXT_EXTERNAL_MEMORY_DMA_BUF_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTExternalMemoryDmaBufExtensionName">
+            <summary>
+            VK_EXT_EXTERNAL_MEMORY_DMA_BUF_EXTENSION_NAME = "VK_EXT_external_memory_dma_buf"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTQueueFamilyForeign">
+            <summary>
+            VK_EXT_queue_family_foreign = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTQueueFamilyForeignSpecVersion">
+            <summary>
+            VK_EXT_QUEUE_FAMILY_FOREIGN_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTQueueFamilyForeignExtensionName">
+            <summary>
+            VK_EXT_QUEUE_FAMILY_FOREIGN_EXTENSION_NAME = "VK_EXT_queue_family_foreign"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.QueueFamilyForeignEXT">
+            <summary>
+            VK_QUEUE_FAMILY_FOREIGN_EXT = (~0U-2)
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTDebugUtils">
+            <summary>
+            VK_EXT_debug_utils = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTDebugUtilsSpecVersion">
+            <summary>
+            VK_EXT_DEBUG_UTILS_SPEC_VERSION = 2
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTDebugUtilsExtensionName">
+            <summary>
+            VK_EXT_DEBUG_UTILS_EXTENSION_NAME = "VK_EXT_debug_utils"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTSamplerFilterMinmax">
+            <summary>
+            VK_EXT_sampler_filter_minmax = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTSamplerFilterMinmaxSpecVersion">
+            <summary>
+            VK_EXT_SAMPLER_FILTER_MINMAX_SPEC_VERSION = 2
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTSamplerFilterMinmaxExtensionName">
+            <summary>
+            VK_EXT_SAMPLER_FILTER_MINMAX_EXTENSION_NAME = "VK_EXT_sampler_filter_minmax"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDGpuShaderInt16">
+            <summary>
+            VK_AMD_gpu_shader_int16 = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDGpuShaderInt16SpecVersion">
+            <summary>
+            VK_AMD_GPU_SHADER_INT16_SPEC_VERSION = 2
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDGpuShaderInt16ExtensionName">
+            <summary>
+            VK_AMD_GPU_SHADER_INT16_EXTENSION_NAME = "VK_AMD_gpu_shader_int16"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDMixedAttachmentSamples">
+            <summary>
+            VK_AMD_mixed_attachment_samples = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDMixedAttachmentSamplesSpecVersion">
+            <summary>
+            VK_AMD_MIXED_ATTACHMENT_SAMPLES_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDMixedAttachmentSamplesExtensionName">
+            <summary>
+            VK_AMD_MIXED_ATTACHMENT_SAMPLES_EXTENSION_NAME = "VK_AMD_mixed_attachment_samples"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDShaderFragmentMask">
+            <summary>
+            VK_AMD_shader_fragment_mask = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDShaderFragmentMaskSpecVersion">
+            <summary>
+            VK_AMD_SHADER_FRAGMENT_MASK_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDShaderFragmentMaskExtensionName">
+            <summary>
+            VK_AMD_SHADER_FRAGMENT_MASK_EXTENSION_NAME = "VK_AMD_shader_fragment_mask"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTInlineUniformBlock">
+            <summary>
+            VK_EXT_inline_uniform_block = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTInlineUniformBlockSpecVersion">
+            <summary>
+            VK_EXT_INLINE_UNIFORM_BLOCK_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTInlineUniformBlockExtensionName">
+            <summary>
+            VK_EXT_INLINE_UNIFORM_BLOCK_EXTENSION_NAME = "VK_EXT_inline_uniform_block"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTShaderStencilExport">
+            <summary>
+            VK_EXT_shader_stencil_export = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTShaderStencilExportSpecVersion">
+            <summary>
+            VK_EXT_SHADER_STENCIL_EXPORT_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTShaderStencilExportExtensionName">
+            <summary>
+            VK_EXT_SHADER_STENCIL_EXPORT_EXTENSION_NAME = "VK_EXT_shader_stencil_export"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTSampleLocations">
+            <summary>
+            VK_EXT_sample_locations = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTSampleLocationsSpecVersion">
+            <summary>
+            VK_EXT_SAMPLE_LOCATIONS_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTSampleLocationsExtensionName">
+            <summary>
+            VK_EXT_SAMPLE_LOCATIONS_EXTENSION_NAME = "VK_EXT_sample_locations"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTBlendOperationAdvanced">
+            <summary>
+            VK_EXT_blend_operation_advanced = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTBlendOperationAdvancedSpecVersion">
+            <summary>
+            VK_EXT_BLEND_OPERATION_ADVANCED_SPEC_VERSION = 2
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTBlendOperationAdvancedExtensionName">
+            <summary>
+            VK_EXT_BLEND_OPERATION_ADVANCED_EXTENSION_NAME = "VK_EXT_blend_operation_advanced"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVFragmentCoverageToColor">
+            <summary>
+            VK_NV_fragment_coverage_to_color = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVFragmentCoverageToColorSpecVersion">
+            <summary>
+            VK_NV_FRAGMENT_COVERAGE_TO_COLOR_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVFragmentCoverageToColorExtensionName">
+            <summary>
+            VK_NV_FRAGMENT_COVERAGE_TO_COLOR_EXTENSION_NAME = "VK_NV_fragment_coverage_to_color"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVFramebufferMixedSamples">
+            <summary>
+            VK_NV_framebuffer_mixed_samples = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVFramebufferMixedSamplesSpecVersion">
+            <summary>
+            VK_NV_FRAMEBUFFER_MIXED_SAMPLES_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVFramebufferMixedSamplesExtensionName">
+            <summary>
+            VK_NV_FRAMEBUFFER_MIXED_SAMPLES_EXTENSION_NAME = "VK_NV_framebuffer_mixed_samples"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVFillRectangle">
+            <summary>
+            VK_NV_fill_rectangle = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVFillRectangleSpecVersion">
+            <summary>
+            VK_NV_FILL_RECTANGLE_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVFillRectangleExtensionName">
+            <summary>
+            VK_NV_FILL_RECTANGLE_EXTENSION_NAME = "VK_NV_fill_rectangle"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVShaderSmBuiltins">
+            <summary>
+            VK_NV_shader_sm_builtins = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVShaderSmBuiltinsSpecVersion">
+            <summary>
+            VK_NV_SHADER_SM_BUILTINS_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVShaderSmBuiltinsExtensionName">
+            <summary>
+            VK_NV_SHADER_SM_BUILTINS_EXTENSION_NAME = "VK_NV_shader_sm_builtins"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTPostDepthCoverage">
+            <summary>
+            VK_EXT_post_depth_coverage = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTPostDepthCoverageSpecVersion">
+            <summary>
+            VK_EXT_POST_DEPTH_COVERAGE_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTPostDepthCoverageExtensionName">
+            <summary>
+            VK_EXT_POST_DEPTH_COVERAGE_EXTENSION_NAME = "VK_EXT_post_depth_coverage"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTImageDrmFormatModifier">
+            <summary>
+            VK_EXT_image_drm_format_modifier = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTImageDrmFormatModifierSpecVersion">
+            <summary>
+            VK_EXT_IMAGE_DRM_FORMAT_MODIFIER_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTImageDrmFormatModifierExtensionName">
+            <summary>
+            VK_EXT_IMAGE_DRM_FORMAT_MODIFIER_EXTENSION_NAME = "VK_EXT_image_drm_format_modifier"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTValidationCache">
+            <summary>
+            VK_EXT_validation_cache = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTValidationCacheSpecVersion">
+            <summary>
+            VK_EXT_VALIDATION_CACHE_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTValidationCacheExtensionName">
+            <summary>
+            VK_EXT_VALIDATION_CACHE_EXTENSION_NAME = "VK_EXT_validation_cache"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTDescriptorIndexing">
+            <summary>
+            VK_EXT_descriptor_indexing = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTDescriptorIndexingSpecVersion">
+            <summary>
+            VK_EXT_DESCRIPTOR_INDEXING_SPEC_VERSION = 2
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTDescriptorIndexingExtensionName">
+            <summary>
+            VK_EXT_DESCRIPTOR_INDEXING_EXTENSION_NAME = "VK_EXT_descriptor_indexing"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTShaderViewportIndexLayer">
+            <summary>
+            VK_EXT_shader_viewport_index_layer = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTShaderViewportIndexLayerSpecVersion">
+            <summary>
+            VK_EXT_SHADER_VIEWPORT_INDEX_LAYER_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTShaderViewportIndexLayerExtensionName">
+            <summary>
+            VK_EXT_SHADER_VIEWPORT_INDEX_LAYER_EXTENSION_NAME = "VK_EXT_shader_viewport_index_layer"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVShadingRateImage">
+            <summary>
+            VK_NV_shading_rate_image = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVShadingRateImageSpecVersion">
+            <summary>
+            VK_NV_SHADING_RATE_IMAGE_SPEC_VERSION = 3
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVShadingRateImageExtensionName">
+            <summary>
+            VK_NV_SHADING_RATE_IMAGE_EXTENSION_NAME = "VK_NV_shading_rate_image"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVRayTracing">
+            <summary>
+            VK_NV_ray_tracing = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVRayTracingSpecVersion">
+            <summary>
+            VK_NV_RAY_TRACING_SPEC_VERSION = 3
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVRayTracingExtensionName">
+            <summary>
+            VK_NV_RAY_TRACING_EXTENSION_NAME = "VK_NV_ray_tracing"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.ShaderUnusedKHR">
+            <summary>
+            VK_SHADER_UNUSED_KHR = (~0U)
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.ShaderUnusedNV">
+            <summary>
+            VK_SHADER_UNUSED_NV = VK_SHADER_UNUSED_KHR
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVRepresentativeFragmentTest">
+            <summary>
+            VK_NV_representative_fragment_test = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVRepresentativeFragmentTestSpecVersion">
+            <summary>
+            VK_NV_REPRESENTATIVE_FRAGMENT_TEST_SPEC_VERSION = 2
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVRepresentativeFragmentTestExtensionName">
+            <summary>
+            VK_NV_REPRESENTATIVE_FRAGMENT_TEST_EXTENSION_NAME = "VK_NV_representative_fragment_test"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTFilterCubic">
+            <summary>
+            VK_EXT_filter_cubic = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTFilterCubicSpecVersion">
+            <summary>
+            VK_EXT_FILTER_CUBIC_SPEC_VERSION = 3
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTFilterCubicExtensionName">
+            <summary>
+            VK_EXT_FILTER_CUBIC_EXTENSION_NAME = "VK_EXT_filter_cubic"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.QcomRenderPassShaderResolve">
+            <summary>
+            VK_QCOM_render_pass_shader_resolve = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.QcomRenderPassShaderResolveSpecVersion">
+            <summary>
+            VK_QCOM_RENDER_PASS_SHADER_RESOLVE_SPEC_VERSION = 4
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.QcomRenderPassShaderResolveExtensionName">
+            <summary>
+            VK_QCOM_RENDER_PASS_SHADER_RESOLVE_EXTENSION_NAME = "VK_QCOM_render_pass_shader_resolve"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTGlobalPriority">
+            <summary>
+            VK_EXT_global_priority = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTGlobalPrioritySpecVersion">
+            <summary>
+            VK_EXT_GLOBAL_PRIORITY_SPEC_VERSION = 2
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTGlobalPriorityExtensionName">
+            <summary>
+            VK_EXT_GLOBAL_PRIORITY_EXTENSION_NAME = "VK_EXT_global_priority"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTExternalMemoryHost">
+            <summary>
+            VK_EXT_external_memory_host = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTExternalMemoryHostSpecVersion">
+            <summary>
+            VK_EXT_EXTERNAL_MEMORY_HOST_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTExternalMemoryHostExtensionName">
+            <summary>
+            VK_EXT_EXTERNAL_MEMORY_HOST_EXTENSION_NAME = "VK_EXT_external_memory_host"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDBufferMarker">
+            <summary>
+            VK_AMD_buffer_marker = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDBufferMarkerSpecVersion">
+            <summary>
+            VK_AMD_BUFFER_MARKER_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDBufferMarkerExtensionName">
+            <summary>
+            VK_AMD_BUFFER_MARKER_EXTENSION_NAME = "VK_AMD_buffer_marker"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDPipelineCompilerControl">
+            <summary>
+            VK_AMD_pipeline_compiler_control = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDPipelineCompilerControlSpecVersion">
+            <summary>
+            VK_AMD_PIPELINE_COMPILER_CONTROL_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDPipelineCompilerControlExtensionName">
+            <summary>
+            VK_AMD_PIPELINE_COMPILER_CONTROL_EXTENSION_NAME = "VK_AMD_pipeline_compiler_control"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTCalibratedTimestamps">
+            <summary>
+            VK_EXT_calibrated_timestamps = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTCalibratedTimestampsSpecVersion">
+            <summary>
+            VK_EXT_CALIBRATED_TIMESTAMPS_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTCalibratedTimestampsExtensionName">
+            <summary>
+            VK_EXT_CALIBRATED_TIMESTAMPS_EXTENSION_NAME = "VK_EXT_calibrated_timestamps"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDShaderCoreProperties">
+            <summary>
+            VK_AMD_shader_core_properties = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDShaderCorePropertiesSpecVersion">
+            <summary>
+            VK_AMD_SHADER_CORE_PROPERTIES_SPEC_VERSION = 2
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDShaderCorePropertiesExtensionName">
+            <summary>
+            VK_AMD_SHADER_CORE_PROPERTIES_EXTENSION_NAME = "VK_AMD_shader_core_properties"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDMemoryOverallocationBehavior">
+            <summary>
+            VK_AMD_memory_overallocation_behavior = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDMemoryOverallocationBehaviorSpecVersion">
+            <summary>
+            VK_AMD_MEMORY_OVERALLOCATION_BEHAVIOR_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDMemoryOverallocationBehaviorExtensionName">
+            <summary>
+            VK_AMD_MEMORY_OVERALLOCATION_BEHAVIOR_EXTENSION_NAME = "VK_AMD_memory_overallocation_behavior"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTVertexAttributeDivisor">
+            <summary>
+            VK_EXT_vertex_attribute_divisor = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTVertexAttributeDivisorSpecVersion">
+            <summary>
+            VK_EXT_VERTEX_ATTRIBUTE_DIVISOR_SPEC_VERSION = 3
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTVertexAttributeDivisorExtensionName">
+            <summary>
+            VK_EXT_VERTEX_ATTRIBUTE_DIVISOR_EXTENSION_NAME = "VK_EXT_vertex_attribute_divisor"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTPipelineCreationFeedback">
+            <summary>
+            VK_EXT_pipeline_creation_feedback = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTPipelineCreationFeedbackSpecVersion">
+            <summary>
+            VK_EXT_PIPELINE_CREATION_FEEDBACK_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTPipelineCreationFeedbackExtensionName">
+            <summary>
+            VK_EXT_PIPELINE_CREATION_FEEDBACK_EXTENSION_NAME = "VK_EXT_pipeline_creation_feedback"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVShaderSubgroupPartitioned">
+            <summary>
+            VK_NV_shader_subgroup_partitioned = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVShaderSubgroupPartitionedSpecVersion">
+            <summary>
+            VK_NV_SHADER_SUBGROUP_PARTITIONED_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVShaderSubgroupPartitionedExtensionName">
+            <summary>
+            VK_NV_SHADER_SUBGROUP_PARTITIONED_EXTENSION_NAME = "VK_NV_shader_subgroup_partitioned"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVComputeShaderDerivatives">
+            <summary>
+            VK_NV_compute_shader_derivatives = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVComputeShaderDerivativesSpecVersion">
+            <summary>
+            VK_NV_COMPUTE_SHADER_DERIVATIVES_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVComputeShaderDerivativesExtensionName">
+            <summary>
+            VK_NV_COMPUTE_SHADER_DERIVATIVES_EXTENSION_NAME = "VK_NV_compute_shader_derivatives"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVMeshShader">
+            <summary>
+            VK_NV_mesh_shader = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVMeshShaderSpecVersion">
+            <summary>
+            VK_NV_MESH_SHADER_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVMeshShaderExtensionName">
+            <summary>
+            VK_NV_MESH_SHADER_EXTENSION_NAME = "VK_NV_mesh_shader"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVFragmentShaderBarycentric">
+            <summary>
+            VK_NV_fragment_shader_barycentric = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVFragmentShaderBarycentricSpecVersion">
+            <summary>
+            VK_NV_FRAGMENT_SHADER_BARYCENTRIC_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVFragmentShaderBarycentricExtensionName">
+            <summary>
+            VK_NV_FRAGMENT_SHADER_BARYCENTRIC_EXTENSION_NAME = "VK_NV_fragment_shader_barycentric"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVShaderImageFootprint">
+            <summary>
+            VK_NV_shader_image_footprint = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVShaderImageFootprintSpecVersion">
+            <summary>
+            VK_NV_SHADER_IMAGE_FOOTPRINT_SPEC_VERSION = 2
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVShaderImageFootprintExtensionName">
+            <summary>
+            VK_NV_SHADER_IMAGE_FOOTPRINT_EXTENSION_NAME = "VK_NV_shader_image_footprint"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVScissorExclusive">
+            <summary>
+            VK_NV_scissor_exclusive = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVScissorExclusiveSpecVersion">
+            <summary>
+            VK_NV_SCISSOR_EXCLUSIVE_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVScissorExclusiveExtensionName">
+            <summary>
+            VK_NV_SCISSOR_EXCLUSIVE_EXTENSION_NAME = "VK_NV_scissor_exclusive"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVDeviceDiagnosticCheckpoints">
+            <summary>
+            VK_NV_device_diagnostic_checkpoints = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVDeviceDiagnosticCheckpointsSpecVersion">
+            <summary>
+            VK_NV_DEVICE_DIAGNOSTIC_CHECKPOINTS_SPEC_VERSION = 2
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVDeviceDiagnosticCheckpointsExtensionName">
+            <summary>
+            VK_NV_DEVICE_DIAGNOSTIC_CHECKPOINTS_EXTENSION_NAME = "VK_NV_device_diagnostic_checkpoints"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.INTELShaderIntegerFunctions2">
+            <summary>
+            VK_INTEL_shader_integer_functions2 = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.INTELShaderIntegerFunctions2SpecVersion">
+            <summary>
+            VK_INTEL_SHADER_INTEGER_FUNCTIONS_2_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.INTELShaderIntegerFunctions2ExtensionName">
+            <summary>
+            VK_INTEL_SHADER_INTEGER_FUNCTIONS_2_EXTENSION_NAME = "VK_INTEL_shader_integer_functions2"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.INTELPerformanceQuery">
+            <summary>
+            VK_INTEL_performance_query = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.INTELPerformanceQuerySpecVersion">
+            <summary>
+            VK_INTEL_PERFORMANCE_QUERY_SPEC_VERSION = 2
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.INTELPerformanceQueryExtensionName">
+            <summary>
+            VK_INTEL_PERFORMANCE_QUERY_EXTENSION_NAME = "VK_INTEL_performance_query"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTPciBusInfo">
+            <summary>
+            VK_EXT_pci_bus_info = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTPciBusInfoSpecVersion">
+            <summary>
+            VK_EXT_PCI_BUS_INFO_SPEC_VERSION = 2
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTPciBusInfoExtensionName">
+            <summary>
+            VK_EXT_PCI_BUS_INFO_EXTENSION_NAME = "VK_EXT_pci_bus_info"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDDisplayNativeHdr">
+            <summary>
+            VK_AMD_display_native_hdr = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDDisplayNativeHdrSpecVersion">
+            <summary>
+            VK_AMD_DISPLAY_NATIVE_HDR_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDDisplayNativeHdrExtensionName">
+            <summary>
+            VK_AMD_DISPLAY_NATIVE_HDR_EXTENSION_NAME = "VK_AMD_display_native_hdr"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTFragmentDensityMap">
+            <summary>
+            VK_EXT_fragment_density_map = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTFragmentDensityMapSpecVersion">
+            <summary>
+            VK_EXT_FRAGMENT_DENSITY_MAP_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTFragmentDensityMapExtensionName">
+            <summary>
+            VK_EXT_FRAGMENT_DENSITY_MAP_EXTENSION_NAME = "VK_EXT_fragment_density_map"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTScalarBlockLayout">
+            <summary>
+            VK_EXT_scalar_block_layout = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTScalarBlockLayoutSpecVersion">
+            <summary>
+            VK_EXT_SCALAR_BLOCK_LAYOUT_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTScalarBlockLayoutExtensionName">
+            <summary>
+            VK_EXT_SCALAR_BLOCK_LAYOUT_EXTENSION_NAME = "VK_EXT_scalar_block_layout"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.GoogleHlslFunctionality1">
+            <summary>
+            VK_GOOGLE_hlsl_functionality1 = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.GoogleHlslFunctionality1SpecVersion">
+            <summary>
+            VK_GOOGLE_HLSL_FUNCTIONALITY1_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.GoogleHlslFunctionality1ExtensionName">
+            <summary>
+            VK_GOOGLE_HLSL_FUNCTIONALITY1_EXTENSION_NAME = "VK_GOOGLE_hlsl_functionality1"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.GoogleDecorateString">
+            <summary>
+            VK_GOOGLE_decorate_string = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.GoogleDecorateStringSpecVersion">
+            <summary>
+            VK_GOOGLE_DECORATE_STRING_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.GoogleDecorateStringExtensionName">
+            <summary>
+            VK_GOOGLE_DECORATE_STRING_EXTENSION_NAME = "VK_GOOGLE_decorate_string"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTSubgroupSizeControl">
+            <summary>
+            VK_EXT_subgroup_size_control = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTSubgroupSizeControlSpecVersion">
+            <summary>
+            VK_EXT_SUBGROUP_SIZE_CONTROL_SPEC_VERSION = 2
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTSubgroupSizeControlExtensionName">
+            <summary>
+            VK_EXT_SUBGROUP_SIZE_CONTROL_EXTENSION_NAME = "VK_EXT_subgroup_size_control"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDShaderCoreProperties2">
+            <summary>
+            VK_AMD_shader_core_properties2 = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDShaderCoreProperties2SpecVersion">
+            <summary>
+            VK_AMD_SHADER_CORE_PROPERTIES_2_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDShaderCoreProperties2ExtensionName">
+            <summary>
+            VK_AMD_SHADER_CORE_PROPERTIES_2_EXTENSION_NAME = "VK_AMD_shader_core_properties2"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDDeviceCoherentMemory">
+            <summary>
+            VK_AMD_device_coherent_memory = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDDeviceCoherentMemorySpecVersion">
+            <summary>
+            VK_AMD_DEVICE_COHERENT_MEMORY_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AMDDeviceCoherentMemoryExtensionName">
+            <summary>
+            VK_AMD_DEVICE_COHERENT_MEMORY_EXTENSION_NAME = "VK_AMD_device_coherent_memory"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTMemoryBudget">
+            <summary>
+            VK_EXT_memory_budget = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTMemoryBudgetSpecVersion">
+            <summary>
+            VK_EXT_MEMORY_BUDGET_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTMemoryBudgetExtensionName">
+            <summary>
+            VK_EXT_MEMORY_BUDGET_EXTENSION_NAME = "VK_EXT_memory_budget"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTMemoryPriority">
+            <summary>
+            VK_EXT_memory_priority = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTMemoryPrioritySpecVersion">
+            <summary>
+            VK_EXT_MEMORY_PRIORITY_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTMemoryPriorityExtensionName">
+            <summary>
+            VK_EXT_MEMORY_PRIORITY_EXTENSION_NAME = "VK_EXT_memory_priority"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVDedicatedAllocationImageAliasing">
+            <summary>
+            VK_NV_dedicated_allocation_image_aliasing = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVDedicatedAllocationImageAliasingSpecVersion">
+            <summary>
+            VK_NV_DEDICATED_ALLOCATION_IMAGE_ALIASING_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVDedicatedAllocationImageAliasingExtensionName">
+            <summary>
+            VK_NV_DEDICATED_ALLOCATION_IMAGE_ALIASING_EXTENSION_NAME = "VK_NV_dedicated_allocation_image_aliasing"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTBufferDeviceAddress">
+            <summary>
+            VK_EXT_buffer_device_address = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTBufferDeviceAddressSpecVersion">
+            <summary>
+            VK_EXT_BUFFER_DEVICE_ADDRESS_SPEC_VERSION = 2
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTBufferDeviceAddressExtensionName">
+            <summary>
+            VK_EXT_BUFFER_DEVICE_ADDRESS_EXTENSION_NAME = "VK_EXT_buffer_device_address"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTToolingInfo">
+            <summary>
+            VK_EXT_tooling_info = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTToolingInfoSpecVersion">
+            <summary>
+            VK_EXT_TOOLING_INFO_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTToolingInfoExtensionName">
+            <summary>
+            VK_EXT_TOOLING_INFO_EXTENSION_NAME = "VK_EXT_tooling_info"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTSeparateStencilUsage">
+            <summary>
+            VK_EXT_separate_stencil_usage = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTSeparateStencilUsageSpecVersion">
+            <summary>
+            VK_EXT_SEPARATE_STENCIL_USAGE_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTSeparateStencilUsageExtensionName">
+            <summary>
+            VK_EXT_SEPARATE_STENCIL_USAGE_EXTENSION_NAME = "VK_EXT_separate_stencil_usage"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTValidationFeatures">
+            <summary>
+            VK_EXT_validation_features = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTValidationFeaturesSpecVersion">
+            <summary>
+            VK_EXT_VALIDATION_FEATURES_SPEC_VERSION = 3
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTValidationFeaturesExtensionName">
+            <summary>
+            VK_EXT_VALIDATION_FEATURES_EXTENSION_NAME = "VK_EXT_validation_features"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVCooperativeMatrix">
+            <summary>
+            VK_NV_cooperative_matrix = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVCooperativeMatrixSpecVersion">
+            <summary>
+            VK_NV_COOPERATIVE_MATRIX_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVCooperativeMatrixExtensionName">
+            <summary>
+            VK_NV_COOPERATIVE_MATRIX_EXTENSION_NAME = "VK_NV_cooperative_matrix"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVCoverageReductionMode">
+            <summary>
+            VK_NV_coverage_reduction_mode = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVCoverageReductionModeSpecVersion">
+            <summary>
+            VK_NV_COVERAGE_REDUCTION_MODE_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVCoverageReductionModeExtensionName">
+            <summary>
+            VK_NV_COVERAGE_REDUCTION_MODE_EXTENSION_NAME = "VK_NV_coverage_reduction_mode"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTFragmentShaderInterlock">
+            <summary>
+            VK_EXT_fragment_shader_interlock = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTFragmentShaderInterlockSpecVersion">
+            <summary>
+            VK_EXT_FRAGMENT_SHADER_INTERLOCK_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTFragmentShaderInterlockExtensionName">
+            <summary>
+            VK_EXT_FRAGMENT_SHADER_INTERLOCK_EXTENSION_NAME = "VK_EXT_fragment_shader_interlock"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTYcbcrImageArrays">
+            <summary>
+            VK_EXT_ycbcr_image_arrays = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTYcbcrImageArraysSpecVersion">
+            <summary>
+            VK_EXT_YCBCR_IMAGE_ARRAYS_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTYcbcrImageArraysExtensionName">
+            <summary>
+            VK_EXT_YCBCR_IMAGE_ARRAYS_EXTENSION_NAME = "VK_EXT_ycbcr_image_arrays"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTHeadlessSurface">
+            <summary>
+            VK_EXT_headless_surface = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTHeadlessSurfaceSpecVersion">
+            <summary>
+            VK_EXT_HEADLESS_SURFACE_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTHeadlessSurfaceExtensionName">
+            <summary>
+            VK_EXT_HEADLESS_SURFACE_EXTENSION_NAME = "VK_EXT_headless_surface"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTLineRasterization">
+            <summary>
+            VK_EXT_line_rasterization = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTLineRasterizationSpecVersion">
+            <summary>
+            VK_EXT_LINE_RASTERIZATION_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTLineRasterizationExtensionName">
+            <summary>
+            VK_EXT_LINE_RASTERIZATION_EXTENSION_NAME = "VK_EXT_line_rasterization"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTHostQueryReset">
+            <summary>
+            VK_EXT_host_query_reset = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTHostQueryResetSpecVersion">
+            <summary>
+            VK_EXT_HOST_QUERY_RESET_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTHostQueryResetExtensionName">
+            <summary>
+            VK_EXT_HOST_QUERY_RESET_EXTENSION_NAME = "VK_EXT_host_query_reset"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTIndexTypeUint8">
+            <summary>
+            VK_EXT_index_type_uint8 = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTIndexTypeUint8SpecVersion">
+            <summary>
+            VK_EXT_INDEX_TYPE_UINT8_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTIndexTypeUint8ExtensionName">
+            <summary>
+            VK_EXT_INDEX_TYPE_UINT8_EXTENSION_NAME = "VK_EXT_index_type_uint8"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTShaderDemoteToHelperInvocation">
+            <summary>
+            VK_EXT_shader_demote_to_helper_invocation = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTShaderDemoteToHelperInvocationSpecVersion">
+            <summary>
+            VK_EXT_SHADER_DEMOTE_TO_HELPER_INVOCATION_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTShaderDemoteToHelperInvocationExtensionName">
+            <summary>
+            VK_EXT_SHADER_DEMOTE_TO_HELPER_INVOCATION_EXTENSION_NAME = "VK_EXT_shader_demote_to_helper_invocation"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVDeviceGeneratedCommands">
+            <summary>
+            VK_NV_device_generated_commands = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVDeviceGeneratedCommandsSpecVersion">
+            <summary>
+            VK_NV_DEVICE_GENERATED_COMMANDS_SPEC_VERSION = 3
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVDeviceGeneratedCommandsExtensionName">
+            <summary>
+            VK_NV_DEVICE_GENERATED_COMMANDS_EXTENSION_NAME = "VK_NV_device_generated_commands"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTTexelBufferAlignment">
+            <summary>
+            VK_EXT_texel_buffer_alignment = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTTexelBufferAlignmentSpecVersion">
+            <summary>
+            VK_EXT_TEXEL_BUFFER_ALIGNMENT_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTTexelBufferAlignmentExtensionName">
+            <summary>
+            VK_EXT_TEXEL_BUFFER_ALIGNMENT_EXTENSION_NAME = "VK_EXT_texel_buffer_alignment"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.QcomRenderPassTransform">
+            <summary>
+            VK_QCOM_render_pass_transform = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.QcomRenderPassTransformSpecVersion">
+            <summary>
+            VK_QCOM_RENDER_PASS_TRANSFORM_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.QcomRenderPassTransformExtensionName">
+            <summary>
+            VK_QCOM_RENDER_PASS_TRANSFORM_EXTENSION_NAME = "VK_QCOM_render_pass_transform"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTRobustness2">
+            <summary>
+            VK_EXT_robustness2 = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTRobustness2SpecVersion">
+            <summary>
+            VK_EXT_ROBUSTNESS_2_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTRobustness2ExtensionName">
+            <summary>
+            VK_EXT_ROBUSTNESS_2_EXTENSION_NAME = "VK_EXT_robustness2"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTCustomBorderColor">
+            <summary>
+            VK_EXT_custom_border_color = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTCustomBorderColorSpecVersion">
+            <summary>
+            VK_EXT_CUSTOM_BORDER_COLOR_SPEC_VERSION = 12
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTCustomBorderColorExtensionName">
+            <summary>
+            VK_EXT_CUSTOM_BORDER_COLOR_EXTENSION_NAME = "VK_EXT_custom_border_color"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.GoogleUserType">
+            <summary>
+            VK_GOOGLE_user_type = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.GoogleUserTypeSpecVersion">
+            <summary>
+            VK_GOOGLE_USER_TYPE_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.GoogleUserTypeExtensionName">
+            <summary>
+            VK_GOOGLE_USER_TYPE_EXTENSION_NAME = "VK_GOOGLE_user_type"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTPrivateData">
+            <summary>
+            VK_EXT_private_data = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTPrivateDataSpecVersion">
+            <summary>
+            VK_EXT_PRIVATE_DATA_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTPrivateDataExtensionName">
+            <summary>
+            VK_EXT_PRIVATE_DATA_EXTENSION_NAME = "VK_EXT_private_data"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTPipelineCreationCacheControl">
+            <summary>
+            VK_EXT_pipeline_creation_cache_control = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTPipelineCreationCacheControlSpecVersion">
+            <summary>
+            VK_EXT_PIPELINE_CREATION_CACHE_CONTROL_SPEC_VERSION = 3
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTPipelineCreationCacheControlExtensionName">
+            <summary>
+            VK_EXT_PIPELINE_CREATION_CACHE_CONTROL_EXTENSION_NAME = "VK_EXT_pipeline_creation_cache_control"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVDeviceDiagnosticsConfig">
+            <summary>
+            VK_NV_device_diagnostics_config = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVDeviceDiagnosticsConfigSpecVersion">
+            <summary>
+            VK_NV_DEVICE_DIAGNOSTICS_CONFIG_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NVDeviceDiagnosticsConfigExtensionName">
+            <summary>
+            VK_NV_DEVICE_DIAGNOSTICS_CONFIG_EXTENSION_NAME = "VK_NV_device_diagnostics_config"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.QcomRenderPassStoreOps">
+            <summary>
+            VK_QCOM_render_pass_store_ops = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.QcomRenderPassStoreOpsSpecVersion">
+            <summary>
+            VK_QCOM_render_pass_store_ops_SPEC_VERSION = 2
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.QcomRenderPassStoreOpsExtensionName">
+            <summary>
+            VK_QCOM_render_pass_store_ops_EXTENSION_NAME = "VK_QCOM_render_pass_store_ops"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRAndroidSurface">
+            <summary>
+            VK_KHR_android_surface = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRAndroidSurfaceSpecVersion">
+            <summary>
+            VK_KHR_ANDROID_SURFACE_SPEC_VERSION = 6
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRAndroidSurfaceExtensionName">
+            <summary>
+            VK_KHR_ANDROID_SURFACE_EXTENSION_NAME = "VK_KHR_android_surface"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AndroidExternalMemoryAndroidHardwareBuffer">
+            <summary>
+            VK_ANDROID_external_memory_android_hardware_buffer = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AndroidExternalMemoryAndroidHardwareBufferSpecVersion">
+            <summary>
+            VK_ANDROID_EXTERNAL_MEMORY_ANDROID_HARDWARE_BUFFER_SPEC_VERSION = 3
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.AndroidExternalMemoryAndroidHardwareBufferExtensionName">
+            <summary>
+            VK_ANDROID_EXTERNAL_MEMORY_ANDROID_HARDWARE_BUFFER_EXTENSION_NAME = "VK_ANDROID_external_memory_android_hardware_buffer"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.MvkIosSurface">
+            <summary>
+            VK_MVK_ios_surface = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.MvkIosSurfaceSpecVersion">
+            <summary>
+            VK_MVK_IOS_SURFACE_SPEC_VERSION = 2
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.MvkIosSurfaceExtensionName">
+            <summary>
+            VK_MVK_IOS_SURFACE_EXTENSION_NAME = "VK_MVK_ios_surface"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.MvkMacosSurface">
+            <summary>
+            VK_MVK_macos_surface = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.MvkMacosSurfaceSpecVersion">
+            <summary>
+            VK_MVK_MACOS_SURFACE_SPEC_VERSION = 2
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.MvkMacosSurfaceExtensionName">
+            <summary>
+            VK_MVK_MACOS_SURFACE_EXTENSION_NAME = "VK_MVK_macos_surface"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTMetalSurface">
+            <summary>
+            VK_EXT_metal_surface = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTMetalSurfaceSpecVersion">
+            <summary>
+            VK_EXT_METAL_SURFACE_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.EXTMetalSurfaceExtensionName">
+            <summary>
+            VK_EXT_METAL_SURFACE_EXTENSION_NAME = "VK_EXT_metal_surface"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NnViSurface">
+            <summary>
+            VK_NN_vi_surface = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NnViSurfaceSpecVersion">
+            <summary>
+            VK_NN_VI_SURFACE_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.NnViSurfaceExtensionName">
+            <summary>
+            VK_NN_VI_SURFACE_EXTENSION_NAME = "VK_NN_vi_surface"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRDeferredHostOperations">
+            <summary>
+            VK_KHR_deferred_host_operations = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRDeferredHostOperationsSpecVersion">
+            <summary>
+            VK_KHR_DEFERRED_HOST_OPERATIONS_SPEC_VERSION = 2
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRDeferredHostOperationsExtensionName">
+            <summary>
+            VK_KHR_DEFERRED_HOST_OPERATIONS_EXTENSION_NAME = "VK_KHR_deferred_host_operations"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRPipelineLibrary">
+            <summary>
+            VK_KHR_pipeline_library = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRPipelineLibrarySpecVersion">
+            <summary>
+            VK_KHR_PIPELINE_LIBRARY_SPEC_VERSION = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRPipelineLibraryExtensionName">
+            <summary>
+            VK_KHR_PIPELINE_LIBRARY_EXTENSION_NAME = "VK_KHR_pipeline_library"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRRayTracing">
+            <summary>
+            VK_KHR_ray_tracing = 1
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRRayTracingSpecVersion">
+            <summary>
+            VK_KHR_RAY_TRACING_SPEC_VERSION = 8
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRRayTracingExtensionName">
+            <summary>
+            VK_KHR_RAY_TRACING_EXTENSION_NAME = "VK_KHR_ray_tracing"
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.Vulkan.KHRWin32SurfaceExtensionName">
+            <summary>
+            VK_KHR_WIN32_SURFACE_EXTENSION_NAME = "VK_KHR_win32_surface"
+            </summary>
+        </member>
+        <member name="M:Vortice.Vulkan.Vulkan.vkEnumerateInstanceExtensionProperties(System.String)">
+            <summary>
+            Returns up to requested number of global extension properties
+            </summary>
+            <param name="layerName">Is either null/empty or a string naming the layer to retrieve extensions from.</param>
+            <returns>A <see cref="T:System.ReadOnlySpan`1"/> </returns>
+            <exception cref="T:Vortice.Vulkan.VkException">Vulkan returns an error code.</exception>
+        </member>
+        <member name="M:Vortice.Vulkan.Vulkan.vkEnumerateDeviceExtensionProperties(Vortice.Vulkan.VkPhysicalDevice,System.String)">
+            <summary>
+            Returns properties of available physical device extensions
+            </summary>
+            <param name="physicalDevice">The <see cref="T:Vortice.Vulkan.VkPhysicalDevice"/> that will be queried.</param>
+            <param name="layerName">Is either null/empty or a string naming the layer to retrieve extensions from.</param>
+            <returns>A <see cref="T:System.ReadOnlySpan`1"/>.</returns>
+            <exception cref="T:Vortice.Vulkan.VkException">Vulkan returns an error code.</exception>
+        </member>
+        <member name="M:Vortice.Vulkan.Vulkan.vkEnumerateInstanceVersion">
+            <summary>
+            Query instance-level version before instance creation.
+            </summary>
+            <returns>The version of Vulkan supported by instance-level functionality.</returns>
+        </member>
+        <member name="T:Vortice.Vulkan.VkInstance">
+            <summary>
+            A dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkPhysicalDevice">
+            <summary>
+            A dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkDevice">
+            <summary>
+            A dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkQueue">
+            <summary>
+            A dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkSemaphore">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkCommandBuffer">
+            <summary>
+            A dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkFence">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkDeviceMemory">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkBuffer">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkImage">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkEvent">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkQueryPool">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkBufferView">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkImageView">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkShaderModule">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkPipelineCache">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkPipelineLayout">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkRenderPass">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkPipeline">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkDescriptorSetLayout">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkSampler">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkDescriptorPool">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkDescriptorSet">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkFramebuffer">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkCommandPool">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkSamplerYcbcrConversion">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkDescriptorUpdateTemplate">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkSurfaceKHR">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkSwapchainKHR">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkDisplayKHR">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkDisplayModeKHR">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkDebugReportCallbackEXT">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkDebugUtilsMessengerEXT">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkValidationCacheEXT">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkAccelerationStructureKHR">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkPerformanceConfigurationINTEL">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkIndirectCommandsLayoutNV">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkPrivateDataSlotEXT">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkDeferredOperationKHR">
+            <summary>
+            A non-dispatchable handle.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkMappedMemoryRange">
+            <summary>
+            Structure specifying a mapped memory range.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkComponentMapping">
+            <summary>
+            Structure specifying a color component mapping.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkImageSubresourceRange">
+            <summary>
+            Structure specifying an image subresource range.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkImageViewCreateInfo">
+            <summary>
+            Structure specifying parameters of a newly created image view
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkImageSubresourceLayers">
+            <summary>
+            Structure specifying an image subresource layers.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkClearColorValue">
+            <summary>
+            Structure specifying a clear color value.
+            </summary>
+        </member>
+        <member name="M:Vortice.Vulkan.VkClearColorValue.#ctor(Vortice.Mathematics.Color4@)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Vulkan.VkClearColorValue"/> structure.
+            </summary>
+            <param name="color">The <see cref="T:Vortice.Mathematics.Color4"/> value.</param>
+        </member>
+        <member name="M:Vortice.Vulkan.VkClearColorValue.#ctor(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Vulkan.VkClearColorValue"/> structure.
+            </summary>
+            <param name="r">The red value.</param>
+            <param name="g">The green value.</param>
+            <param name="b">The blue value.</param>
+            <param name="a">The alpha value.</param>
+        </member>
+        <member name="M:Vortice.Vulkan.VkClearColorValue.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Vulkan.VkClearColorValue"/> structure.
+            </summary>
+            <param name="r">The red value.</param>
+            <param name="g">The green value.</param>
+            <param name="b">The blue value.</param>
+            <param name="a">The alpha value.</param>
+        </member>
+        <member name="M:Vortice.Vulkan.VkClearColorValue.#ctor(System.UInt32,System.UInt32,System.UInt32,System.UInt32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Vulkan.VkClearColorValue"/> structure.
+            </summary>
+            <param name="r">The red value.</param>
+            <param name="g">The green value.</param>
+            <param name="b">The blue value.</param>
+            <param name="a">The alpha value.</param>
+        </member>
+        <member name="T:Vortice.Vulkan.VkClearDepthStencilValue">
+            <summary>
+            Structure specifying a clear depth stencil value.
+            </summary>
+        </member>
+        <member name="M:Vortice.Vulkan.VkClearDepthStencilValue.#ctor(System.Single,System.UInt32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Vulkan.VkClearDepthStencilValue"/> structure.
+            </summary>
+            <param name="depth">The depth clear value.</param>
+            <param name="stencil">The stencil clear value.</param>
+        </member>
+        <member name="T:Vortice.Vulkan.VkClearValue">
+            <summary>
+            Structure specifying a clear value.
+            </summary>
+        </member>
+        <member name="M:Vortice.Vulkan.VkClearValue.#ctor(Vortice.Mathematics.Color4)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Vulkan.VkClearValue"/> structure.
+            </summary>
+            <param name="color">Specifies the color image clear values to use when clearing a color image or attachment.</param>
+        </member>
+        <member name="M:Vortice.Vulkan.VkClearValue.#ctor(Vortice.Vulkan.VkClearDepthStencilValue)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Vulkan.VkClearValue"/> structure.
+            </summary>
+            <param name="depthStencil">Specifies the depth and stencil clear values to use when clearing a depth/stencil image or attachment.</param>
+        </member>
+        <member name="T:Vortice.Vulkan.VkBufferMemoryBarrier">
+            <summary>
+            Structure specifying a buffer memory barrier.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkImageMemoryBarrier">
+            <summary>
+            Structure specifying the parameters of an image memory barrier.
+            </summary>
+        </member>
+        <member name="T:Vortice.Vulkan.VkBool32">
+            <summary>
+            A boolean value stored on 4 bytes (instead of 1 in .NET).
+            </summary>
+        </member>
+        <member name="M:Vortice.Vulkan.VkBool32.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Vulkan.VkBool32" /> class.
+            </summary>
+            <param name="boolValue">if set to <c>true</c> [bool value].</param>
+        </member>
+        <member name="M:Vortice.Vulkan.VkBool32.Equals(Vortice.Vulkan.VkBool32)">
+            <summary>
+            Indicates whether this instance and a specified object are equal.
+            </summary>
+            <param name="other">The other.</param>
+            <returns>true if <paramref name="other" /> and this instance are the same type and represent the same value; otherwise, false.</returns>
+        </member>
+        <member name="M:Vortice.Vulkan.VkBool32.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Vulkan.VkBool32.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Vulkan.VkBool32.op_Equality(Vortice.Vulkan.VkBool32,Vortice.Vulkan.VkBool32)">
+            <summary>
+            Implements the ==.
+            </summary>
+            <param name="left">The left.</param>
+            <param name="right">The right.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:Vortice.Vulkan.VkBool32.op_Inequality(Vortice.Vulkan.VkBool32,Vortice.Vulkan.VkBool32)">
+            <summary>
+            Implements the !=.
+            </summary>
+            <param name="left">The left.</param>
+            <param name="right">The right.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:Vortice.Vulkan.VkBool32.op_Implicit(Vortice.Vulkan.VkBool32)~System.Boolean">
+            <summary>
+            Performs an explicit conversion from <see cref="T:Vortice.Vulkan.VkBool32"/> to <see cref="T:System.Boolean"/>.
+            </summary>
+            <param name="value">The <see cref="T:Vortice.Vulkan.VkBool32"/> value.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Vulkan.VkBool32.op_Implicit(System.Boolean)~Vortice.Vulkan.VkBool32">
+            <summary>
+            Performs an explicit conversion from <see cref="T:System.Boolean"/> to <see cref="T:Vortice.Vulkan.VkBool32"/>.
+            </summary>
+            <param name="boolValue">The value.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Vulkan.VkBool32.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Vortice.Vulkan.VkException">
+            <summary>
+            The exception class for errors that occur in vulka.
+            </summary>
+        </member>
+        <member name="P:Vortice.Vulkan.VkException.Result">
+            <summary>
+            Gets the result returned by Vulkan.
+            </summary>
+        </member>
+        <member name="P:Vortice.Vulkan.VkException.IsError">
+            <summary>
+            Gets if the result is considered an error.
+            </summary>
+        </member>
+        <member name="M:Vortice.Vulkan.VkException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Vulkan.VkException" /> class.
+            </summary>
+        </member>
+        <member name="M:Vortice.Vulkan.VkException.#ctor(Vortice.Vulkan.VkResult,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Vulkan.VkException" /> class.
+            </summary>
+            <param name="result">The result code that caused this exception.</param>
+            <param name="message"></param>
+        </member>
+        <member name="T:Vortice.Vulkan.VkPointerSize">
+            <summary>
+            A platform-specific type that is used to represent a size (in bytes) of an object in memory.
+            <para>Equivalent to C/C++ size_t type.</para>
+            </summary>
+        </member>
+        <member name="F:Vortice.Vulkan.VkPointerSize.Zero">
+            <summary>
+            An empty pointer size initialized to zero.
+            </summary>
+        </member>
+        <member name="M:Vortice.Vulkan.VkPointerSize.#ctor(System.UIntPtr)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Vulkan.VkPointerSize"/> struct.
+            </summary>
+            <param name="value">The value to assign.</param>
+        </member>
+        <member name="M:Vortice.Vulkan.VkPointerSize.#ctor(System.Void*)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Vulkan.VkPointerSize"/> struct.
+            </summary>
+            <param name="size"></param>
+        </member>
+        <member name="M:Vortice.Vulkan.VkPointerSize.#ctor(System.UInt32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Vulkan.VkPointerSize"/> struct.
+            </summary>
+            <param name="value">value to set</param>
+        </member>
+        <member name="M:Vortice.Vulkan.VkPointerSize.#ctor(System.UInt64)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Vulkan.VkPointerSize"/> struct.
+            </summary>
+            <param name="value">value to set</param>
+        </member>
+        <member name="M:Vortice.Vulkan.VkPointerSize.op_Equality(Vortice.Vulkan.VkPointerSize,Vortice.Vulkan.VkPointerSize)">
+            <summary>
+            Compares two <see cref="T:Vortice.Vulkan.VkPointerSize"/> objects for equality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Vulkan.VkPointerSize"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Vulkan.VkPointerSize"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is equal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Vulkan.VkPointerSize.op_Inequality(Vortice.Vulkan.VkPointerSize,Vortice.Vulkan.VkPointerSize)">
+            <summary>
+            Compares two <see cref="T:Vortice.Vulkan.VkPointerSize"/> objects for inequality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Vulkan.VkPointerSize"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Vulkan.VkPointerSize"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is unequal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Vulkan.VkPointerSize.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Vulkan.VkPointerSize.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Vulkan.VkPointerSize.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Vulkan.VkPointerSize.Equals(Vortice.Vulkan.VkPointerSize)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Vulkan.VkPointerSize.op_Implicit(Vortice.Vulkan.VkPointerSize)~System.UInt32">
+            <summary>
+              Performs an implicit conversion from <see cref="T:Vortice.Vulkan.VkPointerSize"/> to <see cref="T:System.UInt32"/>.
+            </summary>
+            <param name = "value">The value.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Vulkan.VkPointerSize.op_Implicit(Vortice.Vulkan.VkPointerSize)~System.UInt64">
+            <summary>
+              Performs an implicit conversion from <see cref="T:Vortice.Vulkan.VkPointerSize"/> to <see cref="T:System.UInt64"/>.
+            </summary>
+            <param name = "value">The value.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Vulkan.VkPointerSize.op_Implicit(System.UInt32)~Vortice.Vulkan.VkPointerSize">
+            <summary>
+              Performs an implicit conversion from <see cref="T:System.UInt32"/> to <see cref="T:Vortice.Vulkan.VkPointerSize"/>.
+            </summary>
+            <param name = "value">The value.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Vulkan.VkPointerSize.op_Implicit(System.UInt64)~Vortice.Vulkan.VkPointerSize">
+            <summary>
+              Performs an implicit conversion from <see cref="T:System.UInt64"/> to <see cref="T:Vortice.Vulkan.VkPointerSize"/>.
+            </summary>
+            <param name = "value">The value.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Vulkan.VkPointerSize.op_Implicit(System.UIntPtr)~Vortice.Vulkan.VkPointerSize">
+            <summary>
+            Performs an implicit conversion from <see cref="T:System.UIntPtr"/> to <see cref="T:Vortice.Vulkan.VkPointerSize"/>.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Vulkan.VkPointerSize.op_Implicit(Vortice.Vulkan.VkPointerSize)~System.UIntPtr">
+            <summary>
+              Performs an implicit conversion from <see cref = "T:Vortice.Vulkan.VkPointerSize" /> to <see cref = "T:System.UIntPtr" />.
+            </summary>
+            <param name = "value">The value.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Vulkan.VkPointerSize.op_Implicit(System.Void*)~Vortice.Vulkan.VkPointerSize">
+            <summary>
+              Performs an implicit conversion from void* to <see cref = "T:Vortice.Vulkan.VkPointerSize" />.
+            </summary>
+            <param name = "value">The value.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Vulkan.VkPointerSize.op_Implicit(Vortice.Vulkan.VkPointerSize)~System.Void*">
+            <summary>
+              Performs an implicit conversion from <see cref = "T:Vortice.Vulkan.VkPointerSize" /> to void*.
+            </summary>
+            <param name = "value">The value.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="T:Vortice.Vulkan.VkTransformMatrixKHR">
+            <summary>
+            Structure specifying a 3x4 affine transformation matrix
+            </summary>
+        </member>
+        <member name="M:Vortice.Vulkan.VkTransformMatrixKHR.#ctor(Vortice.Mathematics.Matrix3x4@)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Vulkan.VkTransformMatrixKHR"/> struct.
+            </summary>
+            <param name="matrix">The <see cref="T:Vortice.Mathematics.Matrix3x4"/> to init from.</param>
+        </member>
+        <member name="M:Vortice.Vulkan.VkTransformMatrixKHR.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Vulkan.VkTransformMatrixKHR"/> struct.
+            </summary>
+            <param name="m11">The value to assign at row 1 column 1 of the matrix.</param>
+            <param name="m12">The value to assign at row 1 column 2 of the matrix.</param>
+            <param name="m13">The value to assign at row 1 column 3 of the matrix.</param>
+            <param name="m14">The value to assign at row 1 column 4 of the matrix.</param>
+            <param name="m21">The value to assign at row 2 column 1 of the matrix.</param>
+            <param name="m22">The value to assign at row 2 column 2 of the matrix.</param>
+            <param name="m23">The value to assign at row 2 column 3 of the matrix.</param>
+            <param name="m24">The value to assign at row 2 column 4 of the matrix.</param>
+            <param name="m31">The value to assign at row 3 column 1 of the matrix.</param>
+            <param name="m32">The value to assign at row 3 column 2 of the matrix.</param>
+            <param name="m33">The value to assign at row 3 column 3 of the matrix.</param>
+            <param name="m34">The value to assign at row 3 column 4 of the matrix.</param>
+        </member>
+    </members>
+</doc>

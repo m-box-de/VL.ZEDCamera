@@ -1,0 +1,3454 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Vortice.Mathematics</name>
+    </assembly>
+    <members>
+        <member name="T:Vortice.Mathematics.BoundingBox">
+            <summary>
+            Defines an axis-aligned box-shaped 3D volume.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.BoundingBox.CornerCount">
+            <summary>
+            Specifies the total number of corners (8) in the BoundingBox.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.BoundingBox.Empty">
+            <summary>
+            A <see cref="T:Vortice.Mathematics.BoundingBox"/> which represents an empty space.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.BoundingBox.Minimum">
+            <summary>
+            The minimum point of the box.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.BoundingBox.Maximum">
+            <summary>
+            The maximum point of the box.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.BoundingBox.Center">
+            <summary>
+            Gets the center of this bouding box.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.BoundingBox.Extent">
+            <summary>
+            Gets the extent of this bouding box.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.BoundingBox.#ctor(System.Numerics.Vector3,System.Numerics.Vector3)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.BoundingBox"/> struct.
+            </summary>
+            <param name="minimum">The minimum vertex of the bounding box.</param>
+            <param name="maximum">The maximum vertex of the bounding box.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.BoundingBox.GetCorners">
+            <summary>
+            Retrieves the eight corners of the bounding box.
+            </summary>
+            <returns>An array of points representing the eight corners of the bounding box.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.BoundingBox.GetCorners(System.Numerics.Vector3[])">
+            <summary>
+            Retrieves the eight corners of the bounding box.
+            </summary>
+            <returns>An array of points representing the eight corners of the bounding box.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.BoundingBox.Intersects(Vortice.Mathematics.BoundingSphere@)">
+            <summary>
+            Checks whether the current <see cref="T:Vortice.Mathematics.BoundingBox"/> intersects with a specified <see cref="T:Vortice.Mathematics.BoundingSphere"/>.
+            </summary>
+            <param name="sphere">The <see cref="T:Vortice.Mathematics.BoundingSphere"/> to check for intersection with the current <see cref="T:Vortice.Mathematics.BoundingBox"/>.</param>
+            <returns>True if intersects, false otherwise.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.BoundingBox.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.BoundingBox.Equals(Vortice.Mathematics.BoundingBox)">
+            <summary>
+            Determines whether the specified <see cref="T:Vortice.Mathematics.BoundingBox"/> is equal to this instance.
+            </summary>
+            <param name="other">The <see cref="T:Vortice.Mathematics.Int4"/> to compare with this instance.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.BoundingBox.Equals(Vortice.Mathematics.BoundingBox@)">
+            <summary>
+            Determines whether the specified <see cref="T:Vortice.Mathematics.BoundingBox"/> is equal to this instance.
+            </summary>
+            <param name="other">The <see cref="T:Vortice.Mathematics.BoundingBox"/> to compare with this instance.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.BoundingBox.op_Equality(Vortice.Mathematics.BoundingBox,Vortice.Mathematics.BoundingBox)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.BoundingBox"/> objects for equality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.BoundingBox"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.BoundingBox"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is equal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.BoundingBox.op_Inequality(Vortice.Mathematics.BoundingBox,Vortice.Mathematics.BoundingBox)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.BoundingBox"/> objects for inequality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.BoundingBox"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.BoundingBox"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is unequal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.BoundingBox.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.BoundingBox.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Vortice.Mathematics.BoundingSphere">
+            <summary>
+            Defines an sphere in three dimensional space.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.BoundingSphere.Empty">
+            <summary>
+            An empty bounding sphere (Center = 0 and Radius = 0).
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.BoundingSphere.Center">
+            <summary>
+            The center point of the sphere.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.BoundingSphere.Radius">
+            <summary>
+            The radious of the sphere.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.BoundingSphere.#ctor(System.Numerics.Vector3,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.BoundingSphere"/> struct.
+            </summary>
+            <param name="center">The center of the sphere.</param>
+            <param name="radius">The radius of the sphere.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.BoundingSphere.CreateFromBoundingBox(Vortice.Mathematics.BoundingBox@,Vortice.Mathematics.BoundingSphere@)">
+            <summary>
+            Creates the smallest <see cref="T:Vortice.Mathematics.BoundingSphere"/> that can contain a specified <see cref="T:Vortice.Mathematics.BoundingBox"/>.
+            </summary>
+            <param name="box">The <see cref="T:Vortice.Mathematics.BoundingBox"/> to create the <see cref="T:Vortice.Mathematics.BoundingSphere"/> from.</param>
+            <param name="result">The created <see cref="T:Vortice.Mathematics.BoundingSphere"/>.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.BoundingSphere.CreateFromBoundingBox(Vortice.Mathematics.BoundingBox@)">
+            <summary>
+            Creates the smallest <see cref="T:Vortice.Mathematics.BoundingSphere"/> that can contain a specified <see cref="T:Vortice.Mathematics.BoundingBox"/>.
+            </summary>
+            <param name="box">The <see cref="T:Vortice.Mathematics.BoundingBox"/> to create the <see cref="T:Vortice.Mathematics.BoundingSphere"/> from.</param>
+            <returns>The created <see cref="T:Vortice.Mathematics.BoundingSphere"/>.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.BoundingSphere.Transform(Vortice.Mathematics.BoundingSphere@,System.Numerics.Matrix4x4@)">
+            <summary>
+            Translates and scales given <see cref="T:Vortice.Mathematics.BoundingSphere"/> using a given <see cref="T:System.Numerics.Matrix4x4"/>.
+            </summary>
+            <param name="sphere">The source <see cref="T:Vortice.Mathematics.BoundingSphere"/>.</param>
+            <param name="transform">A transformation matrix that might include translation, rotation, or uniform scaling.</param>
+            <returns>The transformed BoundingSphere.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.BoundingSphere.Transform(Vortice.Mathematics.BoundingSphere@,System.Numerics.Matrix4x4@,Vortice.Mathematics.BoundingSphere@)">
+            <summary>
+            Translates and scales given <see cref="T:Vortice.Mathematics.BoundingSphere"/> using a given <see cref="T:System.Numerics.Matrix4x4"/>.
+            </summary>
+            <param name="sphere">The source <see cref="T:Vortice.Mathematics.BoundingSphere"/>.</param>
+            <param name="transform">A transformation matrix that might include translation, rotation, or uniform scaling.</param>
+            <param name="result">The transformed BoundingSphere.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.BoundingSphere.Intersects(Vortice.Mathematics.BoundingBox@)">
+            <summary>
+            Checks whether the current <see cref="T:Vortice.Mathematics.BoundingSphere"/> intersects with a specified <see cref="T:Vortice.Mathematics.BoundingBox"/>.
+            </summary>
+            <param name="box">The <see cref="T:Vortice.Mathematics.BoundingBox"/> to check for intersection with the current <see cref="T:Vortice.Mathematics.BoundingSphere"/>.</param>
+            <returns>True if intersects, false otherwise.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.BoundingSphere.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.BoundingSphere.Equals(Vortice.Mathematics.BoundingSphere)">
+            <summary>
+            Determines whether the specified <see cref="T:Vortice.Mathematics.BoundingSphere"/> is equal to this instance.
+            </summary>
+            <param name="other">The <see cref="T:Vortice.Mathematics.Int4"/> to compare with this instance.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.BoundingSphere.Equals(Vortice.Mathematics.BoundingSphere@)">
+            <summary>
+            Determines whether the specified <see cref="T:Vortice.Mathematics.BoundingSphere"/> is equal to this instance.
+            </summary>
+            <param name="other">The <see cref="T:Vortice.Mathematics.BoundingSphere"/> to compare with this instance.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.BoundingSphere.op_Equality(Vortice.Mathematics.BoundingSphere,Vortice.Mathematics.BoundingSphere)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.BoundingSphere"/> objects for equality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.BoundingSphere"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.BoundingSphere"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is equal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.BoundingSphere.op_Inequality(Vortice.Mathematics.BoundingSphere,Vortice.Mathematics.BoundingSphere)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.BoundingSphere"/> objects for inequality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.BoundingSphere"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.BoundingSphere"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is unequal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.BoundingSphere.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.BoundingSphere.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Vortice.Mathematics.Box">
+            <summary>
+            Represents a 3D box.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Box.Zero">
+            <summary>
+            A <see cref="T:Vortice.Mathematics.Box"/> with all of its components set to zero.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Box.Left">
+            <summary>
+            The x position of the left hand side of the box.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Box.Top">
+            <summary>
+            The y position of the top of the box.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Box.Front">
+            <summary>
+            The z position of the front of the box.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Box.Right">
+            <summary>
+            The x position of the right hand side of the box, plus 1. This means that Right - Left equals the width of the box.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Box.Bottom">
+            <summary>
+            The y position of the bottom of the box, plus 1. This means that top - bottom equals the height of the box.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Box.Back">
+            <summary>
+            The z position of the back of the box, plus 1. This means that front - back equals the depth of the box.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.Box.Width">
+            <summary>
+            The width of the box (equals to Right - Left).
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.Box.Height">
+            <summary>
+            The height of the box (equals to Top - Bottom).
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.Box.Depth">
+            <summary>
+            The depth of the box (equals to Front - Back).
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.Box.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of <see cref="T:Vortice.Mathematics.Box"/> structure.
+            </summary>
+            <param name="left">Left coordinates</param>
+            <param name="top">Top coordinates</param>
+            <param name="front">Front coordinate.</param>
+            <param name="right"></param>
+            <param name="bottom"></param>
+            <param name="back"></param>
+        </member>
+        <member name="M:Vortice.Mathematics.Box.#ctor(Vortice.Mathematics.Point3@,Vortice.Mathematics.Size3@)">
+            <summary>
+            Initializes a new instance of <see cref="T:Vortice.Mathematics.Box"/> structure.
+            </summary>
+            <param name="offset">The <see cref="T:Vortice.Mathematics.Point3"/> containing Left, Top and Front coordiantes.</param>
+            <param name="extent">The <see cref="T:Vortice.Mathematics.Size3"/> containing Width, Height and Depth.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Box.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.Box.Equals(Vortice.Mathematics.Box)">
+            <summary>
+            Determines whether the specified <see cref="T:Vortice.Mathematics.Box"/> is equal to this instance.
+            </summary>
+            <param name="other">The <see cref="T:Vortice.Mathematics.Box"/> to compare with this instance.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Box.Equals(Vortice.Mathematics.Box@)">
+            <summary>
+            Determines whether the specified <see cref="T:Vortice.Mathematics.Box"/> is equal to this instance.
+            </summary>
+            <param name="other">The <see cref="T:Vortice.Mathematics.Box"/> to compare with this instance.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Box.op_Equality(Vortice.Mathematics.Box,Vortice.Mathematics.Box)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.Box"/> objects for equality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.Box"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.Box"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is equal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Box.op_Inequality(Vortice.Mathematics.Box,Vortice.Mathematics.Box)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.Box"/> objects for inequality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.Box"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.Box"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is unequal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Box.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.Box.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Vortice.Mathematics.Color">
+            <summary>
+            Represents a 32-bit RGBA color (4 bytes).
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Color.R">
+            <summary>
+            The red component of the color.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Color.G">
+            <summary>
+            The green component of the color.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Color.B">
+            <summary>
+            The blue component of the color.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Color.A">
+            <summary>
+            The alpha component of the color.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.Color.PackedValue">
+            <summary>
+            Gets or Sets the current color as a packed value.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.Color.#ctor(System.Byte)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Color"/> struct.
+            </summary>
+            <param name="value">The value that will be assigned to all components.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Color.#ctor(System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Color"/> struct.
+            </summary>
+            <param name="value">The value that will be assigned to all components.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Color.#ctor(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Color"/> struct.
+            </summary>
+            <param name="r">The red component of the color.</param>
+            <param name="g">The green component of the color.</param>
+            <param name="b">The blue component of the color.</param>
+            <param name="a">The alpha component of the color.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Color.#ctor(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Color"/> struct.  Alpha is set to 255.
+            </summary>
+            <param name="red">The red component of the color.</param>
+            <param name="green">The green component of the color.</param>
+            <param name="blue">The blue component of the color.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Color.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Color"/> struct.  Passed values are clamped within byte range.
+            </summary>
+            <param name="red">The red component of the color.</param>
+            <param name="green">The green component of the color.</param>
+            <param name="blue">The blue component of the color.</param>
+            <param name="alpha">The alpha component of the color</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Color.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Color"/> struct.  Alpha is set to 255.  Passed values are clamped within byte range.
+            </summary>
+            <param name="red">The red component of the color.</param>
+            <param name="green">The green component of the color.</param>
+            <param name="blue">The blue component of the color.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Color.#ctor(System.Single,System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Color"/> struct.
+            </summary>
+            <param name="r">Red component.</param>
+            <param name="g">Green component.</param>
+            <param name="b">Blue component.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Color.#ctor(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Color"/> struct.
+            </summary>
+            <param name="r">Red component.</param>
+            <param name="g">Green component.</param>
+            <param name="b">Blue component.</param>
+            <param name="a">Alpha component.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Color.#ctor(System.Numerics.Vector3,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Color"/> struct.
+            </summary>
+            <param name="vector">The red, green, and blue components of the color.</param>
+            <param name="alpha">The alpha component of the color.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Color.#ctor(System.Numerics.Vector3)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Color"/> struct.
+            </summary>
+            <param name="vector">A three-component color.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Color.#ctor(System.Numerics.Vector4)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Color"/> struct.
+            </summary>
+            <param name="vector">A four-component color.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Color.ToVector4">
+            <summary>
+            Gets a four-component vector representation for this object.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.Color.ToColor4">
+            <summary>
+            Convert this instance to a <see cref="T:Vortice.Mathematics.Color4"/>
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.Color.op_Implicit(Vortice.Mathematics.Color)~Vortice.Mathematics.Color4">
+            <summary>
+            Performs an implicit conversion from <see cref="T:Vortice.Mathematics.Color"/> to <see cref="T:Vortice.Mathematics.Color4"/>.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Color.op_Explicit(System.Numerics.Vector3)~Vortice.Mathematics.Color">
+            <summary>
+            Performs an explicit conversion from <see cref="T:System.Numerics.Vector3"/> to <see cref="T:Vortice.Mathematics.Color"/>.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Color.op_Explicit(System.Numerics.Vector4)~Vortice.Mathematics.Color">
+            <summary>
+            Performs an explicit conversion from <see cref="T:System.Numerics.Vector4"/> to <see cref="T:Vortice.Mathematics.Color"/>.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Color.op_Explicit(Vortice.Mathematics.Color4)~Vortice.Mathematics.Color">
+            <summary>
+            Performs an explicit conversion from <see cref="T:Vortice.Mathematics.Color4"/> to <see cref="T:Vortice.Mathematics.Color"/>.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Color.op_Implicit(System.Drawing.Color)~Vortice.Mathematics.Color">
+            <summary>
+            Performs an implicit conversion from <see cref="T:System.Drawing.Color"/> to <see cref="T:Vortice.Mathematics.Color"/>.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Color.op_Implicit(Vortice.Mathematics.Color)~System.Drawing.Color">
+            <summary>
+            Performs an implicit conversion from <see cref="T:Vortice.Mathematics.Color"/> to <see cref="T:System.Drawing.Color"/>.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Color.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.Color.Equals(Vortice.Mathematics.Color)">
+            <summary>
+            Determines whether the specified <see cref="T:Vortice.Mathematics.Color"/> is equal to this instance.
+            </summary>
+            <param name="other">The <see cref="T:Vortice.Mathematics.Color"/> to compare with this instance.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Color.Equals(Vortice.Mathematics.Color@)">
+            <summary>
+            Determines whether the specified <see cref="T:Vortice.Mathematics.Color"/> is equal to this instance.
+            </summary>
+            <param name="other">The <see cref="T:Vortice.Mathematics.Color"/> to compare with this instance.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Color.op_Equality(Vortice.Mathematics.Color,Vortice.Mathematics.Color)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.Color"/> objects for equality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.Color"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.Color"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is equal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Color.op_Inequality(Vortice.Mathematics.Color,Vortice.Mathematics.Color)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.Color"/> objects for inequality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.Color"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.Color"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is unequal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Color.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.Color.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Vortice.Mathematics.Color3">
+            <summary>
+            Represents a floating-point RGB color.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Color3.R">
+            <summary>
+            Red component of the color.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Color3.G">
+            <summary>
+            Green component of the color.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Color3.B">
+            <summary>
+            Blue component of the color.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.Color3.#ctor(System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Color3"/> struct.
+            </summary>
+            <param name="value">The value that will be assigned to all components.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Color3.#ctor(System.Single,System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Color3"/> struct.
+            </summary>
+            <param name="red">The red component of the color.</param>
+            <param name="green">The green component of the color.</param>
+            <param name="blue">The blue component of the color.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Color3.#ctor(System.Numerics.Vector3)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Color3"/> struct.
+            </summary>
+            <param name="value">The red, green, and blue components of the color.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Color3.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.Color3.Equals(Vortice.Mathematics.Color3)">
+            <summary>
+            Determines whether the specified <see cref="T:Vortice.Mathematics.Color3"/> is equal to this instance.
+            </summary>
+            <param name="other">The <see cref="T:Vortice.Mathematics.Color3"/> to compare with this instance.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Color3.Equals(Vortice.Mathematics.Color3@)">
+            <summary>
+            Determines whether the specified <see cref="T:Vortice.Mathematics.Color3"/> is equal to this instance.
+            </summary>
+            <param name="other">The <see cref="T:Vortice.Mathematics.Color3"/> to compare with this instance.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Color3.op_Equality(Vortice.Mathematics.Color3,Vortice.Mathematics.Color3)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.Color3"/> objects for equality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.Color3"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.Color3"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is equal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Color3.op_Inequality(Vortice.Mathematics.Color3,Vortice.Mathematics.Color3)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.Color3"/> objects for inequality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.Color3"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.Color3"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is unequal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Color3.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.Color3.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Vortice.Mathematics.Color4">
+            <summary>
+            Represents a floating-point RGBA color.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Color4.R">
+            <summary>
+            Red component of the color.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Color4.G">
+            <summary>
+            Green component of the color.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Color4.B">
+            <summary>
+            Blue component of the color.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Color4.A">
+            <summary>
+            Alpha component of the color.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.Color4.#ctor(System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Color4"/> struct.
+            </summary>
+            <param name="value">The value that will be assigned to all components.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Color4.#ctor(System.Single,System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Color4"/> struct.
+            </summary>
+            <param name="red">The red component of the color.</param>
+            <param name="green">The green component of the color.</param>
+            <param name="blue">The blue component of the color.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Color4.#ctor(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Color4"/> struct.
+            </summary>
+            <param name="red">The red component of the color.</param>
+            <param name="green">The green component of the color.</param>
+            <param name="blue">The blue component of the color.</param>
+            <param name="alpha">The alpha component of the color.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Color4.#ctor(System.Numerics.Vector4)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Color4"/> struct.
+            </summary>
+            <param name="value">The red, green, blue, and alpha components of the color.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Color4.#ctor(System.Numerics.Vector3,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Color4"/> struct.
+            </summary>
+            <param name="value">The red, green, and blue components of the color.</param>
+            <param name="alpha">The alpha component of the color.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Color4.#ctor(Vortice.Mathematics.Color)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Color4"/> struct.
+            </summary>
+            <param name="color"><see cref="T:Vortice.Mathematics.Color"/> used to initialize the color.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Color4.#ctor(System.Drawing.Color)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Color4"/> struct.
+            </summary>
+            <param name="color"><see cref="T:System.Drawing.Color"/> used to initialize the color.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Color4.ToBgra(System.Byte@,System.Byte@,System.Byte@,System.Byte@)">
+            <summary>
+            Converts the color into a packed integer.
+            </summary>
+            <returns>A packed integer containing all four color components.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Color4.ToVector3">
+            <summary>
+            Converts the color to <see cref="T:System.Numerics.Vector3"/>.
+            </summary>
+            <returns>An instance of <see cref="T:System.Numerics.Vector3"/> with R, G, B component.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Color4.ToVector4">
+            <summary>
+            Converts the color to <see cref="T:System.Numerics.Vector4"/>
+            </summary>
+            <returns>An instance of <see cref="T:System.Numerics.Vector4"/> with R, G, B, A component.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Color4.op_Explicit(Vortice.Mathematics.Color4)~System.Numerics.Vector3">
+            <summary>
+            Performs an explicit conversion from <see cref="T:Vortice.Mathematics.Color4"/> to <see cref="T:System.Numerics.Vector3"/>.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Color4.op_Implicit(Vortice.Mathematics.Color4)~System.Numerics.Vector4">
+            <summary>
+            Performs an implicit conversion from <see cref="T:Vortice.Mathematics.Color4"/> to <see cref="T:System.Numerics.Vector4"/>.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Color4.op_Explicit(System.Numerics.Vector3)~Vortice.Mathematics.Color4">
+            <summary>
+            Performs an explicit conversion from <see cref="T:System.Numerics.Vector3"/> to <see cref="T:Vortice.Mathematics.Color4"/>.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Color4.op_Explicit(System.Numerics.Vector4)~Vortice.Mathematics.Color4">
+            <summary>
+            Performs an explicit conversion from <see cref="T:System.Numerics.Vector4"/> to <see cref="T:Vortice.Mathematics.Color4"/>.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Color4.op_Explicit(System.Drawing.Color)~Vortice.Mathematics.Color4">
+            <summary>
+            Performs an explicit conversion from <see cref="T:System.Drawing.Color"/> to <see cref="T:Vortice.Mathematics.Color4"/>.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Color4.op_Explicit(Vortice.Mathematics.Color4)~System.Drawing.Color">
+            <summary>
+            Performs an explicit conversion from <see cref="T:System.Numerics.Vector4"/> to <see cref="T:Vortice.Mathematics.Color4"/>.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Color4.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.Color4.Equals(Vortice.Mathematics.Color4)">
+            <summary>
+            Determines whether the specified <see cref="T:Vortice.Mathematics.Color4"/> is equal to this instance.
+            </summary>
+            <param name="other">The <see cref="T:Vortice.Mathematics.Color4"/> to compare with this instance.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Color4.Equals(Vortice.Mathematics.Color4@)">
+            <summary>
+            Determines whether the specified <see cref="T:Vortice.Mathematics.Color4"/> is equal to this instance.
+            </summary>
+            <param name="other">The <see cref="T:Vortice.Mathematics.Color4"/> to compare with this instance.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Color4.op_Equality(Vortice.Mathematics.Color4,Vortice.Mathematics.Color4)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.Color4"/> objects for equality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.Color4"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.Color4"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is equal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Color4.op_Inequality(Vortice.Mathematics.Color4,Vortice.Mathematics.Color4)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.Color4"/> objects for inequality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.Color4"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.Color4"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is unequal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Color4.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.Color4.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Vortice.Mathematics.Half">
+            <summary>
+            A half precision (16 bit) floating point value.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Half.PrecisionDigits">
+            <summary>
+            Number of decimal digits of precision.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Half.MantissaBits">
+            <summary>
+            Number of bits in the mantissa.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Half.MaximumDecimalExponent">
+            <summary>
+            Maximum decimal exponent.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Half.MaximumBinaryExponent">
+            <summary>
+            Maximum binary exponent.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Half.MinimumDecimalExponent">
+            <summary>
+            Minimum decimal exponent.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Half.MinimumBinaryExponent">
+            <summary>
+            Minimum binary exponent.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Half.ExponentRadix">
+            <summary>
+            Exponent radix.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Half.AdditionRounding">
+            <summary>
+            Additional rounding.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Half.Epsilon">
+            <summary>
+            Smallest such that 1.0 + epsilon != 1.0
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Half.MaxValue">
+            <summary>
+            Maximum value of the number.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Half.MinValue">
+            <summary>
+            Minimum value of the number.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.Half.PackedValue">
+            <summary>
+            Gets or sets the packed value of this <see cref="T:Vortice.Mathematics.Half"/> structure. 
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.Half.#ctor(System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Half"/> structure.
+            </summary>
+            <param name="value">The floating point value that should be stored in 16 bit format.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Half.#ctor(System.UInt16)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Half"/> structure.
+            </summary>
+            <param name="value">The pack value.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Half.ToSingle">
+            <summary>
+            Expands the packed value to a <see cref="T:System.Single"/>.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.Half.op_Implicit(System.Single)~Vortice.Mathematics.Half">
+            <summary>
+            Performs an explicit conversion from <see cref="T:System.Single"/> to <see cref="T:Vortice.Mathematics.Half"/>.
+            </summary>
+            <param name = "value">The value to be converted.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Half.op_Implicit(Vortice.Mathematics.Half)~System.Single">
+            <summary>
+            Performs an implicit conversion from <see cref="T:Vortice.Mathematics.Half"/> to <see cref="T:System.Single"/>.
+            </summary>
+            <param name = "value">The value to be converted.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Half.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.Half.Equals(Vortice.Mathematics.Half)">
+            <summary>
+            Determines whether the specified <see cref="T:Vortice.Mathematics.Half"/> is equal to this instance.
+            </summary>
+            <param name="other">The <see cref="T:Vortice.Mathematics.Half"/> to compare with this instance.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Half.Equals(Vortice.Mathematics.Half@)">
+            <summary>
+            Determines whether the specified <see cref="T:Vortice.Mathematics.Half"/> is equal to this instance.
+            </summary>
+            <param name="other">The <see cref="T:Vortice.Mathematics.Half"/> to compare with this instance.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Half.op_Equality(Vortice.Mathematics.Half,Vortice.Mathematics.Half)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.Half"/> objects for equality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.Half"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.Half"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is equal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Half.op_Inequality(Vortice.Mathematics.Half,Vortice.Mathematics.Half)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.Half"/> objects for inequality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.Half"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.Half"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is unequal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Half.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.Half.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Vortice.Mathematics.Half2">
+            <summary>
+            Packed vector type containing two 16-bit floating-point values.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Half2.X">
+            <summary>
+            Gets or sets the X component of the vector.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Half2.Y">
+            <summary>
+            Gets or sets the Y component of the vector.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.Half2.PackedValue">
+            <summary>
+            Gets or sets the packed value of this <see cref="T:Vortice.Mathematics.Half2"/> structure. 
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.Half2.#ctor(Vortice.Mathematics.Half,Vortice.Mathematics.Half)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Half2"/> structure.
+            </summary>
+            <param name="x">The X component.</param>
+            <param name="y">The Y component.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Half2.#ctor(System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Half2"/> structure.
+            </summary>
+            <param name="x">The X component.</param>
+            <param name="y">The Y component.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Half2.#ctor(System.UInt16,System.UInt16)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpDX.Half2" /> structure.
+            </summary>
+            <param name="x">The X component.</param>
+            <param name="y">The Y component.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Half2.#ctor(Vortice.Mathematics.Half)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpDX.Half2" /> structure.
+            </summary>
+            <param name="value">The value to set for both the X and Y components.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Half2.#ctor(System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SharpDX.Half2" /> structure.
+            </summary>
+            <param name="value">Value to initialize X and Y components with.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Half2.op_Implicit(System.Numerics.Vector2)~Vortice.Mathematics.Half2">
+            <summary>
+            Performs an explicit conversion from <see cref="T:System.Numerics.Vector2"/> to <see cref="T:Vortice.Mathematics.Half2"/>.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Half2.op_Implicit(Vortice.Mathematics.Half2)~System.Numerics.Vector2">
+            <summary>
+            Performs an explicit conversion from <see cref="T:Vortice.Mathematics.Half2"/> to <see cref="T:System.Numerics.Vector2"/>.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Half2.ToVector2">
+            <summary>
+            Expands this <see cref="T:Vortice.Mathematics.Half2"/> structure to a <see cref="T:System.Numerics.Vector2"/>.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.Half2.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.Half2.Equals(Vortice.Mathematics.Half2)">
+            <summary>
+            Determines whether the specified <see cref="T:Vortice.Mathematics.Half2"/> is equal to this instance.
+            </summary>
+            <param name="other">The <see cref="T:Vortice.Mathematics.Half2"/> to compare with this instance.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Half2.Equals(Vortice.Mathematics.Half2@)">
+            <summary>
+            Determines whether the specified <see cref="T:Vortice.Mathematics.Half2"/> is equal to this instance.
+            </summary>
+            <param name="other">The <see cref="T:Vortice.Mathematics.Half2"/> to compare with this instance.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Half2.op_Equality(Vortice.Mathematics.Half2,Vortice.Mathematics.Half2)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.Half2"/> objects for equality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.Half2"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.Half2"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is equal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Half2.op_Inequality(Vortice.Mathematics.Half2,Vortice.Mathematics.Half2)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.Half2"/> objects for inequality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.Half2"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.Half2"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is unequal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Half2.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.Half2.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Vortice.Mathematics.Int3">
+            <summary>
+            Represents a three dimensional mathematical int vector.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Int3.Zero">
+            <summary>
+            A <see cref="T:Vortice.Mathematics.Int3"/> with all of its components set to zero.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Int3.UnitX">
+            <summary>
+            The X unit <see cref="T:Vortice.Mathematics.Int3"/> (1, 0, 0).
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Int3.UnitY">
+            <summary>
+            The Y unit <see cref="T:Vortice.Mathematics.Int3"/> (0, 1, 0).
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Int3.UnitZ">
+            <summary>
+            The Y unit <see cref="T:Vortice.Mathematics.Int3"/> (0, 0, 1).
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Int3.One">
+            <summary>
+            A <see cref="T:Vortice.Mathematics.Int3"/> with all of its components set to one.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Int3.X">
+            <summary>
+            The X component of the vector.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Int3.Y">
+            <summary>
+            The Y component of the vector.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Int3.Z">
+            <summary>
+            The Z component of the vector.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.Int3.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Int3"/> struct.
+            </summary>
+            <param name="value">The value that will be assigned to all components.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Int3.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Int3" /> struct.
+            </summary>
+            <param name="x">Initial value for the X component of the vector.</param>
+            <param name="y">Initial value for the Y component of the vector.</param>
+            <param name="z">Initial value for the Z component of the vector.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Int3.ToArray">
+            <summary>
+            Creates an array containing the elements of the vector.
+            </summary>
+            <returns>A three-element array containing the components of the vector.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Int3.op_Explicit(Vortice.Mathematics.Int3)~Vortice.Mathematics.Point">
+            <summary>
+            Performs an explicit conversion from <see cref="T:Vortice.Mathematics.Int3" /> to <see cref="T:Vortice.Mathematics.Point" />.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Int3.op_Explicit(Vortice.Mathematics.Int3)~System.Numerics.Vector2">
+            <summary>
+            Performs an explicit conversion from <see cref="T:Vortice.Mathematics.Int3" /> to <see cref="T:System.Numerics.Vector2"/>.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Int3.op_Explicit(Vortice.Mathematics.Int3)~System.Numerics.Vector3">
+            <summary>
+            Performs an explicit conversion from <see cref="T:Vortice.Mathematics.Int3" /> to <see cref="T:System.Numerics.Vector3"/>.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Int3.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.Int3.Equals(Vortice.Mathematics.Int3)">
+            <summary>
+            Determines whether the specified <see cref="T:Vortice.Mathematics.Int3"/> is equal to this instance.
+            </summary>
+            <param name="other">The <see cref="T:Vortice.Mathematics.Int3"/> to compare with this instance.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Int3.Equals(Vortice.Mathematics.Int3@)">
+            <summary>
+            Determines whether the specified <see cref="T:Vortice.Mathematics.Int3"/> is equal to this instance.
+            </summary>
+            <param name="other">The <see cref="T:Vortice.Mathematics.Int3"/> to compare with this instance.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Int3.op_Equality(Vortice.Mathematics.Int3,Vortice.Mathematics.Int3)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.Int3"/> objects for equality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.Int3"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.Int3"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is equal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Int3.op_Inequality(Vortice.Mathematics.Int3,Vortice.Mathematics.Int3)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.Int3"/> objects for inequality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.Int3"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.Int3"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is unequal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Int3.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.Int3.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Vortice.Mathematics.Int4">
+            <summary>
+            Represents a four dimensional mathematical int vector.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Int4.Zero">
+            <summary>
+            A <see cref="T:Vortice.Mathematics.Int4"/> with all of its components set to zero.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Int4.UnitX">
+            <summary>
+            The X unit <see cref="T:Vortice.Mathematics.Int4"/> (1, 0, 0, 0).
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Int4.UnitY">
+            <summary>
+            The Y unit <see cref="T:Vortice.Mathematics.Int4"/> (0, 1, 0, 0).
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Int4.UnitZ">
+            <summary>
+            The Y unit <see cref="T:Vortice.Mathematics.Int4"/> (0, 0, 1, 0).
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Int4.UnitW">
+            <summary>
+            The W unit <see cref="T:Vortice.Mathematics.Int4"/> (0, 0, 0, 1).
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Int4.One">
+            <summary>
+            A <see cref="T:Vortice.Mathematics.Int4"/> with all of its components set to one.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Int4.X">
+            <summary>
+            The X component of the vector.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Int4.Y">
+            <summary>
+            The Y component of the vector.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Int4.Z">
+            <summary>
+            The Z component of the vector.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Int4.W">
+            <summary>
+            The W component of the vector.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.Int4.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Int4"/> struct.
+            </summary>
+            <param name="value">The value that will be assigned to all components.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Int4.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Int4" /> struct.
+            </summary>
+            <param name="x">Initial value for the X component of the vector.</param>
+            <param name="y">Initial value for the Y component of the vector.</param>
+            <param name="z">Initial value for the Z component of the vector.</param>
+            <param name="w">Initial value for the Z component of the vector.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Int4.#ctor(Vortice.Mathematics.Int3,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Int4" /> struct.
+            </summary>
+            <param name="value">A <see cref="T:Vortice.Mathematics.Int3"/> containing the values with which to initialize the X, Y, and Z components.</param>
+            <param name="w">Initial value for the W component of the vector.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Int4.#ctor(Vortice.Mathematics.Point,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Int4" /> struct.
+            </summary>
+            <param name="value">A <see cref="T:Vortice.Mathematics.Point"/> containing the values with which to initialize the X and Y components.</param>
+            <param name="z">Initial value for the Z component of the vector.</param>
+            <param name="w">Initial value for the W component of the vector.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Int4.#ctor(System.Int32[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Int4" /> struct.
+            </summary>
+            <param name="values">
+            The values to assign to the X, Y, Z, and W components of the vector. This must be an array with four elements.
+            </param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="values" /> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Thrown when <paramref name="values" /> contains more or less than four elements.
+            </exception>
+        </member>
+        <member name="M:Vortice.Mathematics.Int4.ToArray">
+            <summary>
+            Creates an array containing the elements of the vector.
+            </summary>
+            <returns>A four-element array containing the components of the vector.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Int4.op_Explicit(Vortice.Mathematics.Int4)~Vortice.Mathematics.Point">
+            <summary>
+            Performs an explicit conversion from <see cref="T:Vortice.Mathematics.Int4" /> to <see cref="T:Vortice.Mathematics.Point" />.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Int4.op_Explicit(Vortice.Mathematics.Int4)~Vortice.Mathematics.Int3">
+            <summary>
+            Performs an explicit conversion from <see cref="T:Vortice.Mathematics.Int4" /> to <see cref="T:Vortice.Mathematics.Int3" />.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Int4.op_Explicit(Vortice.Mathematics.Int4)~System.Numerics.Vector2">
+            <summary>
+            Performs an explicit conversion from <see cref="T:Vortice.Mathematics.Int4" /> to <see cref="T:System.Numerics.Vector2"/>.
+            </summary>
+            <param name = "value">The value to convert.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Int4.op_Explicit(Vortice.Mathematics.Int4)~System.Numerics.Vector3">
+            <summary>
+            Performs an explicit conversion from <see cref="T:Vortice.Mathematics.Int4" /> to <see cref="T:System.Numerics.Vector3"/>.
+            </summary>
+            <param name = "value">The value to convert.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Int4.op_Explicit(Vortice.Mathematics.Int4)~System.Numerics.Vector4">
+            <summary>
+            Performs an explicit conversion from <see cref="T:Vortice.Mathematics.Int4" /> to <see cref="T:System.Numerics.Vector4"/>.
+            </summary>
+            <param name = "value">The value to convert.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Int4.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.Int4.Equals(Vortice.Mathematics.Int4)">
+            <summary>
+            Determines whether the specified <see cref="T:Vortice.Mathematics.Int4"/> is equal to this instance.
+            </summary>
+            <param name="other">The <see cref="T:Vortice.Mathematics.Int4"/> to compare with this instance.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Int4.Equals(Vortice.Mathematics.Int4@)">
+            <summary>
+            Determines whether the specified <see cref="T:Vortice.Mathematics.Int4"/> is equal to this instance.
+            </summary>
+            <param name="other">The <see cref="T:Vortice.Mathematics.Int4"/> to compare with this instance.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Int4.op_Equality(Vortice.Mathematics.Int4,Vortice.Mathematics.Int4)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.Int4"/> objects for equality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.Int4"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.Int4"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is equal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Int4.op_Inequality(Vortice.Mathematics.Int4,Vortice.Mathematics.Int4)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.Int4"/> objects for inequality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.Int4"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.Int4"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is unequal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Int4.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.Int4.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Vortice.Mathematics.MathHelper">
+            <summary>
+            Defines a math helper class.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.MathHelper.ZeroTolerance">
+            <summary>
+            The value for which all absolute numbers smaller than are considered equal to zero.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.MathHelper.E">
+            <summary>
+            Represents the mathematical constant e.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.MathHelper.Log2E">
+            <summary>
+            Represents the log base two of e.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.MathHelper.Log10E">
+            <summary>
+            Represents the log base ten of e.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.MathHelper.Pi">
+            <summary>
+            Represents the value of pi.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.MathHelper.TwoPi">
+            <summary>
+            Represents the value of pi times two.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.MathHelper.PiOver2">
+            <summary>
+            Represents the value of pi divided by two.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.MathHelper.PiOver4">
+            <summary>
+            Represents the value of pi divided by four.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.MathHelper.WithinEpsilon(System.Single,System.Single,System.Single)">
+            <summary>
+            Checks if a - b are almost equals within a float epsilon.
+            </summary>
+            <param name="a">The left value to compare.</param>
+            <param name="b">The right value to compare.</param>
+            <param name="epsilon">Epsilon value</param>
+            <returns><c>true</c> if a almost equal to b within a float epsilon, <c>false</c> otherwise</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.MathHelper.NearEqual(System.Single,System.Single)">
+            <summary>
+            Checks if a and b are almost equals, taking into account the magnitude of floating point numbers (unlike <see cref="M:Vortice.Mathematics.MathHelper.WithinEpsilon(System.Single,System.Single,System.Single)"/> method). See Remarks.
+            See remarks.
+            </summary>
+            <param name="a">The left value to compare.</param>
+            <param name="b">The right value to compare.</param>
+            <returns><c>true</c> if a almost equal to b, <c>false</c> otherwise</returns>
+            <remarks>
+            The code is using the technique described by Bruce Dawson in 
+            <a href="http://randomascii.wordpress.com/2012/02/25/comparing-floating-point-numbers-2012-edition/">Comparing Floating point numbers 2012 edition</a>. 
+            </remarks>
+        </member>
+        <member name="M:Vortice.Mathematics.MathHelper.IsZero(System.Single)">
+            <summary>
+            Determines whether the specified value is close to zero (0.0f).
+            </summary>
+            <param name="a">The floating value.</param>
+            <returns><c>true</c> if the specified value is close to zero (0.0f); otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.MathHelper.IsOne(System.Single)">
+            <summary>
+            Determines whether the specified value is close to one (1.0f).
+            </summary>
+            <param name="a">The floating value.</param>
+            <returns><c>true</c> if the specified value is close to one (1.0f); otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.MathHelper.ToDegrees(System.Single)">
+            <summary>
+            Converts radians to degrees.
+            </summary>
+            <param name="radians">The angle in radians.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.MathHelper.ToRadians(System.Single)">
+            <summary>
+            Converts degrees to radians.
+            </summary>
+            <param name="degree">Converts degrees to radians.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.MathHelper.Clamp(System.Single,System.Single,System.Single)">
+            <summary>
+            Clamps the specified value.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="min">The min.</param>
+            <param name="max">The max.</param>
+            <returns>The result of clamping a value between min and max</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.MathHelper.Clamp(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Clamps the specified value.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="min">The min.</param>
+            <param name="max">The max.</param>
+            <returns>The result of clamping a value between min and max</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.MathHelper.Lerp(System.Single,System.Single,System.Single)">
+            <summary>
+            Linearly interpolates between two values.
+            </summary>
+            <param name="value1">Source value1.</param>
+            <param name="value2">Source value2.</param>
+            <param name="amount">Value between 0 and 1 indicating the weight of value2.</param>
+            <returns>The result of linear interpolation of values based on the amount.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.MathHelper.Distance(System.Single,System.Single)">
+            <summary>
+            Calculates the absolute value of the difference of two values.
+            </summary>
+            <param name="value1">Source value1.</param>
+            <param name="value2">Source value2.</param>
+            <returns>The distance value.</returns>
+        </member>
+        <member name="T:Vortice.Mathematics.Matrix3x3">
+            <summary>
+            Describes a 3-by-3 floating point matrix.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix3x3.Zero">
+            <summary>
+            A <see cref="T:Vortice.Mathematics.Matrix3x3"/> with all of its components set to zero.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix3x3.Identity">
+            <summary>
+            The identity <see cref="T:Vortice.Mathematics.Matrix3x3"/>.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix3x3.M11">
+            <summary>
+            Value at row 1 column 1.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix3x3.M12">
+            <summary>
+            Value at row 1 column 2.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix3x3.M13">
+            <summary>
+            Value at row 1 column 3.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix3x3.M21">
+            <summary>
+            Value at row 2 column 1.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix3x3.M22">
+            <summary>
+            Value at row 2 column 2.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix3x3.M23">
+            <summary>
+            Value at row 2 column 3.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix3x3.M31">
+            <summary>
+            Value at row 3 column 1.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix3x3.M32">
+            <summary>
+            Value at row 3 column 2.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix3x3.M33">
+            <summary>
+            Value at row 3 column 3.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.Matrix3x3.#ctor(System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Matrix3x3"/> struct.
+            </summary>
+            <param name="value">The value that will be assigned to all components.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Matrix3x3.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of <see cref="T:Vortice.Mathematics.Matrix3x3"/> struct.
+            </summary>
+            <param name="m11">The value to assign at row 1 column 1 of the Matrix3x3.</param>
+            <param name="m12">The value to assign at row 1 column 2 of the Matrix3x3.</param>
+            <param name="m13">The value to assign at row 1 column 3 of the Matrix3x3.</param>
+            <param name="m21">The value to assign at row 2 column 1 of the Matrix3x3.</param>
+            <param name="m22">The value to assign at row 2 column 2 of the Matrix3x3.</param>
+            <param name="m23">The value to assign at row 2 column 3 of the Matrix3x3.</param>
+            <param name="m31">The value to assign at row 3 column 1 of the Matrix3x3.</param>
+            <param name="m32">The value to assign at row 3 column 2 of the Matrix3x3.</param>
+            <param name="m33">The value to assign at row 3 column 3 of the Matrix3x3.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Matrix3x3.#ctor(System.Single[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Matrix3x3"/> struct.
+            </summary>
+            <param name="values">The values to assign to the components of the Matrix3x3. This must be an array with sixteen elements.</param>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="values"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown when <paramref name="values"/> contains more or less than sixteen elements.</exception>
+        </member>
+        <member name="T:Vortice.Mathematics.Matrix3x4">
+            <summary>
+            Describes a 3-by-4 floating point matrix.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix3x4.M11">
+            <summary>
+            Value at row 1 column 1.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix3x4.M12">
+            <summary>
+            Value at row 1 column 2.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix3x4.M13">
+            <summary>
+            Value at row 1 column 3.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix3x4.M14">
+            <summary>
+            Value at row 1 column 4.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix3x4.M21">
+            <summary>
+            Value at row 2 column 1.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix3x4.M22">
+            <summary>
+            Value at row 2 column 2.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix3x4.M23">
+            <summary>
+            Value at row 2 column 3.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix3x4.M24">
+            <summary>
+            Value at row 2 column 4.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix3x4.M31">
+            <summary>
+            Value at row 3 column 1.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix3x4.M32">
+            <summary>
+            Value at row 3 column 2.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix3x4.M33">
+            <summary>
+            Value at row 3 column 3.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix3x4.M34">
+            <summary>
+            Value at row 3 column 4.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.Matrix3x4.#ctor(System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Matrix3x4"/> struct.
+            </summary>
+            <param name="value">The value that will be assigned to all components.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Matrix3x4.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Matrix3x4"/> struct.
+            </summary>
+            <param name="m11">The value to assign at row 1 column 1 of the matrix.</param>
+            <param name="m12">The value to assign at row 1 column 2 of the matrix.</param>
+            <param name="m13">The value to assign at row 1 column 3 of the matrix.</param>
+            <param name="m14">The value to assign at row 1 column 4 of the matrix.</param>
+            <param name="m21">The value to assign at row 2 column 1 of the matrix.</param>
+            <param name="m22">The value to assign at row 2 column 2 of the matrix.</param>
+            <param name="m23">The value to assign at row 2 column 3 of the matrix.</param>
+            <param name="m24">The value to assign at row 2 column 4 of the matrix.</param>
+            <param name="m31">The value to assign at row 3 column 1 of the matrix.</param>
+            <param name="m32">The value to assign at row 3 column 2 of the matrix.</param>
+            <param name="m33">The value to assign at row 3 column 3 of the matrix.</param>
+            <param name="m34">The value to assign at row 3 column 4 of the matrix.</param>
+        </member>
+        <member name="T:Vortice.Mathematics.Matrix4x3">
+            <summary>
+            Describes a 4-by-3 floating point matrix.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix4x3.M11">
+            <summary>
+            Value at row 1 column 1.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix4x3.M12">
+            <summary>
+            Value at row 1 column 2.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix4x3.M13">
+            <summary>
+            Value at row 1 column 3.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix4x3.M21">
+            <summary>
+            Value at row 2 column 1.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix4x3.M22">
+            <summary>
+            Value at row 2 column 2.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix4x3.M23">
+            <summary>
+            Value at row 2 column 3.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix4x3.M31">
+            <summary>
+            Value at row 3 column 1.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix4x3.M32">
+            <summary>
+            Value at row 3 column 2.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix4x3.M33">
+            <summary>
+            Value at row 3 column 3.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix4x3.M41">
+            <summary>
+            Value at row 4 column 1.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix4x3.M42">
+            <summary>
+            Value at row 4 column 2.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix4x3.M43">
+            <summary>
+            Value at row 4 column 3.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.Matrix4x3.#ctor(System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Matrix3x3"/> struct.
+            </summary>
+            <param name="value">The value that will be assigned to all components.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Matrix4x3.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Matrix4x3"/> struct.
+            </summary>
+            <param name="m11">The value to assign at row 1 column 1 of the Matrix4x3.</param>
+            <param name="m12">The value to assign at row 1 column 2 of the Matrix4x3.</param>
+            <param name="m13">The value to assign at row 1 column 3 of the Matrix4x3.</param>
+            <param name="m21">The value to assign at row 2 column 1 of the Matrix4x3.</param>
+            <param name="m22">The value to assign at row 2 column 2 of the Matrix4x3.</param>
+            <param name="m23">The value to assign at row 2 column 3 of the Matrix4x3.</param>
+            <param name="m31">The value to assign at row 3 column 1 of the Matrix4x3.</param>
+            <param name="m32">The value to assign at row 3 column 2 of the Matrix4x3.</param>
+            <param name="m33">The value to assign at row 3 column 3 of the Matrix4x3.</param>
+            <param name="m41">The value to assign at row 4 column 1 of the Matrix4x3.</param>
+            <param name="m42">The value to assign at row 4 column 2 of the Matrix4x3.</param>
+            <param name="m43">The value to assign at row 4 column 3 of the Matrix4x3.</param>
+        </member>
+        <member name="T:Vortice.Mathematics.Matrix5x4">
+            <summary>
+            Describes a 5-by-4 floating point matrix.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix5x4.M11">
+            <summary>
+            Value at row 1 column 1.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix5x4.M12">
+            <summary>
+            Value at row 1 column 2.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix5x4.M13">
+            <summary>
+            Value at row 1 column 3.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix5x4.M14">
+            <summary>
+            Value at row 1 column 4.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix5x4.M21">
+            <summary>
+            Value at row 2 column 1.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix5x4.M22">
+            <summary>
+            Value at row 2 column 2.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix5x4.M23">
+            <summary>
+            Value at row 2 column 3.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix5x4.M24">
+            <summary>
+            Value at row 2 column 4.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix5x4.M31">
+            <summary>
+            Value at row 3 column 1.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix5x4.M32">
+            <summary>
+            Value at row 3 column 2.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix5x4.M33">
+            <summary>
+            Value at row 3 column 3.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix5x4.M34">
+            <summary>
+            Value at row 3 column 4.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix5x4.M41">
+            <summary>
+            Value at row 4 column 1.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix5x4.M42">
+            <summary>
+            Value at row 4 column 2.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix5x4.M43">
+            <summary>
+            Value at row 4 column 3.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix5x4.M44">
+            <summary>
+            Value at row 4 column 4.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix5x4.M51">
+            <summary>
+            Value at row 5 column 1.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix5x4.M52">
+            <summary>
+            Value at row 5 column 2.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix5x4.M53">
+            <summary>
+            Value at row 5 column 3.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Matrix5x4.M54">
+            <summary>
+            Value at row 5 column 4.
+            </summary>
+        </member>
+        <member name="T:Vortice.Mathematics.PackedVector.IPackedVector">
+            <summary>
+            Interface that converts packed vector types to and from <see cref="T:System.Numerics.Vector4"/> values.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.PackedVector.IPackedVector.ToVector4">
+            <summary>
+            Converts the packed representation into a <see cref="T:System.Numerics.Vector4"/>.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.PackedVector.IPackedVector.PackFromVector4(System.Numerics.Vector4)">
+            <summary>Packed value from a <see cref="T:System.Numerics.Vector4"/>.</summary>
+            <param name="vector">The vector to create the packed representation from.</param>
+        </member>
+        <member name="T:Vortice.Mathematics.PackedVector.IPackedVector`1">
+            <summary>
+            Converts packed vector types to and from <see cref="T:System.Numerics.Vector4"/> values.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.PackedVector.IPackedVector`1.PackedValue">
+            <summary>
+            Gets or Sets the packed representation of the value.
+            </summary>
+        </member>
+        <member name="T:Vortice.Mathematics.Point">
+            <summary>
+            Represents an ordered pair of integer x and y-coordinates that defines a point in a two-dimensional plane.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Point.Empty">
+            <summary>
+            Represents a <see cref="T:Vortice.Mathematics.Point"/> that has X and Y values set to zero.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Point"/> struct.
+            </summary>
+            <param name="value">The horizontal and vertical position of the point.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Point" /> struct.
+            </summary>
+            <param name="x">Initial value for the X component of the point.</param>
+            <param name="y">Initial value for the Y component of the point.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.#ctor(Vortice.Mathematics.Size)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Point" /> struct.
+            </summary>
+            <param name="size">The <see cref="T:Vortice.Mathematics.Size"/> to initialize from.</param>
+        </member>
+        <member name="P:Vortice.Mathematics.Point.X">
+            <summary>
+            Gets or sets the x-coordinate of this <see cref="T:Vortice.Mathematics.Point"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.Point.Y">
+            <summary>
+            Gets or sets the y-coordinate of this <see cref="T:Vortice.Mathematics.Point"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.Point.IsEmpty">
+            <summary>
+            Gets a value indicating whether this <see cref="T:Vortice.Mathematics.Point"/> is empty.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.op_Implicit(Vortice.Mathematics.Point)~Vortice.Mathematics.PointF">
+            <summary>
+            Performs an implicit conversion from <see cref="T:Vortice.Mathematics.Point"/> to <see cref="T:Vortice.Mathematics.PointF" />.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.op_Implicit(Vortice.Mathematics.Point)~System.Numerics.Vector2">
+            <summary>
+            Performs an implicit conversion from <see cref="T:Vortice.Mathematics.Point"/> to <see cref="T:System.Numerics.Vector2" />.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.op_Implicit(Vortice.Mathematics.Point)~System.Drawing.Point">
+            <summary>
+            Performs an implicit conversion from <see cref="T:Vortice.Mathematics.Point"/> to <see cref="T:System.Drawing.Point" />.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.op_Implicit(System.Drawing.Point)~Vortice.Mathematics.Point">
+            <summary>
+            Performs an implicit conversion from <see cref="T:System.Drawing.Point" /> to <see cref="T:Vortice.Mathematics.Point"/>.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.op_Explicit(Vortice.Mathematics.Point)~Vortice.Mathematics.Size">
+            <summary>
+            Performs an explicit conversion from <see cref="T:Vortice.Mathematics.Point"/> to <see cref="T:Vortice.Mathematics.Size" />.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.op_Addition(Vortice.Mathematics.Point,Vortice.Mathematics.Size)">
+            <summary>Translates a <see cref="T:Vortice.Mathematics.Point"/> /> by a given <see cref="T:Vortice.Mathematics.Size"/>.</summary>
+            <param name="point">The <see cref="T:Vortice.Mathematics.Point"/> to translate.</param>
+            <param name="size">A <see cref="T:Vortice.Mathematics.Size"/> that specifies the pair of numbers to add to the coordinates of <paramref name="point" />.</param>
+            <returns>Returns the translated <see cref="T:Vortice.Mathematics.Point"/>.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.op_Addition(Vortice.Mathematics.Point,Vortice.Mathematics.Point)">
+            <param name="left">The <see cref="T:Vortice.Mathematics.Point"/> to translate.</param>
+            <param name="right">A point that specifies the pair of numbers to add to the coordinates of <paramref name="left" />.</param>
+            <summary>Translates a <see cref="T:Vortice.Mathematics.Point"/> by a given offset.</summary>
+            <returns>Returns the translated <see cref="T:Vortice.Mathematics.Point"/>.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.op_Subtraction(Vortice.Mathematics.Point,Vortice.Mathematics.Size)">
+            <summary>
+            Translates a <see cref="T:Vortice.Mathematics.Point"/> by the negative of a given <see cref="T:Vortice.Mathematics.Size" />.
+            </summary>
+            <param name="point">The <see cref="T:Vortice.Mathematics.Point"/> to translate.</param>
+            <param name="size">The <see cref="T:Vortice.Mathematics.Size" /> that specifies the numbers to subtract from the coordinates of <paramref name="point" />.</param>
+            <returns>The translated <see cref="T:Vortice.Mathematics.Point"/>.</returns>
+            <remarks />
+        </member>
+        <member name="M:Vortice.Mathematics.Point.op_Subtraction(Vortice.Mathematics.Point,Vortice.Mathematics.Point)">
+            <summary>
+            Translates a <see cref="T:Vortice.Mathematics.Point"/> by the negative of a given point.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.Point"/> to translate.</param>
+            <param name="right">The point that specifies the numbers to subtract from the coordinates of <paramref name="left" />.</param>
+            <returns>The translated <see cref="T:Vortice.Mathematics.Point"/>.</returns>
+            <remarks />
+        </member>
+        <member name="M:Vortice.Mathematics.Point.op_Multiply(System.Int32,Vortice.Mathematics.Point)">
+            <summary>
+            Multiplies <see cref="T:Vortice.Mathematics.Point"/> by a <see cref="T:System.Int32"/> producing <see cref="T:Vortice.Mathematics.Point"/>.
+            </summary>
+            <param name="left">Multiplier of type <see cref="T:System.Int32"/>.</param>
+            <param name="right">Multiplicand of type <see cref="T:Vortice.Mathematics.Point"/>.</param>
+            <returns>Product of type <see cref="T:Vortice.Mathematics.Point"/>.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.op_Multiply(Vortice.Mathematics.Point,System.Int32)">
+            <summary>
+            Multiplies <see cref="T:Vortice.Mathematics.Point"/> by a <see cref="T:System.Int32"/> producing <see cref="T:Vortice.Mathematics.Point"/>.
+            </summary>
+            <param name="left">Multiplicand of type <see cref="T:Vortice.Mathematics.Point"/>.</param>
+            <param name="right">Multiplier of type <see cref="T:System.Int32"/>.</param>
+            <returns>Product of type <see cref="T:Vortice.Mathematics.Point"/>.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.op_Division(Vortice.Mathematics.Point,System.Int32)">
+            <summary>
+            Divides <see cref="T:Vortice.Mathematics.Point"/> by a <see cref="T:System.Int32"/> producing <see cref="T:Vortice.Mathematics.Point"/>.
+            </summary>
+            <param name="left">Dividend of type <see cref="T:Vortice.Mathematics.Point"/>.</param>
+            <param name="right">Divisor of type <see cref="T:System.Int32"/>.</param>
+            <returns>Result of type <see cref="T:Vortice.Mathematics.Point"/>.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.op_Equality(Vortice.Mathematics.Point,Vortice.Mathematics.Point)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.Point"/> objects for equality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.Point"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.Point"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is equal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.op_Inequality(Vortice.Mathematics.Point,Vortice.Mathematics.Point)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.Point"/> objects for inequality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.Point"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.Point"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is unequal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.Add(Vortice.Mathematics.Point,Vortice.Mathematics.Size)">
+            <summary>
+            Translates a given <see cref="T:Vortice.Mathematics.Point"/> by the specified <see cref="T:Vortice.Mathematics.Size"/>.
+            </summary>
+            <param name="point">The point to translate.</param>
+            <param name="size">The size that specifies the number to add to the coordinates of <paramref name="point" />.</param>
+            <returns>The translated point.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.Add(Vortice.Mathematics.Point,Vortice.Mathematics.Point)">
+            <summary>
+            Translates a given <see cref="T:Vortice.Mathematics.Point"/> by the specified point.
+            </summary>
+            <param name="left">The point to translate.</param>
+            <param name="right">The point that specifies the number to add to the coordinates of <paramref name="left" />.</param>
+            <returns>The translated point.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.Multiply(Vortice.Mathematics.Point,System.Int32)">
+            <summary>
+            Translates a <see cref="T:Vortice.Mathematics.Point"/> by the negative of a given value.
+            </summary>
+            <param name="point">The point on the left hand of the operand.</param>
+            <param name="value">The value on the right hand of the operand.</param>
+            <returns>The <see cref="T:Vortice.Mathematics.Point"/>.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.Subtract(Vortice.Mathematics.Point,Vortice.Mathematics.Size)">
+            <summary>
+            Returns the result of subtracting specified <see cref="T:Vortice.Mathematics.Size" /> from the specified <see cref="T:Vortice.Mathematics.Point" />.
+            </summary>
+            <param name="point">The <see cref="T:Vortice.Mathematics.Point" /> to be subtracted from.</param>
+            <param name="size">The <see cref="T:Vortice.Mathematics.Size" /> to subtract from the <see cref="T:Vortice.Mathematics.Point" />.</param>
+            <returns>The <see cref="T:Vortice.Mathematics.Point" /> that is the result of the subtraction operation.</returns>
+            <remarks />
+        </member>
+        <member name="M:Vortice.Mathematics.Point.Subtract(Vortice.Mathematics.Point,Vortice.Mathematics.Point)">
+            <summary>
+            Returns the result of subtracting specified point from the specified <see cref="T:Vortice.Mathematics.Point" />.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.Point" /> to be subtracted from.</param>
+            <param name="right">The point to subtract from the <see cref="T:Vortice.Mathematics.Point" />.</param>
+            <returns>The <see cref="T:Vortice.Mathematics.Point" /> that is the result of the subtraction operation.</returns>
+            <remarks />
+        </member>
+        <member name="M:Vortice.Mathematics.Point.Ceiling(Vortice.Mathematics.PointF)">
+            <summary>
+            Converts a <see cref="T:Vortice.Mathematics.PointF"/> to a <see cref="T:Vortice.Mathematics.Point"/> by performing a ceiling operation on all the coordinates.
+            </summary>
+            <param name="point">The point.</param>
+            <returns>The <see cref="T:Vortice.Mathematics.Point"/>.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.Round(Vortice.Mathematics.PointF)">
+            <summary>
+            Converts a <see cref="T:Vortice.Mathematics.PointF"/> to a <see cref="T:Vortice.Mathematics.Point"/> by performing a round operation on all the coordinates.
+            </summary>
+            <param name="point">The point.</param>
+            <returns>The <see cref="T:Vortice.Mathematics.Point"/>.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.Round(System.Numerics.Vector2)">
+            <summary>
+            Converts a <see cref="T:System.Numerics.Vector2"/> to a <see cref="T:Vortice.Mathematics.Point"/> by performing a round operation on all the coordinates.
+            </summary>
+            <param name="vector">The vector.</param>
+            <returns>The <see cref="T:Vortice.Mathematics.Point"/>.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.Truncate(Vortice.Mathematics.PointF)">
+            <summary>
+            Converts a <see cref="T:Vortice.Mathematics.PointF"/> to a <see cref="T:Vortice.Mathematics.Point"/> by performing a truncate operation on all the coordinates.
+            </summary>
+            <param name="point">The point.</param>
+            <returns>The <see cref="T:Vortice.Mathematics.Point"/>.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.Normalize(Vortice.Mathematics.Point)">
+            <summary>
+            Returns a point with the same direction as the specified point, but with a length of one.
+            </summary>
+            <param name="point">The point to normalize.</param>
+            <returns>Returns a point with a length of one.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.Distance(Vortice.Mathematics.Point,Vortice.Mathematics.Point)">
+            <summary>
+            Calculate the Euclidean distance between two points.
+            </summary>
+            <param name="first">The first point.</param>
+            <param name="second">The second point.</param>
+            <returns>Returns the Euclidean distance between two points.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.DistanceSquared(Vortice.Mathematics.Point,Vortice.Mathematics.Point)">
+            <summary>
+            Calculate the Euclidean distance squared between two points.
+            </summary>
+            <param name="first">The first point.</param>
+            <param name="second">The second point.</param>
+            <returns>Returns the Euclidean distance squared between two points</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.Reflect(Vortice.Mathematics.Point,Vortice.Mathematics.Point)">
+            <summary>
+            Returns the reflection of a point off a surface that has the specified normal.
+            </summary>
+            <param name="point">The point to reflect.</param>
+            <param name="normal">The normal</param>
+            <returns>Returns the reflection of a point.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.Transform(Vortice.Mathematics.Point,System.Numerics.Matrix3x2)">
+            <summary>
+            Transforms a point by a specified 3x2 matrix.
+            </summary>
+            <param name="point">The point to transform.</param>
+            <param name="matrix">The transformation matrix used.</param>
+            <returns>The transformed <see cref="T:Vortice.Mathematics.Point"/>.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.Deconstruct(System.Int32@,System.Int32@)">
+            <summary>
+            Deconstructs this point into two integers.
+            </summary>
+            <param name="x">The out value for X.</param>
+            <param name="y">The out value for Y.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.Offset(System.Int32,System.Int32)">
+            <summary>
+            Translates this <see cref="T:Vortice.Mathematics.Point"/> by the specified amount.
+            </summary>
+            <param name="dx">The amount to offset the x-coordinate.</param>
+            <param name="dy">The amount to offset the y-coordinate.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.Offset(Vortice.Mathematics.Point)">
+            <summary>
+            Translates this <see cref="T:Vortice.Mathematics.Point"/> by the specified amount.
+            </summary>
+            <param name="point">The <see cref="T:Vortice.Mathematics.Point"/> used offset this <see cref="T:Vortice.Mathematics.Point"/>.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.Point.Equals(Vortice.Mathematics.Point)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Vortice.Mathematics.Point3">
+            <summary>
+            Represents a three-dimensional offset.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Point3.Empty">
+            <summary>
+            A <see cref="T:Vortice.Mathematics.Point3"/> with all of its components set to zero.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Point3.UnitX">
+            <summary>
+            The X unit <see cref="T:Vortice.Mathematics.Point3"/> (1, 0, 0).
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Point3.UnitY">
+            <summary>
+            The Y unit <see cref="T:Vortice.Mathematics.Point3"/> (0, 1, 0).
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Point3.UnitZ">
+            <summary>
+            The Z unit <see cref="T:Vortice.Mathematics.Point3"/> (0, 0, 1).
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Point3.One">
+            <summary>
+            A <see cref="T:Vortice.Mathematics.Point3"/> with all of its components set to one.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.Point3.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Point3"/> struct.
+            </summary>
+            <param name="value">The value that will be assigned to all components.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Point3.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Point3" /> struct.
+            </summary>
+            <param name="x">Initial value for the X component of the offset.</param>
+            <param name="y">Initial value for the Y component of the offset.</param>
+            <param name="z">Initial value for the Z component of the offset.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Point3.#ctor(System.Numerics.Vector2)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Point3"/> struct.
+            </summary>
+            <param name="value">A vector containing the values with which to initialize the X and Y components.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Point3.#ctor(System.Numerics.Vector3)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Point3"/> struct.
+            </summary>
+            <param name="value">A vector containing the values with which to initialize the X and Y components.</param>
+        </member>
+        <member name="F:Vortice.Mathematics.Point3.X">
+            <summary>
+            The X component of the offset.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Point3.Y">
+            <summary>
+            The Y component of the offset.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Point3.Z">
+            <summary>
+            The Z component of the offset.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.Point3.IsEmpty">
+            <summary>
+            Gets a value indicating whether this <see cref="T:Vortice.Mathematics.Point"/> is empty.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.Point3.Deconstruct(System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            Deconstructs this point into three integers.
+            </summary>
+            <param name="x">The out value for X.</param>
+            <param name="y">The out value for Y.</param>
+            <param name="z">The out value for Z.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Point3.op_Explicit(Vortice.Mathematics.Point3)~System.Numerics.Vector3">
+            <summary>
+            Performs an explicit conversion from <see cref="T:Vortice.Mathematics.Point3"/> to <see cref="T:System.Numerics.Vector3" />.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Point3.op_Explicit(Vortice.Mathematics.Point3)~System.Numerics.Vector4">
+            <summary>
+            Performs an explicit conversion from <see cref="T:Vortice.Mathematics.Point3"/> to <see cref="T:System.Numerics.Vector4"/>.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Point3.op_Equality(Vortice.Mathematics.Point3,Vortice.Mathematics.Point3)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.Point3"/> objects for equality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.Point3"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.Point3"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is equal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Point3.op_Inequality(Vortice.Mathematics.Point3,Vortice.Mathematics.Point3)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.Point3"/> objects for inequality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.Point3"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.Point3"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is unequal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Point3.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.Point3.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.Point3.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.Point3.Equals(Vortice.Mathematics.Point3)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Vortice.Mathematics.PointF">
+            <summary>
+            Represents an ordered pair of floating-point x and y-coordinates that defines a point in a two-dimensional plane.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.PointF.Empty">
+            <summary>
+            Represents a <see cref="T:Vortice.Mathematics.PointF"/> that has X and Y values set to zero.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.PointF.#ctor(System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.PointF" /> struct.
+            </summary>
+            <param name="x">Initial value for the X component of the point.</param>
+            <param name="y">Initial value for the Y component of the point.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.PointF.#ctor(Vortice.Mathematics.SizeF)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.PointF" /> struct.
+            </summary>
+            <param name="size">The <see cref="T:Vortice.Mathematics.SizeF"/> to initialize from.</param>
+        </member>
+        <member name="P:Vortice.Mathematics.PointF.X">
+            <summary>
+            Gets or sets the x-coordinate of this <see cref="T:Vortice.Mathematics.PointF"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.PointF.Y">
+            <summary>
+            Gets or sets the y-coordinate of this <see cref="T:Vortice.Mathematics.PointF"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.PointF.IsEmpty">
+            <summary>
+            Gets a value indicating whether this <see cref="T:Vortice.Mathematics.PointF"/> is empty.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.PointF.Transform(Vortice.Mathematics.PointF,System.Numerics.Matrix3x2)">
+            <summary>
+            Transforms a point by a specified 3x2 matrix.
+            </summary>
+            <param name="point">The point to transform.</param>
+            <param name="matrix">The transformation matrix used.</param>
+            <returns>The transformed <see cref="T:Vortice.Mathematics.PointF"/>.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.PointF.op_Implicit(System.Numerics.Vector2)~Vortice.Mathematics.PointF">
+            <summary>
+            Performs an implicit conversion from <see cref="T:System.Numerics.Vector2"/> to <see cref="T:Vortice.Mathematics.PointF" />.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.PointF.op_Implicit(Vortice.Mathematics.PointF)~System.Numerics.Vector2">
+            <summary>
+            Performs an implicit conversion from <see cref="T:Vortice.Mathematics.PointF"/> to <see cref="T:System.Numerics.Vector2" />.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.PointF.op_Implicit(Vortice.Mathematics.PointF)~System.Drawing.PointF">
+            <summary>
+            Performs an implicit conversion from <see cref="T:Vortice.Mathematics.PointF"/> to <see cref="T:System.Drawing.PointF" />.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.PointF.op_Implicit(System.Drawing.PointF)~Vortice.Mathematics.PointF">
+            <summary>
+            Performs an implicit conversion from <see cref="T:System.Drawing.PointF" /> to <see cref="T:Vortice.Mathematics.PointF"/>.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.PointF.op_Explicit(Vortice.Mathematics.PointF)~Vortice.Mathematics.Point">
+            <summary>
+            Performs an explicit conversion from <see cref="T:Vortice.Mathematics.PointF"/> to <see cref="T:Vortice.Mathematics.Point" />.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.PointF.op_Equality(Vortice.Mathematics.PointF,Vortice.Mathematics.PointF)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.PointF"/> objects for equality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.PointF"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.PointF"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is equal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.PointF.op_Inequality(Vortice.Mathematics.PointF,Vortice.Mathematics.PointF)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.PointF"/> objects for inequality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.PointF"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.PointF"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is unequal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.PointF.Deconstruct(System.Single@,System.Single@)">
+            <summary>
+            Deconstructs this point into two floats.
+            </summary>
+            <param name="x">The out value for X.</param>
+            <param name="y">The out value for Y.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.PointF.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.PointF.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.PointF.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.PointF.Equals(Vortice.Mathematics.PointF)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Vortice.Mathematics.Rectangle">
+            <summary>
+            Defines an integer rectangle structure defining X, Y, Width, Height.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Rectangle.Empty">
+            <summary>
+            Returns a <see cref="T:Vortice.Mathematics.Rectangle"/> with all of its values set to zero.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.Rectangle.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Rectangle"/> struct.
+            </summary>
+            <param name="x">The horizontal position of the rectangle.</param>
+            <param name="y">The vertical position of the rectangle.</param>
+            <param name="width">The width of the rectangle.</param>
+            <param name="height">The height of the rectangle.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Rectangle.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Rectangle"/> struct.
+            </summary>
+            <param name="width">The width of the rectangle.</param>
+            <param name="height">The height of the rectangle.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Rectangle.#ctor(Vortice.Mathematics.Point,Vortice.Mathematics.Size)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Rectangle"/> struct.
+            </summary>
+            <param name="point">
+            The <see cref="T:Vortice.Mathematics.Point"/> which specifies the rectangles point in a two-dimensional plane.
+            </param>
+            <param name="size">
+            The <see cref="P:Vortice.Mathematics.Rectangle.Size"/> which specifies the rectangles height and width.
+            </param>
+        </member>
+        <member name="P:Vortice.Mathematics.Rectangle.X">
+            <summary>
+            Gets or sets the x-coordinate of this <see cref="T:Vortice.Mathematics.Rectangle"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.Rectangle.Y">
+            <summary>
+            Gets or sets the y-coordinate of this <see cref="T:Vortice.Mathematics.Rectangle"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.Rectangle.Width">
+            <summary>
+            Gets or sets the width of this <see cref="T:Vortice.Mathematics.Rectangle"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.Rectangle.Height">
+            <summary>
+            Gets or sets the height of this <see cref="T:Vortice.Mathematics.Rectangle"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.Rectangle.Location">
+            <summary>
+            Gets or sets the upper-left value of the <see cref="T:Vortice.Mathematics.Rectangle"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.Rectangle.Size">
+            <summary>
+            Gets or sets the size of this <see cref="T:Vortice.Mathematics.Rectangle"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.Rectangle.Left">
+            <summary>
+            Gets or sets the x-coordinate of the left edge of this <see cref="T:Vortice.Mathematics.Rectangle"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.Rectangle.Top">
+            <summary>
+            Gets or sets the y-coordinate of the left edge of this <see cref="T:Vortice.Mathematics.Rectangle"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.Rectangle.Right">
+            <summary>
+            Gets the x-coordinate of the right edge of this <see cref="T:Vortice.Mathematics.Rectangle"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.Rectangle.Bottom">
+            <summary>
+            Gets the y-coordinate of the bottom edge of this <see cref="T:Vortice.Mathematics.Rectangle"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.Rectangle.Center">
+            <summary>
+            Gets the <see cref="T:Vortice.Mathematics.Point"/> that specifies the center of this <see cref="T:Vortice.Mathematics.Rectangle"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.Rectangle.CenterX">
+            <summary>
+            Gets the x-coordinate of the center of this <see cref="T:Vortice.Mathematics.Rectangle"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.Rectangle.CenterY">
+            <summary>
+            Gets the y-coordinate of the center of this <see cref="T:Vortice.Mathematics.Rectangle"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.Rectangle.AspectRatio">
+            <summary>
+            Gets the aspect ratio of this <see cref="T:Vortice.Mathematics.Rectangle"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.Rectangle.TopLeft">
+            <summary>
+            Gets the position of the top-left corner of this <see cref="T:Vortice.Mathematics.Rectangle"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.Rectangle.TopRight">
+            <summary>
+            Gets the position of the top-right corner of this <see cref="T:Vortice.Mathematics.Rectangle"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.Rectangle.BottomLeft">
+            <summary>
+            Gets the position of the bottom-left corner of <see cref="T:Vortice.Mathematics.Rectangle"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.Rectangle.BottomRight">
+            <summary>
+            Gets the position of the bottom-right corner of <see cref="T:Vortice.Mathematics.Rectangle"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.Rectangle.IsEmpty">
+            <summary>
+            Gets a value indicating whether this <see cref="T:Vortice.Mathematics.Rectangle"/> is empty.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.Rectangle.op_Implicit(Vortice.Mathematics.Rectangle)~Vortice.Mathematics.RectangleF">
+            <summary>
+            Performs an implicit conversion from <see cref="T:Vortice.Mathematics.Rectangle"/> to <see cref="T:Vortice.Mathematics.RectangleF" />.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Rectangle.op_Implicit(Vortice.Mathematics.Rectangle)~System.Drawing.Rectangle">
+            <summary>
+            Performs an implicit conversion from <see cref="T:Vortice.Mathematics.Rectangle"/> to <see cref="T:System.Drawing.Rectangle" />.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Rectangle.op_Implicit(System.Drawing.Rectangle)~Vortice.Mathematics.Rectangle">
+            <summary>
+            Performs an implicit conversion from <see cref="T:System.Drawing.Rectangle"/> to <see cref="T:Vortice.Mathematics.Rectangle" />.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Rectangle.op_Implicit(Vortice.Mathematics.Rectangle)~System.Drawing.RectangleF">
+            <summary>
+            Performs an implicit conversion from <see cref="T:Vortice.Mathematics.Rectangle"/> to <see cref="T:System.Drawing.RectangleF" />.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Rectangle.op_Implicit(Vortice.Mathematics.Rectangle)~System.Numerics.Vector4">
+            <summary>
+            Performs an implicit conversion from <see cref="T:Vortice.Mathematics.Rectangle"/> to <see cref="T:System.Numerics.Vector4" />.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Rectangle.FromLTRB(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Creates a new <see cref='T:Vortice.Mathematics.Rectangle'/> with the specified left, top, right and bottom coordinate.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.Rectangle.Inflate(System.Int32,System.Int32)">
+            <summary>
+            Inflates this <see cref="T:Vortice.Mathematics.Rectangle"/> by the specified amount.
+            </summary>
+            <param name="width">The width.</param>
+            <param name="height">The height.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Rectangle.Inflate(Vortice.Mathematics.Size)">
+            <summary>
+            Inflates this <see cref="T:Vortice.Mathematics.Rectangle"/> by the specified amount.
+            </summary>
+            <param name="size">The size amount.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Rectangle.Inflate(Vortice.Mathematics.Rectangle,System.Int32,System.Int32)">
+            <summary>
+            Creates a <see cref="T:Vortice.Mathematics.Rectangle"/> that is inflated by the specified amount.
+            </summary>
+            <param name="rectangle">The rectangle.</param>
+            <param name="x">The amount to inflate the width by.</param>
+            <param name="y">The amount to inflate the height by.</param>
+            <returns>A new <see cref="T:Vortice.Mathematics.Rectangle"/>.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Rectangle.Intersect(Vortice.Mathematics.Rectangle,Vortice.Mathematics.Rectangle)">
+            <summary>
+            Creates a rectangle that represents the intersection between <paramref name="a"/> and
+            <paramref name="b"/>. If there is no intersection, an empty rectangle is returned.
+            </summary>
+            <param name="a">The first rectangle.</param>
+            <param name="b">The second rectangle.</param>
+            <returns>The <see cref="T:Vortice.Mathematics.Rectangle"/>.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Rectangle.Union(Vortice.Mathematics.Rectangle,Vortice.Mathematics.Rectangle)">
+            <summary>
+            Creates a rectangle that represents the union between <paramref name="a"/> and <paramref name="b"/>.
+            </summary>
+            <param name="a">The first rectangle.</param>
+            <param name="b">The second rectangle.</param>
+            <returns>The <see cref="T:Vortice.Mathematics.Rectangle"/>.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Rectangle.Offset(Vortice.Mathematics.Point)">
+            <summary>
+            Translates this rectangle by a specified offset.
+            </summary>
+            <param name="offset">The offset value.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Rectangle.Offset(System.Int32,System.Int32)">
+            <summary>
+            Translates this rectangle by a specified offset.
+            </summary>
+            <param name="dx">The amount to offset the x-coordinate.</param>
+            <param name="dy">The amount to offset the y-coordinate.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Rectangle.Intersect(Vortice.Mathematics.Rectangle)">
+            <summary>
+            Creates a Rectangle that represents the intersection between this Rectangle and the <paramref name="rectangle"/>.
+            </summary>
+            <param name="rectangle">The rectangle.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Rectangle.Contains(System.Int32,System.Int32)">
+            <summary>
+            Determines whether the specified coordinates are inside this rectangle.
+            </summary>
+            <param name="x">The x-coordinate.</param>
+            <param name="y">The y-coordinate.</param>
+            <returns>Returns true if the coordinates are inside this rectangle, otherwise false.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Rectangle.Contains(Vortice.Mathematics.Point)">
+            <summary>
+            Determines whether the specified coordinates are inside this rectangle.
+            </summary>
+            <param name="point">The point to test.</param>
+            <returns>Returns true if the coordinates are inside this rectangle, otherwise false.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Rectangle.Contains(Vortice.Mathematics.Rectangle)">
+            <summary>
+            Determines whether the specified rectangle is inside this rectangle.
+            </summary>
+            <param name="rectangle">The rectangle to test.</param>
+            <returns>Returns true if the rectangle is inside this rectangle, otherwise false.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Rectangle.IntersectsWith(Vortice.Mathematics.Rectangle)">
+            <summary>
+            Determines if the specfied <see cref="T:Vortice.Mathematics.Rectangle"/> intersects the rectangular region defined by
+            this <see cref="T:Vortice.Mathematics.Rectangle"/>.
+            </summary>
+            <param name="rectangle">The other Rectange. </param>
+            <returns>The <see cref="T:System.Boolean"/>.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Rectangle.Truncate(Vortice.Mathematics.RectangleF)">
+            <summary>
+            Converts a <see cref="T:Vortice.Mathematics.RectangleF"/> to a <see cref="T:Vortice.Mathematics.Rectangle"/> by performing a truncate operation on all the coordinates.
+            </summary>
+            <param name="rectangle">The rectangle.</param>
+            <returns>The <see cref="T:Vortice.Mathematics.Rectangle"/>.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Rectangle.Round(Vortice.Mathematics.RectangleF)">
+            <summary>
+            Converts a <see cref="T:Vortice.Mathematics.RectangleF"/> to a <see cref="T:Vortice.Mathematics.Rectangle"/> by performing a round operation on all the coordinates.
+            </summary>
+            <param name="rectangle">The rectangle.</param>
+            <returns>The <see cref="T:Vortice.Mathematics.Rectangle"/>.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Rectangle.Transform(Vortice.Mathematics.Rectangle,System.Numerics.Matrix3x2)">
+            <summary>
+            Transforms a rectangle by the given matrix.
+            </summary>
+            <param name="rectangle">The source rectangle.</param>
+            <param name="matrix">The transformation matrix.</param>
+            <returns>A transformed rectangle.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Rectangle.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.Rectangle.Equals(Vortice.Mathematics.Rectangle)">
+            <summary>
+            Determines whether the specified <see cref="T:Vortice.Mathematics.Rectangle"/> is equal to this instance.
+            </summary>
+            <param name="other">The <see cref="T:Vortice.Mathematics.Rectangle"/> to compare with this instance.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Rectangle.op_Equality(Vortice.Mathematics.Rectangle,Vortice.Mathematics.Rectangle)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.Rectangle"/> objects for equality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.Rectangle"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.Rectangle"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is equal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Rectangle.op_Inequality(Vortice.Mathematics.Rectangle,Vortice.Mathematics.Rectangle)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.Rectangle"/> objects for inequality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.Rectangle"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.Rectangle"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is unequal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Rectangle.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.Rectangle.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:Vortice.Mathematics.RectangleF">
+            <summary>
+            Defines a floating-point rectangle structure defining X, Y, Width, Height.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.RectangleF.Empty">
+            <summary>
+            Returns a <see cref="T:Vortice.Mathematics.RectangleF"/> with all of its values set to zero.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.RectangleF.#ctor(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.RectangleF"/> struct.
+            </summary>
+            <param name="x">The horizontal position of the rectangle.</param>
+            <param name="y">The vertical position of the rectangle.</param>
+            <param name="width">The width of the rectangle.</param>
+            <param name="height">The height of the rectangle.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.RectangleF.#ctor(System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.RectangleF"/> struct.
+            </summary>
+            <param name="width">The width of the rectangle.</param>
+            <param name="height">The height of the rectangle.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.RectangleF.#ctor(Vortice.Mathematics.PointF,Vortice.Mathematics.SizeF)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.RectangleF"/> struct.
+            </summary>
+            <param name="point">
+            The <see cref="T:Vortice.Mathematics.PointF"/> which specifies the rectangles point in a two-dimensional plane.
+            </param>
+            <param name="size">
+            The <see cref="T:Vortice.Mathematics.SizeF"/> which specifies the rectangles height and width.
+            </param>
+        </member>
+        <member name="P:Vortice.Mathematics.RectangleF.X">
+            <summary>
+            Gets or sets the x-coordinate of this <see cref="T:Vortice.Mathematics.RectangleF"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.RectangleF.Y">
+            <summary>
+            Gets or sets the y-coordinate of this <see cref="T:Vortice.Mathematics.RectangleF"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.RectangleF.Width">
+            <summary>
+            Gets or sets the width of this <see cref="T:Vortice.Mathematics.RectangleF"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.RectangleF.Height">
+            <summary>
+            Gets or sets the height of this <see cref="T:Vortice.Mathematics.RectangleF"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.RectangleF.Location">
+            <summary>
+            Gets or sets the upper-left value of the <see cref="T:Vortice.Mathematics.RectangleF"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.RectangleF.Size">
+            <summary>
+            Gets or sets the size of this <see cref="T:Vortice.Mathematics.RectangleF"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.RectangleF.Left">
+            <summary>
+            Gets or sets the x-coordinate of the left edge of this <see cref="T:Vortice.Mathematics.RectangleF"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.RectangleF.Top">
+            <summary>
+            Gets or sets the y-coordinate of the left edge of this <see cref="T:Vortice.Mathematics.RectangleF"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.RectangleF.Right">
+            <summary>
+            Gets the x-coordinate of the right edge of this <see cref="T:Vortice.Mathematics.RectangleF"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.RectangleF.Bottom">
+            <summary>
+            Gets the y-coordinate of the bottom edge of this <see cref="T:Vortice.Mathematics.RectangleF"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.RectangleF.Center">
+            <summary>
+            Gets the <see cref="T:Vortice.Mathematics.PointF"/> that specifies the center of this <see cref="T:Vortice.Mathematics.RectangleF"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.RectangleF.CenterX">
+            <summary>
+            Gets the x-coordinate of the center of this <see cref="T:Vortice.Mathematics.RectangleF"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.RectangleF.CenterY">
+            <summary>
+            Gets the y-coordinate of the center of this <see cref="T:Vortice.Mathematics.RectangleF"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.RectangleF.AspectRatio">
+            <summary>
+            Gets the aspect ratio of this <see cref="T:Vortice.Mathematics.RectangleF"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.RectangleF.TopLeft">
+            <summary>
+            Gets the position of the top-left corner of this <see cref="T:Vortice.Mathematics.RectangleF"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.RectangleF.TopRight">
+            <summary>
+            Gets the position of the top-right corner of this <see cref="T:Vortice.Mathematics.RectangleF"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.RectangleF.BottomLeft">
+            <summary>
+            Gets the position of the bottom-left corner of <see cref="T:Vortice.Mathematics.RectangleF"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.RectangleF.BottomRight">
+            <summary>
+            Gets the position of the bottom-right corner of <see cref="T:Vortice.Mathematics.RectangleF"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.RectangleF.IsEmpty">
+            <summary>
+            Gets a value indicating whether this <see cref="T:Vortice.Mathematics.RectangleF"/> is empty.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.RectangleF.Deconstruct(System.Single@,System.Single@,System.Single@,System.Single@)">
+            <summary>
+            Deconstructs this rectangle into four floats.
+            </summary>
+            <param name="x">The out value for X.</param>
+            <param name="y">The out value for Y.</param>
+            <param name="width">The out value for the width.</param>
+            <param name="height">The out value for the height.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.RectangleF.Inflate(System.Single,System.Single)">
+            <summary>
+            Inflates this <see cref="T:Vortice.Mathematics.RectangleF"/> by the specified amount.
+            </summary>
+            <param name="horizontalAmount">X inflate amount.</param>
+            <param name="verticalAmount">Y inflate amount.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.RectangleF.Inflate(Vortice.Mathematics.SizeF)">
+            <summary>
+            Inflates this <see cref="T:Vortice.Mathematics.RectangleF"/> by the specified amount.
+            </summary>
+            <param name="size">The size amount.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.RectangleF.Inflate(Vortice.Mathematics.RectangleF,System.Single,System.Single)">
+            <summary>
+            Creates a <see cref="T:Vortice.Mathematics.RectangleF"/> that is inflated by the specified amount.
+            </summary>
+            <param name="rect"></param>
+            <param name="x"></param>
+            <param name="y"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Vortice.Mathematics.RectangleF.Intersect(Vortice.Mathematics.RectangleF,Vortice.Mathematics.RectangleF)">
+            <summary>
+            Creates a rectangle that represents the intersection between <paramref name="a"/> and
+            <paramref name="b"/>. If there is no intersection, an empty rectangle is returned.
+            </summary>
+            <param name="a">The first rectangle.</param>
+            <param name="b">The second rectangle.</param>
+            <returns>The <see cref="T:Vortice.Mathematics.RectangleF"/>.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.RectangleF.Intersect(Vortice.Mathematics.RectangleF)">
+            <summary>
+            Creates a RectangleF that represents the intersection between this RectangleF and the <paramref name="rectangle"/>.
+            </summary>
+            <param name="rectangle">The rectangle.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.RectangleF.IntersectsWith(Vortice.Mathematics.RectangleF)">
+            <summary>
+            Determines if the specfied <see cref="T:Vortice.Mathematics.RectangleF"/> intersects the rectangular region defined by
+            this <see cref="T:Vortice.Mathematics.RectangleF"/>.
+            </summary>
+            <param name="rectangle">The other Rectange. </param>
+            <returns>The <see cref="T:System.Boolean"/>.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.RectangleF.Union(Vortice.Mathematics.RectangleF,Vortice.Mathematics.RectangleF)">
+            <summary>
+            Creates a rectangle that represents the union between two rectangles.
+            </summary>
+            <param name="value1">The first rectangle.</param>
+            <param name="value2">The second rectangle.</param>
+            <returns>The union rectangle.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.RectangleF.Offset(Vortice.Mathematics.PointF)">
+            <summary>
+            Translates this rectangle by a specified offset.
+            </summary>
+            <param name="point">The offset value.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.RectangleF.Offset(System.Single,System.Single)">
+            <summary>
+            Translates this rectangle by a specified offset.
+            </summary>
+            <param name="offsetX">The offset in the x-direction.</param>
+            <param name="offsetY">The offset in the y-direction.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.RectangleF.Contains(System.Single,System.Single)">
+            <summary>
+            Determines whether the specified coordinates are inside this rectangle.
+            </summary>
+            <param name="x">The x-coordinate.</param>
+            <param name="y">The y-coordinate.</param>
+            <returns>Returns true if the coordinates are inside this rectangle, otherwise false.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.RectangleF.Contains(Vortice.Mathematics.PointF)">
+            <summary>
+            Determines whether the specified coordinates are inside this rectangle.
+            </summary>
+            <param name="point">The point to test.</param>
+            <returns>Returns true if the coordinates are inside this rectangle, otherwise false.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.RectangleF.Contains(Vortice.Mathematics.RectangleF)">
+            <summary>
+            Determines whether the specified rectangle is inside this rectangle.
+            </summary>
+            <param name="rect">The rectangle to test.</param>
+            <returns>Returns true if the rectangle is inside this rectangle, otherwise false.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.RectangleF.Transform(Vortice.Mathematics.RectangleF,System.Numerics.Matrix3x2)">
+            <summary>
+            Transforms a rectangle by the given matrix.
+            </summary>
+            <param name="rectangle">The source rectangle.</param>
+            <param name="matrix">The transformation matrix.</param>
+            <returns>A transformed <see cref="T:Vortice.Mathematics.RectangleF"/>.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.RectangleF.op_Implicit(Vortice.Mathematics.RectangleF)~Vortice.Mathematics.Rectangle">
+            <summary>
+            Performs an explicit  conversion from <see cref="T:Vortice.Mathematics.RectangleF"/> to <see cref="T:Vortice.Mathematics.Rectangle"/>.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.RectangleF.op_Implicit(Vortice.Mathematics.RectangleF)~System.Drawing.RectangleF">
+            <summary>
+            Performs an implicit conversion from <see cref="T:Vortice.Mathematics.Rectangle"/> to <see cref="T:System.Drawing.RectangleF" />.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.RectangleF.op_Implicit(System.Drawing.RectangleF)~Vortice.Mathematics.RectangleF">
+            <summary>
+            Performs an implicit conversion from <see cref="T:System.Drawing.RectangleF"/> to <see cref="T:Vortice.Mathematics.RectangleF" />.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.RectangleF.FromLTRB(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Creates a new <see cref='T:Vortice.Mathematics.Rectangle'/> with the specified left, top, right and bottom coordinate.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.RectangleF.op_Equality(Vortice.Mathematics.RectangleF,Vortice.Mathematics.RectangleF)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.RectangleF"/> objects for equality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.RectangleF"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.RectangleF"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is equal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.RectangleF.op_Inequality(Vortice.Mathematics.RectangleF,Vortice.Mathematics.RectangleF)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.RectangleF"/> objects for inequality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.RectangleF"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.RectangleF"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is unequal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.RectangleF.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.RectangleF.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.RectangleF.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.RectangleF.Equals(Vortice.Mathematics.RectangleF)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Vortice.Mathematics.Size">
+            <summary>
+            Stores an ordered pair of integer numbers describing the width and height of a rectangle.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Size.Empty">
+            <summary>
+            Represents a <see cref="T:Vortice.Mathematics.Size"/> that has Width and Height values set to zero.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Size.WholeSize">
+            <summary>
+            A special valued <see cref="T:Vortice.Mathematics.Size"/>.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.Size.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Size" /> struct.
+            </summary>
+            <param name="width">The width of the size.</param>
+            <param name="height">The height of the size.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Size.#ctor(Vortice.Mathematics.Point)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Size"/> struct from the given <see cref="T:Vortice.Mathematics.Point"/>.
+            </summary>
+            <param name="point">The point.</param>
+        </member>
+        <member name="P:Vortice.Mathematics.Size.Width">
+            <summary>
+            Gets or sets the width of this <see cref="T:Vortice.Mathematics.Size"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.Size.Height">
+            <summary>
+            Gets or sets the height of this <see cref="T:Vortice.Mathematics.Size"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.Size.IsEmpty">
+            <summary>
+            Gets a value indicating whether this <see cref="T:Vortice.Mathematics.Size"/> is empty.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.Size.Deconstruct(System.Int32@,System.Int32@)">
+            <summary>
+            Deconstructs this size into two integers.
+            </summary>
+            <param name="width">The out value for the width.</param>
+            <param name="height">The out value for the height.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Size.op_Implicit(Vortice.Mathematics.Size)~System.Drawing.Size">
+            <summary>
+            Performs an implicit conversion from <see cref="T:Vortice.Mathematics.Size"/> to <see cref="T:System.Drawing.Size" />.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Size.op_Implicit(System.Drawing.Size)~Vortice.Mathematics.Size">
+            <summary>
+            Performs an implicit conversion from <see cref="T:System.Drawing.Size" /> to <see cref="T:Vortice.Mathematics.Size"/>.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Size.op_Explicit(Vortice.Mathematics.Size)~Vortice.Mathematics.Point">
+            <summary>
+            Performs an explicit conversion from <see cref="T:Vortice.Mathematics.Size"/> to <see cref="T:Vortice.Mathematics.Point"/>.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Size.op_Equality(Vortice.Mathematics.Size,Vortice.Mathematics.Size)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.Size"/> objects for equality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.Size"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.Size"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is equal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Size.op_Inequality(Vortice.Mathematics.Size,Vortice.Mathematics.Size)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.Size"/> objects for inequality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.Size"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.Size"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is unequal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Size.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.Size.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.Size.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.Size.Equals(Vortice.Mathematics.Size)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Vortice.Mathematics.Size3">
+            <summary>
+            Stores an ordered pair of integer numbers describing the width, height and depth of a rectangle.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Size3.Empty">
+            <summary>
+            A <see cref="T:Vortice.Mathematics.Size3"/> with all of its components set to zero.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Size3.WholeSize">
+            <summary>
+            A special valued <see cref="T:Vortice.Mathematics.Size"/>.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.Size3.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of <see cref="T:Vortice.Mathematics.Size3"/> structure.
+            </summary>
+            <param name="width">The width component of the extent.</param>
+            <param name="height">The height component of the extent.</param>
+            <param name="depth">The depth component of the extent.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Size3.#ctor(Vortice.Mathematics.Size,System.Int32)">
+            <summary>
+            Initializes a new instance of <see cref="T:Vortice.Mathematics.Size3"/> structure.
+            </summary>
+            <param name="size">The width and height component of the extent.</param>
+            <param name="depth">The depth component of the extent.</param>
+        </member>
+        <member name="F:Vortice.Mathematics.Size3.Width">
+            <summary>
+            The width component of the extent.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Size3.Height">
+            <summary>
+            The height component of the extent.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Size3.Depth">
+            <summary>
+            The depth component of the extent.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.Size3.IsEmpty">
+            <summary>
+            Gets a value indicating whether this <see cref="T:Vortice.Mathematics.Point"/> is empty.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.Size3.Deconstruct(System.Int32@,System.Int32@,System.Int32@)">
+            <summary>
+            Deconstructs this size into three integers.
+            </summary>
+            <param name="width">The out value for the width.</param>
+            <param name="height">The out value for the height.</param>
+            <param name="depth">The out value for the depth.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Size3.op_Equality(Vortice.Mathematics.Size3,Vortice.Mathematics.Size3)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.Size3"/> objects for equality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.Size3"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.Size3"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is equal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Size3.op_Inequality(Vortice.Mathematics.Size3,Vortice.Mathematics.Size3)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.Size3"/> objects for inequality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.Size3"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.Size3"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is unequal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Size3.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.Size3.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.Size3.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.Size3.Equals(Vortice.Mathematics.Size3)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Vortice.Mathematics.SizeF">
+            <summary>
+            Stores an ordered pair of floating-point numbers describing the width and height of a rectangle.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.SizeF.Empty">
+            <summary>
+            Represents a <see cref="T:Vortice.Mathematics.SizeF"/> that has Width and Height values set to zero.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.SizeF.#ctor(System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.SizeF" /> struct.
+            </summary>
+            <param name="width">The width of the size.</param>
+            <param name="height">The height of the size.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.SizeF.#ctor(Vortice.Mathematics.PointF)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.SizeF"/> struct from the given <see cref="T:Vortice.Mathematics.PointF"/>.
+            </summary>
+            <param name="point">The point.</param>
+        </member>
+        <member name="P:Vortice.Mathematics.SizeF.Width">
+            <summary>
+            Gets or sets the width of this <see cref="T:Vortice.Mathematics.SizeF"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.SizeF.Height">
+            <summary>
+            Gets or sets the height of this <see cref="T:Vortice.Mathematics.SizeF"/>.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.SizeF.IsEmpty">
+            <summary>
+            Gets a value indicating whether this <see cref="T:Vortice.Mathematics.SizeF"/> is empty.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.SizeF.Deconstruct(System.Single@,System.Single@)">
+            <summary>
+            Deconstructs this size into two floats.
+            </summary>
+            <param name="width">The out value for the width.</param>
+            <param name="height">The out value for the height.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.SizeF.op_Implicit(Vortice.Mathematics.SizeF)~System.Numerics.Vector2">
+            <summary>
+            Performs an implicit conversion from <see cref="T:Vortice.Mathematics.Size"/> to <see cref="T:System.Numerics.Vector2" />.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.SizeF.op_Implicit(Vortice.Mathematics.SizeF)~System.Drawing.SizeF">
+            <summary>
+            Performs an implicit conversion from <see cref="T:Vortice.Mathematics.Size"/> to <see cref="T:System.Drawing.SizeF" />.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.SizeF.op_Implicit(System.Drawing.SizeF)~Vortice.Mathematics.SizeF">
+            <summary>
+            Performs an implicit conversion from <see cref="T:System.Drawing.SizeF" /> to <see cref="T:Vortice.Mathematics.SizeF"/>.
+            </summary>
+            <param name="value">The value to convert.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.SizeF.op_Explicit(Vortice.Mathematics.SizeF)~Vortice.Mathematics.PointF">
+            <summary>
+            Performs an explicit conversion from <see cref="T:Vortice.Mathematics.SizeF"/> to <see cref="T:Vortice.Mathematics.PointF"/>.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Vortice.Mathematics.SizeF.op_Equality(Vortice.Mathematics.SizeF,Vortice.Mathematics.SizeF)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.SizeF"/> objects for equality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.SizeF"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.SizeF"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is equal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.SizeF.op_Inequality(Vortice.Mathematics.SizeF,Vortice.Mathematics.SizeF)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.SizeF"/> objects for inequality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.SizeF"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.SizeF"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is unequal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.SizeF.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.SizeF.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.SizeF.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.SizeF.Equals(Vortice.Mathematics.SizeF)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Vortice.Mathematics.VectorEx">
+            <summary>
+            Represents extensions methods for <see cref="T:System.Numerics.Vector2"/>, <see cref="T:System.Numerics.Vector3"/> and <see cref="T:System.Numerics.Vector4"/>.
+            </summary>
+        </member>
+        <member name="T:Vortice.Mathematics.Viewport">
+            <summary>
+            Represents a floating-point viewport struct.
+            </summary>
+        </member>
+        <member name="M:Vortice.Mathematics.Viewport.#ctor(System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Viewport"/> struct.
+            </summary>
+            <param name="width">The width of the viewport in pixels.</param>
+            <param name="height">The height of the viewport in pixels.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Viewport.#ctor(System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Viewport"/> struct.
+            </summary>
+            <param name="x">The x coordinate of the upper-left corner of the viewport in pixels.</param>
+            <param name="y">The y coordinate of the upper-left corner of the viewport in pixels.</param>
+            <param name="width">The width of the viewport in pixels.</param>
+            <param name="height">The height of the viewport in pixels.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Viewport.#ctor(System.Single,System.Single,System.Single,System.Single,System.Single,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Viewport"/> struct.
+            </summary>
+            <param name="x">The x coordinate of the upper-left corner of the viewport in pixels.</param>
+            <param name="y">The y coordinate of the upper-left corner of the viewport in pixels.</param>
+            <param name="width">The width of the viewport in pixels.</param>
+            <param name="height">The height of the viewport in pixels.</param>
+            <param name="minDepth">The minimum depth of the clip volume.</param>
+            <param name="maxDepth">The maximum depth of the clip volume.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Viewport.#ctor(Vortice.Mathematics.Rectangle)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Viewport"/> struct.
+            </summary>
+            <param name="bounds">A <see cref="T:Vortice.Mathematics.Rectangle"/> that defines the location and size of the viewport in a render target.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Viewport.#ctor(Vortice.Mathematics.RectangleF)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Viewport"/> struct.
+            </summary>
+            <param name="bounds">A <see cref="T:Vortice.Mathematics.RectangleF"/> that defines the location and size of the viewport in a render target.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Viewport.#ctor(System.Numerics.Vector4)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Vortice.Mathematics.Viewport"/> struct.
+            </summary>
+            <param name="bounds">A <see cref="T:System.Numerics.Vector4"/> that defines the location and size of the viewport in a render target.</param>
+        </member>
+        <member name="F:Vortice.Mathematics.Viewport.X">
+            <summary>
+            Position of the pixel coordinate of the upper-left corner of the viewport.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Viewport.Y">
+            <summary>
+            Position of the pixel coordinate of the upper-left corner of the viewport.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Viewport.Width">
+            <summary>
+            Width dimension of the viewport.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Viewport.Height">
+            <summary>
+            Height dimension of the viewport.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Viewport.MinDepth">
+            <summary>
+            Gets or sets the minimum depth of the clip volume.
+            </summary>
+        </member>
+        <member name="F:Vortice.Mathematics.Viewport.MaxDepth">
+            <summary>
+            Gets or sets the maximum depth of the clip volume.
+            </summary>
+        </member>
+        <member name="P:Vortice.Mathematics.Viewport.Bounds">
+            <summary>
+            Gets or sets the bounds of the viewport.
+            </summary>
+            <value>The bounds.</value>
+        </member>
+        <member name="P:Vortice.Mathematics.Viewport.AspectRatio">
+            <summary>
+            Gets the aspect ratio used by the viewport.
+            </summary>
+            <value>The aspect ratio.</value>
+        </member>
+        <member name="M:Vortice.Mathematics.Viewport.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.Viewport.Equals(Vortice.Mathematics.Viewport)">
+            <summary>
+            Determines whether the specified <see cref="T:Vortice.Mathematics.Viewport"/> is equal to this instance.
+            </summary>
+            <param name="other">The <see cref="T:Vortice.Mathematics.Viewport"/> to compare with this instance.</param>
+        </member>
+        <member name="M:Vortice.Mathematics.Viewport.op_Equality(Vortice.Mathematics.Viewport,Vortice.Mathematics.Viewport)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.Viewport"/> objects for equality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.Viewport"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.Viewport"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is equal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Viewport.op_Inequality(Vortice.Mathematics.Viewport,Vortice.Mathematics.Viewport)">
+            <summary>
+            Compares two <see cref="T:Vortice.Mathematics.Viewport"/> objects for inequality.
+            </summary>
+            <param name="left">The <see cref="T:Vortice.Mathematics.Viewport"/> on the left hand of the operand.</param>
+            <param name="right">The <see cref="T:Vortice.Mathematics.Viewport"/> on the right hand of the operand.</param>
+            <returns>
+            True if the current left is unequal to the <paramref name="right"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Vortice.Mathematics.Viewport.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:Vortice.Mathematics.Viewport.ToString">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

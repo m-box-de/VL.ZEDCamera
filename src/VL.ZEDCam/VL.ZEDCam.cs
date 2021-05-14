@@ -2,8 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
-using Xenko.Graphics;
 using System.Runtime.InteropServices;
+using Stride.Graphics;
 
 
 namespace sl
@@ -13,6 +13,8 @@ namespace sl
 		ZEDCamera camera;
 		InitParameters initParameters;
 		object grabLock = new object();
+
+        public GraphicsDevice GraphicsDevice;
 
 		ERROR_CODE lastInitStatus = ERROR_CODE.ERROR_CODE_LAST;
 		ERROR_CODE previousInitStatus;
@@ -119,7 +121,9 @@ namespace sl
 			})
 		{ }
 
-        public Image FetchImage(VIEW view)
+        private Texture _texture;
+
+        public Texture FetchImage(GraphicsDevice device, GraphicsContext context, VIEW view)
         {
             if (mats.Count < matIndex + 1)
             {
@@ -127,6 +131,7 @@ namespace sl
             }
             var mat = mats[matIndex++];
             camera.RetrieveImage(mat, view);
+
             /*           
                                    MatType cvType;
 
@@ -171,10 +176,26 @@ namespace sl
                 case VIEW.NORMALS_RIGHT:            imgType = PixelFormat.B8G8R8A8_UNorm; break;
                 default:                            imgType = PixelFormat.None; break;
             }
-            return Image.New2D(view == VIEW.SIDE_BY_SIDE ? camera.ImageWidth * 2 : camera.ImageWidth, camera.ImageHeight, mitmap, imgType, 1, mat.GetPtr());
+
+            if (_texture == null && device != null)
+                _texture = Texture.New2D(device, 
+                    view == VIEW.SIDE_BY_SIDE ? camera.ImageWidth * 2 : camera.ImageWidth, 
+                    camera.ImageHeight, 
+                    imgType,
+                    TextureFlags.ShaderResource,
+                    1,
+                    GraphicsResourceUsage.Default,
+                    TextureOptions.None);
+
+            Stride.Graphics.DataPointer dp = new DataPointer(mat.GetPtr(), mat.GetWidth() * mat.GetHeight() * mat.GetPixelBytes());
+            this._texture.SetData(context.CommandList, dp);
+            return _texture;
+            // TextureFlags.ShaderResource,  mitmap, imgType, 1, mat.GetPtr());
         }
 
-        public Image FetchPointCloud(MEASURE measure)
+        private Texture _depth;
+
+        public Texture FetchPointCloud(GraphicsDevice device, GraphicsContext context, MEASURE measure)
         {
             if (mats.Count < matIndex + 1)
             {
@@ -232,7 +253,28 @@ namespace sl
                 case MEASURE.XYZABGR_RIGHT:     imgType = PixelFormat.R32G32B32A32_Float; break;
                 default:                        imgType = PixelFormat.None; ; break;
             }
-                return Image.New2D(camera.ImageWidth, camera.ImageHeight, mitmap, imgType, 1, depth_zed.GetPtr());
+
+            if (_depth == null && device != null)
+                _depth = Texture.New2D(device,
+                    camera.ImageWidth,
+                    camera.ImageHeight,
+                    imgType,
+                    TextureFlags.ShaderResource,
+                    1,
+                    GraphicsResourceUsage.Default,
+                    TextureOptions.None);
+
+            var w = depth_zed.GetWidth();
+            var h = depth_zed.GetHeight();
+            var p = depth_zed.GetPixelBytes();
+            var pointer = depth_zed.GetPtr();
+
+            Stride.Graphics.DataPointer _dp = new DataPointer(pointer, w * h * p );
+            this._depth.SetData(context.CommandList, _dp);
+
+            return _depth;
+
+            //return Image.New2D(camera.ImageWidth, camera.ImageHeight, mitmap, imgType, 1, depth_zed.GetPtr());
         }
 
         public void InitZED_Sequential()

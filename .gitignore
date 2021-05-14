@@ -3,6 +3,7 @@
 [Oo]bj/
 [Dd]ynamic/
 .vs
+.vl/
 
 # mstest test results
 TestResults

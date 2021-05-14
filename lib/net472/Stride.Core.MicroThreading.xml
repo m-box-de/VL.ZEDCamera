@@ -1,0 +1,412 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Stride.Core.MicroThreading</name>
+    </assembly>
+    <members>
+        <member name="T:Stride.Core.MicroThreading.Channel`1">
+            <summary>
+            Provides a communication mechanism between <see cref="T:Stride.Core.MicroThreading.MicroThread"/>.
+            </summary>
+            <remarks>
+            <see cref="T:Stride.Core.MicroThreading.MicroThread"/> can send and receive to a <see cref="!:Channel"/>. Depending on the <see cref="!:Channel.Preference"/>,
+            sending or receiving <see cref="T:Stride.Core.MicroThreading.MicroThread"/> might be suspended and yield execution to another <see cref="T:Stride.Core.MicroThreading.MicroThread"/>.
+            </remarks>
+            <typeparam name="T">The type of element handled by this channel.</typeparam>
+        </member>
+        <member name="P:Stride.Core.MicroThreading.Channel`1.Preference">
+            <summary>
+            Gets or sets the preference, allowing you to customize how <see cref="M:Stride.Core.MicroThreading.Channel`1.Send(`0)"/> and <see cref="M:Stride.Core.MicroThreading.Channel`1.Receive"/> behave regarding scheduling.
+            </summary>
+            <value>
+            The preference.
+            </value>
+        </member>
+        <member name="P:Stride.Core.MicroThreading.Channel`1.Balance">
+            <summary>
+            Gets the balance, which is the number of <see cref="T:Stride.Core.MicroThreading.MicroThread"/> waiting to send (if greater than 0) or receive (if smaller than 0).
+            </summary>
+            <value>
+            The balance.
+            </value>
+        </member>
+        <member name="M:Stride.Core.MicroThreading.Channel`1.Send(`0)">
+            <summary>
+            Sends a value over the channel. If no other <see cref="T:Stride.Core.MicroThreading.MicroThread"/> is waiting for data, the sender will be blocked.
+            If someone was waiting for data, which of the sender or receiver continues next depends on <see cref="P:Stride.Core.MicroThreading.Channel`1.Preference"/>.
+            </summary>
+            <param name="data">The data.</param>
+            <returns>Awaitable data.</returns>
+        </member>
+        <member name="M:Stride.Core.MicroThreading.Channel`1.Receive">
+            <summary>
+            Receives a value over the channel. If no other <see cref="T:Stride.Core.MicroThreading.MicroThread"/> is sending data, the receiver will be blocked.
+            If someone was sending data, which of the sender or receiver continues next depends on <see cref="P:Stride.Core.MicroThreading.Channel`1.Preference"/>.
+            </summary>
+            <returns>Awaitable data.</returns>
+        </member>
+        <member name="T:Stride.Core.MicroThreading.MicroThread">
+            <summary>
+            Represents an execution context managed by a <see cref="P:Stride.Core.MicroThreading.MicroThread.Scheduler"/>, that can cooperatively yield execution to another <see cref="T:Stride.Core.MicroThreading.MicroThread"/> at any point (usually using async calls).
+            </summary>
+        </member>
+        <member name="F:Stride.Core.MicroThreading.MicroThread.Tags">
+            <summary>
+            Gets the attached properties to this component.
+            </summary>
+        </member>
+        <member name="P:Stride.Core.MicroThreading.MicroThread.Priority">
+            <summary>
+            Gets or sets the priority of this <see cref="T:Stride.Core.MicroThreading.MicroThread"/>.
+            </summary>
+            <value>
+            The priority.
+            </value>
+        </member>
+        <member name="P:Stride.Core.MicroThreading.MicroThread.Id">
+            <summary>
+            Gets the id of this <see cref="T:Stride.Core.MicroThreading.MicroThread"/>.
+            </summary>
+            <value>
+            The id.
+            </value>
+        </member>
+        <member name="P:Stride.Core.MicroThreading.MicroThread.Name">
+            <summary>
+            Gets or sets the name of this <see cref="T:Stride.Core.MicroThreading.MicroThread"/>.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:Stride.Core.MicroThreading.MicroThread.Scheduler">
+            <summary>
+            Gets the scheduler associated with this <see cref="T:Stride.Core.MicroThreading.MicroThread"/>.
+            </summary>
+            <value>The scheduler associated with this <see cref="T:Stride.Core.MicroThreading.MicroThread"/>.</value>
+        </member>
+        <member name="P:Stride.Core.MicroThreading.MicroThread.State">
+            <summary>
+            Gets the state of this <see cref="T:Stride.Core.MicroThreading.MicroThread"/>.
+            </summary>
+            <value>The state of this <see cref="T:Stride.Core.MicroThreading.MicroThread"/>.</value>
+        </member>
+        <member name="P:Stride.Core.MicroThreading.MicroThread.Exception">
+            <summary>
+            Gets the exception that was thrown by this <see cref="T:Stride.Core.MicroThreading.MicroThread"/>.
+            </summary>
+            It could come from either internally, or from <see cref="!:RaiseException"/> if it was successfully processed.
+            <value>The exception.</value>
+        </member>
+        <member name="P:Stride.Core.MicroThreading.MicroThread.Flags">
+            <summary>
+            Gets the <see cref="T:Stride.Core.MicroThreading.MicroThread"/> flags.
+            </summary>
+            <value>
+            The flags.
+            </value>
+        </member>
+        <member name="P:Stride.Core.MicroThreading.MicroThread.ScheduleMode">
+            <summary>
+            Gets or sets the <see cref="T:Stride.Core.MicroThreading.MicroThread"/> scheduling mode.
+            </summary>
+            <value>
+            The scheduling mode.
+            </value>
+        </member>
+        <member name="P:Stride.Core.MicroThreading.MicroThread.CompletionTask">
+            <summary>
+            Gets or sets the task that will be executed upon completion (used internally for <see cref="M:Stride.Core.MicroThreading.Scheduler.WhenAll(Stride.Core.MicroThreading.MicroThread[])"/>)
+            </summary>
+        </member>
+        <member name="P:Stride.Core.MicroThreading.MicroThread.CancellationToken">
+            <summary>
+            A token for listening to the cancellation of the MicroThread.
+            </summary>
+        </member>
+        <member name="P:Stride.Core.MicroThreading.MicroThread.IsOver">
+            <summary>
+            Indicates whether the MicroThread is terminated or not, either in Completed, Canceled or Failed status.
+            </summary>
+        </member>
+        <member name="P:Stride.Core.MicroThreading.MicroThread.Current">
+            <summary>
+            Gets the current micro thread (self).
+            </summary>
+            <value>The current micro thread (self).</value>
+        </member>
+        <member name="M:Stride.Core.MicroThreading.MicroThread.Start(System.Func{System.Threading.Tasks.Task},Stride.Core.MicroThreading.ScheduleMode)">
+            <summary>
+            Starts this <see cref="T:Stride.Core.MicroThreading.MicroThread"/> with the specified function.
+            </summary>
+            <param name="microThreadFunction">The micro thread function.</param>
+            <param name="scheduleMode">The schedule mode.</param>
+            <exception cref="T:System.InvalidOperationException">MicroThread was already started before.</exception>
+        </member>
+        <member name="M:Stride.Core.MicroThreading.MicroThread.Run">
+            <summary>
+            Yields to this <see cref="T:Stride.Core.MicroThreading.MicroThread"/>.
+            </summary>
+            <returns>Task.</returns>
+        </member>
+        <member name="M:Stride.Core.MicroThreading.MicroThread.Cancel">
+            <summary>
+            Cancels the <see cref="T:Stride.Core.MicroThreading.MicroThread"/>.
+            </summary>
+        </member>
+        <member name="F:Stride.Core.MicroThreading.MicroThreadFlags.IgnoreExceptions">
+            <summary>
+            If a faulted <see cref="T:Stride.Core.MicroThreading.MicroThread"/> is not being waited on, do not propgate exception outside of <see cref="M:Stride.Core.MicroThreading.Scheduler.Run"/>.
+            </summary>
+            <remarks>
+            If an exception happens in a <see cref="T:Stride.Core.MicroThreading.MicroThread"/>, two things can happen.
+            Either something was waiting on it (i.e. with <see cref="M:Stride.Core.MicroThreading.Scheduler.WhenAll(Stride.Core.MicroThreading.MicroThread[])"/>), in that case exception will be propagated to waiting code.
+            Otherwise, exception will be rethrow outside of <see cref="M:Stride.Core.MicroThreading.Scheduler.Run"/>.
+            This flags allows exception to be ignored even if nothing was waiting on it.
+            </remarks>
+        </member>
+        <member name="T:Stride.Core.MicroThreading.MicroThreadLocal`1">
+            <summary>
+            Provides microthread-local storage of data.
+            </summary>
+            <typeparam name="T">Type of data stored.</typeparam>
+        </member>
+        <member name="F:Stride.Core.MicroThreading.MicroThreadLocal`1.valueOutOfMicrothread">
+            <summary>
+            The value return when we are not in a micro thread. That is the value return when 'Scheduler.CurrentMicroThread==null'
+            </summary>
+        </member>
+        <member name="F:Stride.Core.MicroThreading.MicroThreadLocal`1.valueOutOfMicrothreadSet">
+            <summary>
+            Indicate if the value out of micro-thread have been set at least once or not.
+            </summary>
+        </member>
+        <member name="M:Stride.Core.MicroThreading.MicroThreadLocal`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Core.MicroThreading.MicroThreadLocal`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Stride.Core.MicroThreading.MicroThreadLocal`1.#ctor(System.Func{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Core.MicroThreading.MicroThreadLocal`1"/> class.
+            </summary>
+            <param name="valueFactory">The value factory invoked to create a value when <see cref="P:Stride.Core.MicroThreading.MicroThreadLocal`1.Value"/> is retrieved before having been previously initialized.</param>
+        </member>
+        <member name="P:Stride.Core.MicroThreading.MicroThreadLocal`1.Value">
+            <summary>
+            Gets or sets the value for the current microthread.
+            </summary>
+            <value>
+            The value for the current microthread.
+            </value>
+        </member>
+        <member name="T:Stride.Core.MicroThreading.NamespaceDoc">
+            <summary>
+            The <see cref="N:Stride.Core.MicroThreading"/> namespace provides classes that supports multi-threaded tasks scheduling and execution.
+            It provides a <see cref="T:Stride.Core.MicroThreading.Scheduler"/> class and the <see cref="T:Stride.Core.MicroThreading.MicroThread"/> object that can encapsulate a task.
+            </summary>
+        </member>
+        <member name="T:Stride.Core.MicroThreading.Scheduler">
+            <summary>
+            Scheduler that manage a group of cooperating <see cref="T:Stride.Core.MicroThreading.MicroThread"/>.
+            </summary>
+            <remarks>
+            Microthreading provides a way to execute many small execution contexts who cooperatively yield to each others.
+            </remarks>
+        </member>
+        <member name="M:Stride.Core.MicroThreading.Scheduler.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Core.MicroThreading.Scheduler" /> class.
+            </summary>
+        </member>
+        <member name="P:Stride.Core.MicroThreading.Scheduler.PropagateExceptions">
+            <summary>
+            Gets or sets a value indicating whether microthread exceptions are propagated (and crashes the process). Default to true.
+            This can be overridden to false per <see cref="T:Stride.Core.MicroThreading.MicroThread"/> by using <see cref="F:Stride.Core.MicroThreading.MicroThreadFlags.IgnoreExceptions"/>.
+            </summary>
+            <value>
+              <c>true</c> if [propagate exceptions]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Stride.Core.MicroThreading.Scheduler.RunningMicroThread">
+            <summary>
+            Gets the current running micro thread in this scheduler through <see cref="M:Stride.Core.MicroThreading.Scheduler.Run"/>.
+            </summary>
+            <value>The current running micro thread in this scheduler.</value>
+        </member>
+        <member name="P:Stride.Core.MicroThreading.Scheduler.Current">
+            <summary>
+            Gets the scheduler associated with current micro thread.
+            </summary>
+            <value>The scheduler associated with current micro thread.</value>
+        </member>
+        <member name="P:Stride.Core.MicroThreading.Scheduler.MicroThreads">
+            <summary>
+            Gets the list of every non-stopped micro threads.
+            </summary>
+            <value>The list of every non-stopped micro threads.</value>
+        </member>
+        <member name="P:Stride.Core.MicroThreading.Scheduler.CurrentMicroThread">
+            <summary>
+            Gets the current micro thread (self).
+            </summary>
+            <value>The current micro thread (self).</value>
+        </member>
+        <member name="M:Stride.Core.MicroThreading.Scheduler.Yield">
+            <summary>
+            Yields execution.
+            If any other micro thread is pending, it will be run now and current micro thread will be scheduled as last.
+            </summary>
+            <returns>Task that will resume later during same frame.</returns>
+        </member>
+        <member name="M:Stride.Core.MicroThreading.Scheduler.NextFrame">
+            <summary>
+            Yields execution until next frame.
+            </summary>
+            <returns>Task that will resume next frame.</returns>
+        </member>
+        <member name="M:Stride.Core.MicroThreading.Scheduler.Run">
+            <summary>
+            Runs until no runnable tasklets left.
+            This function is reentrant.
+            </summary>
+        </member>
+        <member name="M:Stride.Core.MicroThreading.Scheduler.Add(System.Func{System.Threading.Tasks.Task},Stride.Core.MicroThreading.MicroThreadFlags)">
+            <summary>
+            Creates a micro thread out of the specified function and schedules it as last micro thread to run in this scheduler.
+            Note that in case of multithreaded scheduling, it might start before this function returns.
+            </summary>
+            <param name="microThreadFunction">The function to create a micro thread from.</param>
+            <param name="flags">The flags.</param>
+            <returns>A micro thread.</returns>
+        </member>
+        <member name="M:Stride.Core.MicroThreading.Scheduler.Create">
+            <summary>
+            Creates a new empty micro thread, that could later be started with <see cref="M:Stride.Core.MicroThreading.MicroThread.Start(System.Func{System.Threading.Tasks.Task},Stride.Core.MicroThreading.ScheduleMode)"/>.
+            </summary>
+            <returns>A new empty micro thread.</returns>
+        </member>
+        <member name="M:Stride.Core.MicroThreading.Scheduler.WhenAll(Stride.Core.MicroThreading.MicroThread[])">
+            <summary>
+            Task that will completes when all MicroThread executions are completed.
+            </summary>
+            <param name="microThreads">The micro threads.</param>
+            <returns>A task that will complete when all micro threads are complete.</returns>
+        </member>
+        <member name="T:Stride.Core.MicroThreading.SchedulerEntry">
+            <summary>
+            Either a microthread or an action with priority.
+            </summary>
+        </member>
+        <member name="T:Stride.Core.MicroThreading.SchedulerThreadEventArgs">
+            <summary>
+            Provides data for the <see cref="E:Stride.Core.MicroThreading.Scheduler.MicroThreadStarted"/>, <see cref="E:Stride.Core.MicroThreading.Scheduler.MicroThreadEnded"/>, <see cref="E:Stride.Core.MicroThreading.Scheduler.MicroThreadCallbackStart"/> and <see cref="E:Stride.Core.MicroThreading.Scheduler.MicroThreadCallbackEnd"/> events.
+            </summary>
+        </member>
+        <member name="P:Stride.Core.MicroThreading.SchedulerThreadEventArgs.MicroThread">
+            <summary>
+            Gets the <see cref="P:Stride.Core.MicroThreading.SchedulerThreadEventArgs.MicroThread"/> this event concerns.
+            </summary>
+            <value>
+            The micro thread.
+            </value>
+        </member>
+        <member name="P:Stride.Core.MicroThreading.SchedulerThreadEventArgs.ThreadId">
+            <summary>
+            Gets the <see cref="P:System.Threading.Thread.ManagedThreadId"/> active when this event happened.
+            </summary>
+            <value>
+            The managed thread identifier.
+            </value>
+        </member>
+        <member name="M:Stride.Core.MicroThreading.SchedulerThreadEventArgs.#ctor(Stride.Core.MicroThreading.MicroThread,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Core.MicroThreading.SchedulerThreadEventArgs"/> class.
+            </summary>
+            <param name="microThread">The micro thread.</param>
+            <param name="threadId">The managed thread identifier.</param>
+        </member>
+        <member name="F:Stride.Core.MicroThreading.ScriptFlags.None">
+            <summary>
+            Empty value.
+            </summary>
+        </member>
+        <member name="F:Stride.Core.MicroThreading.ScriptFlags.AssemblyStartup">
+            <summary>
+            Automatically run on assembly startup.
+            </summary>
+        </member>
+        <member name="F:Stride.Core.MicroThreading.ScriptFlags.AssemblyFirstStartup">
+            <summary>
+            Automatically run on assembly first startup (not executed if assembly is reloaded).
+            </summary>
+        </member>
+        <member name="F:Stride.Core.MicroThreading.ScriptFlags.AssemblyUnload">
+            <summary>
+            Automatically run on assembly unload.
+            </summary>
+        </member>
+        <member name="F:Stride.Core.MicroThreading.ScriptFlags.KeepAliveWhenUnload">
+            <summary>
+            MicroThread won't be killed if assembly is unloaded (including reload).
+            </summary>
+        </member>
+        <member name="T:Stride.StrideVersion">
+            <summary>
+            Internal version used to identify Stride version.
+            </summary>
+            <remarks>
+            During package build, PackageUpdateVersionTask is updating that file and expect some specific text regex so be careful if you change any of this.
+            </remarks>
+        </member>
+        <member name="F:Stride.StrideVersion.PublicVersion">
+            <summary>
+            The version used by editor for display purpose. 4th digit needs to be at least 1 if used (due to NuGet special cases).
+            </summary>
+        </member>
+        <member name="F:Stride.StrideVersion.AssemblyVersion">
+            <summary>
+            The current assembly version as text, currently same as <see cref="F:Stride.StrideVersion.PublicVersion"/>.
+            </summary>
+        </member>
+        <member name="F:Stride.StrideVersion.NuGetVersionSimple">
+            <summary>
+            The NuGet package version without special tags.
+            </summary>
+        </member>
+        <member name="F:Stride.StrideVersion.NuGetVersion">
+            <summary>
+            The NuGet package version.
+            </summary>
+        </member>
+        <member name="F:Stride.StrideVersion.NuGetVersionSuffix">
+            <summary>
+            The NuGet package suffix (i.e. -beta01). Automatically set by Stride.GitVersioning.GenerateVersionFile.
+            Three possible values:
+            - Empty: official release
+            - -betaXX: development version (XX should corespond to development asset versioning)
+            - -betaXX-YYYY: beta release (YYYY is the git height since current version has been bumped)
+            </summary>
+        </member>
+        <member name="F:Stride.StrideVersion.BuildMetadata">
+            <summary>
+            The build metadata, usually +g[git_hash] during package. Automatically set by Stride.GitVersioning.GenerateVersionFile.
+            </summary>
+        </member>
+        <member name="F:Stride.StrideVersion.AssemblyInformationalVersion">
+            <summary>
+            The informational assembly version, containing -beta01 or +g[git_hash] during package.
+            </summary>
+        </member>
+        <member name="T:Stride.PublicKeys">
+            <summary>
+            Assembly signing information.
+            </summary>
+        </member>
+        <member name="F:Stride.PublicKeys.Default">
+            <summary>
+            Assembly name suffix that contains signing information.
+            </summary>
+        </member>
+    </members>
+</doc>

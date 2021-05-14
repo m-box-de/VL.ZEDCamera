@@ -1,0 +1,1563 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Stride.Shaders</name>
+    </assembly>
+    <members>
+        <member name="T:Stride.Shaders.Compiler.CompilerParameters">
+            <summary>
+            Parameters used for compilation.
+            </summary>
+        </member>
+        <member name="M:Stride.Shaders.Compiler.CompilerParameters.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Shaders.Compiler.CompilerParameters"/> class.
+            </summary>
+        </member>
+        <member name="T:Stride.Shaders.Compiler.CompilerResults">
+            <summary>
+            Result of a compilation.
+            </summary>
+        </member>
+        <member name="M:Stride.Shaders.Compiler.CompilerResults.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Core.Diagnostics.LoggerResult" /> class.
+            </summary>
+        </member>
+        <member name="P:Stride.Shaders.Compiler.CompilerResults.Bytecode">
+            <summary>
+            Gets or sets the main bytecode.
+            </summary>
+            <value>
+            The main bytecode.
+            </value>
+        </member>
+        <member name="P:Stride.Shaders.Compiler.CompilerResults.SourceParameters">
+            <summary>
+            Parameters used to create this shader.
+            </summary>
+            <value>The ParameterCollection.</value>
+        </member>
+        <member name="T:Stride.Shaders.Compiler.EffectBytecodeCacheLoadSource">
+            <summary>
+            Describes what kind of cache (if any) was used to retrieve the bytecode.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.Compiler.EffectBytecodeCacheLoadSource.JustCompiled">
+            <summary>
+            The bytecode has just been compiled.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.Compiler.EffectBytecodeCacheLoadSource.StartupCache">
+            <summary>
+            The bytecode was loaded through the startup cache (part of asset compilation).
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.Compiler.EffectBytecodeCacheLoadSource.DynamicCache">
+            <summary>
+            The bytecode was loaded through the runtime cache (not part of asset compilation).
+            </summary>
+        </member>
+        <member name="T:Stride.Shaders.Compiler.EffectBytecodeCompilerResult">
+            <summary>
+            Result of an effect bytecode compilation.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.Compiler.EffectBytecodeCompilerResult.Bytecode">
+            <summary>
+            The effect bytecode. Might be null.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.Compiler.EffectBytecodeCompilerResult.CompilationLog">
+            <summary>
+            The compilation log.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.Compiler.EffectBytecodeCompilerResult.LoadSource">
+            <summary>
+            Gets or sets a value that specifies how the shader was loaded.
+            </summary>
+        </member>
+        <member name="T:Stride.Shaders.Compiler.EffectCompilerBase">
+            <summary>
+            Base class for implementations of <see cref="T:Stride.Shaders.Compiler.IEffectCompiler"/>, providing some helper functions.
+            </summary>
+        </member>
+        <member name="P:Stride.Shaders.Compiler.EffectCompilerBase.FileProvider">
+            <summary>
+            Gets or sets the database file provider, to use for loading effects and shader sources.
+            </summary>
+            <value>
+            The database file provider.
+            </value>
+        </member>
+        <member name="M:Stride.Shaders.Compiler.EffectCompilerBase.ResetCache(System.Collections.Generic.HashSet{System.String})">
+            <summary>
+            Remove cached files for modified shaders
+            </summary>
+            <param name="modifiedShaders"></param>
+        </member>
+        <member name="M:Stride.Shaders.Compiler.EffectCompilerBase.Compile(Stride.Shaders.ShaderMixinSource,Stride.Shaders.Compiler.EffectCompilerParameters,Stride.Shaders.Compiler.CompilerParameters)">
+            <summary>
+            Compiles the ShaderMixinSource into a platform bytecode.
+            </summary>
+            <param name="mixinTree">The mixin tree.</param>
+            <param name="effectParameters"></param>
+            <param name="compilerParameters"></param>
+            <returns>The platform-dependent bytecode.</returns>
+        </member>
+        <member name="T:Stride.Shaders.Compiler.EffectCompilerCache">
+            <summary>
+            Checks if an effect has already been compiled in its cache before deferring to a real <see cref="T:Stride.Shaders.Compiler.IEffectCompiler"/>.
+            </summary>
+        </member>
+        <member name="P:Stride.Shaders.Compiler.EffectCompilerCache.CurrentCache">
+            <summary>
+            If we have to compile a new shader, what kind of cache are we building?
+            </summary>
+        </member>
+        <member name="T:Stride.Shaders.Compiler.EffectCompilerChain">
+            <summary>
+            Helper class that delegates actual compilation to another <see cref="T:Stride.Shaders.Compiler.IEffectCompiler"/>.
+            </summary>
+        </member>
+        <member name="P:Stride.Shaders.Compiler.EffectCompilerParameters.TaskPriority">
+            <summary>
+            Gets or sets the priority (in case this compile is scheduled in a custom async pool)
+            </summary>
+            <value>
+            The priority.
+            </value>
+        </member>
+        <member name="T:Stride.Shaders.Compiler.EffectPriorityScheduler">
+            <summary>
+            A <see cref="T:System.Threading.Tasks.TaskScheduler"/> with control over concurrency and priority, useful with <see cref="T:Stride.Shaders.Compiler.EffectCompilerCache"/>.
+            </summary>
+        </member>
+        <member name="P:Stride.Shaders.Compiler.EffectPriorityScheduler.MaximumConcurrencyLevel">
+            <inheritdoc/>
+        </member>
+        <member name="M:Stride.Shaders.Compiler.EffectPriorityScheduler.TryExecuteTaskInline(System.Threading.Tasks.Task,System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Stride.Shaders.Compiler.EffectPriorityScheduler.GetScheduledTasks">
+            <inheritdoc/>
+        </member>
+        <member name="M:Stride.Shaders.Compiler.EffectPriorityScheduler.GetOrCreatePriorityGroup(System.Int32)">
+            <summary>
+            Gets the or create a task scheduler for the given priority.
+            </summary>
+            <param name="priority">The priority.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Stride.Shaders.Compiler.EffectPriorityScheduler.QueueTask(System.Threading.Tasks.Task)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Stride.Shaders.Compiler.EffectPriorityScheduler.PriorityGroupScheduler">
+            <summary>
+            Internal task scheduler for a specific priority level.
+            </summary>
+        </member>
+        <member name="T:Stride.Shaders.Compiler.IEffectCompiler">
+            <summary>
+            Main interface used to compile a shader.
+            </summary>
+        </member>
+        <member name="M:Stride.Shaders.Compiler.IEffectCompiler.Compile(Stride.Shaders.ShaderSource,Stride.Shaders.Compiler.CompilerParameters)">
+            <summary>
+            Compiles the specified shader source.
+            </summary>
+            <param name="shaderSource">The shader source.</param>
+            <param name="compilerParameters">The compiler parameters.</param>
+            <returns>Result of the compilation.</returns>
+        </member>
+        <member name="T:Stride.Shaders.ConstantBufferType">
+            <summary>
+            Describes the type of constant buffer.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.ConstantBufferType.Unknown">
+            <summary>
+            An unknown buffer.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.ConstantBufferType.ConstantBuffer">
+            <summary>
+            A standard constant buffer
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.ConstantBufferType.TextureBuffer">
+            <summary>
+            A texture buffer
+            </summary>
+        </member>
+        <member name="T:Stride.Shaders.EffectBytecode">
+            <summary>
+            Contains a compiled shader with bytecode for each stage.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectBytecode.MagicHeader">
+            <summary>
+            Magic header stored in front of an effect bytecode to avoid reading old versions.
+            </summary>
+            <remarks>
+            If EffectBytecode is changed, this number must be changed manually.
+            </remarks>
+        </member>
+        <member name="F:Stride.Shaders.EffectBytecode.Reflection">
+            <summary>
+            The reflection from the bytecode.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectBytecode.HashSources">
+            <summary>
+            The used sources
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectBytecode.Stages">
+            <summary>
+            The bytecode for each stage.
+            </summary>
+        </member>
+        <member name="M:Stride.Shaders.EffectBytecode.ComputeId">
+            <summary>
+            Computes a unique identifier for this bytecode instance.
+            </summary>
+            <returns>ObjectId.</returns>
+        </member>
+        <member name="M:Stride.Shaders.EffectBytecode.FromBytes(System.Byte[])">
+            <summary>
+            Loads an <see cref="T:Stride.Shaders.EffectBytecode" /> from a buffer.
+            </summary>
+            <param name="buffer">The buffer.</param>
+            <returns>EffectBytecode.</returns>
+            <exception cref="T:System.ArgumentNullException">buffer</exception>
+        </member>
+        <member name="M:Stride.Shaders.EffectBytecode.FromBytesSafe(System.Byte[])">
+            <summary>
+            Loads an <see cref="T:Stride.Shaders.EffectBytecode" /> from a buffer.
+            </summary>
+            <param name="buffer">The buffer.</param>
+            <returns>EffectBytecode.</returns>
+            <exception cref="T:System.ArgumentNullException">buffer</exception>
+        </member>
+        <member name="M:Stride.Shaders.EffectBytecode.FromStream(System.IO.Stream)">
+            <summary>
+            Loads an <see cref="T:Stride.Shaders.EffectBytecode" /> from a stream.
+            </summary>
+            <param name="stream">The stream.</param>
+            <returns>EffectBytecode or null if the magic header is not matching</returns>
+            <exception cref="T:System.ArgumentNullException">stream</exception>
+        </member>
+        <member name="M:Stride.Shaders.EffectBytecode.WriteTo(System.IO.Stream)">
+            <summary>
+            Writes this <see cref="T:Stride.Shaders.EffectBytecode" /> to a stream with its magic number.
+            </summary>
+            <param name="stream">The stream.</param>
+            <exception cref="T:System.ArgumentNullException">stream</exception>
+        </member>
+        <member name="T:Stride.Shaders.EffectConstantBufferDescription">
+            <summary>
+            Description of a constant buffer.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectConstantBufferDescription.Name">
+            <summary>
+            The name of this constant buffer.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectConstantBufferDescription.Size">
+            <summary>
+            The size in bytes.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectConstantBufferDescription.Type">
+            <summary>
+            The type of constant buffer.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectConstantBufferDescription.Members">
+            <summary>
+            The members of this constant buffer.
+            </summary>
+        </member>
+        <member name="M:Stride.Shaders.EffectConstantBufferDescription.Clone">
+            <summary>
+            Clone the current instance of the constant buffer description.
+            </summary>
+            <returns>A clone copy of the description</returns>
+        </member>
+        <member name="T:Stride.Shaders.EffectParameterClass">
+            <summary>
+            Values that identify the class of a shader variable.
+            </summary>
+            <remarks>
+            The class of a shader variable is not a programming class; the class identifies the variable class such as scalar, vector, object, and so on.
+            </remarks>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterClass.Scalar">
+            <summary>
+            <dd> <p>The shader variable is a scalar.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterClass.Vector">
+            <summary>
+            <dd> <p>The shader variable is a vector.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterClass.MatrixRows">
+            <summary>
+            <dd> <p>The shader variable is a row-major matrix.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterClass.MatrixColumns">
+            <summary>
+            <dd> <p>The shader variable is a column-major matrix.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterClass.Object">
+            <summary>
+            <dd> <p>The shader variable is an object.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterClass.Struct">
+            <summary>
+            <dd> <p>The shader variable is a structure.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterClass.InterfaceClass">
+            <summary>
+            <dd> <p>The shader variable is a class.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterClass.InterfacePointer">
+            <summary>
+            <dd> <p>The shader variable is an interface.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterClass.Sampler">
+            <summary>
+            A sampler state object.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterClass.ShaderResourceView">
+            <summary>
+            A shader resource view.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterClass.ConstantBuffer">
+            <summary>
+            A constant buffer
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterClass.TextureBuffer">
+            <summary>
+            A constant buffer
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterClass.UnorderedAccessView">
+            <summary>
+            An unordered access view
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterClass.Color">
+            <summary>
+            <dd> <p>The shader variable is a vector.</p> </dd>
+            </summary>
+        </member>
+        <member name="T:Stride.Shaders.EffectParameterKeyInfo">
+            <summary>
+            The header of a shader parameter.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterKeyInfo.Key">
+            <summary>
+            The key of the parameter.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterKeyInfo.KeyName">
+            <summary>
+            The key name.
+            </summary>
+        </member>
+        <member name="T:Stride.Shaders.EffectParameterType">
+            <summary>
+            <p>Values that identify various data, texture, and buffer types that can be assigned to a shader variable.</p>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.Void">
+            <summary>
+            <dd> <p>The variable is a void reference.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.Bool">
+            <summary>
+            <dd> <p>The variable is a boolean.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.Int">
+            <summary>
+            <dd> <p>The variable is an integer.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.Float">
+            <summary>
+            <dd> <p>The variable is a floating-point number.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.String">
+            <summary>
+            <dd> <p>The variable is a string.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.Texture">
+            <summary>
+            <dd> <p>The variable is a texture.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.Texture1D">
+            <summary>
+            <dd> <p>The variable is a 1D texture.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.Texture2D">
+            <summary>
+            <dd> <p>The variable is a 2D texture.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.Texture3D">
+            <summary>
+            <dd> <p>The variable is a 3D texture.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.TextureCube">
+            <summary>
+            <dd> <p>The variable is a texture cube.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.Sampler">
+            <summary>
+            <dd> <p>The variable is a sampler.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.Sampler1D">
+            <summary>
+            <dd> <p>The variable is a sampler.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.Sampler2D">
+            <summary>
+            <dd> <p>The variable is a sampler.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.Sampler3D">
+            <summary>
+            <dd> <p>The variable is a sampler.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.SamplerCube">
+            <summary>
+            <dd> <p>The variable is a sampler.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.UInt">
+            <summary>
+            <dd> <p>The variable is an unsigned integer.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.UInt8">
+            <summary>
+            <dd> <p>The variable is an 8-bit unsigned integer.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.Buffer">
+            <summary>
+            <dd> <p>The variable is a buffer.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.ConstantBuffer">
+            <summary>
+            <dd> <p>The variable is a constant buffer.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.TextureBuffer">
+            <summary>
+            <dd> <p>The variable is a texture buffer.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.Texture1DArray">
+            <summary>
+            <dd> <p>The variable is a 1D-texture array.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.Texture2DArray">
+            <summary>
+            <dd> <p>The variable is a 2D-texture array.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.Texture2DMultisampled">
+            <summary>
+            <dd> <p>The variable is a 2D-multisampled texture.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.Texture2DMultisampledArray">
+            <summary>
+            <dd> <p>The variable is a 2D-multisampled-texture array.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.TextureCubeArray">
+            <summary>
+            <dd> <p>The variable is a texture-cube array.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.Double">
+            <summary>
+            <dd> <p>The variable is a double precision (64-bit) floating-point number.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.RWTexture1D">
+            <summary>
+            <dd> <p>The variable is a 1D read-and-write texture.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.RWTexture1DArray">
+            <summary>
+            <dd> <p>The variable is an array of 1D read-and-write textures.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.RWTexture2D">
+            <summary>
+            <dd> <p>The variable is a 2D read-and-write texture.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.RWTexture2DArray">
+            <summary>
+            <dd> <p>The variable is an array of 2D read-and-write textures.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.RWTexture3D">
+            <summary>
+            <dd> <p>The variable is a 3D read-and-write texture.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.RWBuffer">
+            <summary>
+            <dd> <p>The variable is a read-and-write buffer.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.ByteAddressBuffer">
+            <summary>
+            <dd> <p>The variable is a byte-address buffer.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.RWByteAddressBuffer">
+            <summary>
+            <dd> <p>The variable is a read-and-write byte-address buffer.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.StructuredBuffer">
+            <summary>
+            <dd> <p>The variable is a structured buffer. </p> <p>For more information about structured buffer, see the <strong>Remarks</strong> section.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.RWStructuredBuffer">
+            <summary>
+            <dd> <p>The variable is a read-and-write structured buffer.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.AppendStructuredBuffer">
+            <summary>
+            <dd> <p>The variable is an append structured buffer.</p> </dd>
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectParameterType.ConsumeStructuredBuffer">
+            <summary>
+            <dd> <p>The variable is a consume structured buffer.</p> </dd>
+            </summary>
+        </member>
+        <member name="T:Stride.Shaders.EffectReflection">
+            <summary>
+            The reflection data describing the parameters of a shader.
+            </summary>
+        </member>
+        <member name="M:Stride.Shaders.EffectReflection.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Shaders.EffectReflection"/> class.
+            </summary>
+        </member>
+        <member name="P:Stride.Shaders.EffectReflection.SamplerStates">
+            <summary>
+            Gets or sets the sampler states.
+            </summary>
+            <value>The sampler states.</value>
+        </member>
+        <member name="P:Stride.Shaders.EffectReflection.ResourceBindings">
+            <summary>
+            Gets the parameter binding descriptions.
+            </summary>
+            <value>The resource bindings.</value>
+        </member>
+        <member name="P:Stride.Shaders.EffectReflection.ConstantBuffers">
+            <summary>
+            Gets the constant buffer descriptions (if any).
+            </summary>
+            <value>The constant buffers.</value>
+        </member>
+        <member name="P:Stride.Shaders.EffectReflection.ShaderStreamOutputDeclarations">
+            <summary>
+            Gets or sets the stream output declarations.
+            </summary>
+            <value>The stream output declarations.</value>
+        </member>
+        <member name="P:Stride.Shaders.EffectReflection.StreamOutputStrides">
+            <summary>
+            Gets or sets the stream output strides.
+            </summary>
+            <value>The stream output strides.</value>
+        </member>
+        <member name="P:Stride.Shaders.EffectReflection.StreamOutputRasterizedStream">
+            <summary>
+            Gets or sets the stream output rasterized stream.
+            </summary>
+            <value>The stream output rasterized stream.</value>
+        </member>
+        <member name="T:Stride.Shaders.EffectResourceBindingDescription">
+            <summary>
+            Describes a shader parameter for a resource type.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectResourceBindingDescription.KeyInfo">
+            <summary>
+            The common description of this parameter.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectResourceBindingDescription.Class">
+            <summary>
+            The <see cref="T:Stride.Shaders.EffectParameterClass"/> of this parameter.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectResourceBindingDescription.Type">
+            <summary>
+            The <see cref="T:Stride.Shaders.EffectParameterType"/> of this parameter.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectResourceBindingDescription.ElementType">
+            <summary>
+            The element type (for buffers or textures).
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectResourceBindingDescription.RawName">
+            <summary>
+            Name of this parameter in the original shader
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectResourceBindingDescription.ResourceGroup">
+            <summary>
+            Resource group this variable belongs to. This should later be directly grouped in EffectReflection.ResourceGroups.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectResourceBindingDescription.Stage">
+            <summary>
+            The stage this parameter is used
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectResourceBindingDescription.SlotStart">
+            <summary>
+            The starting slot this parameter is bound.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectResourceBindingDescription.SlotCount">
+            <summary>
+            The number of slots bound to this parameter starting at <see cref="F:Stride.Shaders.EffectResourceBindingDescription.SlotStart"/>.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectResourceBindingDescription.LogicalGroup">
+            <summary>
+            Logical group, used to group related descriptors and variables together.
+            </summary>
+        </member>
+        <member name="T:Stride.Shaders.EffectSamplerStateBinding">
+            <summary>
+            Binding to a sampler.
+            </summary>
+        </member>
+        <member name="M:Stride.Shaders.EffectSamplerStateBinding.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Shaders.EffectSamplerStateBinding"/> class.
+            </summary>
+        </member>
+        <member name="M:Stride.Shaders.EffectSamplerStateBinding.#ctor(System.String,Stride.Graphics.SamplerStateDescription)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Shaders.EffectSamplerStateBinding"/> class.
+            </summary>
+            <param name="keyName">Name of the key.</param>
+            <param name="description">The description.</param>
+        </member>
+        <member name="F:Stride.Shaders.EffectSamplerStateBinding.Key">
+            <summary>
+            The key used to bind this sampler, used internaly.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectSamplerStateBinding.KeyName">
+            <summary>
+            The key name.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectSamplerStateBinding.Description">
+            <summary>
+            The description of this sampler.
+            </summary>
+        </member>
+        <member name="T:Stride.Shaders.EffectSourceCodeKeys">
+            <summary>
+            Keys used for sourcecode generation.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectSourceCodeKeys.Enable">
+            <summary>
+            When compiling a sdsl, this will generate a source code file
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectSourceCodeKeys.ClassDeclaration">
+            <summary>
+            The class modifier declaration (Default: "public partial")
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectSourceCodeKeys.Namespace">
+            <summary>
+            The namespace used for the declaration.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectSourceCodeKeys.ClassName">
+            <summary>
+            The classname used for the (Default: name of the effect).
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectSourceCodeKeys.FieldDeclaration">
+            <summary>
+            The field declaration (default: "private")
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectSourceCodeKeys.FieldName">
+            <summary>
+            The field name (default: "binaryBytecode")
+            </summary>
+        </member>
+        <member name="T:Stride.Shaders.EffectTypeDescription">
+            <summary>
+            Describes a shader parameter type.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectTypeDescription.Class">
+            <summary>
+            The <see cref="T:Stride.Shaders.EffectParameterClass"/> of this parameter.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectTypeDescription.Type">
+            <summary>
+            The <see cref="T:Stride.Shaders.EffectParameterType"/> of this parameter.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectTypeDescription.RowCount">
+            <summary>
+            Number of rows for this element.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectTypeDescription.ColumnCount">
+            <summary>
+            Number of columns for this element.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectTypeDescription.Elements">
+            <summary>
+            Number of elements for arrays (0 if not an array).
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectTypeDescription.ElementSize">
+            <summary>
+            Size of this element (non-aligned).
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectTypeDescription.Name">
+            <summary>
+            Name of this structure type.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectTypeDescription.Members">
+            <summary>
+            Members in the structure.
+            </summary>
+        </member>
+        <member name="T:Stride.Shaders.EffectTypeMemberDescription">
+            <summary>
+            Describes a shader parameter member.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectTypeMemberDescription.Name">
+            <summary>
+            The name of this member.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectTypeMemberDescription.Offset">
+            <summary>
+            Offset in bytes into the parent structure (0 if not a structure member).
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectTypeMemberDescription.Type">
+            <summary>
+            The type of this member.
+            </summary>
+        </member>
+        <member name="T:Stride.Shaders.EffectValueDescription">
+            <summary>
+            Describes a shader parameter for a valuetype (usually stored in constant buffers).
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectValueDescription.Type">
+            <summary>
+            The type of this value.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectValueDescription.KeyInfo">
+            <summary>
+            The common description of this parameter.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectValueDescription.RawName">
+            <summary>
+            Name of this parameter in the original shader
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectValueDescription.Offset">
+            <summary>
+            Offset in bytes into the constant buffer.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectValueDescription.Size">
+            <summary>
+            Size in bytes in a constant buffer.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectValueDescription.DefaultValue">
+            <summary>
+            The default value.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.EffectValueDescription.LogicalGroup">
+            <summary>
+            Logical group, used to group related descriptors and variables together.
+            </summary>
+        </member>
+        <member name="T:Stride.Shaders.HashSourceCollection">
+            <summary>
+            A dictionary of associations betweens asset shader urls and <see cref="T:Stride.Core.Storage.ObjectId"/>
+            </summary>
+        </member>
+        <member name="M:Stride.Shaders.HashSourceCollection.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Shaders.HashSourceCollection"/> class.
+            </summary>
+        </member>
+        <member name="M:Stride.Shaders.HashSourceCollection.Equals(Stride.Shaders.HashSourceCollection)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns>true if the current object is equal to the <paramref name="other" /> parameter; otherwise, false.</returns>
+        </member>
+        <member name="T:Stride.Shaders.IShaderMixinBuilder">
+            <summary>
+            Interface to be implemented for dynamic mixin generation.
+            </summary>
+        </member>
+        <member name="M:Stride.Shaders.IShaderMixinBuilder.Generate(Stride.Shaders.ShaderMixinSource,Stride.Shaders.ShaderMixinContext)">
+            <summary>
+            Generates a mixin.
+            </summary>
+            <param name="mixinTree">The mixin tree.</param>
+            <param name="context">The context.</param>
+        </member>
+        <member name="T:Stride.Shaders.IShaderMixinBuilderExtended">
+            <summary>
+            Extension of <see cref="T:Stride.Shaders.IShaderMixinBuilder"/> that provides keys and mixin informations.
+            </summary>
+        </member>
+        <member name="P:Stride.Shaders.IShaderMixinBuilderExtended.Keys">
+            <summary>
+            Gets an array of <see cref="T:Stride.Rendering.ParameterKey"/> used by this mixin.
+            </summary>
+            <value>The keys.</value>
+        </member>
+        <member name="P:Stride.Shaders.IShaderMixinBuilderExtended.Mixins">
+            <summary>
+            Gets the shaders/mixins used by this mixin.
+            </summary>
+            <value>The mixins.</value>
+        </member>
+        <member name="T:Stride.Shaders.NamespaceDoc">
+            <summary>
+            The <see cref="N:Stride.Shaders"/> namespace contains types to handle the Stride high-level Shading Language.
+            </summary>
+        </member>
+        <member name="T:Stride.Shaders.ShaderArraySource">
+            <summary>
+            An array of <see cref="T:Stride.Shaders.ShaderSource"/> used only in shader mixin compositions.
+            </summary>
+        </member>
+        <member name="M:Stride.Shaders.ShaderArraySource.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Shaders.ShaderArraySource"/> class.
+            </summary>
+        </member>
+        <member name="P:Stride.Shaders.ShaderArraySource.Values">
+            <summary>
+            Gets or sets the values.
+            </summary>
+            <value>The values.</value>
+        </member>
+        <member name="M:Stride.Shaders.ShaderArraySource.Add(Stride.Shaders.ShaderSource)">
+            <summary>
+            Adds the specified composition.
+            </summary>
+            <param name="composition">The composition.</param>
+        </member>
+        <member name="T:Stride.Shaders.ShaderBytecode">
+            <summary>
+            The bytecode of an effect.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.ShaderBytecode.Stage">
+            <summary>
+            The stage of this Bytecode.
+            </summary>
+        </member>
+        <member name="P:Stride.Shaders.ShaderBytecode.Id">
+            <summary>
+            Hash of the Data.
+            </summary>
+        </member>
+        <member name="P:Stride.Shaders.ShaderBytecode.Data">
+            <summary>
+            Gets the shader data that should be used to create the <see cref="!:Shader"/>.
+            </summary>
+            <value>
+            The shader data.
+            </value>
+        </member>
+        <member name="M:Stride.Shaders.ShaderBytecode.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Shaders.ShaderBytecode"/> class.
+            </summary>
+        </member>
+        <member name="M:Stride.Shaders.ShaderBytecode.#ctor(Stride.Core.Storage.ObjectId,System.Byte[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Shaders.ShaderBytecode"/> class.
+            </summary>
+            <param name="data">The data.</param>
+        </member>
+        <member name="M:Stride.Shaders.ShaderBytecode.Clone">
+            <summary>
+            Shallow clones this instance.
+            </summary>
+            <returns>ShaderBytecode.</returns>
+        </member>
+        <member name="M:Stride.Shaders.ShaderBytecode.op_Implicit(Stride.Shaders.ShaderBytecode)~System.Byte[]">
+            <summary>
+            Performs an implicit conversion from <see cref="T:Stride.Shaders.ShaderBytecode"/> to <see cref="!:System.Byte[][]"/>.
+            </summary>
+            <param name="shaderBytecode">The shader bytecode.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:Stride.Shaders.ShaderBytecode.GetDataAsString">
+            <summary>
+            Gets the data as a string.
+            </summary>
+            <returns>System.String.</returns>
+        </member>
+        <member name="T:Stride.Shaders.ShaderClassCode">
+            <summary>
+            A common base class for shader classes with source code.
+            </summary>
+        </member>
+        <member name="P:Stride.Shaders.ShaderClassCode.ClassName">
+            <summary>
+            Gets the name of the class.
+            </summary>
+            <value>The name of the class.</value>
+        </member>
+        <member name="P:Stride.Shaders.ShaderClassCode.GenericArguments">
+            <summary>
+            Gets the generic parameters.
+            </summary>
+            <value>The generic parameters.</value>
+        </member>
+        <member name="M:Stride.Shaders.ShaderClassCode.ToClassName">
+            <summary>
+            Returns a class name as a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>A class name as a <see cref="T:System.String" /> that represents this instance.</returns>
+        </member>
+        <member name="T:Stride.Shaders.ShaderClassSource">
+            <summary>
+            A shader class based on .sdsl file, used for mixin.
+            </summary>
+        </member>
+        <member name="M:Stride.Shaders.ShaderClassSource.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Shaders.ShaderClassSource"/> class.
+            </summary>
+        </member>
+        <member name="M:Stride.Shaders.ShaderClassSource.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Shaders.ShaderClassSource"/> class.
+            </summary>
+            <param name="className">Name of the class.</param>
+        </member>
+        <member name="M:Stride.Shaders.ShaderClassSource.#ctor(System.String,System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Shaders.ShaderClassSource"/> class.
+            </summary>
+            <param name="className">Name of the class.</param>
+            <param name="genericArguments">The generic parameters.</param>
+        </member>
+        <member name="M:Stride.Shaders.ShaderClassSource.#ctor(System.String,System.Object[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Shaders.ShaderClassSource"/> class.
+            </summary>
+            <param name="className">Name of the class.</param>
+            <param name="genericArguments">The generic parameters.</param>
+        </member>
+        <member name="M:Stride.Shaders.ShaderClassSource.op_Implicit(System.String)~Stride.Shaders.ShaderClassSource">
+            <summary>
+            Performs an implicit conversion from <see cref="T:System.String"/> to <see cref="T:Stride.Shaders.ShaderClassSource"/>.
+            </summary>
+            <param name="className">Name of the class.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="T:Stride.Shaders.ShaderClassString">
+            <summary>
+            A shader class based on source code string, used for mixin.
+            </summary>
+        </member>
+        <member name="P:Stride.Shaders.ShaderClassString.ShaderSourceCode">
+            <summary>
+            Gets the source code of this shader class as string, XKSL syntax.
+            </summary>
+            <value>The source code of the shader class.</value>
+        </member>
+        <member name="M:Stride.Shaders.ShaderClassString.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Shaders.ShaderClassString"/> class.
+            </summary>
+        </member>
+        <member name="M:Stride.Shaders.ShaderClassString.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Shaders.ShaderClassString"/> class.
+            </summary>
+            <param name="className">Name of the class.</param>
+        </member>
+        <member name="M:Stride.Shaders.ShaderClassString.#ctor(System.String,System.String,System.String[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Shaders.ShaderClassString"/> class.
+            </summary>
+            <param name="className">Name of the class.</param>
+            <param name="genericArguments">The generic parameters.</param>
+        </member>
+        <member name="M:Stride.Shaders.ShaderClassString.#ctor(System.String,System.String,System.Object[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Shaders.ShaderClassString"/> class.
+            </summary>
+            <param name="className">Name of the class.</param>
+            <param name="genericArguments">The generic parameters.</param>
+        </member>
+        <member name="T:Stride.Shaders.ShaderInputBytecode">
+            <summary>
+            Structure containing SPIR-V bytecode, as well as mappings from input attribute locations to semantics.
+            </summary>
+        </member>
+        <member name="T:Stride.Shaders.ShaderMacro">
+            <summary>
+            Preprocessor macro.
+            </summary>
+        </member>
+        <member name="M:Stride.Shaders.ShaderMacro.#ctor(System.String,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Shaders.ShaderMacro"/> struct.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="definition">The definition.</param>
+        </member>
+        <member name="F:Stride.Shaders.ShaderMacro.Name">
+            <summary>
+            Name of the macro to set.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.ShaderMacro.Definition">
+            <summary>
+            Value of the macro to set.
+            </summary>
+        </member>
+        <member name="M:Stride.Shaders.ShaderMacro.Equals(Stride.Shaders.ShaderMacro)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns>
+            true if the current object is equal to the <paramref name="other"/> parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Stride.Shaders.ShaderMacro.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to this instance.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with this instance.</param>
+            <returns>
+              <c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Stride.Shaders.ShaderMacro.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            </returns>
+        </member>
+        <member name="T:Stride.Shaders.ShaderMixinContext">
+            <summary>
+            A context used when mixin <see cref="T:Stride.Shaders.ShaderSource"/>.
+            </summary>
+        </member>
+        <member name="M:Stride.Shaders.ShaderMixinContext.#ctor(Stride.Shaders.ShaderMixinSource,Stride.Rendering.ParameterCollection,System.Collections.Generic.Dictionary{System.String,Stride.Shaders.IShaderMixinBuilder})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Shaders.ShaderMixinContext" /> class.
+            </summary>
+            <param name="mixinTree">The mixin tree.</param>
+            <param name="compilerParameters">The default property container.</param>
+            <param name="registeredBuilders">The registered builders.</param>
+            <exception cref="T:System.ArgumentNullException">compilerParameters
+            or
+            registeredBuilders</exception>
+        </member>
+        <member name="P:Stride.Shaders.ShaderMixinContext.ChildEffectName">
+            <summary>
+            Gets or sets the child effect.
+            </summary>
+            <value>The child effect.</value>
+        </member>
+        <member name="M:Stride.Shaders.ShaderMixinContext.PushParameters(Stride.Rendering.ParameterCollection)">
+            <summary>
+            Pushes the current parameters collection being used.
+            </summary>
+            <typeparam name="T">Type of the parameter collection</typeparam>
+            <param name="parameterCollection">The property container.</param>
+        </member>
+        <member name="M:Stride.Shaders.ShaderMixinContext.PopParameters">
+            <summary>
+            Pops the parameters collection.
+            </summary>
+        </member>
+        <member name="M:Stride.Shaders.ShaderMixinContext.GetParam``1(Stride.Rendering.PermutationParameterKey{``0})">
+            <summary>
+            Gets a parameter value for the specified key.
+            </summary>
+            <typeparam name="T">Type of the parameter value</typeparam>
+            <param name="paramKey">The parameter key.</param>
+            <returns>The value or default value associated to this parameter key.</returns>
+            <exception cref="T:System.ArgumentNullException">key</exception>
+        </member>
+        <member name="M:Stride.Shaders.ShaderMixinContext.RemoveMixin(Stride.Shaders.ShaderMixinSource,System.String)">
+            <summary>
+            Removes the specified mixin from this instance.
+            </summary>
+            <param name="mixinTree">The mixin tree.</param>
+            <param name="name">The name.</param>
+        </member>
+        <member name="M:Stride.Shaders.ShaderMixinContext.Mixin(Stride.Shaders.ShaderMixinSource,System.String)">
+            <summary>
+            Mixins a <see cref="T:Stride.Shaders.ShaderMixinSource" /> into the specified mixin tree.
+            </summary>
+            <param name="mixinTree">The mixin tree.</param>
+            <param name="name">The name.</param>
+        </member>
+        <member name="M:Stride.Shaders.ShaderMixinContext.Mixin(Stride.Shaders.ShaderMixinSource,System.String,System.Object[])">
+            <summary>
+            Mixins a <see cref="T:Stride.Shaders.ShaderClassSource" /> identified by its name/generic parameters into the specified mixin tree.
+            </summary>
+            <param name="mixinTree">The mixin tree.</param>
+            <param name="name">The name.</param>
+            <param name="genericParameters">The generic parameters.</param>
+            <exception cref="T:System.InvalidOperationException">If the class source doesn't support generic parameters</exception>
+        </member>
+        <member name="M:Stride.Shaders.ShaderMixinContext.Mixin(Stride.Shaders.ShaderMixinSource,Stride.Shaders.ShaderSource)">
+            <summary>
+            Mixins a <see cref="T:Stride.Shaders.ShaderMixinSource"/> into the specified mixin tree.
+            </summary>
+            <param name="mixinTree">The mixin tree.</param>
+            <param name="shaderSource">The shader source.</param>
+        </member>
+        <member name="T:Stride.Shaders.ShaderMixinDiscardException">
+            <summary>
+            An exception used to early exit a shader mixin with discard.
+            </summary>
+        </member>
+        <member name="M:Stride.Shaders.ShaderMixinDiscardException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Shaders.ShaderMixinDiscardException"/> class.
+            </summary>
+        </member>
+        <member name="M:Stride.Shaders.ShaderMixinDiscardException.#ctor(Stride.Shaders.ShaderSource)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Shaders.ShaderMixinDiscardException"/> class.
+            </summary>
+            <param name="source">The source.</param>
+        </member>
+        <member name="P:Stride.Shaders.ShaderMixinDiscardException.DiscardSource">
+            <summary>
+            Gets the discard source if any (may be null).
+            </summary>
+            <value>The discard source.</value>
+        </member>
+        <member name="T:Stride.Shaders.ShaderMixinGeneratorSource">
+            <summary>
+            A shader source that is linked to a sdfx effect.
+            </summary>
+        </member>
+        <member name="M:Stride.Shaders.ShaderMixinGeneratorSource.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Shaders.ShaderMixinGeneratorSource"/> class.
+            </summary>
+        </member>
+        <member name="M:Stride.Shaders.ShaderMixinGeneratorSource.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Shaders.ShaderMixinGeneratorSource"/> class.
+            </summary>
+            <param name="name">The name of the sdfx effect.</param>
+        </member>
+        <member name="P:Stride.Shaders.ShaderMixinGeneratorSource.Name">
+            <summary>
+            Gets or sets the name of the sdfx effect.
+            </summary>
+            <value>The name of the sdfx effect.</value>
+        </member>
+        <member name="M:Stride.Shaders.ShaderMixinGeneratorSource.Equals(Stride.Shaders.ShaderMixinGeneratorSource)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns>true if the current object is equal to the <paramref name="other" /> parameter; otherwise, false.</returns>
+        </member>
+        <member name="T:Stride.Shaders.ShaderMixinManager">
+            <summary>
+            Manages <see cref="T:Stride.Shaders.IShaderMixinBuilder"/> and generation of shader mixins.
+            </summary>
+        </member>
+        <member name="M:Stride.Shaders.ShaderMixinManager.Register(System.String,Stride.Shaders.IShaderMixinBuilder)">
+            <summary>
+            Registers a <see cref="T:Stride.Shaders.IShaderMixinBuilder"/> with the specified sdfx effect name.
+            </summary>
+            <param name="sdfxEffectName">Name of the mixin.</param>
+            <param name="builder">The builder.</param>
+            <exception cref="T:System.ArgumentNullException">
+            sdfxEffectName
+            or
+            builder
+            </exception>
+        </member>
+        <member name="M:Stride.Shaders.ShaderMixinManager.Contains(System.String)">
+            <summary>
+            Determines whether the specified PDXFX effect is registered.
+            </summary>
+            <param name="sdfxEffectName">Name of the PDXFX effect.</param>
+            <returns><c>true</c> if the specified PDXFX effect is registered; otherwise, <c>false</c>.</returns>
+            <exception cref="T:System.ArgumentNullException">sdfxEffectName</exception>
+        </member>
+        <member name="M:Stride.Shaders.ShaderMixinManager.TryGet(System.String,Stride.Shaders.IShaderMixinBuilder@)">
+            <summary>
+            Tries to get a <see cref="T:Stride.Shaders.IShaderMixinBuilder"/> by its name.
+            </summary>
+            <param name="sdfxEffectName">Name of the mixin.</param>
+            <param name="builder">The builder instance found or null if not found.</param>
+            <returns><c>true</c> if the builder was found, <c>false</c> otherwise.</returns>
+            <exception cref="T:System.ArgumentNullException">sdfxEffectName</exception>
+        </member>
+        <member name="M:Stride.Shaders.ShaderMixinManager.Generate(System.String,Stride.Rendering.ParameterCollection)">
+            <summary>
+            Generates a <see cref="T:Stride.Shaders.ShaderMixinSource" /> for the specified names and parameters.
+            </summary>
+            <param name="sdfxEffectName">The name.</param>
+            <param name="properties">The properties.</param>
+            <returns>The result of the mixin.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            sdfxEffectName
+            or
+            properties
+            </exception>
+            <exception cref="T:System.ArgumentException">sdfxEffectName</exception>
+        </member>
+        <member name="M:Stride.Shaders.ShaderMixinManager.UnRegisterAll">
+            <summary>
+            Un-register all registered <see cref="T:Stride.Shaders.IShaderMixinBuilder"/>.
+            </summary>
+        </member>
+        <member name="T:Stride.Shaders.ShaderMixinObjectId">
+            <summary>
+            A helper class to compute a unique object id for a <see cref="T:Stride.Shaders.ShaderMixinSource"/>.
+            </summary>
+        </member>
+        <member name="M:Stride.Shaders.ShaderMixinObjectId.Compute(Stride.Shaders.ShaderMixinSource,Stride.Shaders.Compiler.EffectCompilerParameters)">
+            <summary>
+            Computes a hash <see cref="T:Stride.Core.Storage.ObjectId"/> for the specified mixin.
+            </summary>
+            <param name="mixin">The mixin.</param>
+            <param name="mixinParameters">The mixin parameters.</param>
+            <returns>EffectObjectIds.</returns>
+        </member>
+        <member name="M:Stride.Shaders.ShaderMixinObjectId.Compute(System.String,Stride.Shaders.Compiler.CompilerParameters)">
+            <summary>
+            Computes a hash <see cref="T:Stride.Core.Storage.ObjectId"/> for the specified effect and compiler parameters.
+            </summary>
+            <param name="effectName">Name of the effect.</param>
+            <param name="compilerParameters">The compiler parameters.</param>
+            <returns>
+            EffectObjectIds.
+            </returns>
+        </member>
+        <member name="T:Stride.Shaders.ShaderMixinParameters">
+            <summary>
+            Parameters used for mixin.
+            </summary>
+        </member>
+        <member name="M:Stride.Shaders.ShaderMixinParameters.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Shaders.ShaderMixinParameters"/> class.
+            </summary>
+        </member>
+        <member name="T:Stride.Shaders.ShaderMixinSource">
+            <summary>
+            A mixin performing a combination of <see cref="T:Stride.Shaders.ShaderClassCode"/> and other mixins.
+            </summary>
+        </member>
+        <member name="M:Stride.Shaders.ShaderMixinSource.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Stride.Shaders.ShaderMixinSource"/> class.
+            </summary>
+        </member>
+        <member name="P:Stride.Shaders.ShaderMixinSource.Name">
+            <summary>
+            Gets or sets the name of the sdfx effect linked to this node.
+            </summary>
+            <value>The name of the sdfx effect.</value>
+        </member>
+        <member name="P:Stride.Shaders.ShaderMixinSource.Mixins">
+            <summary>
+            Gets or sets the mixins.
+            </summary>
+            <value>The mixins.</value>
+        </member>
+        <member name="P:Stride.Shaders.ShaderMixinSource.Compositions">
+            <summary>
+            Gets or sets the compositions.
+            </summary>
+            <value>The compositions.</value>
+        </member>
+        <member name="P:Stride.Shaders.ShaderMixinSource.Macros">
+            <summary>
+            Gets or sets the macros.
+            </summary>
+            <value>The macros.</value>
+        </member>
+        <member name="M:Stride.Shaders.ShaderMixinSource.AddComposition(System.String,Stride.Shaders.ShaderSource)">
+            <summary>
+            Adds a composition to this mixin.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="shaderSource">The shader source.</param>
+        </member>
+        <member name="M:Stride.Shaders.ShaderMixinSource.AddCompositionToArray(System.String,Stride.Shaders.ShaderSource)">
+            <summary>
+            Adds a composition to this mixin.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="shaderSourceElement">The shader source element.</param>
+            <returns>Returns the index of the composition in the array.</returns>
+        </member>
+        <member name="M:Stride.Shaders.ShaderMixinSource.AddMacro(System.String,System.Object)">
+            <summary>
+            Adds a macro to this mixin.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Stride.Shaders.ShaderMixinSource.CloneFrom(Stride.Shaders.ShaderMixinSource)">
+            <summary>
+            Clones from the specified <see cref="T:Stride.Shaders.ShaderMixinSource"/>.
+            </summary>
+            <param name="parent">The parent mixin to clone from.</param>
+            <exception cref="T:System.ArgumentNullException">parent</exception>
+        </member>
+        <member name="M:Stride.Shaders.ShaderMixinSource.DeepCloneFrom(Stride.Shaders.ShaderMixinSource)">
+            <summary>
+            Clones from the specified <see cref="T:Stride.Shaders.ShaderMixinSource"/>. Clones members too.
+            </summary>
+            <param name="parent">The parent mixin to clone from.</param>
+            <exception cref="T:System.ArgumentNullException">parent</exception>
+        </member>
+        <member name="T:Stride.Shaders.ShaderSource">
+            <summary>
+            A shader source.
+            </summary>
+        </member>
+        <member name="P:Stride.Shaders.ShaderSource.Discard">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:Stride.Shaders.ShaderSource"/> is a discard shader after it has been mixed.
+            </summary>
+            <value><c>true</c> if discard; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:Stride.Shaders.ShaderSource.Clone">
+            <summary>
+            Deep clones this instance.
+            </summary>
+            <returns>A new instance.</returns>
+        </member>
+        <member name="M:Stride.Shaders.ShaderSource.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object" /> is equal to this instance.
+            </summary>
+            <param name="against">The <see cref="T:System.Object" /> to compare with this instance.</param>
+            <returns><c>true</c> if the specified <see cref="T:System.Object" /> is equal to this instance; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="T:Stride.Shaders.ShaderStage">
+            <summary>
+            Enum to specify shader stage.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.ShaderStage.None">
+            <summary>
+            No shader stage defined.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.ShaderStage.Vertex">
+            <summary>
+            The vertex shader stage.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.ShaderStage.Hull">
+            <summary>
+            The Hull shader stage.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.ShaderStage.Domain">
+            <summary>
+            The domain shader stage.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.ShaderStage.Geometry">
+            <summary>
+            The geometry shader stage.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.ShaderStage.Pixel">
+            <summary>
+            The pixel shader stage.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.ShaderStage.Compute">
+            <summary>
+            The compute shader stage.
+            </summary>
+        </member>
+        <member name="T:Stride.Shaders.ShaderStreamOutputDeclarationEntry">
+            <summary>
+            Description of a StreamOutput declaration entry.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.ShaderStreamOutputDeclarationEntry.Stream">
+            <summary>
+            The stream index.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.ShaderStreamOutputDeclarationEntry.SemanticName">
+            <summary>
+            The semantic name.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.ShaderStreamOutputDeclarationEntry.SemanticIndex">
+            <summary>
+            The semantic index.
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.ShaderStreamOutputDeclarationEntry.StartComponent">
+            <summary>
+            The start component
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.ShaderStreamOutputDeclarationEntry.ComponentCount">
+            <summary>
+            The component count
+            </summary>
+        </member>
+        <member name="F:Stride.Shaders.ShaderStreamOutputDeclarationEntry.OutputSlot">
+            <summary>
+            The output slot
+            </summary>
+        </member>
+        <member name="T:Stride.StrideVersion">
+            <summary>
+            Internal version used to identify Stride version.
+            </summary>
+            <remarks>
+            During package build, PackageUpdateVersionTask is updating that file and expect some specific text regex so be careful if you change any of this.
+            </remarks>
+        </member>
+        <member name="F:Stride.StrideVersion.PublicVersion">
+            <summary>
+            The version used by editor for display purpose. 4th digit needs to be at least 1 if used (due to NuGet special cases).
+            </summary>
+        </member>
+        <member name="F:Stride.StrideVersion.AssemblyVersion">
+            <summary>
+            The current assembly version as text, currently same as <see cref="F:Stride.StrideVersion.PublicVersion"/>.
+            </summary>
+        </member>
+        <member name="F:Stride.StrideVersion.NuGetVersionSimple">
+            <summary>
+            The NuGet package version without special tags.
+            </summary>
+        </member>
+        <member name="F:Stride.StrideVersion.NuGetVersion">
+            <summary>
+            The NuGet package version.
+            </summary>
+        </member>
+        <member name="F:Stride.StrideVersion.NuGetVersionSuffix">
+            <summary>
+            The NuGet package suffix (i.e. -beta01). Automatically set by Stride.GitVersioning.GenerateVersionFile.
+            Three possible values:
+            - Empty: official release
+            - -betaXX: development version (XX should corespond to development asset versioning)
+            - -betaXX-YYYY: beta release (YYYY is the git height since current version has been bumped)
+            </summary>
+        </member>
+        <member name="F:Stride.StrideVersion.BuildMetadata">
+            <summary>
+            The build metadata, usually +g[git_hash] during package. Automatically set by Stride.GitVersioning.GenerateVersionFile.
+            </summary>
+        </member>
+        <member name="F:Stride.StrideVersion.AssemblyInformationalVersion">
+            <summary>
+            The informational assembly version, containing -beta01 or +g[git_hash] during package.
+            </summary>
+        </member>
+        <member name="T:Stride.PublicKeys">
+            <summary>
+            Assembly signing information.
+            </summary>
+        </member>
+        <member name="F:Stride.PublicKeys.Default">
+            <summary>
+            Assembly name suffix that contains signing information.
+            </summary>
+        </member>
+    </members>
+</doc>
