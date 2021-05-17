@@ -187,9 +187,21 @@ namespace sl
                     GraphicsResourceUsage.Default,
                     TextureOptions.None);
 
-            Stride.Graphics.DataPointer dp = new DataPointer(mat.GetPtr(), mat.GetWidth() * mat.GetHeight() * mat.GetPixelBytes());
+            
+            
+
+            DataPointer dp = new DataPointer(mat.GetPtr(), mat.GetWidth() * mat.GetHeight() * mat.GetPixelBytes());
+            /*var asdf = new DataBox(mat.GetPtr(), mat.GetPixelBytes(), mat.GetPixelBytes() * mat.GetWidth() * mat.GetHeight() );
+            var asdfasdf = new DataBox[1];
+            asdfasdf[1] = asdf;*/
+
+            //Texture
+
+            //return Texture.New2D(device, camera.ImageWidth, camera.ImageHeight, mitmap, imgType, asdfasdf, TextureFlags.ShaderResource, 1, GraphicsResourceUsage.Default, MultisampleCount.None, TextureOptions.None);
+            
             this._texture.SetData(context.CommandList, dp);
             return _texture;
+            
             // TextureFlags.ShaderResource,  mitmap, imgType, 1, mat.GetPtr());
         }
 
@@ -199,35 +211,44 @@ namespace sl
         {
             if (mats.Count < matIndex + 1)
             {
-                mats.Add(new ZEDMat());
+                mats.Add(new ZEDMat());//(new sl.Resolution((uint)camera.ImageWidth, (uint)camera.ImageHeight), measure));
             }
             var depth_zed = mats[matIndex++];
             camera.RetrieveMeasure(depth_zed, measure);
 
-            /*
-			MatType cvType;
+
+
+            /*ZEDMat.MAT_TYPE Type;
 
 			switch (measure)
 			{
-				case MEASURE.DISPARITY:			cvType = MatType.CV_32FC1; break;
-				case MEASURE.DEPTH:				cvType = MatType.CV_32FC1; break;
-				case MEASURE.CONFIDENCE:		cvType = MatType.CV_32FC1; break;
-				case MEASURE.XYZ:				cvType = MatType.CV_32FC4; break;
-				case MEASURE.XYZRGBA:			cvType = MatType.CV_32FC4; break;
-				case MEASURE.XYZBGRA:			cvType = MatType.CV_32FC4; break;
-				case MEASURE.XYZARGB:			cvType = MatType.CV_32FC4; break;
-				case MEASURE.XYZABGR:			cvType = MatType.CV_32FC4; break;
-				case MEASURE.NORMALS:			cvType = MatType.CV_32FC4; break;
-				case MEASURE.DISPARITY_RIGHT:	cvType = MatType.CV_32FC1; break;
-				case MEASURE.DEPTH_RIGHT:		cvType = MatType.CV_32FC1; break;
-				case MEASURE.XYZ_RIGHT:			cvType = MatType.CV_32FC4; break;
-				case MEASURE.XYZRGBA_RIGHT:		cvType = MatType.CV_32FC4; break;
-				case MEASURE.XYZBGRA_RIGHT:		cvType = MatType.CV_32FC4; break;
-				case MEASURE.XYZARGB_RIGHT:		cvType = MatType.CV_32FC4; break;
-				case MEASURE.XYZABGR_RIGHT:		cvType = MatType.CV_32FC4; break;
-				default:						cvType = -1; break;
+				case MEASURE.DISPARITY:			Type = ZEDMat.MAT_TYPE.MAT_32F_C1; break;
+				case MEASURE.DEPTH:				Type = ZEDMat.MAT_TYPE.MAT_32F_C1; break;
+				case MEASURE.CONFIDENCE:		Type = ZEDMat.MAT_TYPE.MAT_32F_C1; break;
+				case MEASURE.XYZ:				Type = ZEDMat.MAT_TYPE.MAT_32F_C4; break;
+				case MEASURE.XYZRGBA:			Type = ZEDMat.MAT_TYPE.MAT_32F_C4; break;
+				case MEASURE.XYZBGRA:			Type = ZEDMat.MAT_TYPE.MAT_32F_C4; break;
+				case MEASURE.XYZARGB:			Type = ZEDMat.MAT_TYPE.MAT_32F_C4; break;
+				case MEASURE.XYZABGR:			Type = ZEDMat.MAT_TYPE.MAT_32F_C4; break;
+				case MEASURE.NORMALS:			Type = ZEDMat.MAT_TYPE.MAT_32F_C4; break;
+				case MEASURE.DISPARITY_RIGHT:	Type = ZEDMat.MAT_TYPE.MAT_32F_C1; break;
+				case MEASURE.DEPTH_RIGHT:		Type = ZEDMat.MAT_TYPE.MAT_32F_C1; break;
+				case MEASURE.XYZ_RIGHT:			Type = ZEDMat.MAT_TYPE.MAT_32F_C4; break;
+				case MEASURE.XYZRGBA_RIGHT:		Type = ZEDMat.MAT_TYPE.MAT_32F_C4; break;
+				case MEASURE.XYZBGRA_RIGHT:		Type = ZEDMat.MAT_TYPE.MAT_32F_C4; break;
+				case MEASURE.XYZARGB_RIGHT:		Type = ZEDMat.MAT_TYPE.MAT_32F_C4; break;
+				case MEASURE.XYZABGR_RIGHT:		Type = ZEDMat.MAT_TYPE.MAT_32F_C4; break;
+				default:						Type = (ZEDMat.MAT_TYPE)(-1); break;
 			}
 
+            if (mats.Count < matIndex + 1)
+            {
+                mats.Add(new ZEDMat(new sl.Resolution((uint)camera.ImageWidth, (uint)camera.ImageHeight), Type));
+            }
+            var depth_zed = mats[matIndex++];
+            sl.ERROR_CODE er = camera.RetrieveMeasure(depth_zed, measure, ZEDMat.MEM.MEM_CPU, new sl.Resolution((uint)camera.ImageWidth, (uint)camera.ImageHeight));
+
+            /*
 			return new Mat(camera.ImageHeight, camera.ImageWidth, cvType, depth_zed.GetPtr());
             */
             MipMapCount mitmap = 1;
@@ -269,7 +290,7 @@ namespace sl
             var p = depth_zed.GetPixelBytes();
             var pointer = depth_zed.GetPtr();
 
-            Stride.Graphics.DataPointer _dp = new DataPointer(pointer, w * h * p );
+            Stride.Graphics.DataPointer _dp = new DataPointer(depth_zed.GetPtr(), depth_zed.GetWidth() * depth_zed.GetHeight() * depth_zed.GetPixelBytes());
             this._depth.SetData(context.CommandList, _dp);
 
             return _depth;
