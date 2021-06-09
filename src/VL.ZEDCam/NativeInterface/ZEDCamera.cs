@@ -7,6 +7,8 @@ using System;
 using System.Runtime.InteropServices;
 using System.Reflection;
 using System.Threading;
+using static Stride.Graphics.SharpDXInterop;
+using SharpDX;
 
 namespace sl
 {
@@ -1348,7 +1350,7 @@ namespace sl
         /// <param name="mode">What the image shows (left RGB image, right depth image, normal map, etc.)</param>
         /// /// <param name="resolution">Resolution of the image. Should correspond to ZED's current resolution.</param>
         /// <returns>Texture that will update each frame with the ZED SDK's output.</returns>
-        /*public Texture CreateTextureImageType(VIEW mode, Resolution resolution = new Resolution())
+        public Texture CreateTextureImageType(GraphicsDevice device, VIEW mode, Resolution resolution = new Resolution())
         {
             if (HasTexture((int)TYPE_VIEW.RETRIEVE_IMAGE, (int)mode))
             {
@@ -1364,27 +1366,27 @@ namespace sl
                 width = (int)resolution.width;
                 height = (int)resolution.height;
             }
-
+            
             Texture m_Texture;
             if (mode == VIEW.LEFT_GREY || mode == VIEW.RIGHT_GREY || mode == VIEW.LEFT_UNRECTIFIED_GREY || mode == VIEW.RIGHT_UNRECTIFIED_GREY)
             {
-                m_Texture = new Texture(width, height, TextureFormat.Alpha8, false);
+                m_Texture = Texture.New2D(device, width, height, PixelFormat.A8_UNorm, TextureFlags.ShaderResource, 1, GraphicsResourceUsage.Dynamic);
             }
             else if (mode == VIEW.SIDE_BY_SIDE)
             {
-                m_Texture = new Texture(width * 2, height, TextureFormat.RGBA32, false); //Needs to be twice as wide for SBS because there are two images.
+                m_Texture = Texture.New2D(device, width * 2, height, PixelFormat.R32G32B32_Typeless, TextureFlags.None, 1, GraphicsResourceUsage.Default); //Needs to be twice as wide for SBS because there are two images.
             }
             else
             {
 
-                m_Texture = new Texture(width, height, TextureFormat.RGBA32, false);
+                m_Texture = Texture.New2D(device, width, height, PixelFormat.R32G32B32A32_Float, TextureFlags.RenderTarget, 1, GraphicsResourceUsage.Default);
             }
-            m_Texture.filterMode = FilterMode.Point;
-            m_Texture.wrapMode = TextureWrapMode.Clamp;
+            //m_Texture.filterMode = FilterMode.Point;
+            //m_Texture.wrapMode = TextureWrapMode.Clamp;
 
-            m_Texture.Apply();
+            //m_Texture.Apply();
 
-            IntPtr idTexture = m_Texture.GetNativeTexturePtr();
+            IntPtr idTexture = GetInternalPointer(m_Texture);//m_Texture.GetNativeTexturePtr();
             int error = dllz_register_texture_image_type(CameraID, (int)mode, idTexture, resolution);
             if (error != 0)
             {
@@ -1397,7 +1399,7 @@ namespace sl
             RegisterTexture(m_Texture, (int)TYPE_VIEW.RETRIEVE_IMAGE, (int)mode); //Save so you don't make a duplicate if another script needs the texture.
 
             return m_Texture;
-        }*/
+        }
 
         /// <summary>
         /// Creates or retrievse a texture of type Measure. Will be updated each frame automatically.
@@ -2063,11 +2065,12 @@ namespace sl
         /// Deploys an event that causes the textures to be updated with images received from the ZED.
         /// Should be called after RetrieveTextures() so there are new images available.
         /// </summary>
-       /* public void UpdateTextures()
+        public void UpdateTextures()
         {
-            GL.IssuePluginEvent(GetRenderEventFunc(), 1);
+            //GL.IssuePluginEvent(GetRenderEventFunc(), 1);
+            GetRenderEventFunc();
         }
-       */
+       
 
         ///////////////////////////// SINGLE PIXEL UTILITY FUNCTIONS ////////////////////////////////
 
@@ -2699,5 +2702,13 @@ namespace sl
                 objectsBatch.headBoundingBoxes, objectsBatch.headPositions, objectsBatch.keypointConfidences);
         }
       */
+
+
+        IntPtr GetInternalPointer(GraphicsResource resource)
+        {
+            CppObject o = (CppObject)GetNativeResource(resource);
+            IntPtr ptr = o.NativePointer;
+            return ptr;
+        }
     }//Zed Camera class
 } // namespace sl

@@ -560,6 +560,19 @@
             Register a texture to the base
             </summary>
         </member>
+        <member name="M:sl.ZEDCamera.CreateTextureImageType(Stride.Graphics.GraphicsDevice,sl.VIEW,sl.Resolution)">
+            <summary>
+            Creates or retrieves a texture of type Image. Will be updated each frame automatically.
+            <para>Image type textures are human-viewable, but have less accuracy than measure types.</para>
+            </summary>
+            <remarks>
+            Note that the new texture will exist on the GPU, so accessing from the CPU will result in an empty image. To get images
+            with the CPU, use RetrieveImage() instead and specify CPU memory in the arguments.
+            </remarks>
+            <param name="mode">What the image shows (left RGB image, right depth image, normal map, etc.)</param>
+            /// <param name="resolution">Resolution of the image. Should correspond to ZED's current resolution.</param>
+            <returns>Texture that will update each frame with the ZED SDK's output.</returns>
+        </member>
         <member name="M:sl.ZEDCamera.UnregisterTextureImageType(sl.VIEW)">
             <summary>
             Unregisters a texture of type Image. The texture will be destroyed and will no longer be updated each frame.
@@ -875,6 +888,12 @@
             Checks if the camera has been initialized and the plugin has been loaded. Throws exceptions otherwise.
             </summary>
         </member>
+        <member name="M:sl.ZEDCamera.UpdateTextures">
+            <summary>
+            Deploys an event that causes the textures to be updated with images received from the ZED.
+            Should be called after RetrieveTextures() so there are new images available.
+            </summary>
+        </member>
         <member name="M:sl.ZEDCamera.EnableSpatialMapping(sl.SPATIAL_MAP_TYPE,System.Single,System.Single,System.Boolean)">
             <summary>
             Initializes and begins the spatial mapping processes.
@@ -1161,6 +1180,7 @@
             <returns></returns>
         </member>
         <!-- Badly formed XML comment ignored for member "M:sl.ZEDCamera.UpdateObjectsBatch(System.Int32@)" -->
+        <!-- Badly formed XML comment ignored for member "M:sl.ZEDCamera.GetInternalPointer(Stride.Graphics.GraphicsResource)" -->
         <member name="T:sl.Constant">
             <summary>
             Constant for plugin. Should not be changed

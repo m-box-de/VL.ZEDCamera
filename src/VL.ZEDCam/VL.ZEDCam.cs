@@ -187,22 +187,36 @@ namespace sl
                     GraphicsResourceUsage.Default,
                     TextureOptions.None);
 
-            
-            
-
             DataPointer dp = new DataPointer(mat.GetPtr(), mat.GetWidth() * mat.GetHeight() * mat.GetPixelBytes());
-            /*var asdf = new DataBox(mat.GetPtr(), mat.GetPixelBytes(), mat.GetPixelBytes() * mat.GetWidth() * mat.GetHeight() );
-            var asdfasdf = new DataBox[1];
-            asdfasdf[1] = asdf;*/
-
-            //Texture
-
-            //return Texture.New2D(device, camera.ImageWidth, camera.ImageHeight, mitmap, imgType, asdfasdf, TextureFlags.ShaderResource, 1, GraphicsResourceUsage.Default, MultisampleCount.None, TextureOptions.None);
             
             this._texture.SetData(context.CommandList, dp);
             return _texture;
             
             // TextureFlags.ShaderResource,  mitmap, imgType, 1, mat.GetPtr());
+        }
+
+        public Texture ImageTexture(GraphicsDevice device, VIEW mode)
+        {
+            if (device == null)
+            {
+                return null;
+            }
+            else
+            {
+                Texture t = camera.CreateTextureImageType(device, mode, new Resolution((uint)camera.ImageWidth, (uint)camera.ImageHeight)); 
+
+                lock (grabLock)
+                {
+                    sl.ERROR_CODE e = camera.Grab(ref runtimeParameters);
+                    camera.RetrieveTextures();
+                    camera.UpdateTextures();
+                    //camera.SwapTextures();
+                    //t = camera.CreateTextureImageType(device, mode, new Resolution((uint)camera.ImageWidth, (uint)camera.ImageHeight));
+                }
+
+                //
+                return camera.GetTexture(ZEDCamera.TYPE_VIEW.RETRIEVE_IMAGE, (int)mode);
+            }            
         }
 
         private Texture _depth;
