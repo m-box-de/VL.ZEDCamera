@@ -1370,23 +1370,25 @@ namespace sl
             Texture m_Texture;
             if (mode == VIEW.LEFT_GREY || mode == VIEW.RIGHT_GREY || mode == VIEW.LEFT_UNRECTIFIED_GREY || mode == VIEW.RIGHT_UNRECTIFIED_GREY)
             {
-                m_Texture = Texture.New2D(device, width, height, PixelFormat.A8_UNorm, TextureFlags.ShaderResource, 1, GraphicsResourceUsage.Dynamic);
+                m_Texture = Texture.New2D(device, width, height, PixelFormat.A8_UNorm, TextureFlags.ShaderResource, 1, GraphicsResourceUsage.Default, TextureOptions.Shared);
             }
             else if (mode == VIEW.SIDE_BY_SIDE)
             {
-                m_Texture = Texture.New2D(device, width * 2, height, PixelFormat.R32G32B32_Typeless, TextureFlags.None, 1, GraphicsResourceUsage.Default); //Needs to be twice as wide for SBS because there are two images.
+                m_Texture = Texture.New2D(device, width * 2, height, PixelFormat.R32G32B32_Typeless, TextureFlags.ShaderResource, 1, GraphicsResourceUsage.Default, TextureOptions.Shared); //Needs to be twice as wide for SBS because there are two images.
             }
             else
             {
 
-                m_Texture = Texture.New2D(device, width, height, PixelFormat.R32G32B32A32_Float, TextureFlags.RenderTarget, 1, GraphicsResourceUsage.Default);
+                m_Texture = Texture.New2D(device, width, height, PixelFormat.R32G32B32A32_Float, TextureFlags.ShaderResource, 1, GraphicsResourceUsage.Default, TextureOptions.Shared);
             }
             //m_Texture.filterMode = FilterMode.Point;
             //m_Texture.wrapMode = TextureWrapMode.Clamp;
 
             //m_Texture.Apply();
 
-            IntPtr idTexture = GetInternalPointer(m_Texture);//m_Texture.GetNativeTexturePtr();
+            //IntPtr idTexture = GetInternalPointer(m_Texture);//m_Texture.GetNativeTexturePtr();
+            IntPtr idTexture = m_Texture.SharedHandle;
+
             int error = dllz_register_texture_image_type(CameraID, (int)mode, idTexture, resolution);
             if (error != 0)
             {
@@ -2706,9 +2708,11 @@ namespace sl
 
         IntPtr GetInternalPointer(GraphicsResource resource)
         {
-            CppObject o = (CppObject)GetNativeResource(resource);
-            IntPtr ptr = o.NativePointer;
-            return ptr;
+            CppObject r = (CppObject)GetNativeResource(resource);
+            CppObject srv = (CppObject)GetNativeShaderResourceView(resource);
+            IntPtr ptrR   = r.NativePointer;
+            IntPtr ptrSVR = srv.NativePointer;
+            return ptrSVR;
         }
     }//Zed Camera class
 } // namespace sl

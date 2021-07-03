@@ -29,7 +29,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="OpenCvSharp4.Windows" Version="4.5.1.20201229" />
     <PackageReference Include="Stride.Graphics" Version="4.0.0.1-vvvv-1307" />
   </ItemGroup>
 
