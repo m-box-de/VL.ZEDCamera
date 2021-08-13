@@ -2696,14 +2696,14 @@ namespace sl
         /// <param name="batch_index"> index of the batch retrieved.
         /// <param name="objectsBatch"> trajectory that will be filled by the batching queue process</param>
         /// <returns> returns an ERROR_CODE that indicates the type of error </returns>
-      /*  public sl.ERROR_CODE GetObjectsBatch(int batch_index, ref ObjectsBatch objectsBatch)
+        public sl.ERROR_CODE GetObjectsBatch(int batch_index, ref ObjectsBatch objectsBatch)
         {
             return (sl.ERROR_CODE)dllz_get_objects_batch_data(CameraID, batch_index, ref objectsBatch.numData, ref objectsBatch.id, ref objectsBatch.label, ref objectsBatch.sublabel,
                 ref objectsBatch.trackingState, objectsBatch.positions, objectsBatch.positionCovariances, objectsBatch.velocities, objectsBatch.timestamps, objectsBatch.boundingBoxes2D,
                 objectsBatch.boundingBoxes, objectsBatch.confidences, objectsBatch.actionStates, objectsBatch.keypoints2D, objectsBatch.keypoints, objectsBatch.headBoundingBoxes2D,
                 objectsBatch.headBoundingBoxes, objectsBatch.headPositions, objectsBatch.keypointConfidences);
         }
-      */
+      
 
 
         IntPtr GetInternalPointer(GraphicsResource resource)

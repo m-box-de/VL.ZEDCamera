@@ -1180,7 +1180,7 @@
             <returns></returns>
         </member>
         <!-- Badly formed XML comment ignored for member "M:sl.ZEDCamera.UpdateObjectsBatch(System.Int32@)" -->
-        <!-- Badly formed XML comment ignored for member "M:sl.ZEDCamera.GetInternalPointer(Stride.Graphics.GraphicsResource)" -->
+        <!-- Badly formed XML comment ignored for member "M:sl.ZEDCamera.GetObjectsBatch(System.Int32,sl.ObjectsBatch@)" -->
         <member name="T:sl.Constant">
             <summary>
             Constant for plugin. Should not be changed

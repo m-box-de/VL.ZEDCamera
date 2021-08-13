@@ -738,12 +738,7 @@
                 <Pin Id="TsQdoVUv5kLMFea1dz34e0" Name="Output" Kind="StateOutputPin" />
                 <Pin Id="TNGev0wjUkUNM8jLLZeRuC" Name="Input 3" Kind="InputPin" />
               </Node>
-              <Pad Id="F1PNk7Q8I1UM3WPBfBIRGV" Comment="" Bounds="353,887,166,15" ShowValueBox="true" isIOBox="true" Value="HUMAN_BODY_ACCURATE">
-                <p:TypeAnnotation LastCategoryFullName="sl" LastSymbolSource="VL.ZEDCam.dll">
-                  <Choice Kind="TypeFlag" Name="DETECTION_MODEL" />
-                </p:TypeAnnotation>
-              </Pad>
-              <Pad Id="IwsNDqd7RIbMKztQs5Jb78" Comment="" Bounds="379,963,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+              <Pad Id="IwsNDqd7RIbMKztQs5Jb78" Comment="" Bounds="286,1074,35,35" ShowValueBox="true" isIOBox="true" Value="False">
                 <p:TypeAnnotation>
                   <Choice Kind="TypeFlag" Name="Boolean" />
                   <FullNameCategoryReference ID="Primitive" />
@@ -752,7 +747,7 @@
                   <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
                 </p:ValueBoxSettings>
               </Pad>
-              <Pad Id="Bx40cRyoaVOOJr2SEEv2op" Comment="" Bounds="410,1009,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+              <Pad Id="Bx40cRyoaVOOJr2SEEv2op" Comment="" Bounds="317,1120,35,35" ShowValueBox="true" isIOBox="true" Value="False">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
                   <Choice Kind="TypeFlag" Name="Boolean" />
                 </p:TypeAnnotation>
@@ -760,7 +755,7 @@
                   <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
                 </p:ValueBoxSettings>
               </Pad>
-              <Pad Id="PdoQG0oeTegQL5K2nPzbFI" Comment="" Bounds="473,1018,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+              <Pad Id="PdoQG0oeTegQL5K2nPzbFI" Comment="" Bounds="380,1129,35,35" ShowValueBox="true" isIOBox="true" Value="False">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
                   <Choice Kind="TypeFlag" Name="Boolean" />
                 </p:TypeAnnotation>
@@ -768,7 +763,7 @@
                   <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Toggle</p:buttonmode>
                 </p:ValueBoxSettings>
               </Pad>
-              <Pad Id="RU3AJx76qGwPT5eomWAFlu" Comment="" Bounds="532,1012,35,35" ShowValueBox="true" isIOBox="true" Value="False">
+              <Pad Id="RU3AJx76qGwPT5eomWAFlu" Comment="" Bounds="439,1123,35,35" ShowValueBox="true" isIOBox="true" Value="True">
                 <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
                   <Choice Kind="TypeFlag" Name="Boolean" />
                 </p:TypeAnnotation>
@@ -964,9 +959,8 @@
                   <Patch Id="Sf6RU4iKBg0N5MST8sa7W6" Name="Create" ManuallySortedPins="true" />
                   <Patch Id="NJ5IpHd6qFQNvHW7lwPBBn" Name="Then" ManuallySortedPins="true" />
                   <Node Bounds="1046,1502,169,19" Id="LLKVTmKkbgZOsMgcuX1lyC">
-                    <p:NodeReference LastCategoryFullName="VL.ZEDCamera.dll_ObjectDetectionRuntimeParameters" LastSymbolSource="VL.ZEDCam.vl">
+                    <p:NodeReference LastCategoryFullName="sl.dll_ObjectDetectionRuntimeParameters" LastSymbolSource="VL.ZEDCam.dll">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                      <CategoryReference Kind="ClassType" Name="dll_ObjectDetectionRuntimeParameters" />
                       <Choice Kind="OperationCallFlag" Name="SetdetectionConfidenceThreshold" />
                     </p:NodeReference>
                     <Pin Id="BphOwViKqalQLHerhg6yoG" Name="Input" Kind="StateInputPin" />
@@ -978,9 +972,8 @@
                     <Pin Id="T9YWvdIgbFBNFAdrTygvLm" Name="Output" Kind="StateOutputPin" />
                   </Node>
                   <Node Bounds="1084,1556,160,19" Id="PzMZm2cGq46QSBWjwq6Iwz">
-                    <p:NodeReference LastCategoryFullName="VL.ZEDCamera.dll_ObjectDetectionRuntimeParameters" LastSymbolSource="VL.ZEDCam.vl">
+                    <p:NodeReference LastCategoryFullName="sl.dll_ObjectDetectionRuntimeParameters" LastSymbolSource="VL.ZEDCam.dll">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                      <CategoryReference Kind="ClassType" Name="dll_ObjectDetectionRuntimeParameters" />
                       <Choice Kind="OperationCallFlag" Name="Setobject_confidence_threshold" />
                     </p:NodeReference>
                     <Pin Id="UKzz446avJTOU8d8bF6XCT" Name="Input" Kind="StateInputPin" />
@@ -993,9 +986,8 @@
                     </Pin>
                   </Node>
                   <Node Bounds="1131,1610,155,19" Id="KQuyDwvxNH2MFGOHobgqct">
-                    <p:NodeReference LastCategoryFullName="VL.ZEDCamera.dll_ObjectDetectionRuntimeParameters" LastSymbolSource="VL.ZEDCam.vl">
+                    <p:NodeReference LastCategoryFullName="sl.dll_ObjectDetectionRuntimeParameters" LastSymbolSource="VL.ZEDCam.dll">
                       <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                      <CategoryReference Kind="ClassType" Name="dll_ObjectDetectionRuntimeParameters" />
                       <Choice Kind="OperationCallFlag" Name="SetobjectClassFilter" />
                     </p:NodeReference>
                     <Pin Id="SHg8uis58AlLpObnlYaAVv" Name="Input" Kind="StateInputPin" />
@@ -1088,7 +1080,7 @@
                 <Patch Id="QkJs7AgjKKPLn12urit7pP" ManuallySortedPins="true">
                   <Patch Id="TmiMYpag01oQbWCStweZZD" Name="Create" ManuallySortedPins="true" />
                   <Patch Id="I4GJbGt3sc9M08k8uqON7U" Name="Then" ManuallySortedPins="true" />
-                  <Node Bounds="1290,2106,370,352" Id="Jhd4kuCtvO1QYA4Wx1iJqx">
+                  <Node Bounds="1229,2106,431,352" Id="Jhd4kuCtvO1QYA4Wx1iJqx">
                     <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.dll">
                       <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
                       <Choice Kind="ApplicationStatefulRegion" Name="ForEach" />
@@ -1149,6 +1141,16 @@
                         <Pin Id="RqfYp9J9fStNJNy0mE15wz" Name="Output" Kind="StateOutputPin" />
                         <Pin Id="HKXRIWFWKXpMqmo13Pbh86" Name="Skeleton Joint Position 2D" Kind="OutputPin" />
                       </Node>
+                      <Node Bounds="1241,2379,106,26" Id="RPbVo1EmwfOLYdo8DdfdNk">
+                        <p:NodeReference LastCategoryFullName="sl.ObjectDataSDK" LastSymbolSource="VL.ZEDCam.dll">
+                          <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                          <CategoryReference Kind="AssemblyCategory" Name="ObjectDataSDK" />
+                          <Choice Kind="OperationCallFlag" Name="objectTrackingState" />
+                        </p:NodeReference>
+                        <Pin Id="Qq9OIE7ImPYMXI6PKxZEf2" Name="Input" Kind="StateInputPin" />
+                        <Pin Id="Hp22D2zNKJtNbKDzBm42Dl" Name="Output" Kind="StateOutputPin" />
+                        <Pin Id="Q4itUxGxgKiOkBLvEDxOx9" Name="Object Tracking State" Kind="OutputPin" />
+                      </Node>
                     </Patch>
                     <ControlPoint Id="FED6vKIEyTFPtpM2UhRQ7M" Bounds="1557,2112" Alignment="Top" />
                     <ControlPoint Id="BTD3pO8gzbqQP9dsRvVD3Y" Bounds="1643,2452" Alignment="Bottom" />
@@ -1156,6 +1158,7 @@
                     <ControlPoint Id="QvTB7Xt0NzmMPmr3yHGf94" Bounds="1535,2452" Alignment="Bottom" />
                     <ControlPoint Id="EmuF8EKGOr4O4aBxPFxmRs" Bounds="1482,2452" Alignment="Bottom" />
                     <ControlPoint Id="KUrRYb64T1oMrxyzJIceGH" Bounds="1364,2452" Alignment="Bottom" />
+                    <ControlPoint Id="PNUHm2bFBe8OUjMmSX3nRs" Bounds="1307,2452" Alignment="Bottom" />
                   </Node>
                 </Patch>
                 <ControlPoint Id="CN68HZiMgWTQTW7doraRuU" Bounds="1641,2472" Alignment="Bottom" />
@@ -1168,6 +1171,8 @@
                 <ControlPoint Id="JVIgjBDoQ7xPwRD5u1GfGs" Bounds="1481,2092" Alignment="Top" />
                 <ControlPoint Id="Jb2XzIra7VhOXhaoNVsaqg" Bounds="1364,2472" Alignment="Bottom" />
                 <ControlPoint Id="DEJ6iYGyuiDNtS7TABLBou" Bounds="1364,2092" Alignment="Top" />
+                <ControlPoint Id="FNssgMZcYXrOFnfwM8QzbU" Bounds="1277,2472" Alignment="Bottom" />
+                <ControlPoint Id="LuqE9wrtZijMOglcWMOXUA" Bounds="1277,2092" Alignment="Top" />
               </Node>
               <Node Bounds="1385,2007,65,19" Id="TNktase9I0fNghJM69gm2v">
                 <p:NodeReference LastCategoryFullName="Primitive.Object" LastSymbolSource="CoreLibBasics.vl">
@@ -1256,20 +1261,17 @@
               </Node>
               <Pad Id="MkAVJnylGuvMBrdSe7MkNk" Comment="" Bounds="1003,2317,190,15" ShowValueBox="true" isIOBox="true" />
               <Node Bounds="1158,1747" Id="DnhO4bOH2RIOWsK5Z3zjU5">
-                <p:NodeReference LastCategoryFullName="VL.ZEDCamera.dll_ObjectDetectionRuntimeParameters" LastSymbolSource="VL.ZEDCam.vl">
+                <p:NodeReference LastCategoryFullName="sl.dll_ObjectDetectionRuntimeParameters" LastSymbolSource="VL.ZEDCam.dll">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <CategoryReference Kind="ClassType" Name="dll_ObjectDetectionRuntimeParameters" />
                   <Choice Kind="OperationCallFlag" Name="object_confidence_threshold" />
                 </p:NodeReference>
                 <Pin Id="BhC32fnA9X2MeSs39OKhUG" Name="Input" Kind="StateInputPin" />
                 <Pin Id="B6IpFj9CMUnPkXE1s5bFnq" Name="Output" Kind="StateOutputPin" />
                 <Pin Id="HDEmlaxSXWXPiMbg6w62df" Name="Object_confidence_threshold" Kind="OutputPin" />
               </Node>
-              <Pad Id="GYpasEC8MR4NIOUbv900X0" Comment="Object_confidence_threshold" Bounds="1330,1886,35,95" ShowValueBox="true" isIOBox="true" />
               <Node Bounds="1158,1815" Id="GE2otXsnBqyNp4HHRASWqU">
-                <p:NodeReference LastCategoryFullName="VL.ZEDCamera.dll_ObjectDetectionRuntimeParameters" LastSymbolSource="VL.ZEDCam.vl">
+                <p:NodeReference LastCategoryFullName="sl.dll_ObjectDetectionRuntimeParameters" LastSymbolSource="VL.ZEDCam.dll">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <CategoryReference Kind="ClassType" Name="dll_ObjectDetectionRuntimeParameters" />
                   <Choice Kind="OperationCallFlag" Name="objectClassFilter" />
                 </p:NodeReference>
                 <Pin Id="Vm0MQtISvqSMWsZfSLibzJ" Name="Input" Kind="StateInputPin" />
@@ -1341,23 +1343,6 @@
                 <Pin Id="FVZeWIyupSUPJAZET2olbE" Name="Up Edge" Kind="OutputPin" />
                 <Pin Id="EYu0xoXInqPL2eAwDWqKGK" Name="Down Edge" Kind="OutputPin" />
               </Node>
-              <Node Bounds="1884,2580,61,19" Id="M60ipaTGuS2Mc3LtbqBqwT">
-                <p:NodeReference LastCategoryFullName="System.Application" LastSymbolSource="CoreLibBasics.vl">
-                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <Choice Kind="ProcessAppFlag" Name="MainLoop" />
-                </p:NodeReference>
-                <Pin Id="NQiwRYBLkf6M56EafhsQNC" Name="Max FPS" Kind="InputPin" />
-                <Pin Id="KhH6fwOeUqbN5Rjj73SrWv" Name="Is Incremental" Kind="InputPin" />
-                <Pin Id="IDBRvymnW0rPEbfaI6pT7O" Name="Incremental FPS" Kind="InputPin" />
-                <Pin Id="COoikJSwLCnNX2sqmN1pWE" Name="Max FPS" Kind="OutputPin" />
-                <Pin Id="FF18NBnEBHpMk3ikTiFiMw" Name="Is Incremental" Kind="OutputPin" />
-                <Pin Id="MvgzApfE7JFQP94d4yWmgn" Name="Incremental FPS" Kind="OutputPin" />
-              </Node>
-              <Pad Id="Q7DRU0Y4v9APqe8nVM1CkS" Comment="Max FPS" Bounds="1887,2552,35,15" ShowValueBox="true" isIOBox="true" Value="30">
-                <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
-                  <Choice Kind="TypeFlag" Name="Float32" />
-                </p:TypeAnnotation>
-              </Pad>
               <Node Bounds="1831,360,66,26" Id="JujcY79pS9YLYZG5wb3q5z">
                 <p:NodeReference LastCategoryFullName="sl.ZEDCam" LastSymbolSource="VL.ZEDCam.dll">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
@@ -1368,21 +1353,11 @@
                 <Pin Id="CryoXlVZLnBMT8ZYXag3Se" Name="FPS" Kind="OutputPin" />
               </Node>
               <Pad Id="DhWY6ys3Q4xOk7ciyZ31AY" SlotId="RoUQXBk7a1FQSoUNqqhwNm" Bounds="1833,335" />
-              <Pad Id="ICcxuErzx1PLdrZaOysTJd" Comment="FPS" Bounds="1820,446,35,15" ShowValueBox="true" isIOBox="true" />
+              <Pad Id="ICcxuErzx1PLdrZaOysTJd" Comment="FPS" Bounds="1984,309,35,15" ShowValueBox="true" isIOBox="true" />
               <Pad Id="DCdd8tnnP9zMGkoNqzO2oY" Comment="Detection Model" Bounds="1779,1811,166,15" ShowValueBox="true" isIOBox="true" />
-              <Pad Id="HYcFcHA0mfqL81phPktiiz" Comment="Force" Bounds="-75,1052,35,35" ShowValueBox="true" isIOBox="true" Value="False">
-                <p:TypeAnnotation>
-                  <Choice Kind="TypeFlag" Name="Boolean" />
-                  <FullNameCategoryReference ID="Primitive" />
-                </p:TypeAnnotation>
-                <p:ValueBoxSettings>
-                  <p:buttonmode p:Assembly="VL.UI.Forms" p:Type="VL.HDE.PatchEditor.Editors.ButtonModeEnum">Bang</p:buttonmode>
-                </p:ValueBoxSettings>
-              </Pad>
-              <Node Bounds="193,1089,126,19" Id="GsjkJmRzOVFLTNTDzbapIj">
-                <p:NodeReference LastCategoryFullName="VL.ZEDCamera.dll_ObjectDetectionParameters" LastSymbolSource="VL.ZEDCam.vl">
+              <Node Bounds="100,1200,126,19" Id="GsjkJmRzOVFLTNTDzbapIj">
+                <p:NodeReference LastCategoryFullName="sl.dll_ObjectDetectionParameters" LastSymbolSource="VL.ZEDCam.dll">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <CategoryReference Kind="ClassType" Name="dll_ObjectDetectionParameters" />
                   <Choice Kind="OperationCallFlag" Name="SetbatchParameters" />
                 </p:NodeReference>
                 <Pin Id="VJFA7Z2nltDLnpE7h4PKaV" Name="Input" Kind="StateInputPin" />
@@ -1394,60 +1369,55 @@
                   </p:TypeAnnotation>
                 </Pin>
               </Node>
-              <Node Bounds="217,1138,126,26" Id="GYaVjLpsacBMWrRPR2blVV">
-                <p:NodeReference LastCategoryFullName="VL.ZEDCamera.dll_ObjectDetectionParameters" LastSymbolSource="VL.ZEDCam.vl">
+              <Node Bounds="124,1249,126,26" Id="GYaVjLpsacBMWrRPR2blVV">
+                <p:NodeReference LastCategoryFullName="sl.dll_ObjectDetectionParameters" LastSymbolSource="VL.ZEDCam.dll">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <CategoryReference Kind="ClassType" Name="dll_ObjectDetectionParameters" />
                   <Choice Kind="OperationCallFlag" Name="SetdetectionModel" />
+                  <CategoryReference Kind="AssemblyCategory" Name="dll_ObjectDetectionParameters" NeedsToBeDirectParent="true" />
                 </p:NodeReference>
                 <Pin Id="T3TmGXeCeN6Lw99lCg8P0j" Name="Input" Kind="StateInputPin" />
                 <Pin Id="MzhywwcmSKLMDTMbFSIYQB" Name="Value" Kind="InputPin" />
                 <Pin Id="PjP6wpiQ7HkPwfZHYcopeI" Name="Output" Kind="StateOutputPin" />
               </Node>
-              <Node Bounds="246,1181,126,26" Id="LzKLavYsajoOcFbnVqcYqp">
-                <p:NodeReference LastCategoryFullName="VL.ZEDCamera.dll_ObjectDetectionParameters" LastSymbolSource="VL.ZEDCam.vl">
+              <Node Bounds="153,1292,126,19" Id="LzKLavYsajoOcFbnVqcYqp">
+                <p:NodeReference LastCategoryFullName="sl.dll_ObjectDetectionParameters" LastSymbolSource="VL.ZEDCam.dll">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <CategoryReference Kind="ClassType" Name="dll_ObjectDetectionParameters" />
                   <Choice Kind="OperationCallFlag" Name="Setenable2DMask" />
                 </p:NodeReference>
                 <Pin Id="U9FT1lPX0M8OeZ7zMYZhzS" Name="Input" Kind="StateInputPin" />
                 <Pin Id="Nj5IAtPx4jjL3bmAnTeZ7e" Name="Value" Kind="InputPin" />
                 <Pin Id="CCLGg1GrAw5M1Eohv9dZXg" Name="Output" Kind="StateOutputPin" />
               </Node>
-              <Node Bounds="272,1235,126,26" Id="RDknQjqaSlWN44Z3a9o2PM">
-                <p:NodeReference LastCategoryFullName="VL.ZEDCamera.dll_ObjectDetectionParameters" LastSymbolSource="VL.ZEDCam.vl">
+              <Node Bounds="179,1346,126,19" Id="RDknQjqaSlWN44Z3a9o2PM">
+                <p:NodeReference LastCategoryFullName="sl.dll_ObjectDetectionParameters" LastSymbolSource="VL.ZEDCam.dll">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <CategoryReference Kind="ClassType" Name="dll_ObjectDetectionParameters" />
                   <Choice Kind="OperationCallFlag" Name="SetenableBodyFitting" />
                 </p:NodeReference>
                 <Pin Id="QF1KwWsqNiuQbxLc88n8YZ" Name="Input" Kind="StateInputPin" />
                 <Pin Id="L3Mb8H9bhE6PqdsUJzN3tK" Name="Value" Kind="InputPin" />
                 <Pin Id="Mi7SpZDIgLMLUls3XQZEzM" Name="Output" Kind="StateOutputPin" />
               </Node>
-              <Node Bounds="328,1285,129,26" Id="RbLl5oLbUR8MoHAxFHyra8">
-                <p:NodeReference LastCategoryFullName="VL.ZEDCamera.dll_ObjectDetectionParameters" LastSymbolSource="VL.ZEDCam.vl">
+              <Node Bounds="235,1396,129,19" Id="RbLl5oLbUR8MoHAxFHyra8">
+                <p:NodeReference LastCategoryFullName="sl.dll_ObjectDetectionParameters" LastSymbolSource="VL.ZEDCam.dll">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <CategoryReference Kind="ClassType" Name="dll_ObjectDetectionParameters" />
                   <Choice Kind="OperationCallFlag" Name="SetenableObjectTracking" />
                 </p:NodeReference>
                 <Pin Id="BN4naehmRMBPO52rbKGIC9" Name="Input" Kind="StateInputPin" />
                 <Pin Id="OR6TFZuZCSnM98Fnyvf6fB" Name="Value" Kind="InputPin" />
                 <Pin Id="H4bIz5cI0R5MBbF9qhinkD" Name="Output" Kind="StateOutputPin" />
               </Node>
-              <Node Bounds="378,1326,126,26" Id="HQIZvtAbDauMdt4bAoObDh">
-                <p:NodeReference LastCategoryFullName="VL.ZEDCamera.dll_ObjectDetectionParameters" LastSymbolSource="VL.ZEDCam.vl">
+              <Node Bounds="286,1446,126,19" Id="HQIZvtAbDauMdt4bAoObDh">
+                <p:NodeReference LastCategoryFullName="sl.dll_ObjectDetectionParameters" LastSymbolSource="VL.ZEDCam.dll">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <CategoryReference Kind="ClassType" Name="dll_ObjectDetectionParameters" />
                   <Choice Kind="OperationCallFlag" Name="SetimageSync" />
                 </p:NodeReference>
                 <Pin Id="DiHeLY6EYfmLYQrrJQ6DJ2" Name="Input" Kind="StateInputPin" />
                 <Pin Id="MID11cxg0lzPLvbIu0POzt" Name="Value" Kind="InputPin" />
                 <Pin Id="J991JOPfXYpPyYrsaxj9z6" Name="Output" Kind="StateOutputPin" />
               </Node>
-              <Node Bounds="410,1383,126,26" Id="URwb77gRL43L6G5fSK9KbD">
-                <p:NodeReference LastCategoryFullName="VL.ZEDCamera.dll_ObjectDetectionParameters" LastSymbolSource="VL.ZEDCam.vl">
+              <Node Bounds="317,1494,126,19" Id="URwb77gRL43L6G5fSK9KbD">
+                <p:NodeReference LastCategoryFullName="sl.dll_ObjectDetectionParameters" LastSymbolSource="VL.ZEDCam.dll">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
-                  <CategoryReference Kind="ClassType" Name="dll_ObjectDetectionParameters" />
                   <Choice Kind="OperationCallFlag" Name="SetmaxRange" />
                 </p:NodeReference>
                 <Pin Id="M6v04YtUClbL2gtkenwrWZ" Name="Input" Kind="StateInputPin" />
@@ -1515,6 +1485,55 @@
                 <Pin Id="BXC3l1vvvpNLwYGXIrat9e" Name="Down Edge" Kind="OutputPin" />
               </Node>
               <ControlPoint Id="MD2SMGxFwBgQXYQpR2tU1G" Bounds="989,1873" />
+              <Pad Id="QpSaC6SH168NV9ew35lXIy" Comment="" Bounds="246,1037,166,15" ShowValueBox="true" isIOBox="true" Value="HUMAN_BODY_ACCURATE">
+                <p:TypeAnnotation LastCategoryFullName="VL.ZEDCamera" LastSymbolSource="VL.ZEDCam.vl">
+                  <Choice Kind="TypeFlag" Name="DETECTION_MODEL" />
+                </p:TypeAnnotation>
+              </Pad>
+              <Node Bounds="117,957,75,26" Id="OrD5NYtHlR3NI7Gz58kjJE">
+                <p:NodeReference LastCategoryFullName="sl.BatchParameters" LastSymbolSource="VL.ZEDCam.dll">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <CategoryReference Kind="AssemblyCategory" Name="BatchParameters" />
+                  <Choice Kind="OperationCallFlag" Name="Setenable" />
+                </p:NodeReference>
+                <Pin Id="Ka4JDxprWz8PYIGxUU7eAM" Name="Input" Kind="StateInputPin" />
+                <Pin Id="QE2nVICfXACPPItiGhtTj6" Name="Value" Kind="InputPin" DefaultValue="False">
+                  <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                    <Choice Kind="TypeFlag" Name="Boolean" />
+                  </p:TypeAnnotation>
+                </Pin>
+                <Pin Id="Hzh13b2nuKULNoeDDMrzg7" Name="Output" Kind="StateOutputPin" />
+              </Node>
+              <Node Bounds="119,1001,105,26" Id="GqvFHmyO1yrOZoDSMQFmgb">
+                <p:NodeReference LastCategoryFullName="sl.BatchParameters" LastSymbolSource="VL.ZEDCam.dll">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <CategoryReference Kind="AssemblyCategory" Name="BatchParameters" />
+                  <Choice Kind="OperationCallFlag" Name="SetidRetentionTime" />
+                </p:NodeReference>
+                <Pin Id="TyKABMF0sIwOO0y7qNA9TJ" Name="Input" Kind="StateInputPin" />
+                <Pin Id="VvtXVqzLp7JMCTBnllypE0" Name="Value" Kind="InputPin" DefaultValue="1">
+                  <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                    <Choice Kind="TypeFlag" Name="Float32" />
+                  </p:TypeAnnotation>
+                </Pin>
+                <Pin Id="UxjWn2FQMd7QX7HTmNEjFB" Name="Output" Kind="StateOutputPin" />
+              </Node>
+              <Node Bounds="116,1071,75,26" Id="FIx0I69l2lQOK2ptNS9wIo">
+                <p:NodeReference LastCategoryFullName="sl.BatchParameters" LastSymbolSource="VL.ZEDCam.dll">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <CategoryReference Kind="AssemblyCategory" Name="BatchParameters" />
+                  <Choice Kind="OperationCallFlag" Name="Setlatency" />
+                </p:NodeReference>
+                <Pin Id="SQ7nz7hSDP4Ph49YdcxvJo" Name="Input" Kind="StateInputPin" />
+                <Pin Id="O5YsmSnLca1Oi9WkSefJRB" Name="Value" Kind="InputPin" DefaultValue="0.5">
+                  <p:TypeAnnotation LastCategoryFullName="Primitive" LastSymbolSource="CoreLibBasics.vl">
+                    <Choice Kind="TypeFlag" Name="Float32" />
+                  </p:TypeAnnotation>
+                </Pin>
+                <Pin Id="S6xegKtDvMvNzO6GeVgnxW" Name="Output" Kind="StateOutputPin" />
+              </Node>
+              <Pad Id="ReU8SeRJVm6M5cZtiwsVtW" SlotId="MzMRbvu8fWSLUuBjNXo7bg" Bounds="1272,2517" />
+              <Pad Id="BkuLpsiL8qcOMU72ocTE18" SlotId="MzMRbvu8fWSLUuBjNXo7bg" Bounds="1286,1991" />
             </Canvas>
             <ProcessDefinition Id="SQwEqXxXTYsMZ5sLvpPmtp">
               <Fragment Id="Orl4HqHuGoCLbiqC5KHgPJ" Patch="LtrXNM5V3iGOahVk5lpYTq" Enabled="true" />
@@ -1766,7 +1785,6 @@
             <Link Id="PyPnl2ZGhSEOixIcohI3be" Ids="JfmTAxjUw8ILJU0FcqFhiW,GvE5MtERt5zNosdS0ToPte" />
             <Link Id="HlBHBZ7QFenN9I4savGQjC" Ids="CDDpEo603QGM6RhigExwYn,HbuvUOEMSzDPRuMv6pT71b" IsFeedback="true" />
             <Link Id="AeftCypzk5vMPlh85fzMVt" Ids="JfmTAxjUw8ILJU0FcqFhiW,BhC32fnA9X2MeSs39OKhUG" />
-            <Link Id="E3uYatOcVtnMWFEBWso2QN" Ids="HDEmlaxSXWXPiMbg6w62df,GYpasEC8MR4NIOUbv900X0" />
             <Link Id="BFj5quVHEL1MAaxK9fB2MT" Ids="B6IpFj9CMUnPkXE1s5bFnq,Vm0MQtISvqSMWsZfSLibzJ" />
             <Link Id="Nuhr5lfdr7uNujzlYSWqCO" Ids="G93fxd693XBNw4AsANBh0F,EjRbKGhP7SmPIep9K1oD8I" />
             <Link Id="UwPVMhvP97zOrQqjBZ604T" Ids="JI7hpln8IB8M39aAAiMt7z,TiI7Xo6EiUqOwLgU6PksPR" />
@@ -1792,8 +1810,6 @@
             <Link Id="IL8iAlDhHLAOMJwR70DFjr" Ids="Ucpvaq9sDdELlBx2Lw2gnV,KGhDxpf3dg0PShMAeLCi5G" />
             <Link Id="PaQNUbOTKsUOGq9NRjtQ6V" Ids="FPOft72io1hL9MdpqsvoGF,HbuvUOEMSzDPRuMv6pT71b" />
             <Link Id="GXDWhwO1hmSM2Bv88Sx5Xh" Ids="HbuvUOEMSzDPRuMv6pT71b,MkAVJnylGuvMBrdSe7MkNk" />
-            <Link Id="Kz3nZke2bi1QMsNWC90lbw" Ids="Q7DRU0Y4v9APqe8nVM1CkS,NQiwRYBLkf6M56EafhsQNC" />
-            <Link Id="SBa3DkGJDF1Lg3XlTdD50m" Ids="Q7DRU0Y4v9APqe8nVM1CkS,IDBRvymnW0rPEbfaI6pT7O" />
             <Link Id="EvZs21WWtc5MIobN6pjcaJ" Ids="DhWY6ys3Q4xOk7ciyZ31AY,RBTMkasgmyWLZsfpn7MeRv" />
             <Link Id="PWOQc3VHoewLBtsfNN4NEI" Ids="CryoXlVZLnBMT8ZYXag3Se,ICcxuErzx1PLdrZaOysTJd" />
             <Link Id="RUh48BlcvuTP4RwowB6CCa" Ids="NflHMrCMQRKLBSbuEcLlLt,DCdd8tnnP9zMGkoNqzO2oY" />
@@ -1804,7 +1820,6 @@
             <Link Id="H2Bng6JNSGkNnF2YnAebRo" Ids="H4bIz5cI0R5MBbF9qhinkD,DiHeLY6EYfmLYQrrJQ6DJ2" />
             <Link Id="C3u5yI5CA0vQQozXUP2yT4" Ids="J991JOPfXYpPyYrsaxj9z6,M6v04YtUClbL2gtkenwrWZ" />
             <Link Id="PMH9yTuDKweQPaSYs3FTHW" Ids="Pwr9c2w3PITPJ5cu6wqFW8,H8wHG19zaBGPGKM943iyzu" />
-            <Link Id="QdgC9xWh11oQa96AV3Aq7N" Ids="F1PNk7Q8I1UM3WPBfBIRGV,MzhywwcmSKLMDTMbFSIYQB" />
             <Link Id="S5Kor0j4jxuLfQjOJZThZN" Ids="IwsNDqd7RIbMKztQs5Jb78,Nj5IAtPx4jjL3bmAnTeZ7e" />
             <Link Id="TRYsxpLXGdNOxpc362VOby" Ids="Bx40cRyoaVOOJr2SEEv2op,L3Mb8H9bhE6PqdsUJzN3tK" />
             <Link Id="Aj2qoPifcCbOr9v7VZqr8o" Ids="PdoQG0oeTegQL5K2nPzbFI,OR6TFZuZCSnM98Fnyvf6fB" />
@@ -1845,8 +1860,19 @@
             <Link Id="NutBeH7ePZYNtzeC38NBP3" Ids="NyRvhFB54IMNgAlbmTKloz,G8WgO82uaMLMtTh3zuuyAR" IsHidden="true" />
             <Link Id="Jns3oTp8iQPN7kQU1wk2xd" Ids="TsQdoVUv5kLMFea1dz34e0,O9pcz1v6M1FOerZBYOuZjP" />
             <Link Id="DGItUhLCOMmPkWqbnhrnDj" Ids="FGAbcvKMM2iLPjRsdDheUu,AunvRNic8YqQVVLY5gh4A3" />
-            <Link Id="LecKmHO3hg4L2av40BG0Uz" Ids="MD2SMGxFwBgQXYQpR2tU1G,ITEXDzT5I9gO5T4hn7948v" />
             <Link Id="T7HGbcA2rANMaKqk6WNYE8" Ids="OtIQda02idpNliASBAJkzR,MD2SMGxFwBgQXYQpR2tU1G" IsHidden="true" />
+            <Link Id="RLkOQTnGegpOtRMpiTqxRa" Ids="QpSaC6SH168NV9ew35lXIy,MzhywwcmSKLMDTMbFSIYQB" />
+            <Link Id="AyEZCHdnHe3Lgv5kqyD9JQ" Ids="MD2SMGxFwBgQXYQpR2tU1G,ITEXDzT5I9gO5T4hn7948v" />
+            <Link Id="SVvMhhuBr4UPjOkfsPoxox" Ids="Hzh13b2nuKULNoeDDMrzg7,TyKABMF0sIwOO0y7qNA9TJ" />
+            <Link Id="NssOIr4RkAeO0qR98G2PDv" Ids="UxjWn2FQMd7QX7HTmNEjFB,SQ7nz7hSDP4Ph49YdcxvJo" />
+            <Link Id="TxQRIgAlmJnMvs4as2Errr" Ids="S6xegKtDvMvNzO6GeVgnxW,CTCClrHBN9EQAlRTcqtq1L" />
+            <Link Id="DaDPwLHAmRCLIbFqVyqTZe" Ids="RqfYp9J9fStNJNy0mE15wz,Qq9OIE7ImPYMXI6PKxZEf2" />
+            <Link Id="HBAl8KrGdhdOYJHEafxMDS" Ids="Q4itUxGxgKiOkBLvEDxOx9,PNUHm2bFBe8OUjMmSX3nRs" />
+            <Link Id="HbyBOiyg2zuNOELK4T1Ns0" Ids="LuqE9wrtZijMOglcWMOXUA,FNssgMZcYXrOFnfwM8QzbU" IsFeedback="true" />
+            <Link Id="KKv7juDsh3dNLBTYKc9QdW" Ids="PNUHm2bFBe8OUjMmSX3nRs,FNssgMZcYXrOFnfwM8QzbU" />
+            <Slot Id="MzMRbvu8fWSLUuBjNXo7bg" Name="Object Tracking State" />
+            <Link Id="CrjZQKUgdywLXcKsUZlqT0" Ids="FNssgMZcYXrOFnfwM8QzbU,ReU8SeRJVm6M5cZtiwsVtW" />
+            <Link Id="Qlu0GSbGjIPM74jeclJGmh" Ids="BkuLpsiL8qcOMU72ocTE18,LuqE9wrtZijMOglcWMOXUA" />
           </Patch>
         </Node>
         <!--
@@ -3146,42 +3172,6 @@
       </Canvas>
       <!--
 
-    ************************ dll_ObjectDetectionParameters ************************
-
--->
-      <Node Name="dll_ObjectDetectionParameters" Bounds="591,249" Id="Cv5CDre2tUyPtVUhIbYZgJ">
-        <p:NodeReference>
-          <Choice Kind="ForwardDefinition" Name="Forward" />
-          <FullNameCategoryReference ID="Primitive" />
-        </p:NodeReference>
-        <p:TypeAnnotation LastCategoryFullName="sl" LastSymbolSource="VL.ZEDCam.dll">
-          <Choice Kind="TypeFlag" Name="dll_ObjectDetectionParameters" />
-        </p:TypeAnnotation>
-        <Patch Id="AQY1Xrv2rOePmZbXYGBSBt">
-          <Canvas Id="H19uovSJKdgLKuUsA9GmrS" BordersChecked="false" CanvasType="Group" />
-          <ProcessDefinition Id="QHKshXV89GJMWT93iL30Bk" IsHidden="true" />
-        </Patch>
-      </Node>
-      <!--
-
-    ************************ dll_ObjectDetectionRuntimeParameters ************************
-
--->
-      <Node Name="dll_ObjectDetectionRuntimeParameters" Bounds="592,301" Id="FNVa3pp3jZyP8y0RqdBIPV">
-        <p:NodeReference>
-          <Choice Kind="ForwardDefinition" Name="Forward" />
-          <FullNameCategoryReference ID="Primitive" />
-        </p:NodeReference>
-        <p:TypeAnnotation LastCategoryFullName="sl" LastSymbolSource="VL.ZEDCam.dll">
-          <Choice Kind="TypeFlag" Name="dll_ObjectDetectionRuntimeParameters" />
-        </p:TypeAnnotation>
-        <Patch Id="HTHYCeqmgKwPd4bTBnMDr2">
-          <Canvas Id="P7Yy97xmC3yL1sqCeywzxy" BordersChecked="false" CanvasType="Group" />
-          <ProcessDefinition Id="QUsYerApkUDNoPorp6U0mE" IsHidden="true" />
-        </Patch>
-      </Node>
-      <!--
-
     ************************ ObjectsFrameSDK ************************
 
 -->
@@ -3196,6 +3186,168 @@
         <Patch Id="AgNVLnNnYcuOWeAl7GnqMJ">
           <Canvas Id="CPCMO19UckSLpjSMhHkFay" BordersChecked="false" CanvasType="Group" />
           <ProcessDefinition Id="AC5CfdkS2jjNf6W89X6rv5" IsHidden="true" />
+        </Patch>
+      </Node>
+      <!--
+
+    ************************ COORDINATE_SYSTEM ************************
+
+-->
+      <Node Name="COORDINATE_SYSTEM" Bounds="1040,492" Id="Cm88fRdWIJ3Mi5Ebb0W4FN">
+        <p:NodeReference>
+          <Choice Kind="ForwardRecordDefinition" Name="Immutable Forward" />
+          <FullNameCategoryReference ID="Primitive" />
+        </p:NodeReference>
+        <p:TypeAnnotation LastCategoryFullName="sl" LastSymbolSource="VL.ZEDCam.dll">
+          <Choice Kind="TypeFlag" Name="COORDINATE_SYSTEM" />
+        </p:TypeAnnotation>
+        <Patch Id="AQ4DNwkKDvmPlEXdGcC17x">
+          <Canvas Id="CfJfgYrppPgNa4Hr7l1WQ9" BordersChecked="false" CanvasType="Group" />
+          <ProcessDefinition Id="AGM5MTyJhPuMNoUYmH13ek" IsHidden="true" />
+        </Patch>
+      </Node>
+      <!--
+
+    ************************ COPY_TYPE ************************
+
+-->
+      <Node Name="COPY_TYPE" Bounds="1040,539" Id="NbJVEvRWDVnNCqzc978c9W">
+        <p:NodeReference>
+          <Choice Kind="ForwardRecordDefinition" Name="Immutable Forward" />
+          <FullNameCategoryReference ID="Primitive" />
+        </p:NodeReference>
+        <p:TypeAnnotation LastCategoryFullName="sl.ZEDMat" LastSymbolSource="VL.ZEDCam.dll">
+          <Choice Kind="TypeFlag" Name="COPY_TYPE" />
+        </p:TypeAnnotation>
+        <Patch Id="G3WlYjUhqiPLR6WGgXmDtv">
+          <Canvas Id="I1pIJI3v5yRQRC0bIHRxJN" BordersChecked="false" CanvasType="Group" />
+          <ProcessDefinition Id="GDEMjWDA1Z1QS92f66JhxL" IsHidden="true" />
+        </Patch>
+      </Node>
+      <!--
+
+    ************************ DEPTH_MODE ************************
+
+-->
+      <Node Name="DEPTH_MODE" Bounds="1040,583" Id="ByddDdmgQpXMtqspGLVCfs">
+        <p:NodeReference>
+          <Choice Kind="ForwardRecordDefinition" Name="Immutable Forward" />
+          <FullNameCategoryReference ID="Primitive" />
+        </p:NodeReference>
+        <p:TypeAnnotation LastCategoryFullName="sl" LastSymbolSource="VL.ZEDCam.dll">
+          <Choice Kind="TypeFlag" Name="DEPTH_MODE" />
+        </p:TypeAnnotation>
+        <Patch Id="BZNjDlOaIOQP1HycbbLYZq">
+          <Canvas Id="VXNVi8QBE80MQOS65RfCDu" BordersChecked="false" CanvasType="Group" />
+          <ProcessDefinition Id="L8MscLA9JekMloa2pILmkL" IsHidden="true" />
+        </Patch>
+      </Node>
+      <!--
+
+    ************************ DETECTION_MODEL ************************
+
+-->
+      <Node Name="DETECTION_MODEL" Bounds="1040,630" Id="C0suJ6Bib5JOKCeWwkgs6o">
+        <p:NodeReference>
+          <Choice Kind="ForwardRecordDefinition" Name="Immutable Forward" />
+          <FullNameCategoryReference ID="Primitive" />
+        </p:NodeReference>
+        <p:TypeAnnotation LastCategoryFullName="sl" LastSymbolSource="VL.ZEDCam.dll">
+          <Choice Kind="TypeFlag" Name="DETECTION_MODEL" />
+        </p:TypeAnnotation>
+        <Patch Id="OgCbkfe0IiONvm1sae8BWB">
+          <Canvas Id="TLIkSav14DlOJuGh0YOGUF" BordersChecked="false" CanvasType="Group" />
+          <ProcessDefinition Id="PpzYtD0h2FgOxbONDnSchu" IsHidden="true" />
+        </Patch>
+      </Node>
+      <!--
+
+    ************************ ERROR_CODE ************************
+
+-->
+      <Node Name="ERROR_CODE" Bounds="1040,675" Id="KQSnwj3XcUmPnixJ4FWJ64">
+        <p:NodeReference>
+          <Choice Kind="ForwardRecordDefinition" Name="Immutable Forward" />
+          <FullNameCategoryReference ID="Primitive" />
+        </p:NodeReference>
+        <p:TypeAnnotation LastCategoryFullName="sl" LastSymbolSource="VL.ZEDCam.dll">
+          <Choice Kind="TypeFlag" Name="ERROR_CODE" />
+        </p:TypeAnnotation>
+        <Patch Id="BmW58lPrcOAPrAa11vtY4p">
+          <Canvas Id="BMtMcjlcOcyLV5h0RJfR8X" BordersChecked="false" CanvasType="Group" />
+          <ProcessDefinition Id="CLi3lnWuyn2OfOYvJxDMZL" IsHidden="true" />
+        </Patch>
+      </Node>
+      <!--
+
+    ************************ FILTER ************************
+
+-->
+      <Node Name="FILTER" Bounds="1040,723" Id="HLFNT3w8X3SMRePrBy3MLx">
+        <p:NodeReference>
+          <Choice Kind="ForwardRecordDefinition" Name="Immutable Forward" />
+          <FullNameCategoryReference ID="Primitive" />
+        </p:NodeReference>
+        <p:TypeAnnotation LastCategoryFullName="sl" LastSymbolSource="VL.ZEDCam.dll">
+          <Choice Kind="TypeFlag" Name="FILTER" />
+        </p:TypeAnnotation>
+        <Patch Id="DvxHo1ky6spOR9wX5VFo6c">
+          <Canvas Id="KyDKB4l7PyzNO0UwuiLAPD" BordersChecked="false" CanvasType="Group" />
+          <ProcessDefinition Id="FqqgnMIAQNpLFzSawczmyz" IsHidden="true" />
+        </Patch>
+      </Node>
+      <!--
+
+    ************************ FLIP_MODE ************************
+
+-->
+      <Node Name="FLIP_MODE" Bounds="1040,768" Id="CPZN7cvXRxyLPP51RKQHfG">
+        <p:NodeReference>
+          <Choice Kind="ForwardRecordDefinition" Name="Immutable Forward" />
+          <FullNameCategoryReference ID="Primitive" />
+        </p:NodeReference>
+        <p:TypeAnnotation LastCategoryFullName="sl" LastSymbolSource="VL.ZEDCam.dll">
+          <Choice Kind="TypeFlag" Name="FLIP_MODE" />
+        </p:TypeAnnotation>
+        <Patch Id="IxOCyI5ZaryPmKHgXZHPNK">
+          <Canvas Id="MtDBtrYnWiFL7Gj2OezQ2r" BordersChecked="false" CanvasType="Group" />
+          <ProcessDefinition Id="AH8FAxRF0dsOK8YsDjEAcG" IsHidden="true" />
+        </Patch>
+      </Node>
+      <!--
+
+    ************************ fps ************************
+
+-->
+      <Node Name="fps" Bounds="1040,816" Id="HgtWRR35ImmMY8cJizMF8q">
+        <p:NodeReference>
+          <Choice Kind="ForwardRecordDefinition" Name="Immutable Forward" />
+          <FullNameCategoryReference ID="Primitive" />
+        </p:NodeReference>
+        <p:TypeAnnotation LastCategoryFullName="sl.ZEDCam" LastSymbolSource="VL.ZEDCam.dll">
+          <Choice Kind="TypeFlag" Name="fps" />
+        </p:TypeAnnotation>
+        <Patch Id="Hwbs235pp4mOzDOq0ffJ5R">
+          <Canvas Id="B7DPBCIqZl7PyuJvVuZIpf" BordersChecked="false" CanvasType="Group" />
+          <ProcessDefinition Id="VBBuI5vqC43M84uwFUk02d" IsHidden="true" />
+        </Patch>
+      </Node>
+      <!--
+
+    ************************ MEASURE ************************
+
+-->
+      <Node Name="MEASURE" Bounds="1040,855" Id="MT7VSwFbVCGLxxRKzc5VAL">
+        <p:NodeReference>
+          <Choice Kind="ForwardRecordDefinition" Name="Immutable Forward" />
+          <FullNameCategoryReference ID="Primitive" />
+        </p:NodeReference>
+        <p:TypeAnnotation LastCategoryFullName="sl" LastSymbolSource="VL.ZEDCam.dll">
+          <Choice Kind="TypeFlag" Name="MEASURE" />
+        </p:TypeAnnotation>
+        <Patch Id="SfqOpX946cgL44vzbkIQjT">
+          <Canvas Id="HPYLW2jref9Oaey4PsmWz5" BordersChecked="false" CanvasType="Group" />
+          <ProcessDefinition Id="LGd83WiVvxzLTyEaeflYyd" IsHidden="true" />
         </Patch>
       </Node>
     </Canvas>
