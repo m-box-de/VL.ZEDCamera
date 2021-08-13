@@ -2,8 +2,8 @@
   "profiles": {
     "VL.ZEDCam": {
       "commandName": "Executable",
-      "executablePath": "C:\\Program Files\\vvvv\\vvvv_gamma_2021.4.0-0085-g7b48b2de9c\\vvvv.exe",
-      "commandLineArgs": "--open \"D:\\_DEV\\_MBOX\\VL.ZEDCamera\\help\\vl\\Example Patch.vl\""
+      "executablePath": "C:\\Program Files\\vvvv\\vvvv_gamma_2021.4.0-0301-g1e6e81affe\\vvvv.exe",
+      "commandLineArgs": "--open \"D:\\_SRC\\github\\VL.ZEDCamera\\help\\vl\\Example Patch.vl\""
     }
   }
 }

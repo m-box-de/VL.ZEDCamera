@@ -201,5 +201,25 @@ namespace sl
             /// </summary>
             _100FPS
         };
-    }
+
+		public sl.ERROR_CODE StartDetection (ref dll_ObjectDetectionParameters od_params)
+        {
+			return camera.EnableObjectsDetection(ref od_params);
+		}
+
+		public void StopDetection()
+        {
+			camera.DisableObjectsDetection();
+		}
+		
+		public void PouseDetection(bool status)
+		{
+			camera.PauseObjectsDetection(status);
+		}
+
+		public sl.ERROR_CODE RetrieveDetectionData(ref dll_ObjectDetectionRuntimeParameters od_params, ref ObjectsFrameSDK objFrame)
+        {
+			return camera.RetrieveObjectsDetectionData(ref od_params, ref objFrame);
+		}
+	}
 }
