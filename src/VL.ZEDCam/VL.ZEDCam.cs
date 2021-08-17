@@ -82,7 +82,7 @@ namespace sl
 				parameters.depthStabilization = true;
 				parameters.enableRightSideMeasure = true; // isStereoRig;
 
-				parameters.coordinateUnit = UNIT.MILLIMETER;
+				parameters.coordinateUnit = UNIT.METER;
 				parameters.depthMinimumDistance = 200f;
             }
 
@@ -112,7 +112,7 @@ namespace sl
 				depthStabilization = stabilisation,
 				enableRightSideMeasure = true,
 
-				coordinateUnit = UNIT.MILLIMETER,
+				coordinateUnit = UNIT.METER,
 				depthMinimumDistance = 200f
 			})
 		{ }
