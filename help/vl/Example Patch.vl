@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" LanguageVersion="2021.4.0.303" Version="0.128">
-  <NugetDependency Id="RKFCmk1Lg5EP3I4IQegLTw" Location="VL.CoreLib" Version="2021.4.0-0303-g4b58026559" />
+<Document xmlns:p="property" Id="GB2VxUl5VdhM5rsl5IbjQg" LanguageVersion="2021.4.0.338" Version="0.128">
+  <NugetDependency Id="RKFCmk1Lg5EP3I4IQegLTw" Location="VL.CoreLib" Version="2021.4.0-0338-g9e31db8408" />
   <Patch Id="Th8hpfHvBF4Lk6VOwDCc9D">
     <Canvas Id="NtZT52Xp5qNOXK0fF2H7kv" DefaultCategory="VVVV.Value" CanvasType="FullCategory">
       <!--
@@ -68,7 +68,6 @@
               <Pin Id="N8d1eG6SuBJOBo9bhFLQ4f" Name="Start" Kind="InputPin" />
               <Pin Id="QN2EVAZnsUsPlQtHAX0WoH" Name="Stop" Kind="InputPin" />
               <Pin Id="U9L2WT24AfBN2tw0ImxAEm" Name="Resolution" Kind="InputPin" />
-              <Pin Id="QGK9ZDLuCTIPMw5VxLisGt" Name="FPS" Kind="InputPin" />
               <Pin Id="FSaxl4VBXL2OqreirxBMi3" Name="Depth Mode" Kind="InputPin" />
               <Pin Id="NI6FhPUN9jhPWfMYrfSS12" Name="Stabilisation" Kind="InputPin" />
               <Pin Id="RM1JFW7tqNwPZeny0rJTpv" Name="Confidence Threshold" Kind="InputPin" />
@@ -76,10 +75,13 @@
               <Pin Id="BZ0lzW2Hq5uOPX4CDYyrax" Name="Measure 3D Ref Frame" Kind="InputPin" />
               <Pin Id="J1lfafXbglWMl2efCvyXW8" Name="Setsensing Mode" Kind="InputPin" />
               <Pin Id="V73LJTm93OwMyZxl8kFjti" Name="Texture Confidence Threshold" Kind="InputPin" />
+              <Pin Id="RXF3wAeK6iWPrISPPokOgv" Name="RetriveData" Kind="InputPin" />
               <Pin Id="BdsZUbLKVrFMp5EtBzeQTA" Name="Output" Kind="StateOutputPin" />
               <Pin Id="H7cYAB4Ut09O5AOA65iXNw" Name="ObservableZedCam" Kind="OutputPin" />
               <Pin Id="VKyy2WQok6uLyOJ4ZfqkzL" Name="In Progress" Kind="OutputPin" />
               <Pin Id="BVEV5pRB8G2O6yJYHqchTC" Name="Running" Kind="OutputPin" />
+              <Pin Id="MjShA7SX2xMOsuRCT9cFbO" Name="Detected Objects" Kind="OutputPin" />
+              <Pin Id="QGK9ZDLuCTIPMw5VxLisGt" Name="FPS" Kind="InputPin" />
               <Pin Id="KWZ65fQP8OLMjOD8MNp0hj" Name="Enable PointCloud" Kind="InputPin" />
               <Pin Id="FpgZ4icABiDOVG30Do9AMo" Name="Enable Depth" Kind="InputPin" />
               <Pin Id="LgSNemqeRIgOmENlv6nx92" Name="Sensing Mode" Kind="InputPin" />
@@ -189,6 +191,7 @@
             <Pin Id="NRFO67S2OzkLSghOEphVFN" Name="Setsensing Mode" Kind="InputPin" />
             <Pin Id="SQY8Um0vLEgQWTQh4RTbPA" Name="Texture Confidence Threshold" Kind="InputPin" />
             <Pin Id="STyHatjYD7gL4BciJPPYk5" Name="RetriveData" Kind="InputPin" />
+            <Pin Id="GoPe2zPGg9fOSMyYlkJsvl" Name="Output" Kind="OutputPin" />
             <Pin Id="TvnBvgoqEHcPiSgDKxQa9V" Name="ObservableZedCam" Kind="OutputPin" />
             <Pin Id="GHCyR5BAfCnOpb1oFdxfoe" Name="In Progress" Kind="OutputPin" />
             <Pin Id="V4HxnyHc5LxNWWxU6tBgUz" Name="Running" Kind="OutputPin" />
@@ -304,7 +307,7 @@
             <Pin Id="C23EeF8cGF7OAqNdo8VJcL" Name="Input Source" Kind="OutputPin" />
           </Node>
           <Pad Id="NKSr7N4Fn0iMgYVaHnp8Wq" Comment="In Progress" Bounds="266,448,35,35" ShowValueBox="true" isIOBox="true" />
-          <Node Bounds="94,617,60,19" Id="C1GLiReh6frL49HfWLSDpA">
+          <Node Bounds="218,620,60,19" Id="C1GLiReh6frL49HfWLSDpA">
             <p:NodeReference LastCategoryFullName="VL.ZEDCamera" LastSymbolSource="VL.ZEDCam.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="GetImage" />
@@ -317,7 +320,7 @@
             </Pin>
             <Pin Id="Izv1uoeZ5FQMh1MckmFrjS" Name="Value" Kind="OutputPin" />
           </Node>
-          <Node Bounds="175,617,81,19" Id="VIwbtbodc9bMl8wZMnkcYM">
+          <Node Bounds="299,620,81,19" Id="VIwbtbodc9bMl8wZMnkcYM">
             <p:NodeReference LastCategoryFullName="OpenCV.ZED" LastSymbolSource="VL.ZEDCam.vl">
               <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
               <Choice Kind="ProcessAppFlag" Name="GetPointCloud" />
@@ -330,12 +333,12 @@
             </Pin>
             <Pin Id="HydicgOjsDPLuxgaB0zLni" Name="Value" Kind="OutputPin" />
           </Node>
-          <Pad Id="GqfEcoo1vXlLMtMYtyhxLV" Comment="Measure" Bounds="254,578,135,15" ShowValueBox="true" isIOBox="true" Value="XYZ">
+          <Pad Id="GqfEcoo1vXlLMtMYtyhxLV" Comment="Measure" Bounds="378,581,135,15" ShowValueBox="true" isIOBox="true" Value="XYZ">
             <p:TypeAnnotation LastCategoryFullName="sl" LastSymbolSource="VL.ZEDCam.dll">
               <Choice Kind="TypeFlag" Name="MEASURE" />
             </p:TypeAnnotation>
           </Pad>
-          <Pad Id="I1WgHOZyrv4NNWRMH36JXE" Comment="View" Bounds="149,526,149,15" ShowValueBox="true" isIOBox="true" Value="LEFT">
+          <Pad Id="I1WgHOZyrv4NNWRMH36JXE" Comment="View" Bounds="273,529,149,15" ShowValueBox="true" isIOBox="true" Value="LEFT">
             <p:TypeAnnotation LastCategoryFullName="sl" LastSymbolSource="VL.ZEDCam.dll">
               <Choice Kind="TypeFlag" Name="VIEW" />
             </p:TypeAnnotation>
@@ -609,7 +612,7 @@
             <Pin Id="Ka6qQLSt2dPMdXGINvYMcA" Name="Output" Kind="OutputPin" />
           </Node>
           <Pad Id="DVQ6kt0dalrQWdSyeJPOek" Comment="Confidence" Bounds="570,617,35,15" ShowValueBox="true" isIOBox="true" />
-          <Pad Id="DeLbsRsCdwkM7Tm9jpFcEy" Comment="Keypoint Confidence" Bounds="756,617,35,17" ShowValueBox="true" isIOBox="true" Value="0" />
+          <Pad Id="DeLbsRsCdwkM7Tm9jpFcEy" Comment="Keypoint Confidence" Bounds="756,617,80,93" ShowValueBox="true" isIOBox="true" Value="0" />
           <Pad Id="Gyuvh6P2jMZMSkKUdK07oi" Comment="All Body Parts" Bounds="711,446,35,35" ShowValueBox="true" isIOBox="true" Value="True">
             <p:TypeAnnotation>
               <Choice Kind="TypeFlag" Name="Boolean" />
@@ -709,7 +712,7 @@
             <Pin Id="Umb8Gf6EC2OMHhSIqCujQy" Name="Enabled" Kind="InputPin" />
             <Pin Id="RKVnYRSxR54OGZMIMGctb0" Name="Entity" Kind="OutputPin" />
           </Node>
-          <Node Bounds="1220,688,243,253" Id="SftHUbq457dLrX0G98fIKg">
+          <Node Bounds="1220,688,243,254" Id="SftHUbq457dLrX0G98fIKg">
             <p:NodeReference LastCategoryFullName="Primitive" LastSymbolSource="VL.CoreLib.dll">
               <Choice Kind="StatefulRegion" Name="Region (Stateful)" Fixed="true" />
               <Choice Kind="ApplicationStatefulRegion" Name="If" />
@@ -734,7 +737,7 @@
                 <Pin Id="DcvtNjmg5bWMt2lu1Ts2Hf" Name="Output" Kind="StateOutputPin" />
                 <Pin Id="RhsMmsELZEFLfiM2rgdftR" Name="Item" Kind="OutputPin" />
               </Node>
-              <Node Bounds="1262,721,64,26" Id="DC2pTmgdWFpMlhKvjb2V3p">
+              <Node Bounds="1262,732,64,26" Id="DC2pTmgdWFpMlhKvjb2V3p">
                 <p:NodeReference LastCategoryFullName="Collections.Mutable.MutableArray" LastSymbolSource="VL.Collections.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <CategoryReference Kind="ArrayType" Name="MutableArray" />
@@ -780,7 +783,7 @@
                 <Pin Id="UIs6ZaPaSYSLJJt5boPh6f" Name="Input 2" Kind="InputPin" />
                 <Pin Id="QLrDgoblCiCLWtGbTst3Fo" Name="Output" Kind="OutputPin" />
               </Node>
-              <Node Bounds="1256,874,58,19" Id="M8tArNM0hjINwaf52o9BH6">
+              <Node Bounds="1251,855,58,19" Id="M8tArNM0hjINwaf52o9BH6">
                 <p:NodeReference LastCategoryFullName="3D.Transform" LastSymbolSource="CoreLibBasics.vl">
                   <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
                   <Choice Kind="OperationCallFlag" Name="Translate" />
@@ -791,6 +794,24 @@
                 <Pin Id="HkJr6BTXSG0M9lgAEguUBq" Name="Input" Kind="InputPin" />
                 <Pin Id="URoYfh3fasmPf1ef6Fux6M" Name="Translation" Kind="InputPin" />
                 <Pin Id="LINJl7ncId1NwXfL8EC1eS" Name="Output" Kind="OutputPin" />
+              </Node>
+              <Node Bounds="1334,900" Id="AoOAm2vJn2xPhW4KV4ET8T">
+                <p:NodeReference LastCategoryFullName="Math" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="OperationCallFlag" Name="/ (Scale)" />
+                </p:NodeReference>
+                <Pin Id="Uzvbuyw89WhPSTOTE26aLy" Name="Input" Kind="InputPin" />
+                <Pin Id="VVcv0AIbsBtQdJbkSBh4p4" Name="Scalar" Kind="InputPin" DefaultValue="1000" />
+                <Pin Id="RyECpXyAiyjPBV0BAQhqw1" Name="Output" Kind="OutputPin" />
+              </Node>
+              <Node Bounds="1384,874,25,19" Id="GUK8CFcVFdvL14b0aYUCje">
+                <p:NodeReference LastCategoryFullName="Math" LastSymbolSource="CoreLibBasics.vl">
+                  <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                  <Choice Kind="OperationCallFlag" Name="/ (Scale)" />
+                </p:NodeReference>
+                <Pin Id="IoRdWuBzjIUO6byTsw3zbJ" Name="Input" Kind="InputPin" />
+                <Pin Id="Otw9S9LNCbVMkNJPmJ0w04" Name="Scalar" Kind="InputPin" DefaultValue="1000" />
+                <Pin Id="N6WajV3SxCJPYCXV8HvPVG" Name="Output" Kind="OutputPin" />
               </Node>
             </Patch>
             <ControlPoint Id="NKeB8h7MeAjMr7URx75S7M" Bounds="1257,935" Alignment="Bottom" />
@@ -861,7 +882,6 @@
         <Link Id="NXU2MpjXUnzL952GflLbsO" Ids="NlflAmZ72tUObajthWwbW0,G0IwVWL9SC7QBNHgzCpBLb" />
         <Link Id="LqSIf8hUXNPPEb4grNenQh" Ids="MLVQn8oXvfAMGGwzLcc6eW,VJRIaCrjKd8MoJmiqRTyAl" />
         <Link Id="Hzpt2hyGm9hPrbQB5BiPwN" Ids="SoKvluuFH7nOsMW4pfgCVp,FrOhSlnbvOxOFqyVA1tdVH" />
-        <Link Id="MsBs774gXUxN7TE0w6YSr8" Ids="R0dQgUsYB85PfMmzagbpRE,PlVgYjrqvbELjjMBq5vUui" />
         <Link Id="CLWlWY09meZO4vXBWG0Avu" Ids="TvnBvgoqEHcPiSgDKxQa9V,TI2g2s8ZOMpOLu6BrexTCe" />
         <Link Id="O0vWNUnop8rQWVbkiQ7xVJ" Ids="Izv1uoeZ5FQMh1MckmFrjS,GWeJ3bGCZfqNf0He0M8hY3" />
         <Link Id="DwT8bVoyRk7MPACjeb9EpV" Ids="DECUa58xy1MLMnM8b2aI6P,DJ3hhGzFioDNqgRAHkHXNK" />
@@ -890,9 +910,9 @@
         <Link Id="Qzzvjx9IYAwP7GCstg6JZt" Ids="RhsMmsELZEFLfiM2rgdftR,UVEYEPaBSBCQDSZEka5XHH" />
         <Link Id="C8tC9hJnieINsu1BOsgtJW" Ids="RqDElPlob7mLxWW4FNx8e9,UIs6ZaPaSYSLJJt5boPh6f" />
         <Link Id="NlAgNpS7dKDOeOSDYXyXhJ" Ids="CIZxTJNrxD3MECX0GbkhRN,GT0h1RySL5XN675tWeonHE" IsFeedback="true" />
-        <Link Id="Ar6ugA6fltrP0HFxzJffyI" Ids="RihD7qW1I3aO3GrNFw4PVl,GT0h1RySL5XN675tWeonHE" />
+        <Link Id="Ar6ugA6fltrP0HFxzJffyI" Ids="RihD7qW1I3aO3GrNFw4PVl,Uzvbuyw89WhPSTOTE26aLy" />
         <Link Id="ISa6KfIAdHGOu1oKLBA5NC" Ids="GT0h1RySL5XN675tWeonHE,SAdLQiaxhabOIFmsiUSUAa" />
-        <Link Id="OIl4IWbwNr9Nsv1zuIho4u" Ids="QLrDgoblCiCLWtGbTst3Fo,URoYfh3fasmPf1ef6Fux6M" />
+        <Link Id="OIl4IWbwNr9Nsv1zuIho4u" Ids="QLrDgoblCiCLWtGbTst3Fo,IoRdWuBzjIUO6byTsw3zbJ" />
         <Link Id="EP0JOvNO51LPMaYPmUabKb" Ids="LINJl7ncId1NwXfL8EC1eS,NKeB8h7MeAjMr7URx75S7M" />
         <Link Id="C2GiWaM8BZaNC48d9vuLD0" Ids="NKeB8h7MeAjMr7URx75S7M,NDIAmaTW3foMxaGNneBF7F" />
         <Link Id="A5BDHUtrc0PL7rPpWKqJVP" Ids="V1KXqe66bgQQYYFjHi65Gs,I4MRnWZ00tjM1wbVvkiJaZ" />
@@ -900,10 +920,13 @@
         <Link Id="HLEH3sLqP9iPWO3saOWAkz" Ids="RKVnYRSxR54OGZMIMGctb0,GUVA0ZrbrktQaeW0yKp9ae" />
         <Link Id="DCuryfa697fN9M7Oe4qsm8" Ids="V1KXqe66bgQQYYFjHi65Gs,LjqYWyjlPHRO7albE1Rj46" />
         <Link Id="Mmt9JjJoRJfNXRadSNfREp" Ids="H0F9j5Mnn1xPqyOnUt82XH,Sflcn99VnOHMOCICksfq58" />
+        <Link Id="Sxv2NXJdR5tQK4yKj5XaOF" Ids="RyECpXyAiyjPBV0BAQhqw1,GT0h1RySL5XN675tWeonHE" />
+        <Link Id="PH7iAlmT7NNMfeW5TY7c1S" Ids="N6WajV3SxCJPYCXV8HvPVG,URoYfh3fasmPf1ef6Fux6M" />
+        <Link Id="MwffH69kOvCOjEX44iIn2I" Ids="R0dQgUsYB85PfMmzagbpRE,PlVgYjrqvbELjjMBq5vUui" />
       </Patch>
     </Node>
   </Patch>
   <DocumentDependency Id="K8hMU0pQ11JLWYOcSOliqv" Location="../../VL.ZEDCam.vl" />
-  <NugetDependency Id="CRebAmoB3mCQR3ezyfhf2k" Location="VL.Stride" Version="2021.4.0-0303-g4b58026559" />
-  <NugetDependency Id="LR3NdgUYoBlNwu1o6GyRRi" Location="VL.Stride.Windows" Version="2021.4.0-0303-g4b58026559" />
+  <NugetDependency Id="CRebAmoB3mCQR3ezyfhf2k" Location="VL.Stride" Version="2021.4.0-0338-g9e31db8408" />
+  <NugetDependency Id="LR3NdgUYoBlNwu1o6GyRRi" Location="VL.Stride.Windows" Version="2021.4.0-0338-g9e31db8408" />
 </Document>

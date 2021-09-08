@@ -80,9 +80,9 @@ namespace sl
 				parameters.resolution = RESOLUTION.HD720;
 				parameters.depthMode = DEPTH_MODE.QUALITY;
 				parameters.depthStabilization = true;
-				parameters.enableRightSideMeasure = true; // isStereoRig;
+				parameters.enableRightSideMeasure = false; // isStereoRig;
 
-				parameters.coordinateUnit = UNIT.METER;
+				parameters.coordinateUnit = UNIT.MILLIMETER;
 				parameters.depthMinimumDistance = 200f;
             }
 
@@ -110,9 +110,9 @@ namespace sl
 				resolution = resolution,
 				depthMode = depthMode,
 				depthStabilization = stabilisation,
-				enableRightSideMeasure = true,
+				enableRightSideMeasure = false,
 
-				coordinateUnit = UNIT.METER,
+				coordinateUnit = UNIT.MILLIMETER,
 				depthMinimumDistance = 200f
 			})
 		{ }

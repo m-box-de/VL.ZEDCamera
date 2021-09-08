@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="VZFh4b7mykgOEzu8vbInp2" LanguageVersion="2021.4.0.303" Version="0.128">
-  <NugetDependency Id="RKFCmk1Lg5EP3I4IQegLTw" Location="VL.CoreLib" Version="2021.4.0-0303-g4b58026559" />
+<Document xmlns:p="property" Id="VZFh4b7mykgOEzu8vbInp2" LanguageVersion="2021.4.0.338" Version="0.128">
+  <NugetDependency Id="RKFCmk1Lg5EP3I4IQegLTw" Location="VL.CoreLib" Version="2021.4.0-0338-g9e31db8408" />
   <Patch Id="Th8hpfHvBF4Lk6VOwDCc9D">
     <Canvas Id="NtZT52Xp5qNOXK0fF2H7kv" DefaultCategory="VL.ZEDCamera" CanvasType="FullCategory">
       <!--
@@ -1475,7 +1475,7 @@
             <ControlPoint Id="JoK2JMxUZwTPi0J79poJOu" Bounds="293,1124" />
             <ControlPoint Id="CqJIpYSkGUdPaWskQtxdDn" Bounds="348,1278" />
           </Canvas>
-          <ProcessDefinition Id="VmtBiEeLjC5MDPIs660urA">
+          <ProcessDefinition Id="VmtBiEeLjC5MDPIs660urA" HasStateOut="true">
             <Fragment Id="JP0anmBRgJQO4TxsIX7vtF" Patch="Tl5QSIzkLrlNZdD5MgjnIJ" Enabled="true" />
             <Fragment Id="DFiVUzL43WILnJTmotQobv" Patch="Kv40WT53QIjQQJSIKozFnX" Enabled="true" />
             <Fragment Id="PK37PKAl6fDPjLvEalGJhX" Patch="UwIfnzSGAvQMMCAGGeNSH1" />
@@ -1714,7 +1714,7 @@
               </p:TypeAnnotation>
             </Pin>
           </Patch>
-          <Patch Id="Kv40WT53QIjQQJSIKozFnX" Name="Update" ParticipatingElements="ScBBYfVm2bsQK4TUM3tzdS,RLqSUri2IIrNNlNpYGOoxZ,KIf5eqCefP4NbfzgnOqzcq,DMBcp4ud7RCLd80V6mLiZW,Ph9VTWAnJs0MRRmci9g0Of,KYOTgKGwGZHPgFzxRjPRo1,N1EGQlnL79ZNaDzxIeYZq5" ManuallySortedPins="true">
+          <Patch Id="Kv40WT53QIjQQJSIKozFnX" Name="Update" ParticipatingElements="ScBBYfVm2bsQK4TUM3tzdS,RLqSUri2IIrNNlNpYGOoxZ,KIf5eqCefP4NbfzgnOqzcq,DMBcp4ud7RCLd80V6mLiZW,Ph9VTWAnJs0MRRmci9g0Of,N1EGQlnL79ZNaDzxIeYZq5,KYOTgKGwGZHPgFzxRjPRo1" ManuallySortedPins="true">
             <Pin Id="SPO6Xx4265pQDCfTXk49SZ" Name="ObservableZedCam" Kind="OutputPin" Bounds="642,2020" />
             <Pin Id="RqDAOXfKaCeP18qXa440kP" Name="In Progress" Kind="OutputPin" Bounds="912,2022" />
             <Pin Id="LWU8DcV6GOKL6P52SOGMKf" Name="Running" Kind="OutputPin" Bounds="373,518" />
@@ -3802,7 +3802,7 @@
     </Node>
   </Patch>
   <PlatformDependency Id="HjDBgnd22TZP6P3lVQt1N6" Location="./lib/net472/VL.ZEDCam.dll" />
-  <NugetDependency Id="NFH9Xg0uFZOPzcTB3cQK3y" Location="VL.Stride" Version="2021.4.0-0303-g4b58026559" />
+  <NugetDependency Id="NFH9Xg0uFZOPzcTB3cQK3y" Location="VL.Stride" Version="2021.4.0-0338-g9e31db8408" />
   <PlatformDependency Id="Sp7RhAIJaxFO8Pm7JigHGG" Location="C:/Program Files/vvvv/vvvv_gamma_2021.4.0-0085-g7b48b2de9c/lib/Stride.Graphics.dll" />
   <PlatformDependency Id="Gj4PzOpMvYGLqSafbR3v5l" Location="C:/Program Files/vvvv/vvvv_gamma_2021.4.0-0085-g7b48b2de9c/lib/Stride.dll" />
 </Document>
