@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Document xmlns:p="property" Id="VZFh4b7mykgOEzu8vbInp2" LanguageVersion="2021.4.0.338" Version="0.128">
-  <NugetDependency Id="RKFCmk1Lg5EP3I4IQegLTw" Location="VL.CoreLib" Version="2021.4.0-0338-g9e31db8408" />
+<Document xmlns:p="property" Id="VZFh4b7mykgOEzu8vbInp2" LanguageVersion="2021.4.6.768" Version="0.128">
+  <NugetDependency Id="RKFCmk1Lg5EP3I4IQegLTw" Location="VL.CoreLib" Version="2021.4.6-0768-g91e45ffd9f" />
   <Patch Id="Th8hpfHvBF4Lk6VOwDCc9D">
     <Canvas Id="NtZT52Xp5qNOXK0fF2H7kv" DefaultCategory="VL.ZEDCamera" CanvasType="FullCategory">
       <!--
@@ -3702,6 +3702,17 @@
             <ControlPoint Id="EzuAyifYHbqPd4S6vHrfB2" Bounds="1099,566" />
             <ControlPoint Id="Oq6olGJOQrBLmrw7Dk5XEy" Bounds="1318,556" />
             <ControlPoint Id="AGlXSnjpkbrLbQAPs2Jgio" Bounds="1499,544" />
+            <Node Bounds="1590,257,70,26" Id="UTlxQxiAH8nOY7ghHdS5Z8">
+              <p:NodeReference LastCategoryFullName="sl.ObjectDataSDK" LastSymbolSource="VL.ZEDCam.dll">
+                <Choice Kind="NodeFlag" Name="Node" Fixed="true" />
+                <CategoryReference Kind="AssemblyCategory" Name="ObjectDataSDK" />
+                <Choice Kind="OperationCallFlag" Name="id" />
+              </p:NodeReference>
+              <Pin Id="T84nWAxISFAL3bOZVgUsNY" Name="Input" Kind="StateInputPin" />
+              <Pin Id="A0hSsmHjUN0OxCTNxTwnZL" Name="Output" Kind="StateOutputPin" />
+              <Pin Id="VGr5UPhKomNNhYFYuOqMJg" Name="Id" Kind="OutputPin" />
+            </Node>
+            <ControlPoint Id="HwH3ErUNxKeOTuIEy88ipX" Bounds="1657,381" />
           </Canvas>
           <ProcessDefinition Id="QU9rCS73qtDNWEOD230gGO">
             <Fragment Id="MZIEaJlvcXPMAxpsCevGb9" Patch="FGnFXcWjJ6RNoLQHi2wt6k" Enabled="true" />
@@ -3770,6 +3781,7 @@
             <Pin Id="MsC2FhU2Y2mPYV5kuFrA0J" Name="World Bounding Box" Kind="OutputPin" Bounds="1099,566" />
             <Pin Id="CcmRkm9c0gBQAR4U9NIpUh" Name="Head World Position" Kind="OutputPin" Bounds="1327,407" />
             <Pin Id="IEBifQ96h51OV8MAOBLxfq" Name="Head Bounding Box" Kind="OutputPin" Bounds="1499,544" />
+            <Pin Id="Tc8ZuAb7KJUQL4azV5VXa6" Name="Id" Kind="OutputPin" Bounds="1662,386" />
           </Patch>
           <Link Id="RTi0LF9yDL0PT4jYtlHex4" Ids="BiV3u4WaZuuQAvdR8QEllL,EzuAyifYHbqPd4S6vHrfB2" />
           <Link Id="VvrKBuSJKgAOuT31U7boL8" Ids="EzuAyifYHbqPd4S6vHrfB2,MsC2FhU2Y2mPYV5kuFrA0J" IsHidden="true" />
@@ -3777,6 +3789,9 @@
           <Link Id="Qs87jhJ7Bm3LTIimzjreCR" Ids="Oq6olGJOQrBLmrw7Dk5XEy,CcmRkm9c0gBQAR4U9NIpUh" IsHidden="true" />
           <Link Id="SmWZh8nh5TlOT71OFDZpEI" Ids="JBa9kJs4Ao9N0QNF2cD2pq,AGlXSnjpkbrLbQAPs2Jgio" />
           <Link Id="TnY2hGHMpx6MENjHRMhuBO" Ids="AGlXSnjpkbrLbQAPs2Jgio,IEBifQ96h51OV8MAOBLxfq" IsHidden="true" />
+          <Link Id="Rg850m3RkpgO2Jq8cpC0hP" Ids="LDHoDC99WSyPPRrjFZQBxQ,T84nWAxISFAL3bOZVgUsNY" />
+          <Link Id="NWMixzPA5jhOhppsBs3OCB" Ids="VGr5UPhKomNNhYFYuOqMJg,HwH3ErUNxKeOTuIEy88ipX" />
+          <Link Id="EOkMrZxHV3vOzCM8S3n0pR" Ids="HwH3ErUNxKeOTuIEy88ipX,Tc8ZuAb7KJUQL4azV5VXa6" IsHidden="true" />
         </Patch>
       </Node>
     </Canvas>
@@ -3802,7 +3817,7 @@
     </Node>
   </Patch>
   <PlatformDependency Id="HjDBgnd22TZP6P3lVQt1N6" Location="./lib/net472/VL.ZEDCam.dll" />
-  <NugetDependency Id="NFH9Xg0uFZOPzcTB3cQK3y" Location="VL.Stride" Version="2021.4.0-0338-g9e31db8408" />
+  <NugetDependency Id="NFH9Xg0uFZOPzcTB3cQK3y" Location="VL.Stride" Version="2021.4.6-0768-g91e45ffd9f" />
   <PlatformDependency Id="Sp7RhAIJaxFO8Pm7JigHGG" Location="C:/Program Files/vvvv/vvvv_gamma_2021.4.0-0085-g7b48b2de9c/lib/Stride.Graphics.dll" />
   <PlatformDependency Id="Gj4PzOpMvYGLqSafbR3v5l" Location="C:/Program Files/vvvv/vvvv_gamma_2021.4.0-0085-g7b48b2de9c/lib/Stride.dll" />
 </Document>
