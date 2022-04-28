@@ -1474,6 +1474,7 @@
             <ControlPoint Id="TIYqd1mfYDmPLcSCUIX1tG" Bounds="454,1399" />
             <ControlPoint Id="JoK2JMxUZwTPi0J79poJOu" Bounds="293,1124" />
             <ControlPoint Id="CqJIpYSkGUdPaWskQtxdDn" Bounds="348,1278" />
+            <ControlPoint Id="FrwTQCWfIvaP5k1NUmhUeN" Bounds="143,222" />
           </Canvas>
           <ProcessDefinition Id="VmtBiEeLjC5MDPIs660urA" HasStateOut="true">
             <Fragment Id="JP0anmBRgJQO4TxsIX7vtF" Patch="Tl5QSIzkLrlNZdD5MgjnIJ" Enabled="true" />
@@ -1483,6 +1484,7 @@
             <Fragment Id="FV06sxjoz4WP8HlQhUdJov" Patch="Fs2VOUBIQoEL25HolexeGq" />
             <Fragment Id="DbB7LmgpV0lOk513N3BEPT" Patch="QQOrKN4YKUpOTGZ9QInQYo" />
             <Fragment Id="DPZhAOtebVtMExSja3kToM" Patch="HqJDzlatqkVM9vvDq50vGV" />
+            <Fragment Id="LYS2c1I5mKuQB6hsZ3WZhO" Patch="AwaiYWkGxh6NBrLqQN2u1d" />
           </ProcessDefinition>
           <Link Id="IvCgcPwLLNyPqrLqjB5tm2" Ids="SRW8UfLY8FNMPMHWwWRdIJ,OXpAqb6BsUDPlSyuMqJtIe" />
           <Link Id="RM1D3yIWiMPN1bHre7cOT2" Ids="GS36H1qK1IUPCZNOAkl1wC,SRW8UfLY8FNMPMHWwWRdIJ" IsHidden="true" />
@@ -1778,6 +1780,11 @@
             <Pin Id="KCjyf68bU8BPaGo76ARusY" Name="Runtime Parameters" Kind="OutputPin" />
           </Patch>
           <Patch Id="HqJDzlatqkVM9vvDq50vGV" Name="ClearObjects" ParticipatingElements="VLBslrrwI2BO8TJsLi9hu5" />
+          <Link Id="A15nm6rZfyKNWWLzYJNsNW" Ids="MSCj3i7psVSPPJCvgs6n4D,FrwTQCWfIvaP5k1NUmhUeN" />
+          <Link Id="FZhnrULLCZfMTiS5zRfBf9" Ids="FrwTQCWfIvaP5k1NUmhUeN,APIHec7G4BnPJ3KoukGmBt" IsHidden="true" />
+          <Patch Id="AwaiYWkGxh6NBrLqQN2u1d" Name="GetCam">
+            <Pin Id="APIHec7G4BnPJ3KoukGmBt" Name="ZEDCam" Kind="OutputPin" />
+          </Patch>
         </Patch>
       </Node>
       <!--
